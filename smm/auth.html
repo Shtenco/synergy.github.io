@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html data-syn-path="smm/auth.html" class="syn-premium" data-syn-app="smm" lang="ru" data-syn-v9="true">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Вход — SINERGY SMM AI</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=DM+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;family=Manrope:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{--g:#00e664;--g2:#00c250;--g3:rgba(0,230,100,.12);--g4:rgba(0,230,100,.06);--blk:#000;--b1:#080808;--b2:#111;--b3:#191919;--b4:#242424;--w:#fff;--w2:rgba(255,255,255,.85);--w3:rgba(255,255,255,.5);--w4:rgba(255,255,255,.22);--bdr:rgba(0,230,100,.18);--bdr2:rgba(255,255,255,.08);--red:rgba(255,80,80,.9);--red2:rgba(255,80,80,.1);--serif:'Instrument Serif',Georgia,serif;--display:'Bebas Neue',sans-serif;--mono:'DM Mono',monospace;--body:'Manrope',sans-serif;--r2:8px;--r3:16px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--body);background:var(--blk);color:var(--w);min-height:100vh;display:flex;align-items:center;justify-content:center;background-image:radial-gradient(ellipse at 50% 0%,rgba(0,230,100,.08),transparent 60%)}
+a{color:var(--g);text-decoration:none}
+.card{width:460px;max-width:94vw;background:var(--b2);border:1px solid var(--bdr);border-radius:var(--r3);padding:36px 32px 28px;position:relative}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--g),transparent)}
+.logo{font-family:var(--display);font-size:28px;letter-spacing:5px;color:var(--g);text-align:center;margin-bottom:6px}
+.logo span{color:var(--w)}
+.sub{text-align:center;font-size:13px;color:var(--w3);margin-bottom:28px}
+.tabs{display:flex;background:var(--b3);border-radius:var(--r2);padding:3px;margin-bottom:22px}
+.tab{flex:1;padding:11px;border-radius:6px;font-size:12px;font-weight:700;color:var(--w3);text-align:center;cursor:pointer;transition:all .2s;border:none;background:transparent;font-family:inherit}
+.tab.active{background:var(--g);color:#000}
+.form{display:grid;gap:14px}
+.form label{font-size:12px;font-weight:700;color:var(--w2);display:grid;gap:5px}
+.form input{width:100%;background:var(--b3);border:1px solid var(--bdr2);border-radius:var(--r2);padding:12px 14px;color:var(--w);outline:none;font-size:14px;font-family:inherit}
+.form input:focus{border-color:var(--g);box-shadow:0 0 0 3px var(--g3)}
+.btn{width:100%;padding:14px;border-radius:var(--r2);border:none;font-size:14px;font-weight:800;cursor:pointer;transition:all .2s;font-family:inherit}
+.btn-g{background:var(--g);color:#000}
+.btn-g:hover{background:var(--w);transform:translateY(-2px)}
+.btn:disabled{opacity:.4;cursor:not-allowed;transform:none!important}
+.hidden{display:none!important}
+.msg{padding:12px 14px;border-radius:var(--r2);font-size:12px;line-height:1.6;margin-top:14px}
+.msg-info{background:var(--g4);border:1px solid var(--bdr);color:var(--w2)}
+.msg-err{background:var(--red2);border:1px solid rgba(255,80,80,.3);color:var(--red)}
+.msg-ok{background:var(--g4);border:1px solid var(--g);color:var(--g)}
+.hp{position:absolute;left:-9999px;opacity:0;height:0;overflow:hidden}
+.links{display:flex;justify-content:space-between;margin-top:18px;font-size:12px;color:var(--w4)}
+.links a{color:var(--w3)}
+.links a:hover{color:var(--g)}
+@media(max-width:500px){.card{padding:24px 18px}}
+</style>
+<link rel="stylesheet" href="market-theme.css?v=20260711"><!-- SYNERGY V8 NEXUS bridge --><link rel="stylesheet" href="/nexus-bridge.css"><script defer src="/nexus-bridge.js"></script>
+<link rel="stylesheet" href="/synergy.github.io/assets/synergy-premium.css">
+<link rel="stylesheet" href="/synergy.github.io/assets/synergy-premium-v88.css"><link rel="stylesheet" href="/synergy.github.io/assets/synergy-atelier-v9.css"><link rel="stylesheet" href="/synergy.github.io/assets/synergy-stability-v9.css" data-syn-stability="v9.1.4.1"><script defer src="/synergy.github.io/assets/pages-runtime.js"></script>
+</head>
+<body>
+<div class="card">
+<div class="logo">SINERGY <span>SMM</span></div>
+<div class="sub">Вход в кабинет управления соцсетями</div>
+<div class="tabs">
+<button class="tab active" data-tab="login">Войти</button>
+<button class="tab" data-tab="register">Получить ключ</button>
+</div>
+<form class="form" data-panel="login" id="loginForm">
+<label>Логин или email<input autocomplete="username" name="login" required=""/></label>
+<label>Пароль<input autocomplete="current-password" name="password" required="" type="password"/></label>
+<label>Ключ лицензии<input name="license_key" required=""/></label>
+<button class="btn btn-g" type="submit">Войти в кабинет</button>
+</form>
+<form class="form hidden" data-panel="register" id="registerForm">
+<input autocomplete="off" class="hp" name="website" tabindex="-1"/>
+<input name="fingerprint" type="hidden"/>
+<label>Логин (мин. 3 символа)<input autocomplete="username" minlength="3" name="login" required=""/></label>
+<label>Email (реальный, для восстановления)<input autocomplete="email" name="email" required="" type="email"/></label>
+<label>Пароль (мин. 8 символов)<input autocomplete="new-password" minlength="8" name="password" required="" type="password"/></label>
+<button class="btn btn-g" type="submit">Получить ключ на 7 дней</button>
+</form>
+<div class="msg msg-info" id="msgBox">Кабинет SMM AI. Войдите или получите триальный ключ.</div>
+<div class="links">
+<a href="index.html">Продающая страница</a>
+<a href="cabinet.html">Кабинет</a>
+</div>
+</div>
+<script>
+const $ = (q, root=document) => root.querySelector(q);
+const $$ = (q, root=document) => Array.from(root.querySelectorAll(q));
+const tokenKey = "sinergy_smm_session";
+
+function apiUrl(path){ return (location.hostname === "localhost" || location.hostname === "127.0.0.1") ? path : "/api/" + path.replace(/^\/api\//,""); }
+function msg(text, type){ const m = $("#msgBox"); m.textContent = text; m.className = "msg msg-" + type; }
+async function api(path, options={}){
+  const headers = {"Content-Type":"application/json"};
+  const token = localStorage.getItem(tokenKey); if (token) headers.Authorization = "Bearer " + token;
+  const r = await fetch(apiUrl(path), {...options, headers});
+  const text = await r.text(); let data = {};
+  try { data = text ? JSON.parse(text) : {}; } catch { data = {raw:text}; }
+  if (!r.ok) throw new Error(data.detail || data.error || "Ошибка " + r.status);
+  return data;
+}
+async function fingerprint(){
+  const p = [navigator.userAgent,navigator.language,screen.width+"x"+screen.height+"x"+screen.colorDepth,Intl.DateTimeFormat().resolvedOptions().timeZone,navigator.hardwareConcurrency||"",navigator.deviceMemory||""].join("|");
+  const h = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(p));
+  return Array.from(new Uint8Array(h)).map(b => b.toString(16).padStart(2,"0")).join("");
+}
+function formValues(form){
+  const v = {};
+  new FormData(form).forEach((value,key)=>{ if (!form.elements[key]?.classList.contains('hp')) v[key] = value; });
+  return v;
+}
+
+// Tab switching
+$$("[data-tab]").forEach(btn => btn.addEventListener("click", () => {
+  $$("[data-tab]").forEach(x => x.classList.toggle("active", x === btn));
+  $$("[data-panel]").forEach(p => p.classList.toggle("hidden", p.dataset.panel !== btn.dataset.tab));
+  msg("", "info");
+}));
+
+// Login
+$("#loginForm").addEventListener("submit", async e => {
+  e.preventDefault(); const btn = e.currentTarget.querySelector("button");
+  btn.disabled = true; btn.textContent = "Вход...";
+  try {
+    const data = await api("/api/login", {method:"POST", body:JSON.stringify(formValues(e.currentTarget))});
+    localStorage.setItem(tokenKey, data.token);
+    msg("Успешный вход! Перенаправление...", "ok");
+    setTimeout(() => { location.href = "cabinet.html"; }, 800);
+  } catch (err) { msg(err.message, "err"); btn.disabled = false; btn.textContent = "Войти в кабинет"; }
+});
+
+// Register with abuse protection
+$("#registerForm").addEventListener("submit", async e => {
+  e.preventDefault(); const btn = e.currentTarget.querySelector("button");
+  btn.disabled = true; btn.textContent = "Запрос...";
+  try {
+    const form = e.currentTarget;
+    form.elements.fingerprint.value = await fingerprint();
+    // Honeypot check
+    const hp = form.elements.website.value;
+    if (hp) { msg("Ошибка валидации", "err"); btn.disabled = false; btn.textContent = "Получить ключ"; return; }
+    const data = await api("/api/register", {method:"POST", body:JSON.stringify(formValues(form))});
+    $("#loginForm").elements.login.value = data.user.login;
+    $("#loginForm").elements.password.value = form.elements.password.value;
+    $("#loginForm").elements.license_key.value = data.license_key;
+    msg("Ключ выдан: " + data.license_key + ". Войдите в кабинет.", "ok");
+    $$("[data-tab]").forEach(x => x.classList.toggle("active", x.dataset.tab === "login"));
+    $$("[data-panel]").forEach(p => p.classList.toggle("hidden", p.dataset.panel !== "login"));
+    btn.disabled = false; btn.textContent = "Получить ключ";
+  } catch (err) { msg(err.message, "err"); btn.disabled = false; btn.textContent = "Получить ключ"; }
+});
+</script>
+<script defer src="/synergy.github.io/assets/synergy-premium.js"></script>
+<script defer src="/synergy.github.io/assets/synergy-premium-v88.js"></script><script defer src="/synergy.github.io/assets/synergy-atelier-v9.js"></script><script defer src="/synergy.github.io/assets/synergy-stability-v9.js"></script></body>
+</html>

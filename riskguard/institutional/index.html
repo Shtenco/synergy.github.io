@@ -1,0 +1,186 @@
+<!doctype html>
+<html data-syn-path="riskguard/institutional/index.html" class="syn-premium" data-syn-app="riskguard" lang="ru" data-syn-v9="true">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>SYNERGY RISKGUARD · Institutional</title>
+  <link rel="stylesheet" href="/synergy.github.io/riskguard/institutional/original.css">
+  <link rel="stylesheet" href="/synergy.github.io/riskguard/institutional/theme.css">
+<link rel="stylesheet" href="/synergy.github.io/assets/synergy-premium.css">
+<link rel="stylesheet" href="/synergy.github.io/assets/synergy-premium-v88.css"><link rel="stylesheet" href="/synergy.github.io/assets/synergy-atelier-v9.css"><link rel="stylesheet" href="/synergy.github.io/assets/synergy-stability-v9.css" data-syn-stability="v9.1.4.1"><link rel="stylesheet" href="/synergy.github.io/assets/finance-v94.css"><script defer src="/synergy.github.io/assets/pages-runtime.js"></script>
+</head>
+<body>
+<div class="synergy-backbar"><a href="/synergy.github.io/broker-mesh/" style="color:#25ee76;text-decoration:none;font:10px DM Mono,monospace;white-space:nowrap;padding:7px;border:1px solid #306b43">BROKER MESH ↗</a><a href="/">← SINERGYCHAIN</a><a href="/synergy.github.io/riskguard/">КАБИНЕТ ТРЕЙДЕРА</a><span>INSTITUTIONAL RISK DESK · V2.2</span><b>READ-ONLY GATEWAY / EXECUTION LOCKED BY DEFAULT</b></div>
+<div id="loginScreen" class="login-screen">
+  <div class="login-card">
+    <div class="mark big">RG</div>
+    <div class="eyebrow">INSTITUTIONAL RISK MONITOR · READ ONLY</div>
+    <h1>RiskGuard V2.2</h1>
+    <p>HA quorum risk, isolated execution and multi-tenant prop control.</p>
+    <input id="loginEmail"  placeholder="Email">
+    <input id="loginPassword" type="password" placeholder="Password">
+    <button id="loginBtn">Sign in</button>
+    <small>Подключите защищённый сеанс NEXUS и учётную запись RiskGuard V2.2. Без backend действия недоступны.</small>
+  </div>
+</div>
+
+<header>
+  <div class="brand">
+    <div class="mark">RG</div>
+    <div><b>RiskGuard V2.2</b><span>HA Cluster · Binance · Bybit · OKX</span></div>
+  </div>
+  <div class="header-actions">
+    <select id="tenantSelect" class="tenant-select"></select>
+    <span id="liveBadge" class="badge">CHECKING</span>
+    <button class="ghost" id="logoutBtn">Logout</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero compact-hero">
+    <div>
+      <div class="eyebrow">CENTRAL EXECUTION CONTROL PLANE</div>
+      <h1>One risk boundary.<br>Three independent votes.</h1>
+      <p>Bots, MIDAS AI, TradingView and humans submit intents. A 2-of-3 risk quorum approves new risk, Redpanda queues it, and an isolated execution worker alone touches the exchanges.</p>
+    </div>
+    <button class="kill" id="killBtn"><span>●</span>KILL SWITCH</button>
+  </section>
+
+  <section class="flow institutional-flow">
+    <div>BOT</div><div>TRADINGVIEW</div><div>MIDAS AI</div><div>MANUAL</div>
+    <b>→</b><strong>GATEWAY</strong><em>INTENT → 2/3 QUORUM → REDPANDA → EXECUTION WORKER</em><b>→</b>
+    <div>BINANCE</div><div>BYBIT</div><div>OKX</div>
+  </section>
+
+  <section class="status-grid six">
+    <article class="card"><span>Risk state</span><strong id="riskState">—</strong><small id="riskReason">Waiting</small></article>
+    <article class="card"><span>Equity</span><strong id="equity">$—</strong><small>Tenant portfolio</small></article>
+    <article class="card"><span>VaR 95%</span><strong id="var95">—</strong><small id="cvar95">CVaR —</small></article>
+    <article class="card"><span>Stress loss</span><strong id="stressLoss">—</strong><small id="stressScenario">Worst scenario</small></article>
+    <article class="card"><span>Margin ratio</span><strong id="marginRatio">—</strong><small>Worst exchange</small></article>
+    <article class="card"><span>Gross exposure</span><strong id="exposure">$—</strong><small id="exposureX">—</small></article>
+  </section>
+
+  <section class="three">
+    <article class="panel">
+      <div class="panel-head"><div><span class="eyebrow">TENANT</span><h2>Prop desk</h2></div></div>
+      <div id="tenantSummary" class="mini-grid"></div>
+      <div class="panel-head subhead"><div><span class="eyebrow">MEMBERS</span><h2>RBAC</h2></div></div>
+      <div id="members" class="compact-list"></div>
+      <form id="memberForm" class="stack-form">
+        <input id="memberEmail" placeholder="newtrader@example.com">
+        <input id="memberPassword" type="password" placeholder="Temporary password">
+        <select id="memberRole"><option>trader</option><option>viewer</option><option>risk_manager</option><option>owner</option></select>
+        <button>Add / update member</button>
+      </form>
+    </article>
+
+    <article class="panel">
+      <div class="panel-head"><div><span class="eyebrow">EXECUTION</span><h2>Manual intent</h2></div></div>
+      <form id="manualForm" class="stack-form">
+        <select id="m_connection"></select>
+        <input id="m_symbol" value="BTCUSDT" placeholder="BTCUSDT / BTC-USDT-SWAP">
+        <div class="inline"><select id="m_side"><option>BUY</option><option>SELL</option></select><select id="m_type"><option>MARKET</option><option>LIMIT</option></select></div>
+        <input id="m_notional" type="number" value="100" placeholder="Notional USD">
+        <input id="m_price" type="number" placeholder="Limit price">
+        <label class="switch-row"><input id="m_reduce" type="checkbox"><span>Reduce only — exits stay available during breaches</span></label>
+        <button>Submit through firewall</button>
+      </form>
+      <pre id="manualResult" class="result">No intent submitted.</pre>
+    </article>
+
+    <article class="panel">
+      <div class="panel-head"><div><span class="eyebrow">STRATEGIES</span><h2>Scoped API keys</h2></div></div>
+      <div id="strategies" class="compact-list"></div>
+      <form id="strategyForm" class="stack-form">
+        <input id="s_name" value="MIDAS AI" placeholder="Strategy name">
+        <div class="inline"><input id="s_order" type="number" value="2500" placeholder="Max/order"><input id="s_daily" type="number" value="25000" placeholder="Daily"></div>
+        <input id="s_orders" type="number" value="100" placeholder="Orders/day">
+        <button>Create strategy credentials</button>
+      </form>
+      <pre id="newSecret" class="result">Credentials are displayed once.</pre>
+    </article>
+  </section>
+
+  <section class="two lower">
+    <article class="panel">
+      <div class="panel-head"><div><span class="eyebrow">POLICY</span><h2>Institutional limits</h2></div><button id="saveRules">Save</button></div>
+      <div class="form-grid">
+        <label>Daily loss %<input id="max_daily_loss_pct" type="number" step=".1"></label>
+        <label>Weekly loss %<input id="max_weekly_loss_pct" type="number" step=".1"></label>
+        <label>Peak DD %<input id="max_drawdown_pct" type="number" step=".1"></label>
+        <label>Gross exposure ×<input id="max_gross_exposure_x" type="number" step=".1"></label>
+        <label>Max positions<input id="max_positions" type="number"></label>
+        <label>Single position %<input id="max_single_position_pct" type="number" step=".1"></label>
+        <label>VaR95 %<input id="max_var95_pct" type="number" step=".1"></label>
+        <label>CVaR95 %<input id="max_cvar95_pct" type="number" step=".1"></label>
+        <label>Same-dir corr<input id="max_same_direction_corr" type="number" step=".01"></label>
+        <label>Stress loss %<input id="max_stress_loss_pct" type="number" step=".1"></label>
+        <label>Min margin ratio<input id="min_exchange_margin_ratio" type="number" step=".05"></label>
+        <label>Max MM rate<input id="max_exchange_mm_rate" type="number" step=".01"></label>
+      </div>
+    </article>
+
+    <article class="panel">
+      <div class="panel-head"><div><span class="eyebrow">EXCHANGE VAULT</span><h2>Connections</h2></div></div>
+      <div id="connections" class="compact-list"></div>
+      <form id="connectionForm" class="stack-form">
+        <select id="exchange"><option value="binance">Binance USDⓈ-M</option><option value="bybit">Bybit Unified</option><option value="okx">OKX SWAP</option></select>
+        <input id="label" placeholder="Main derivatives account">
+        <input id="api_key" placeholder="API key">
+        <input id="api_secret" type="password" placeholder="API secret">
+        <input id="api_passphrase" type="password" placeholder="OKX passphrase (OKX only)">
+        <button>Encrypt & store</button>
+      </form>
+      <p class="hint">Trading permission only. Never enable withdrawals. Use IP allowlists and demo/testnet first.</p>
+    </article>
+  </section>
+
+  <section class="two lower">
+    <article class="panel">
+      <div class="panel-head"><div><span class="eyebrow">HA CLUSTER</span><h2>Quorum / Bus / Vault</h2></div></div>
+      <div id="haStatus" class="mini-grid"></div>
+      <p class="hint">New risk fails closed if quorum is unavailable. Reduce-only exits use the emergency escape quorum.</p>
+      <div class="panel-head subhead"><div><span class="eyebrow">SECURITY</span><h2>2FA / Passkeys</h2></div></div>
+      <div id="mfaStatus" class="mini-grid"></div>
+      <div class="inline security-actions">
+        <button id="setupTotp" type="button">Enable TOTP</button>
+        <button id="registerPasskey" type="button" class="ghost">Register passkey</button>
+      </div>
+      <pre id="mfaResult" class="result">MFA status will appear here.</pre>
+    </article>
+    <article class="panel">
+      <div class="panel-head"><div><span class="eyebrow">PROP RISK</span><h2>Trader books / quarantine</h2></div></div>
+      <div id="traderBooks" class="compact-list"></div>
+    </article>
+  </section>
+
+  <section class="two lower">
+    <article class="panel">
+      <div class="panel-head"><div><span class="eyebrow">ALERTS</span><h2>Telegram / Slack</h2></div><button id="testAlert">Test</button></div>
+      <div id="alerts" class="compact-list"></div>
+      <form id="alertForm" class="stack-form">
+        <select id="alertKind"><option value="slack">Slack webhook</option><option value="telegram">Telegram</option></select>
+        <input id="alertLabel" placeholder="Risk desk alerts">
+        <input id="alertTarget" placeholder="Slack webhook URL or Telegram chat_id">
+        <input id="alertSecret" type="password" placeholder="Telegram bot token (only Telegram)">
+        <button>Add alert endpoint</button>
+      </form>
+    </article>
+
+    <article class="panel">
+      <div class="panel-head"><div><span class="eyebrow">STRESS LAB</span><h2>Scenario firewall</h2></div><button id="runStress">Run</button></div>
+      <pre id="stressResult" class="result tall">No stress run yet.</pre>
+    </article>
+  </section>
+
+  <section class="two lower">
+    <article class="panel"><div class="panel-head"><div><span class="eyebrow">ORDER STATE MACHINE</span><h2>Execution ledger</h2></div></div><div id="executions" class="events"></div></article>
+    <article class="panel"><div class="panel-head"><div><span class="eyebrow">AUDIT</span><h2>Risk events</h2></div></div><div id="events" class="events"></div></article>
+  </section>
+</main>
+<div id="toast"></div>
+<script src="/synergy.github.io/riskguard/institutional/app.js"></script>
+<script defer src="/synergy.github.io/assets/synergy-premium.js"></script>
+<script defer src="/synergy.github.io/assets/synergy-premium-v88.js"></script><script defer src="/synergy.github.io/assets/synergy-atelier-v9.js"></script><script defer src="/synergy.github.io/assets/synergy-stability-v9.js"></script><script defer src="/synergy.github.io/assets/finance-v94.js"></script></body>
+</html>

@@ -1,0 +1,65 @@
+/* SYNERGY ATELIER V9 / P0: additive, non-destructive design system. */
+:root{--v9-bg:#060a08;--v9-elev:#0e1711;--v9-panel:#101d14;--v9-hover:#17271b;--v9-edge:rgba(160,220,173,.19);--v9-green:#00e664;--v9-green-soft:rgba(0,230,100,.09);--v9-gold:#f2c15b;--v9-text:#edf8ef;--v9-muted:#a6c0ac;--v9-error:#ff817a;--v9-radius:16px;--v9-font:Manrope,Inter,system-ui,-apple-system,sans-serif;--v9-shadow:0 22px 78px rgba(0,0,0,.36);--v9-focus:0 0 0 3px rgba(0,230,100,.48)}
+html[data-syn-v9="true"]{scrollbar-color:#456b4d #071009;scroll-padding-top:84px}
+html[data-syn-v9="true"] body{min-width:0}
+html[data-syn-v9="true"] *,html[data-syn-v9="true"] *::before,html[data-syn-v9="true"] *::after{box-sizing:border-box}
+html[data-syn-v9="true"] :is(a,button,input,select,textarea,[tabindex]):focus-visible{outline:2px solid var(--v9-green)!important;outline-offset:3px!important}
+html[data-syn-v9="true"] :is(button,input,textarea,select){font-family:var(--v9-font)}
+html[data-syn-v9="true"] [hidden]{display:none!important}
+.synv9-skip{position:fixed;left:10px;top:-180px;z-index:2147483630;padding:14px 24px;border-radius:10px;background:var(--v9-green);color:#02140a!important;font:700 14px var(--v9-font)}
+.synv9-skip:focus{top:8px}
+.synv9-bar{position:relative;z-index:2147481000;background:linear-gradient(110deg,#0c1710 0%,#09110d 70%,#101910 100%);border-bottom:1px solid rgba(0,230,100,.22);box-shadow:0 10px 34px #0006;isolation:isolate;font-family:var(--v9-font);font-size:13px!important;color:var(--v9-text)!important}
+.synv9-bar-inner{min-height:67px;max-width:1920px;margin:0 auto;padding:0 clamp(13px,2.2vw,40px);display:flex;align-items:center;gap:clamp(10px,1.8vw,28px)}
+.synv9-brand{display:flex;align-items:center;gap:11px;color:#effff1!important;text-decoration:none!important;flex:none}
+.synv9-emblem{width:34px;height:34px;display:grid;place-items:center;font:24px 'Instrument Serif',serif;border:1px solid #00e6647a;color:var(--v9-green);border-radius:10px;background:radial-gradient(circle at 60% 20%,#00e66435,#08200d)}
+.synv9-brand-copy{font:800 15px var(--v9-font);letter-spacing:.12em;line-height:1.1}.synv9-brand-copy small{display:block;margin-top:5px;color:#83a98d;font:500 9px var(--v9-font);letter-spacing:.15em}
+.synv9-divider{width:1px;height:26px;background:var(--v9-edge);flex:none}
+.synv9-trail{display:flex;align-items:center;gap:9px;min-width:0;flex:1;white-space:nowrap}
+.synv9-trail-label{color:#829b88;font-size:10px;letter-spacing:.14em;text-transform:uppercase}.synv9-trail strong{font-size:12px;letter-spacing:.04em;overflow:hidden;text-overflow:ellipsis}
+.synv9-bar-actions{display:flex;align-items:center;gap:8px;margin-left:auto;flex:none}
+.synv9-navlink{color:#b1d3b8!important;font-size:11px!important;font-weight:700!important;text-decoration:none!important;padding:9px 13px;border-radius:10px;border:1px solid transparent;white-space:nowrap}
+.synv9-navlink:hover,.synv9-navlink[aria-current="page"]{background:#1a3320;border-color:#446950;color:#fff!important}
+.synv9-command,.synv9-status-btn,.synv9-mode{cursor:pointer;background:#132119!important;color:#eaf8ec!important;border:1px solid #355d41!important;border-radius:10px!important;min-height:38px;padding:9px 13px!important;font-size:11px!important;font-weight:750!important;letter-spacing:0!important;display:inline-flex;align-items:center;gap:9px;white-space:nowrap;box-shadow:none!important;line-height:1.2!important;transform:none!important}
+.synv9-command:hover,.synv9-mode:hover{background:#1a3423!important;border-color:#00e664!important}
+.synv9-command kbd{border:1px solid #43664e;border-radius:5px;background:#0a130e;padding:3px 5px;font:10px monospace;color:#9ec8a6}
+.synv9-status{width:7px;height:7px;border-radius:50%;background:var(--v9-gold);flex:none}
+.synv9-status[data-state="ok"]{background:var(--v9-green)}.synv9-status[data-state="error"]{background:var(--v9-error)}
+.synv9-overlay{position:fixed;inset:0;z-index:2147483200;background:rgba(0,5,2,.83);backdrop-filter:blur(18px);display:flex;align-items:flex-start;justify-content:center;padding:clamp(14px,6vh,64px) 12px;overflow:auto;font-family:var(--v9-font);color:var(--v9-text)}
+.synv9-palette{width:min(100%,900px);max-height:86vh;display:flex;flex-direction:column;min-height:350px;border:1px solid rgba(0,230,100,.35);border-radius:22px;background:linear-gradient(145deg,#102018,#070d09);box-shadow:0 55px 180px #000,0 0 90px #00e66412;overflow:hidden}
+.synv9-palette-head{padding:clamp(18px,3vw,30px);display:flex;justify-content:space-between;gap:20px;align-items:center;border-bottom:1px solid var(--v9-edge)}
+.synv9-eyebrow{font:600 10px 'DM Mono',monospace;letter-spacing:.14em;color:var(--v9-green)!important;text-transform:uppercase}
+.synv9-palette-head h2{font:clamp(28px,4vw,48px)/1.05 'Bebas Neue',Impact,sans-serif;letter-spacing:.03em;margin:9px 0 0;color:#fff}
+.synv9-close{width:40px;height:40px;background:#19271d!important;border:1px solid #45634b!important;color:#fff!important;border-radius:10px!important;font-size:25px!important;cursor:pointer}
+.synv9-search-label{padding:17px clamp(18px,3vw,30px) 5px;font-size:11px;color:#a9bbae}
+.synv9-search{margin:4px clamp(18px,3vw,30px) 14px!important;width:calc(100% - clamp(36px,6vw,60px))!important;min-width:0!important;padding:15px 18px!important;border:1px solid #44684d!important;background:#0c170e!important;border-radius:11px!important;color:#fff!important;font:14px var(--v9-font)!important}
+.synv9-list{padding:7px clamp(16px,2.6vw,26px) 24px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;overflow:auto}
+.synv9-item{min-width:0;border:1px solid rgba(118,171,126,.21);border-radius:12px;background:#122016;padding:14px 16px!important;display:block!important;text-decoration:none!important;color:#effff0!important}
+.synv9-item:hover,.synv9-item:focus-visible{background:#203624;border-color:#00e66488}
+.synv9-item strong{display:block;font-size:13px!important;margin-bottom:3px;font-family:var(--v9-font)!important}.synv9-item small{display:block;color:#91b199;font-size:10px;line-height:1.5}.synv9-item em{display:block;margin-top:7px;color:#dbb876;font-style:normal;font:9px 'DM Mono',monospace;letter-spacing:.05em}
+.synv9-empty{padding:25px;color:#b4cab8;font-size:13px}.synv9-menu-footer{font:10px/1.7 'DM Mono',monospace;padding:12px 26px;color:#85a48d;border-top:1px solid var(--v9-edge)}
+/* Shared primitives: opt-in; never stomp on original module's domain styles. */
+.synv9-container{max-width:1400px;margin-inline:auto;padding-inline:clamp(18px,3vw,56px)}
+.synv9-section{padding-block:clamp(32px,5vw,80px)}
+.synv9-grid{display:grid;gap:clamp(12px,1.6vw,23px);grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))}
+.synv9-card{background:linear-gradient(140deg,#16281a,#0c150f);border:1px solid var(--v9-edge);border-radius:var(--v9-radius);padding:clamp(19px,2.5vw,30px);box-shadow:var(--v9-shadow)}
+.synv9-card:hover{border-color:rgba(0,230,100,.52)}
+.synv9-heading{font:clamp(30px,4vw,60px)/1 'Bebas Neue',Impact,sans-serif;color:#f5fff5;letter-spacing:.035em;margin:8px 0 18px}
+.synv9-muted{color:var(--v9-muted);line-height:1.65}.synv9-caption{font:11px 'DM Mono',monospace;color:#96b19c}.synv9-metric{font:clamp(34px,4vw,58px) 'Bebas Neue',sans-serif;color:var(--v9-green)}
+.synv9-field{display:grid;gap:8px}.synv9-field>label{font:650 12px var(--v9-font);color:#d2e8d5}.synv9-input{width:100%;background:#0a130e;border:1px solid #416448;border-radius:10px;color:#fff;padding:13px 15px;min-height:44px}.synv9-input:focus{border-color:var(--v9-green)}
+.synv9-button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;border:1px solid var(--v9-green);border-radius:10px;background:var(--v9-green);color:#031307!important;font:800 12px var(--v9-font);padding:10px 18px;text-decoration:none;cursor:pointer}
+.synv9-button--secondary{background:#13261a;color:#dcffe3!important;border-color:#3c6346}
+.synv9-alert{padding:13px 16px;border-radius:10px;border:1px solid #815e35;background:#211c13;color:#e8d6b4;font-size:12px;line-height:1.6}
+.synv9-alert[data-state="error"]{border-color:#a34e4d;background:#291314;color:#ffd0ca}.synv9-alert[data-state="success"]{border-color:#346c49;background:#112d1a;color:#b9f8c9}
+.synv9-table-wrap{max-width:100%;overflow-x:auto;border:1px solid var(--v9-edge);border-radius:12px}.synv9-table{width:100%;border-collapse:collapse;min-width:650px}.synv9-table th,.synv9-table td{border-bottom:1px solid #2c4934;text-align:left;padding:13px 17px;font:12px var(--v9-font)}.synv9-table th{background:#15241a;text-transform:uppercase;letter-spacing:.08em;color:#a3c9ae;font-size:10px}
+.synv9-pill{display:inline-flex;gap:7px;align-items:center;padding:5px 10px;border-radius:40px;background:#1b3623;border:1px solid #2f6740;color:#b5eac2;font:11px var(--v9-font)}
+.synv9-skeleton{background:linear-gradient(100deg,#142418 8%,#203325 18%,#142418 33%);background-size:200% 100%;animation:synv9-shimmer 1.3s linear infinite;border-radius:8px;height:16px}
+@keyframes synv9-shimmer{to{background-position-x:-200%}}
+/* Surface coherence, preserving original dashboard layouts and local CSS selectors. */
+html[data-syn-v9][data-syn-app="smm"] :is(.panel,.workspace-card,.tile,.task-card){border-radius:var(--v9-radius);box-shadow:var(--v9-shadow)}
+html[data-syn-v9][data-syn-app="riskguard"] :is(.panel,.metric,.inner-panel),html[data-syn-v9][data-syn-app="investor-folio"] :is(.chartbox,.stat,.box),html[data-syn-v9][data-syn-app="broker-mesh"] :is(.card,.node){border-radius:var(--v9-radius);box-shadow:var(--v9-shadow)}
+html[data-syn-v9] :is(.status, .metric-value, .stat-number){font-variant-numeric:tabular-nums}
+@media(max-width:1100px){.synv9-bar-inner{gap:11px}.synv9-trail-label{display:none}.synv9-navlink{display:none}.synv9-trail{flex:1}}
+@media(max-width:620px){.synv9-bar-inner{min-height:60px;padding-inline:11px}.synv9-brand-copy{font-size:12px}.synv9-brand-copy small{font-size:8px}.synv9-emblem{width:30px;height:30px;font-size:19px}.synv9-divider,.synv9-trail{display:none}.synv9-bar-actions{margin-left:auto;gap:6px}.synv9-status-btn{min-width:34px;padding:9px!important}.synv9-status-btn .synv9-status-text{display:none}.synv9-command{padding:9px 10px!important}.synv9-command kbd{display:none}.synv9-list{grid-template-columns:1fr}.synv9-palette{max-height:92vh}.synv9-overlay{padding:10px 8px}.synv9-mode{display:none!important}}
+@media(prefers-reduced-motion:reduce){.synv9-skeleton{animation:none}.synv9-overlay,.synv9-item{transition:none!important}}
+
+html[data-syn-v9="true"] #synergy-v8-bridge{display:none!important}

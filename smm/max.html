@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html data-syn-path="smm/max.html" class="syn-premium" data-syn-app="smm" lang="ru" data-syn-v9="true">
+<head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>MAX Messenger API — SINERGY SMM AI</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=DM+Mono:wght@400;500&amp;family=Manrope:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --g:#00e664;--g2:#00c250;--g3:rgba(0,230,100,.12);--g4:rgba(0,230,100,.06);--g5:rgba(0,230,100,.22);
+  --blk:#000;--b1:#080808;--b2:#0d0d0d;--b3:#141414;--b4:#1c1c1c;--b5:#252525;
+  --w:#fff;--w2:rgba(255,255,255,.88);--w3:rgba(255,255,255,.52);--w4:rgba(255,255,255,.22);--w5:rgba(255,255,255,.07);
+  --bdr:rgba(0,230,100,.15);--bdr2:rgba(255,255,255,.06);--bdr3:rgba(0,230,100,.30);
+  --red:#ff4f5e;--red2:rgba(255,79,94,.12);--gold:#f2c15b;--gold2:rgba(242,193,91,.1);
+  --purple:#a855f7;--purple2:rgba(168,85,247,.12);
+  --serif:'Instrument Serif',Georgia,serif;--display:'Bebas Neue',sans-serif;--mono:'DM Mono',monospace;--body:'Manrope',sans-serif;
+  --r2:10px;--r3:18px;--r4:28px;
+  --glow:0 0 60px rgba(168,85,247,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--blk);color:var(--w);overflow-x:hidden;background-image:radial-gradient(ellipse 65% 35% at 50% 0%,rgba(168,85,247,.04),transparent)}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+input,textarea,select{font-family:inherit}
+::selection{background:var(--purple);color:#000}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:#000}::-webkit-scrollbar-thumb{background:var(--purple);border-radius:99px}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(0,0,0,.92);border-bottom:1px solid var(--bdr);backdrop-filter:blur(32px);-webkit-backdrop-filter:blur(32px)}
+.nav-in{height:64px;display:flex;align-items:center;gap:16px;max-width:1500px;margin:0 auto;padding:0 28px}
+.nav-logo{font-family:var(--display);font-size:24px;letter-spacing:5px;color:var(--purple);flex-shrink:0;text-shadow:0 0 30px rgba(168,85,247,.15)}
+.nav-logo span{color:var(--w)}
+.nav-links{display:flex;gap:6px;margin-left:auto;align-items:center}
+.nav-link{padding:9px 16px;border-radius:var(--r2);font-size:11px;font-weight:700;color:var(--w3);transition:all .2s;letter-spacing:.3px}
+.nav-link:hover{color:var(--purple);background:var(--purple2)}
+.nav-link.primary{background:var(--purple);color:#fff}
+.nav-link.primary:hover{background:#fff;color:#000}
+
+.layout{display:grid;grid-template-columns:220px 1fr;gap:24px;max-width:1500px;margin:0 auto;padding:24px 28px 60px;position:relative}
+
+.side{position:sticky;top:90px;height:calc(100vh - 116px);background:linear-gradient(180deg,rgba(13,13,13,.98),rgba(8,8,8,.98));border:1px solid var(--bdr2);border-radius:var(--r3);padding:14px;overflow-y:auto;box-shadow:var(--glow)}
+.side-title{font-family:var(--mono);font-size:8px;letter-spacing:2.5px;text-transform:uppercase;color:var(--w4);padding:12px 10px 6px}
+.side-link{display:flex;align-items:center;gap:10px;padding:11px 14px;border-radius:var(--r2);font-size:12px;font-weight:600;color:var(--w3);transition:all .18s;margin-bottom:3px;position:relative;overflow:hidden}
+.side-link:hover{color:var(--w);background:var(--w5)}
+.side-link.active{color:var(--purple);background:var(--purple2);border-left:2px solid var(--purple)}
+.side-sep{height:1px;background:linear-gradient(90deg,transparent,var(--bdr2),transparent);margin:10px 0}
+
+.main{min-width:0}
+
+.hero{margin-bottom:24px;padding:32px;background:linear-gradient(160deg,rgba(168,85,247,.08),rgba(8,8,8,.95));border:1px solid rgba(168,85,247,.2);border-radius:var(--r4);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 60% 30%,rgba(168,85,247,.06),transparent 50%);pointer-events:none}
+.hero h1{font-family:var(--display);font-size:clamp(36px,5vw,56px);line-height:.92;letter-spacing:2px;margin-bottom:12px}
+.hero h1 em{color:var(--purple);font-style:normal}
+.hero p{font-size:14px;line-height:1.75;color:var(--w3);max-width:700px}
+
+.sec{margin-top:24px;background:linear-gradient(160deg,rgba(13,13,13,.95),rgba(8,8,8,.95));border:1px solid var(--bdr2);border-radius:var(--r3);padding:28px;box-shadow:var(--glow)}
+.sec h2{font-size:20px;font-weight:800;margin-bottom:8px;color:var(--purple)}
+.sec .desc{font-size:13px;color:var(--w3);line-height:1.7;margin-bottom:16px}
+.sec .desc strong{color:var(--w)}
+
+.tool{background:var(--b3);border:1px solid var(--bdr2);border-radius:var(--r2);padding:20px;margin-top:14px}
+.tool h3{font-size:14px;font-weight:700;color:var(--purple);margin-bottom:8px}
+.tool .method{font-family:var(--mono);font-size:10px;color:var(--w4);margin-bottom:12px;padding:8px 12px;background:var(--b4);border-radius:6px}
+
+.params{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.params label{display:grid;gap:4px;font-size:11px;font-weight:600;color:var(--w2)}
+.params .w{grid-column:1/-1}
+.params input,.params textarea,.params select{width:100%;background:var(--b3);border:1px solid var(--bdr2);border-radius:7px;padding:10px 12px;color:var(--w);outline:none;font-size:12px;transition:border-color .2s}
+.params input:focus,.params textarea:focus{border-color:var(--purple);box-shadow:0 0 0 2px var(--purple2)}
+.params textarea{resize:vertical;font-family:var(--mono);font-size:11px;min-height:80px}
+
+.btn{padding:10px 20px;border-radius:var(--r2);font-size:12px;font-weight:800;border:1px solid var(--bdr2);background:transparent;color:var(--w3);transition:all .2s;display:inline-flex;align-items:center;gap:6px;letter-spacing:.3px}
+.btn:hover{color:var(--purple);background:var(--purple2);border-color:var(--purple);transform:translateY(-1px)}
+.btn-g{background:var(--purple);color:#fff;border-color:transparent;box-shadow:0 4px 20px rgba(168,85,247,.2)}
+.btn-g:hover{background:#fff;color:#000;box-shadow:0 6px 30px rgba(168,85,247,.3)}
+.btn-danger{background:var(--red2);color:var(--red);border-color:rgba(255,79,94,.2)}
+.btn-danger:hover{background:rgba(255,79,94,.2)}
+
+.chk-row{display:flex;align-items:center;gap:8px;margin:8px 0;font-size:12px;color:var(--w3)}
+.chk-row input[type=checkbox]{width:16px;height:16px;accent-color:var(--purple)}
+
+.result-box{background:#050505;border:1px solid var(--bdr2);border-radius:var(--r2);padding:16px;min-height:120px;max-height:400px;overflow:auto;font-family:var(--mono);font-size:11px;line-height:1.7;color:var(--w2);white-space:pre-wrap;margin-top:20px}
+.result-box .empty{color:var(--w4);font-style:italic}
+.result-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:8px}
+
+.status-box{padding:14px 18px;background:var(--purple2);border:1px solid rgba(168,85,247,.3);border-radius:var(--r2);font-size:13px;line-height:1.7;margin-bottom:16px}
+.status-box.error{background:var(--red2);border-color:rgba(255,79,94,.3)}
+.status-box b{color:var(--purple)}
+.status-box.error b{color:var(--red)}
+
+.helper{font-size:11px;color:var(--w4);margin-bottom:12px;line-height:1.6;padding:10px 12px;background:var(--b4);border-radius:6px;border-left:2px solid var(--purple)}
+.helper strong{color:var(--w2)}
+
+@media(max-width:900px){
+  .layout{grid-template-columns:1fr}
+  .side{position:relative;top:0;height:auto;display:flex;flex-wrap:wrap;gap:6px;padding:10px}
+  .side-title{display:none}.side-sep{display:none}
+  .side-link{padding:8px 12px;font-size:11px}
+  .params{grid-template-columns:1fr}
+}
+</style>
+<!-- SYNERGY V8 NEXUS bridge --><link rel="stylesheet" href="/nexus-bridge.css"><script defer src="/nexus-bridge.js"></script>
+<link rel="stylesheet" href="/synergy.github.io/assets/synergy-premium.css">
+<link rel="stylesheet" href="/synergy.github.io/assets/synergy-premium-v88.css"><link rel="stylesheet" href="/synergy.github.io/assets/synergy-atelier-v9.css"><link rel="stylesheet" href="/synergy.github.io/assets/synergy-stability-v9.css" data-syn-stability="v9.1.4.1"><script defer src="/synergy.github.io/assets/pages-runtime.js"></script>
+</head>
+<body>
+<nav class="nav"><div class="nav-in"><a class="nav-logo" href="index.html">SINERGY <span>MAX</span></a><div class="nav-links"><a class="nav-link" href="index.html">Главная</a><a class="nav-link" href="cabinet.html">Кабинет</a><a class="nav-link" href="telegram.html">Telegram</a><a class="nav-link" href="vk.html">VK</a><a class="nav-link primary" href="auth.html">Вход</a></div></div></nav>
+
+<div class="layout">
+<aside class="side">
+<div class="side-title">MAX Bot API</div>
+<a class="side-link" href="#max-connect">Подключение</a>
+<a class="side-link" href="#max-check">Проверка токена</a>
+<a class="side-link" href="#max-send">Отправка сообщения</a>
+<a class="side-link" href="#max-chats">Известные чаты</a>
+<a class="side-link" href="#max-updates">Получить обновления</a>
+<div class="side-sep"></div>
+<div class="side-title">Рассылки</div>
+<a class="side-link" href="#max-mass">Массовая рассылка</a>
+<a class="side-link" href="#max-cooldown">Настройки cooldown</a>
+</aside>
+
+<main class="main">
+<div class="hero">
+<h1>MAX <em>Messenger</em></h1>
+<p>MAX — мессенджер с официальным Bot API. Здесь можно подключить бота, отправлять сообщения, получать события и делать рассылки с защитой от повторных сообщений.</p>
+</div>
+
+<section class="sec" id="max-connect">
+<h2>Подключение бота MAX</h2>
+<div class="desc"><strong>Что это:</strong> Сохранение токена бота MAX. <strong>Зачем нужен:</strong> Без токена невозможно отправлять сообщения и получать события. <strong>Как получить:</strong> откройте платформу MAX для бизнеса → «Чат-боты» → «Расширенные настройки» → «Настроить» → скопируйте токен.</div>
+<div class="tool">
+<div class="method">POST /api/tool — tool: max_save_token</div>
+<form class="tf" data-t="max_save_token">
+<div class="params">
+<label class="w">Bot Token<input name="bot_token" type="password" placeholder="Вставьте токен бота MAX"/></label>
+</div>
+<button class="btn btn-g">Сохранить и проверить</button>
+</form>
+</div>
+<div id="max-status" class="status-box" style="display:none;margin-top:14px"></div>
+</section>
+
+<section class="sec" id="max-check">
+<h2>Проверка токена</h2>
+<div class="desc"><strong>Что это:</strong> Проверка что сохранённый токен бота валиден и бот работает.</div>
+<div class="tool">
+<div class="method">POST /api/tool — tool: max_check</div>
+<form class="tf" data-t="max_check">
+<button class="btn btn-g">Проверить подключение</button>
+</form>
+</div>
+</section>
+
+<section class="sec" id="max-send">
+<h2>Отправить сообщение</h2>
+<div class="desc"><strong>Что это:</strong> Отправка одного сообщения в указанный чат. <strong>Зачем нужен:</strong> Для тестирования бота или отправки уведомлений.</div>
+<div class="tool">
+<div class="method">POST /api/tool — tool: max_send_message</div>
+<form class="tf" data-t="max_send_message">
+<div class="params">
+<label>Chat ID<input name="chat_id" placeholder="ID чата или пользователя"/></label>
+<label class="w">Текст сообщения<textarea name="text" rows="3" placeholder="Введите текст сообщения..."></textarea></label>
+</div>
+<button class="btn btn-g">Отправить</button>
+</form>
+</div>
+</section>
+
+<section class="sec" id="max-chats">
+<h2>Известные чаты</h2>
+<div class="desc"><strong>Что это:</strong> Показ chat_id, которые система уже увидела в событиях или использовала при отправке. <strong>Важно:</strong> MAX удалил метод полного списка чатов в июне 2026 года. Для production подключите Webhook: система должна сохранять chat_id из событий bot_added, bot_started и message_created.</div>
+<div class="tool">
+<div class="method">POST /api/tool — tool: max_get_chats</div>
+<form class="tf" data-t="max_get_chats">
+<button class="btn btn-g">Показать известные chat_id</button>
+</form>
+</div>
+</section>
+
+<section class="sec" id="max-updates">
+<h2>Получить обновления</h2>
+<div class="desc"><strong>Что это:</strong> Получение новых сообщений и событий через Long Polling. <strong>Важно:</strong> используйте это для тестов; для production официальный API MAX рекомендует Webhook.</div>
+<div class="tool">
+<div class="method">POST /api/tool — tool: max_get_updates</div>
+<form class="tf" data-t="max_get_updates">
+<div class="params">
+<label>Лимит<input name="limit" type="number" value="100" min="1" max="1000"/></label>
+<label>Marker (опционально)<input name="marker" placeholder="Для пагинации"/></label>
+<label>Ожидание, сек.<input name="timeout" type="number" value="0" min="0" max="90"/></label>
+</div>
+<button class="btn btn-g">Получить обновления</button>
+</form>
+</div>
+</section>
+
+<section class="sec" id="max-mass">
+<h2>Массовая рассылка</h2>
+<div class="desc"><strong>Что это:</strong> Отправка одного сообщения нескольким получателям. <strong>Важно:</strong> Встроена защита от спама — система проверяет когда последний раз писали каждому получателю и пропускает тех, кому писали недавно (настраивается в Cooldown).</div>
+<div class="helper"><strong>Формат получателей:</strong> Chat ID через запятую, точку с запятой или каждый на новой строке.</div>
+<div class="tool">
+<div class="method">POST /api/tool — tool: max_mass_message</div>
+<form class="tf" data-t="max_mass_message">
+<div class="params">
+<label class="w">Получатели (chat_id)<textarea name="recipients" rows="4" placeholder="123456789&#10;987654321&#10;..."></textarea></label>
+<label class="w">Сообщение<textarea name="message" rows="4" placeholder="Текст рассылки..."></textarea></label>
+<label>Лимит<input name="limit" type="number" value="50" min="1" max="200"/></label>
+<label>Задержка мин (сек)<input name="delay_min" type="number" value="2" min="1"/></label>
+<label>Задержка макс (сек)<input name="delay_max" type="number" value="5" min="1"/></label>
+</div>
+<div class="chk-row"><input type="checkbox" name="dry_run" checked/> Тестовый режим (dry_run) — не отправлять реально</div>
+<div class="chk-row"><input type="checkbox" name="skip_cooldown"/> Игнорировать cooldown</div>
+<div class="chk-row"><input type="checkbox" name="confirm"/> Подтверждаю согласие получателей</div>
+<button class="btn btn-danger">Запустить рассылку</button>
+</form>
+</div>
+</section>
+
+<section class="sec" id="max-cooldown">
+<h2>Настройки Cooldown (анти-спам)</h2>
+<div class="desc"><strong>Что это:</strong> Защита от повторных рассылок одним и тем же людям. Система запоминает кому и когда вы отправляли сообщения, и не даёт писать повторно раньше установленного срока. <strong>Пример:</strong> Если cooldown = 7 дней, и вы написали пользователю сегодня, следующее сообщение ему можно будет отправить только через неделю.</div>
+<div class="tool">
+<h3>Текущие настройки</h3>
+<div class="method">POST /api/tool — tool: mailing_get_settings</div>
+<form class="tf" data-t="mailing_get_settings">
+<button class="btn">Показать настройки</button>
+</form>
+</div>
+<div class="tool">
+<h3>Изменить настройки</h3>
+<div class="method">POST /api/tool — tool: mailing_set_settings</div>
+<form class="tf" data-t="mailing_set_settings">
+<div class="params">
+<label>VK cooldown (дней)<input name="vk_cooldown_days" type="number" value="7" min="0"/></label>
+<label>Telegram cooldown (дней)<input name="telegram_cooldown_days" type="number" value="7" min="0"/></label>
+<label>MAX cooldown (дней)<input name="max_cooldown_days" type="number" value="7" min="0"/></label>
+</div>
+<div class="helper"><strong>0 = отключить проверку</strong> — сообщения будут отправляться всем без ограничений.</div>
+<button class="btn btn-g">Сохранить настройки</button>
+</form>
+</div>
+<div class="tool">
+<h3>Проверить получателя</h3>
+<div class="method">POST /api/tool — tool: mailing_check_recipient</div>
+<form class="tf" data-t="mailing_check_recipient">
+<div class="params">
+<label>Платформа<select name="platform"><option value="max">MAX</option><option value="vk">VK</option><option value="telegram">Telegram</option></select></label>
+<label>ID получателя<input name="recipient_id" placeholder="123456789"/></label>
+</div>
+<button class="btn">Проверить</button>
+</form>
+</div>
+<div class="tool">
+<h3>История рассылок</h3>
+<div class="method">POST /api/tool — tool: mailing_history</div>
+<form class="tf" data-t="mailing_history">
+<div class="params">
+<label>Платформа (опционально)<select name="platform"><option value="">Все</option><option value="max">MAX</option><option value="vk">VK</option><option value="telegram">Telegram</option></select></label>
+<label>Лимит<input name="limit" type="number" value="100" min="1" max="500"/></label>
+</div>
+<button class="btn">Показать историю</button>
+</form>
+</div>
+</section>
+
+<div class="result-box" id="resultBox"><span class="empty">Результат появится здесь после выполнения запроса.</span></div>
+<div class="result-actions">
+<button class="btn" id="copyResultBtn">Копировать</button>
+<button class="btn" id="downloadResultBtn">Скачать JSON</button>
+</div>
+</main>
+</div>
+
+<script>
+const $$=(q,root=document)=>Array.from(root.querySelectorAll(q));
+const tk="sinergy_smm_session";
+function au(p){return(location.hostname==="localhost"||location.hostname==="127.0.0.1")?p:"/synergy.github.io/smm/api/index.php?route="+encodeURIComponent(p.replace(/^\/api\//,""))}
+async function ap(p,o={}){
+  const h={"Content-Type":"application/json"};
+  const t=localStorage.getItem(tk);
+  if(t)h.Authorization="Bearer "+t;
+  const r=await fetch(au(p),{...o,headers:h});
+  const tx=await r.text();
+  let d={};try{d=tx?JSON.parse(tx):{}}catch{d={raw:tx}}
+  if(!r.ok)throw new Error(d.detail||d.error||"ERR "+r.status);
+  return d;
+}
+function fv(f){
+  const v={};
+  new FormData(f).forEach((vl,k)=>{
+    const e=f.elements[k];
+    if(e?.dataset?.list!==undefined)v[k]=String(vl).split(/\r?\n|[;,]/).map(x=>x.trim()).filter(Boolean);
+    else if(e?.type==="checkbox")v[k]=e.checked;
+    else if(e?.type==="number"&&vl!=="")v[k]=Number(vl);
+    else if(vl!=="")v[k]=vl;
+  });
+  $$("input[type=checkbox]",f).forEach(fe=>v[fe.name]=fe.checked);
+  return v;
+}
+function showResult(data){
+  const box=document.getElementById("resultBox");
+  box.innerHTML="";
+  box.textContent=JSON.stringify(data,null,2);
+}
+$$(".tf").forEach(f=>f.addEventListener("submit",async e=>{
+  e.preventDefault();
+  const box=document.getElementById("resultBox");
+  box.innerHTML='<span class="empty">Загрузка...</span>';
+  try{
+    const d=await ap("/api/tool",{method:"POST",body:JSON.stringify({tool:f.dataset.t,params:fv(f)})});
+    showResult(d);
+    if(f.dataset.t==="max_save_token"||f.dataset.t==="max_check"){
+      const st=document.getElementById("max-status");
+      if(d.bot||d.ok){
+        st.style.display="block";
+        st.className="status-box";
+        st.innerHTML="<b>Подключено!</b> Бот: "+(d.bot?.name||d.bot?.username||"OK");
+      }
+    }
+  }catch(err){
+    showResult({error:err.message});
+    if(f.dataset.t==="max_save_token"||f.dataset.t==="max_check"){
+      const st=document.getElementById("max-status");
+      st.style.display="block";
+      st.className="status-box error";
+      st.innerHTML="<b>Ошибка:</b> "+err.message;
+    }
+  }
+}));
+document.getElementById("copyResultBtn")?.addEventListener("click",()=>{
+  const t=document.getElementById("resultBox").textContent;
+  navigator.clipboard.writeText(t).then(()=>{
+    document.getElementById("copyResultBtn").textContent="Скопировано!";
+    setTimeout(()=>document.getElementById("copyResultBtn").textContent="Копировать",1200);
+  });
+});
+document.getElementById("downloadResultBtn")?.addEventListener("click",()=>{
+  const c=document.getElementById("resultBox").textContent;
+  const b=new Blob([c],{type:"application/json"});
+  const u=URL.createObjectURL(b);
+  const a=document.createElement("a");
+  a.href=u;a.download="max_result.json";a.click();
+  URL.revokeObjectURL(u);
+});
+</script>
+<script defer src="/synergy.github.io/assets/synergy-premium.js"></script>
+<script defer src="/synergy.github.io/assets/synergy-premium-v88.js"></script><script defer src="/synergy.github.io/assets/synergy-atelier-v9.js"></script><script defer src="/synergy.github.io/assets/synergy-stability-v9.js"></script></body>
+</html>

@@ -1,0 +1,17 @@
+/* V9.3: Existing Workspaces becomes an operational control center, not a static link directory. */
+.s93-mission{position:relative;margin:16px 0 43px;padding:clamp(22px,3vw,37px);border:1px solid #437254;border-radius:23px;background:radial-gradient(ellipse at 95% 0,#164e2c99,transparent 50%),linear-gradient(135deg,#102417,#09120c);box-shadow:0 15px 65px #0005}
+.s93-mission:before{content:"";position:absolute;inset:0 0 auto;height:2px;background:linear-gradient(90deg,#00e664,#f2c15b,transparent);border-radius:23px 23px 0 0}
+.s93-heading{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}.s93-heading h2{font:800 clamp(22px,2.9vw,34px)/1.1 Manrope,sans-serif;letter-spacing:-.06em;margin:8px 0!important}.s93-heading p{font:12px/1.7 Manrope,sans-serif;max-width:690px;margin:0;color:#bed9c4}
+.s93-refresh{appearance:none;cursor:pointer;border:1px solid #5b8968;border-radius:10px;padding:11px 15px;background:#182f20;color:#eaffee;font:bold 11px Manrope,sans-serif}.s93-refresh:focus-visible{outline:2px solid #00e664;outline-offset:3px}
+.s93-status{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin:24px 0 17px}.s93-metric{background:#0a170f;border:1px solid #315842;border-radius:14px;padding:17px;min-width:0}.s93-metric small{display:block;color:#c2a879;letter-spacing:.1em;font:800 10px/1.5 ui-monospace,monospace}.s93-metric strong{display:block;color:#e8ffee;font:750 19px/1.3 Manrope,sans-serif;letter-spacing:-.035em;margin:10px 0}.s93-metric p{font:11px/1.6 Manrope,sans-serif;color:#9ebcaa;margin:0}.s93-metric[data-state="ok"]{border-color:#438c56}.s93-metric[data-state="off"]{border-color:#795737}.s93-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin:18px 0 0}.s93-actions a{border:1px solid #305b3b;background:#13281a;color:#defae5;text-decoration:none;font:750 12px/1.4 Manrope,sans-serif;padding:16px 17px;border-radius:11px;display:flex;justify-content:space-between;gap:11px;align-items:center}.s93-actions a:hover{border-color:#00e664;background:#1a3b25}.s93-actions a span{color:#00e664}.s93-note{color:#b0c6b8!important;font:12px/1.7 Manrope,sans-serif!important;margin:15px 0 0!important}
+@media(max-width:900px){.s93-status{grid-template-columns:repeat(2,minmax(0,1fr))}.s93-actions{grid-template-columns:1fr}}
+@media(max-width:480px){.s93-status{grid-template-columns:1fr}.s93-mission{padding:18px 14px;border-radius:16px}.s93-metric{padding:15px}.s93-heading h2{font-size:24px}}
+/* Move useful operational data into first fold instead of a giant marketing-only hero. */
+html[data-syn-app="smm"] .hero{padding:35px 0 25px!important}
+html[data-syn-app="smm"] .hero h1{font:800 clamp(38px,5.4vw,78px)/1.08 Manrope,system-ui,sans-serif!important;letter-spacing:-.065em!important;margin:16px 0!important}
+html[data-syn-app="smm"] .hero h1 i{font:italic 500 clamp(24px,3.3vw,43px)/1.25 'Instrument Serif',serif!important}
+html[data-syn-app="smm"] .hero .intro{font:400 13px/1.6 Manrope,system-ui,sans-serif!important}
+html[data-syn-app="smm"] .hero .pillrow{margin:16px 0!important}
+html[data-syn-app="smm"] .notice{margin:12px 0!important;padding:11px 17px!important}
+html[data-syn-app="smm"] .s93-mission{margin-top:14px!important}
+@media(max-width:760px){html[data-syn-app="smm"] .hero{padding:30px 0 18px!important}html[data-syn-app="smm"] .hero h1{font-size:clamp(35px,9.5vw,52px)!important}html[data-syn-app="smm"] .hero h1 i{font-size:clamp(20px,5.8vw,31px)!important}}
