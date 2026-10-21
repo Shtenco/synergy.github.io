@@ -20,6 +20,9 @@ MIGRATED = {
     "video/index.html": ("video-2026.css", "app.js", ["sidebar","shade","projectCount","projectGrid","createProject","saveDraft","stageList","sceneGrid","providerGrid"]),
     "advert/index.html": ("advert-2026.css", "app.js", ["mobileMenu","dataset","upload","audiences","plan","optimize","result"]),
     "market/index.html": ("market-2026.css", "app.js", ["sidebar","nav","productGrid","kanban","productModal","currencyGrid","ledgerRows","toast"]),
+    "investor-folio/index.html": ("folio-2026.css", "folio.js", ["connection","go-portfolio","go-optimize","login-form","portfolio-list","analyze-form","risk-report","market-output"]),
+    "broker-mesh/index.html": ("mesh-2026.css", "mesh.js", ["reload","live-status","provider-count","method-count","connected-count","cards","catalog","query"]),
+    "investor/index.html": ("investor-2026.css", "app.js", ["menu","connect","headPrice","priceUsd","liquidity","volume","portfolioEmpty","toast"]),
 }
 class Parse(HTMLParser):
     def __init__(self):
