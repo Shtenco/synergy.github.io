@@ -28,6 +28,11 @@ MIGRATED = {
     "smm/lead-radar.html": ("smm26-workspace.css", "workspace-pro.js", ["auth-status","login-area","auth-form","radar-form","radar-results","queries-form","bm25-form"]),
     "smm/ai-studio.html": ("smm26-workspace.css", "workspace-pro.js", ["auth-status","login-area","auth-form","ai-form","ai-results","competitor-form","timing-form"]),
     "smm/caseflow.html": ("smm26-workspace.css", "caseflow.js", ["api-state","auth-panel","login-form","intake-form","case-list","detail-panel","review-form","draft-form","audit-log"]),
+    "smm/parsing.html": ("smm26-data.css", "p13-parsing.js", ["content","auth-indicator","feedback","login-needed","workspace","import-form","audience-list","compare-form"]),
+    "smm/engagement.html": ("smm26-data.css", "p13-engagement.js", ["content","auth-indicator","feedback","workspace","inbox-list","pub-preview-form","pub-confirm-form"]),
+    "smm/audiences-team.html": ("smm26-data.css", "audiences-team.js", ["content","auth-indicator","cohort-form","cohort-list","compare-form","compare-result"]),
+    "smm/caseflow-team.html": ("smm26-data.css", "caseflow-team.js", ["content","api-health","login-form","bootstrap-form","workspace","intake-form","cases-list","consent-form","draft-form"]),
+    "smm/jobs.html": ("smm26-jobs.css", "jobs.js", ["auth-status","login-form","v7-form","tg-form","vk-form","refresh-jobs","job-rows"]),
 }
 class Parse(HTMLParser):
     def __init__(self):
