@@ -49,7 +49,7 @@ with sync_playwright() as p:
     return {forms:forms.length,unique:uniques.size,buttons:buttons.length,unnamed,failures,searchResults:found.length};
   }""")
   result["viewport"]=label;result["jsErrors"]=js
-  if(js)errors.append({"viewport":label,"js":js[:10]})
+  if js: errors.append({"viewport":label,"js":js[:10]})
   if(result["failures"])errors.append({"viewport":label,"issues":result["failures"][:35]})
   checks.append(result)
   page.screenshot(path=str(OUT/("cabinet-methods-"+label+".png")),full_page=False,animations="disabled")
