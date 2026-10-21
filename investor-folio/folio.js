@@ -16,7 +16,7 @@ async function api(path,options={}){
  return data;
 }
 const send=(path,value)=>api(path,{method:'POST',body:JSON.stringify(value)});
-function tab(name){clearFlash();document.querySelectorAll('.navitem').forEach(n=>{n.classList.toggle('active',n.dataset.tab===name);n.setAttribute('aria-current',n.dataset.tab===name?'page':'false')});document.querySelectorAll('.screen').forEach(n=>n.classList.toggle('active',n.dataset.screen===name));if(innerWidth<1050)document.querySelector('.workspace').scrollIntoView({block:'start',behavior:'smooth'});}
+function tab(name){clearFlash();document.querySelectorAll('.navitem').forEach(n=>{n.classList.toggle('active',n.dataset.tab===name);n.setAttribute('aria-selected',String(n.dataset.tab===name));n.setAttribute('aria-current',n.dataset.tab===name?'page':'false')});document.querySelectorAll('.screen').forEach(n=>n.classList.toggle('active',n.dataset.screen===name));if(innerWidth<1050)document.querySelector('.workspace').scrollIntoView({block:'start',behavior:'smooth'});}
 document.querySelectorAll('.navitem').forEach(el=>el.addEventListener('click',()=>tab(el.dataset.tab)));
 $('go-portfolio').addEventListener('click',()=>tab('portfolios'));
 $('go-optimize').addEventListener('click',()=>tab('markowitz'));
