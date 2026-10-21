@@ -21,7 +21,10 @@ const services=[
 ['16','AI MARKET','Маркетплейс и коммерческая аналитика','ai','/synergy.github.io/market/','LEGACY API','⌁'],
 ['17','BUSINESS OPERATING SYSTEM','Продукты, бизнес-процессы и партнёры','ai','/mvp.html','SITE','↗'],
 ['18','NEXUS CONTROL PLANE','Репозитории GitHub, Gemini AI, Cloud Run','system','/synergy.github.io/nexus/','INTEGRATIONS','⌘'],
-['19','AI ARCHIVER','Сжатие и восстановление пользовательских данных','system','/archiver.html','CLIENT APP','▧']
+['19','AI ARCHIVER','Сжатие и восстановление пользовательских данных','system','/archiver.html','CLIENT APP','▧'],
+['23','AI AVITO','Управление объявлениями, обращениями, AI-ответами и CRM','ai','/synergy.github.io/avito/','AVITO / WORKSPACE','✳'],
+['24','AI META-API-MCP','API и MCP discovery, политики и безопасное исполнение','system','/synergy.github.io/meta-api/','API + MCP','⌘'],
+['25','AI WORKSPACE','Единый центр задач, агентов, разрешений и результатов','system','/synergy.github.io/workspace/','DESKTOP / CONTROL','▦']
 ];
 const el=(tag,cls,txt)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(txt!==undefined)e.textContent=txt;return e};let group='all';const target=document.querySelector('#cards'),search=document.querySelector('#search');
 function update(){const q=search.value.toLocaleLowerCase('ru').trim();target.replaceChildren();let count=0;for(const [n,name,description,category,href,kind,symbol] of services){if(group!=='all'&&category!==group)continue;if(q && !(name+' '+description+' '+category).toLocaleLowerCase('ru').includes(q))continue;count++;const card=el('a','card');card.href=href.startsWith('/synergy.github.io/')?'../'+href.slice('/synergy.github.io/'.length):href.startsWith('/')?'..'+href:href;const head=el('div','card-head');head.append(el('small','',n+' / '+category.toUpperCase()),el('span','symbol',symbol));const nameEl=el('h3','',name);const desc=el('p','',description);const foot=el('div','card-foot');foot.append(el('span','flag',kind),el('span','arrow','↗'));card.append(head,nameEl,desc,foot);target.append(card)}document.querySelector('#match-count').textContent=count+' сервисов';if(!count){target.append(el('p','empty','Ничего не найдено. Измени запрос.'))}}

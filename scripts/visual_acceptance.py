@@ -20,6 +20,7 @@ PAGES=[
  "smm/threads.html","smm/ok.html","smm/tiktok.html","smm/signal.html","smm/zen.html",
  "smm/cabinet.html",
  "mvp.html","nexus/index.html","archiver.html","ecosystem/architecture.html",
+ "avito/index.html","meta-api/index.html","workspace/index.html",
 ]
 VIEWS=[("desktop",1440,900),("tablet",768,1024),("mobile",390,844)]
 OUT=ROOT/"visual-acceptance-results";OUT.mkdir(exist_ok=True)

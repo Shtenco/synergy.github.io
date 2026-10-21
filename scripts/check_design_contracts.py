@@ -45,6 +45,9 @@ MIGRATED = {
     "smm/tiktok.html": ("smm26-platform.css", None, ["tiktok-about","resultBox","copyResultBtn"]),
     "smm/signal.html": ("smm26-platform.css", None, ["signal-about","resultBox","copyResultBtn"]),
     "smm/zen.html": ("smm26-platform.css", None, ["zen-check","resultBox","copyResultBtn"]),
+    "avito/index.html": ("synergy-platform-26.css", "synergy-product-workflow.js", ["task-search","task-filter","task-results","task-detail","capabilities","workflow","workbench","links"]),
+    "meta-api/index.html": ("synergy-platform-26.css", "synergy-product-workflow.js", ["task-search","task-filter","task-results","task-detail","capabilities","workflow","workbench","links"]),
+    "workspace/index.html": ("synergy-platform-26.css", "synergy-product-workflow.js", ["task-search","task-filter","task-results","task-detail","capabilities","workflow","workbench","links"]),
     "smm/cabinet.html": ("smm-cabinet-simple.css", "smm-cabinet-simple.js", ["navUserBlock","sideNav","sideSearch","dashboard","loginForm","ai-chat","aiChatInput","aiChatSend"]),
 }
 class Parse(HTMLParser):
