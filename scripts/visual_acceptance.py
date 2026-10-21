@@ -16,6 +16,9 @@ PAGES=[
  "smm/engagement.html","smm/jobs.html","smm/audiences-team.html",
  "smm/caseflow-team.html","investor/index.html","investor-folio/index.html",
  "broker-mesh/index.html","smm/p14.html",
+ "smm/vk.html","smm/telegram.html","smm/instagram.html","smm/max.html",
+ "smm/threads.html","smm/ok.html","smm/tiktok.html","smm/signal.html","smm/zen.html",
+ "smm/cabinet.html",
 ]
 VIEWS=[("desktop",1440,900),("tablet",768,1024),("mobile",390,844)]
 OUT=ROOT/"visual-acceptance-results";OUT.mkdir(exist_ok=True)

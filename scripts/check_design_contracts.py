@@ -33,6 +33,16 @@ MIGRATED = {
     "smm/audiences-team.html": ("smm26-data.css", "audiences-team.js", ["content","auth-indicator","cohort-form","cohort-list","compare-form","compare-result"]),
     "smm/caseflow-team.html": ("smm26-data.css", "caseflow-team.js", ["content","api-health","login-form","bootstrap-form","workspace","intake-form","cases-list","consent-form","draft-form"]),
     "smm/jobs.html": ("smm26-jobs.css", "jobs.js", ["auth-status","login-form","v7-form","tg-form","vk-form","refresh-jobs","job-rows"]),
+    "smm/vk.html": ("smm26-platform.css", None, ["vk-check","resultBox","copyResultBtn"]),
+    "smm/telegram.html": ("smm26-platform.css", None, ["tg-check","resultBox","copyResultBtn"]),
+    "smm/instagram.html": ("smm26-platform.css", None, ["meta-check","resultBox","copyResultBtn"]),
+    "smm/max.html": ("smm26-platform.css", None, ["max-connect","resultBox","copyResultBtn"]),
+    "smm/threads.html": ("smm26-platform.css", None, ["threads-about","resultBox","copyResultBtn"]),
+    "smm/ok.html": ("smm26-platform.css", None, ["ok-check","resultBox","copyResultBtn"]),
+    "smm/tiktok.html": ("smm26-platform.css", None, ["tiktok-about","resultBox","copyResultBtn"]),
+    "smm/signal.html": ("smm26-platform.css", None, ["signal-about","resultBox","copyResultBtn"]),
+    "smm/zen.html": ("smm26-platform.css", None, ["zen-check","resultBox","copyResultBtn"]),
+    "smm/cabinet.html": ("smm26-cabinet.css", None, ["navUserBlock","sideNav","sideSearch","dashboard","loginForm","ai-chat","aiChatInput","aiChatSend"]),
 }
 class Parse(HTMLParser):
     def __init__(self):
