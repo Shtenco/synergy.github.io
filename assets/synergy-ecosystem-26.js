@@ -1,0 +1,4 @@
+(()=>{'use strict';
+document.querySelectorAll('[data-sx-menu]').forEach(b=>b.addEventListener('click',()=>{const n=document.getElementById(b.getAttribute('aria-controls'));if(n){const show=!n.classList.contains('open');n.classList.toggle('open',show);b.setAttribute('aria-expanded',String(show))}}));
+const form=document.getElementById('business-brief');if(form)form.addEventListener('submit',e=>{e.preventDefault();const v=new FormData(form);const text=['SYNERGY — бриф проекта','','Направление: '+v.get('industry'),'Задача: '+v.get('goal'),'Описание: '+v.get('challenge')].join('\n');const blob=new Blob([text],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='synergy-business-brief.txt';a.click();URL.revokeObjectURL(url);document.getElementById('brief-status').textContent='Бриф подготовлен и сохранён на вашем устройстве. Данные не отправлены на сервер.'});
+})();
