@@ -1,0 +1,5607 @@
+{
+  "generated_for_commit": "b17b33c7",
+  "total_forms": 144,
+  "named_methods": 140,
+  "verified_scope": "Static HTML contract inventory only",
+  "methods": [
+    {
+      "number": 1,
+      "method": null,
+      "form_id": "loginForm",
+      "section": null,
+      "platform": "SYNERGY",
+      "inputs": [
+        {
+          "name": "login",
+          "type": "input",
+          "required": true
+        },
+        {
+          "name": "password",
+          "type": "password",
+          "required": true
+        },
+        {
+          "name": "license_key",
+          "type": "input",
+          "required": true
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Войти в кабинет →"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 2,
+      "method": null,
+      "form_id": "registerForm",
+      "section": null,
+      "platform": "SYNERGY",
+      "inputs": [
+        {
+          "name": "website",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "fingerprint",
+          "type": "hidden",
+          "required": false
+        },
+        {
+          "name": "login",
+          "type": "input",
+          "required": true
+        },
+        {
+          "name": "email",
+          "type": "email",
+          "required": true
+        },
+        {
+          "name": "password",
+          "type": "password",
+          "required": true
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Получить ключ на 7 дней →"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 3,
+      "method": "crosspost_publish",
+      "form_id": "crosspostForm",
+      "section": "crosspost",
+      "platform": "SYNERGY",
+      "inputs": [
+        {
+          "name": "content_type",
+          "type": "select",
+          "required": false
+        },
+        {
+          "name": "title",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "body",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "photo_url",
+          "type": "url",
+          "required": false
+        },
+        {
+          "name": null,
+          "type": "file",
+          "required": false
+        },
+        {
+          "name": "photo_data",
+          "type": "hidden",
+          "required": false
+        },
+        {
+          "name": "platform_vk",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "platform_telegram",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "platform_instagram",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "platform_facebook",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "platform_ok",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": null,
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "vk_owner_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "telegram_channel",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "telegram_business_connection_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "ok_group_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "dry_run",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "confirm_publish",
+          "type": "checkbox",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Опубликовать / проверить"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 4,
+      "method": "youtube_oauth_url",
+      "form_id": null,
+      "section": "youtube",
+      "platform": "YouTube",
+      "inputs": [],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Получить защищённую OAuth-ссылку"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 5,
+      "method": "youtube_competitor_collect",
+      "form_id": null,
+      "section": "youtube",
+      "platform": "YouTube",
+      "inputs": [
+        {
+          "name": "channels",
+          "type": "textarea",
+          "required": true
+        },
+        {
+          "name": "videos_per_channel",
+          "type": "number",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Собрать последние видео"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 6,
+      "method": "youtube_ai_comment",
+      "form_id": null,
+      "section": "youtube",
+      "platform": "YouTube",
+      "inputs": [
+        {
+          "name": "context",
+          "type": "textarea",
+          "required": true
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Подготовить через OLGA"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 7,
+      "method": "youtube_comment",
+      "form_id": null,
+      "section": "youtube",
+      "platform": "YouTube",
+      "inputs": [
+        {
+          "name": "video_id",
+          "type": "input",
+          "required": true
+        },
+        {
+          "name": "text",
+          "type": "textarea",
+          "required": true
+        },
+        {
+          "name": "confirm",
+          "type": "checkbox",
+          "required": true
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Опубликовать"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 8,
+      "method": "youtube_reply",
+      "form_id": null,
+      "section": "youtube",
+      "platform": "YouTube",
+      "inputs": [
+        {
+          "name": "parent_id",
+          "type": "input",
+          "required": true
+        },
+        {
+          "name": "text",
+          "type": "textarea",
+          "required": true
+        },
+        {
+          "name": "confirm",
+          "type": "checkbox",
+          "required": true
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Ответить"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 9,
+      "method": "hot_lead_vk_scan",
+      "form_id": null,
+      "section": "hot-lead-radar",
+      "platform": "SYNERGY",
+      "inputs": [
+        {
+          "name": "audience_ids",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "audience_file",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "audience_upload",
+          "type": "file",
+          "required": false
+        },
+        {
+          "name": "keywords",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "days",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "posts_per_account",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "max_accounts",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "profile_match",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "scan_comments",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "scan_feed",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "output_file",
+          "type": "hidden",
+          "required": false
+        },
+        {
+          "name": "delay_min",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "delay_max",
+          "type": "number",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Запустить Hot Lead Radar"
+        },
+        {
+          "id": null,
+          "type": "button",
+          "text": "⬇ Скачать лиды"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 10,
+      "method": "hot_lead_score",
+      "form_id": null,
+      "section": "hot-lead-radar",
+      "platform": "SYNERGY",
+      "inputs": [
+        {
+          "name": "text",
+          "type": "textarea",
+          "required": true
+        },
+        {
+          "name": "occurred_at",
+          "type": "datetime-local",
+          "required": false
+        },
+        {
+          "name": "profile_match",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "activity",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "contactability",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "inbound_message",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "self_promotion",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "job_seeker",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "wrong_region",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "suspicious",
+          "type": "checkbox",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Рассчитать температуру"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 11,
+      "method": "hot_lead_ingest",
+      "form_id": null,
+      "section": "hot-lead-radar",
+      "platform": "SYNERGY",
+      "inputs": [
+        {
+          "name": "platform",
+          "type": "select",
+          "required": false
+        },
+        {
+          "name": "author_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "author_name",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "product",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "source_url",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "profile_match",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "activity",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "contactability",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "text",
+          "type": "textarea",
+          "required": true
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Оценить и сохранить"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 12,
+      "method": "hot_lead_list",
+      "form_id": null,
+      "section": "hot-lead-radar",
+      "platform": "SYNERGY",
+      "inputs": [
+        {
+          "name": "min_score",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "limit",
+          "type": "number",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Показать лиды"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 13,
+      "method": "vk_lead_autoresponse",
+      "form_id": null,
+      "section": "vk-crm-growth",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "model_baseUrl",
+          "type": "input",
+          "required": true
+        },
+        {
+          "name": "model_model",
+          "type": "input",
+          "required": true
+        },
+        {
+          "name": "model_apiKey",
+          "type": "password",
+          "required": false
+        },
+        {
+          "name": "lead_text",
+          "type": "textarea",
+          "required": true
+        },
+        {
+          "name": "lead_category",
+          "type": "select",
+          "required": false
+        },
+        {
+          "name": "offer",
+          "type": "input",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Составить сообщение"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 14,
+      "method": "vk_competitor_intel",
+      "form_id": null,
+      "section": "vk-crm-growth",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "my_group_id",
+          "type": "input",
+          "required": true
+        },
+        {
+          "name": "competitor_group_ids",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "posts",
+          "type": "number",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Сравнить"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 15,
+      "method": "vk_sentiment_watch",
+      "form_id": null,
+      "section": "vk-crm-growth",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "owner_id",
+          "type": "input",
+          "required": true
+        },
+        {
+          "name": "posts",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "crisis_threshold",
+          "type": "number",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Проверить тональность"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 16,
+      "method": "vk_audience_churn",
+      "form_id": null,
+      "section": "vk-crm-growth",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "old_snapshot",
+          "type": "textarea",
+          "required": true
+        },
+        {
+          "name": "new_snapshot",
+          "type": "textarea",
+          "required": true
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Сравнить снимки"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 17,
+      "method": "vk_crm_add_lead",
+      "form_id": null,
+      "section": "vk-crm-growth",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "source",
+          "type": "input",
+          "required": true
+        },
+        {
+          "name": "author_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "category",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "link",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "snippet",
+          "type": "textarea",
+          "required": true
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Добавить в CRM"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 18,
+      "method": "vk_crm_update_lead",
+      "form_id": null,
+      "section": "vk-crm-growth",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "id",
+          "type": "input",
+          "required": true
+        },
+        {
+          "name": "status",
+          "type": "select",
+          "required": false
+        },
+        {
+          "name": "note",
+          "type": "input",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Обновить"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 19,
+      "method": "vk_crm_list_leads",
+      "form_id": null,
+      "section": "vk-crm-growth",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "status",
+          "type": "select",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Показать лиды"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 20,
+      "method": "vk_crm_funnel_report",
+      "form_id": null,
+      "section": "vk-crm-growth",
+      "platform": "VK",
+      "inputs": [],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Показать воронку"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 21,
+      "method": "vk_merge_cross_platform_audience",
+      "form_id": null,
+      "section": "vk-crm-growth",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "vk_audience",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "telegram_audience",
+          "type": "textarea",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Объединить"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 22,
+      "method": "inbox_capture",
+      "form_id": null,
+      "section": "unified-inbox",
+      "platform": "SYNERGY",
+      "inputs": [
+        {
+          "name": "platform",
+          "type": "select",
+          "required": false
+        },
+        {
+          "name": "author_name",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "author_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "product",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "city",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "budget",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "deadline",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "sla_minutes",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "manager",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "message",
+          "type": "textarea",
+          "required": true
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Создать карточку"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 23,
+      "method": "inbox_list",
+      "form_id": null,
+      "section": "unified-inbox",
+      "platform": "SYNERGY",
+      "inputs": [
+        {
+          "name": "status",
+          "type": "select",
+          "required": false
+        },
+        {
+          "name": "limit",
+          "type": "number",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Открыть Inbox"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 24,
+      "method": "inbox_update",
+      "form_id": null,
+      "section": "unified-inbox",
+      "platform": "SYNERGY",
+      "inputs": [
+        {
+          "name": "id",
+          "type": "input",
+          "required": true
+        },
+        {
+          "name": "status",
+          "type": "select",
+          "required": false
+        },
+        {
+          "name": "manager",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "internal_note",
+          "type": "input",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Сохранить"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 25,
+      "method": "generate_content",
+      "form_id": null,
+      "section": "autopilot",
+      "platform": "SYNERGY",
+      "inputs": [
+        {
+          "name": "platform",
+          "type": "select",
+          "required": false
+        },
+        {
+          "name": "count",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "topic",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "style",
+          "type": "input",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Сгенерировать"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 26,
+      "method": "ai_autopilot",
+      "form_id": null,
+      "section": "autopilot",
+      "platform": "SYNERGY",
+      "inputs": [
+        {
+          "name": "goal",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "platforms",
+          "type": "input",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Составить план"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 27,
+      "method": "vk_content_from_insights",
+      "form_id": null,
+      "section": "vk-content-virality",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "model_baseUrl",
+          "type": "input",
+          "required": true
+        },
+        {
+          "name": "model_model",
+          "type": "input",
+          "required": true
+        },
+        {
+          "name": "model_apiKey",
+          "type": "password",
+          "required": false
+        },
+        {
+          "name": "count",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "top_keywords",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "top_hashtags",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "best_hours",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "best_weekdays",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "topic",
+          "type": "input",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Сгенерировать посты"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 28,
+      "method": "vk_predict_virality",
+      "form_id": null,
+      "section": "vk-content-virality",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "draft_text",
+          "type": "textarea",
+          "required": true
+        },
+        {
+          "name": "top_keywords",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "best_hours",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "planned_hour",
+          "type": "number",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Оценить виральность"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 29,
+      "method": "vk_content_calendar",
+      "form_id": null,
+      "section": "vk-content-virality",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "best_hours",
+          "type": "textarea",
+          "required": true
+        },
+        {
+          "name": "best_weekdays",
+          "type": "textarea",
+          "required": true
+        },
+        {
+          "name": "top_keywords",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "weeks",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "slots_per_week",
+          "type": "number",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Составить календарь"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 30,
+      "method": "vk_competitor_posts_ai",
+      "form_id": null,
+      "section": "olga-content-intelligence",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "profile_url",
+          "type": "url",
+          "required": true
+        },
+        {
+          "name": "posts_count",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "top_count",
+          "type": "number",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Загрузить и проанализировать"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 31,
+      "method": "vk_viral_search_ai",
+      "form_id": null,
+      "section": "olga-content-intelligence",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "keywords",
+          "type": "input",
+          "required": true
+        },
+        {
+          "name": "posts_count",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "top_count",
+          "type": "number",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Найти вирусные публикации"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 32,
+      "method": "ai_post_improve",
+      "form_id": null,
+      "section": "olga-content-intelligence",
+      "platform": "SYNERGY",
+      "inputs": [
+        {
+          "name": "text",
+          "type": "textarea",
+          "required": true
+        },
+        {
+          "name": "mode",
+          "type": "select",
+          "required": false
+        },
+        {
+          "name": "platform",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "goal",
+          "type": "input",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Улучшить через OLGA"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 33,
+      "method": "ai_post_series",
+      "form_id": null,
+      "section": "olga-content-intelligence",
+      "platform": "SYNERGY",
+      "inputs": [
+        {
+          "name": "topic",
+          "type": "input",
+          "required": true
+        },
+        {
+          "name": "count",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "format",
+          "type": "select",
+          "required": false
+        },
+        {
+          "name": "audience",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "goal",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "platform",
+          "type": "input",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Создать серию"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 34,
+      "method": "vk_search_groups",
+      "form_id": null,
+      "section": "vk-parse",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "keywords",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "max_groups",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "min_members",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "output_file",
+          "type": "hidden",
+          "required": false
+        },
+        {
+          "name": "delay_min",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "delay_max",
+          "type": "number",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Найти группы"
+        },
+        {
+          "id": null,
+          "type": "button",
+          "text": "⬇ Скачать"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 35,
+      "method": "vk_collect_users",
+      "form_id": null,
+      "section": "vk-parse",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "group_ids",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "limit",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "output_file",
+          "type": "hidden",
+          "required": false
+        },
+        {
+          "name": "delay_min",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "delay_max",
+          "type": "number",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Собрать аудиторию"
+        },
+        {
+          "id": null,
+          "type": "button",
+          "text": "⬇ Скачать JSON"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 36,
+      "method": "vk_analyze_activity",
+      "form_id": null,
+      "section": "vk-parse",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "group_ids",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "posts_count",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "days",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "min_likes",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "min_comments",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "min_groups",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "output_format",
+          "type": "select",
+          "required": false
+        },
+        {
+          "name": "output_file",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "stats_file",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "delay_min",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "delay_max",
+          "type": "number",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Найти активных"
+        },
+        {
+          "id": null,
+          "type": "button",
+          "text": "⬇ Список"
+        },
+        {
+          "id": null,
+          "type": "button",
+          "text": "⬇ Статистика JSON"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 37,
+      "method": "vk_audience_intersection",
+      "form_id": null,
+      "section": "vk-parse",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "group_ids",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "files",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "min_groups",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "output_format",
+          "type": "select",
+          "required": false
+        },
+        {
+          "name": "output_file",
+          "type": "hidden",
+          "required": false
+        },
+        {
+          "name": "stats_file",
+          "type": "hidden",
+          "required": false
+        },
+        {
+          "name": "members_file",
+          "type": "hidden",
+          "required": false
+        },
+        {
+          "name": "delay_min",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "delay_max",
+          "type": "number",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Найти пересечение"
+        },
+        {
+          "id": null,
+          "type": "button",
+          "text": "⬇ Пересечение"
+        },
+        {
+          "id": null,
+          "type": "button",
+          "text": "⬇ Все участники"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 38,
+      "method": "vk_parse_filter",
+      "form_id": null,
+      "section": "vk-parse",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "stats_file",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "min_likes",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "min_comments",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "min_groups",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "output_format",
+          "type": "select",
+          "required": false
+        },
+        {
+          "name": "output_file",
+          "type": "input",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Применить фильтр"
+        },
+        {
+          "id": null,
+          "type": "button",
+          "text": "⬇ Скачать"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 39,
+      "method": "vk_birthday_today",
+      "form_id": null,
+      "section": "vk-parse",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "audience_ids",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "audience_file",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "audience_upload",
+          "type": "file",
+          "required": false
+        },
+        {
+          "name": "timezone",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "output_format",
+          "type": "select",
+          "required": false
+        },
+        {
+          "name": "output_file",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "details_file",
+          "type": "hidden",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Найти именинников"
+        },
+        {
+          "id": null,
+          "type": "button",
+          "text": "⬇ Список"
+        },
+        {
+          "id": null,
+          "type": "button",
+          "text": "⬇ JSON с именами"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 40,
+      "method": "vk_stories_view_like",
+      "form_id": null,
+      "section": "vk-stories",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "owner_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "limit",
+          "type": "number",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Найти сторис"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 41,
+      "method": "vk_stories_bulk",
+      "form_id": null,
+      "section": "vk-stories",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "owner_ids",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": null,
+          "type": "file",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Найти и подготовить ссылки"
+        }
+      ],
+      "risk": "elevated",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 42,
+      "method": "vk_mailing",
+      "form_id": null,
+      "section": "vk-mailing",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "message",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "recipients",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": null,
+          "type": "file",
+          "required": false
+        },
+        {
+          "name": "limit",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "delay_min",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "delay_max",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "owner_confirm",
+          "type": "checkbox",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Запустить рассылку"
+        }
+      ],
+      "risk": "elevated",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 43,
+      "method": "vk_dialog_actions",
+      "form_id": null,
+      "section": "vk-dialog-actions",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "dialog_count",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "dialog_offset",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "max_actions",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "like_posts",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "like_photos",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "view_stories",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "like_stories",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "add_friend",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "send_message",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "post_from",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "post_to",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "photo_from",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "photo_to",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "message",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "delay_min",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "delay_max",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "dry_run",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "owner_confirm",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "output_file",
+          "type": "hidden",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Запустить обработку диалогов"
+        },
+        {
+          "id": null,
+          "type": "button",
+          "text": "⬇ Отчёт JSON"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 44,
+      "method": "vk_base_actions",
+      "form_id": null,
+      "section": "vk-base-actions",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "audience_ids",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": null,
+          "type": "file",
+          "required": false
+        },
+        {
+          "name": "audience_file",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "user_limit",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "max_actions",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "like_posts",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "like_photos",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "view_stories",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "like_stories",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "add_friend",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "send_message",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "post_from",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "post_to",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "photo_from",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "photo_to",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "message",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "delay_min",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "delay_max",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "dry_run",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "owner_confirm",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "output_file",
+          "type": "hidden",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Запустить действия по базе"
+        },
+        {
+          "id": null,
+          "type": "button",
+          "text": "⬇ Отчёт JSON"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 45,
+      "method": "vk_chat_search",
+      "form_id": null,
+      "section": "vk-chat-invite",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "query",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "count",
+          "type": "number",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Найти беседы"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 46,
+      "method": "vk_chat_create",
+      "form_id": null,
+      "section": "vk-chat-invite",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "title",
+          "type": "input",
+          "required": true
+        },
+        {
+          "name": "user_ids",
+          "type": "textarea",
+          "required": true
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Создать беседу"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 47,
+      "method": "vk_chat_invite",
+      "form_id": null,
+      "section": "vk-chat-invite",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "source_mode",
+          "type": "select",
+          "required": false
+        },
+        {
+          "name": "source_chat_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "target_chat_id",
+          "type": "input",
+          "required": true
+        },
+        {
+          "name": "invite_limit",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "audience_ids",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": null,
+          "type": "file",
+          "required": false
+        },
+        {
+          "name": "audience_file",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "delay_min",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "delay_max",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "dry_run",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "owner_confirm",
+          "type": "checkbox",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Подготовить / запустить инвайтинг"
+        }
+      ],
+      "risk": "elevated",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 48,
+      "method": "vk_post_wall",
+      "form_id": null,
+      "section": "vk-post",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "owner_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "message",
+          "type": "textarea",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Опубликовать"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 49,
+      "method": "vk_group_info",
+      "form_id": null,
+      "section": "vk-manage",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "group_id",
+          "type": "input",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Получить информацию"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 50,
+      "method": "vk_group_create",
+      "form_id": null,
+      "section": "vk-manage",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "title",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "description",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "select",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Создать сообщество"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 51,
+      "method": "vk_group_edit",
+      "form_id": null,
+      "section": "vk-manage",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "group_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "title",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "screen_name",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "website",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "description",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "access",
+          "type": "select",
+          "required": false
+        },
+        {
+          "name": "wall",
+          "type": "select",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Сохранить изменения"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 52,
+      "method": "vk_group_join",
+      "form_id": null,
+      "section": "vk-manage",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "group_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "not_sure",
+          "type": "checkbox",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Вступить"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 53,
+      "method": "vk_group_leave",
+      "form_id": null,
+      "section": "vk-manage",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "group_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "confirm",
+          "type": "checkbox",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Покинуть группу"
+        }
+      ],
+      "risk": "elevated",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 54,
+      "method": "vk_group_invite",
+      "form_id": null,
+      "section": "vk-manage",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "group_id",
+          "type": "input",
+          "required": true
+        },
+        {
+          "name": "user_ids",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "limit",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "confirm",
+          "type": "checkbox",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Проверить и подготовить список"
+        }
+      ],
+      "risk": "elevated",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 55,
+      "method": "vk_group_get_requests",
+      "form_id": null,
+      "section": "vk-manage",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "group_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "count",
+          "type": "number",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Загрузить заявки"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 56,
+      "method": "vk_group_approve_request",
+      "form_id": null,
+      "section": "vk-manage",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "group_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "user_id",
+          "type": "input",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Одобрить заявку"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 57,
+      "method": "vk_group_edit_manager",
+      "form_id": null,
+      "section": "vk-manage",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "group_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "user_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "role",
+          "type": "select",
+          "required": false
+        },
+        {
+          "name": "contact_position",
+          "type": "input",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Назначить"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 58,
+      "method": "vk_group_ban",
+      "form_id": null,
+      "section": "vk-manage",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "group_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "owner_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "reason",
+          "type": "select",
+          "required": false
+        },
+        {
+          "name": "comment",
+          "type": "input",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Заблокировать"
+        }
+      ],
+      "risk": "elevated",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 59,
+      "method": "vk_group_unban",
+      "form_id": null,
+      "section": "vk-manage",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "group_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "owner_id",
+          "type": "input",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Разблокировать"
+        }
+      ],
+      "risk": "elevated",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 60,
+      "method": "vk_group_get_banned",
+      "form_id": null,
+      "section": "vk-manage",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "group_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "count",
+          "type": "number",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Загрузить список"
+        }
+      ],
+      "risk": "elevated",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 61,
+      "method": "vk_group_remove_user",
+      "form_id": null,
+      "section": "vk-manage",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "group_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "user_id",
+          "type": "input",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Исключить"
+        }
+      ],
+      "risk": "elevated",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 62,
+      "method": "vk_group_online",
+      "form_id": null,
+      "section": "vk-manage",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "group_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "enable",
+          "type": "checkbox",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Применить"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 63,
+      "method": "vk_wall_pin",
+      "form_id": null,
+      "section": "vk-manage",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "owner_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "post_id",
+          "type": "input",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "📌 Закрепить"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 64,
+      "method": "vk_wall_unpin",
+      "form_id": null,
+      "section": "vk-manage",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "owner_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "post_id",
+          "type": "input",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "📌 Открепить"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 65,
+      "method": "vk_wall_edit",
+      "form_id": null,
+      "section": "vk-manage",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "owner_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "post_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "message",
+          "type": "textarea",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Обновить пост"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 66,
+      "method": "vk_wall_delete",
+      "form_id": null,
+      "section": "vk-manage",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "owner_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "post_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "confirm",
+          "type": "checkbox",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Удалить пост"
+        }
+      ],
+      "risk": "elevated",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 67,
+      "method": "vk_wall_comment",
+      "form_id": null,
+      "section": "vk-manage",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "owner_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "post_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "message",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "from_group",
+          "type": "checkbox",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Добавить комментарий"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 68,
+      "method": "vk_friends_graph",
+      "form_id": null,
+      "section": "vk-targeting",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "depth",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "group_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "fof_sample",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "limit",
+          "type": "number",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Построить граф аудитории"
+        },
+        {
+          "id": null,
+          "type": "button",
+          "text": "⬇ Скачать JSON"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 69,
+      "method": "vk_newsfeed_search",
+      "form_id": null,
+      "section": "vk-targeting",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "query",
+          "type": "input",
+          "required": true
+        },
+        {
+          "name": "count",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "days",
+          "type": "number",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Искать по ленте"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 70,
+      "method": "vk_leads_search",
+      "form_id": null,
+      "section": "vk-targeting",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "keywords",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "group_ids",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "days",
+          "type": "number",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Найти лиды"
+        },
+        {
+          "id": null,
+          "type": "button",
+          "text": "⬇ Скачать JSON"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 71,
+      "method": "vk_search_groups_scored",
+      "form_id": null,
+      "section": "vk-targeting",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "keywords",
+          "type": "textarea",
+          "required": true
+        },
+        {
+          "name": "max_groups",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "min_members",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "open_wall_only",
+          "type": "checkbox",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Найти и оценить группы"
+        },
+        {
+          "id": null,
+          "type": "button",
+          "text": "⬇ Скачать JSON"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 72,
+      "method": "vk_post_to_groups",
+      "form_id": null,
+      "section": "vk-targeting",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "group_ids",
+          "type": "textarea",
+          "required": true
+        },
+        {
+          "name": "message",
+          "type": "textarea",
+          "required": true
+        },
+        {
+          "name": "from_group",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "dry_run",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "confirm",
+          "type": "checkbox",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Опубликовать в группы"
+        }
+      ],
+      "risk": "elevated",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 73,
+      "method": "vk_post_analytics",
+      "form_id": null,
+      "section": "vk-post-analytics",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "owner_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "count",
+          "type": "number",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Проанализировать посты"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 74,
+      "method": "telegram_parse_groups",
+      "form_id": null,
+      "section": "tg-parse",
+      "platform": "Telegram",
+      "inputs": [
+        {
+          "name": "keywords",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "limit",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "output_file",
+          "type": "hidden",
+          "required": false
+        },
+        {
+          "name": "delay_min",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "delay_max",
+          "type": "number",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Найти каналы"
+        },
+        {
+          "id": null,
+          "type": "button",
+          "text": "⬇ Скачать"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 75,
+      "method": "telegram_parse_users",
+      "form_id": null,
+      "section": "tg-parse",
+      "platform": "Telegram",
+      "inputs": [
+        {
+          "name": "keywords",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "limit",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "per_chat_limit",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "output_file",
+          "type": "hidden",
+          "required": false
+        },
+        {
+          "name": "delay_min",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "delay_max",
+          "type": "number",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Собрать участников"
+        },
+        {
+          "id": null,
+          "type": "button",
+          "text": "⬇ Скачать JSON"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 76,
+      "method": "telegram_invite",
+      "form_id": null,
+      "section": "tg-parse",
+      "platform": "Telegram",
+      "inputs": [
+        {
+          "name": "target_group",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "users_file",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": null,
+          "type": "file",
+          "required": false
+        },
+        {
+          "name": "delay_min",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "delay_max",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "confirm",
+          "type": "checkbox",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Начать приглашение"
+        }
+      ],
+      "risk": "elevated",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 77,
+      "method": "tg_mtproto_send_code",
+      "form_id": null,
+      "section": "tg-invite-real",
+      "platform": "Telegram",
+      "inputs": [
+        {
+          "name": "phone",
+          "type": "input",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Получить код Telegram"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 78,
+      "method": "tg_mtproto_sign_in",
+      "form_id": null,
+      "section": "tg-invite-real",
+      "platform": "Telegram",
+      "inputs": [
+        {
+          "name": "code",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "password",
+          "type": "password",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Подтвердить вход"
+        },
+        {
+          "id": null,
+          "type": "button",
+          "text": "Проверить сессию"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 79,
+      "method": "tg_invite_members",
+      "form_id": null,
+      "section": "tg-invite-real",
+      "platform": "Telegram",
+      "inputs": [
+        {
+          "name": "target_kind",
+          "type": "select",
+          "required": false
+        },
+        {
+          "name": "target",
+          "type": "input",
+          "required": true
+        },
+        {
+          "name": "source_mode",
+          "type": "select",
+          "required": false
+        },
+        {
+          "name": "source_chat",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "audience_ids",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": null,
+          "type": "file",
+          "required": false
+        },
+        {
+          "name": "audience_file",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "limit",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "source_limit",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "delay_min",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "delay_max",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "dry_run",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "owner_confirm",
+          "type": "checkbox",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Проверить / запустить инвайтинг"
+        }
+      ],
+      "risk": "elevated",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 80,
+      "method": "tg_stories_view_like",
+      "form_id": null,
+      "section": "tg-stories",
+      "platform": "Telegram",
+      "inputs": [
+        {
+          "name": "peer",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "limit",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "reaction",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "do_like",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "delay_min",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "delay_max",
+          "type": "number",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Просмотреть сторис"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 81,
+      "method": "telegram_mass_message",
+      "form_id": null,
+      "section": "tg-mailing",
+      "platform": "Telegram",
+      "inputs": [
+        {
+          "name": "message",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "recipients",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": null,
+          "type": "file",
+          "required": false
+        },
+        {
+          "name": "audience_file",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "limit",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "delay_min",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "delay_max",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "dry_run",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "confirm",
+          "type": "checkbox",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Запустить рассылку"
+        }
+      ],
+      "risk": "elevated",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 82,
+      "method": "telegram_post",
+      "form_id": null,
+      "section": "tg-post",
+      "platform": "Telegram",
+      "inputs": [
+        {
+          "name": "channel",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "message",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "parse_mode",
+          "type": "select",
+          "required": false
+        },
+        {
+          "name": "photo_url",
+          "type": "url",
+          "required": false
+        },
+        {
+          "name": null,
+          "type": "file",
+          "required": false
+        },
+        {
+          "name": "photo_data",
+          "type": "hidden",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Опубликовать"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 83,
+      "method": "tg_get_chat",
+      "form_id": null,
+      "section": "tg-manage",
+      "platform": "Telegram",
+      "inputs": [
+        {
+          "name": "chat_id",
+          "type": "input",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Получить информацию"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 84,
+      "method": "tg_get_member_count",
+      "form_id": null,
+      "section": "tg-manage",
+      "platform": "Telegram",
+      "inputs": [
+        {
+          "name": "chat_id",
+          "type": "input",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Кол-во участников"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 85,
+      "method": "tg_get_admins",
+      "form_id": null,
+      "section": "tg-manage",
+      "platform": "Telegram",
+      "inputs": [
+        {
+          "name": "chat_id",
+          "type": "input",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Список администраторов"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 86,
+      "method": "tg_get_member",
+      "form_id": null,
+      "section": "tg-manage",
+      "platform": "Telegram",
+      "inputs": [
+        {
+          "name": "chat_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "user_id",
+          "type": "input",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Проверить участника"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 87,
+      "method": "tg_send_message",
+      "form_id": null,
+      "section": "tg-manage",
+      "platform": "Telegram",
+      "inputs": [
+        {
+          "name": "chat_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "parse_mode",
+          "type": "select",
+          "required": false
+        },
+        {
+          "name": "text",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "reply_to",
+          "type": "input",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Отправить"
+        }
+      ],
+      "risk": "elevated",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 88,
+      "method": "tg_delete_message",
+      "form_id": null,
+      "section": "tg-manage",
+      "platform": "Telegram",
+      "inputs": [
+        {
+          "name": "chat_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "message_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "confirm",
+          "type": "checkbox",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Удалить сообщение"
+        }
+      ],
+      "risk": "elevated",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 89,
+      "method": "tg_pin_message",
+      "form_id": null,
+      "section": "tg-manage",
+      "platform": "Telegram",
+      "inputs": [
+        {
+          "name": "chat_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "message_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "disable_notification",
+          "type": "checkbox",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "📌 Закрепить"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 90,
+      "method": "tg_unpin_message",
+      "form_id": null,
+      "section": "tg-manage",
+      "platform": "Telegram",
+      "inputs": [
+        {
+          "name": "chat_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "message_id",
+          "type": "input",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Открепить одно"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 91,
+      "method": "tg_unpin_all",
+      "form_id": null,
+      "section": "tg-manage",
+      "platform": "Telegram",
+      "inputs": [
+        {
+          "name": "chat_id",
+          "type": "input",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Открепить все"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 92,
+      "method": "tg_set_chat_title",
+      "form_id": null,
+      "section": "tg-manage",
+      "platform": "Telegram",
+      "inputs": [
+        {
+          "name": "chat_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "title",
+          "type": "input",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Переименовать"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 93,
+      "method": "tg_set_chat_description",
+      "form_id": null,
+      "section": "tg-manage",
+      "platform": "Telegram",
+      "inputs": [
+        {
+          "name": "chat_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "description",
+          "type": "textarea",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Обновить описание"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 94,
+      "method": "tg_promote_member",
+      "form_id": null,
+      "section": "tg-manage",
+      "platform": "Telegram",
+      "inputs": [
+        {
+          "name": "chat_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "user_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "custom_title",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "demote",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "can_manage_chat",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "can_delete_messages",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "can_ban_users",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "can_invite_users",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "can_pin_messages",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "can_post_messages",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "can_edit_messages",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "can_promote_members",
+          "type": "checkbox",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Назначить"
+        }
+      ],
+      "risk": "elevated",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 95,
+      "method": "tg_restrict_member",
+      "form_id": null,
+      "section": "tg-manage",
+      "platform": "Telegram",
+      "inputs": [
+        {
+          "name": "chat_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "user_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "until_date",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "mute",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "can_send_messages",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "can_send_media_messages",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "can_send_polls",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "can_add_web_page_previews",
+          "type": "checkbox",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Применить ограничение"
+        }
+      ],
+      "risk": "elevated",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 96,
+      "method": "tg_ban_member",
+      "form_id": null,
+      "section": "tg-manage",
+      "platform": "Telegram",
+      "inputs": [
+        {
+          "name": "chat_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "user_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "until_date",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "revoke_messages",
+          "type": "checkbox",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Забанить"
+        }
+      ],
+      "risk": "elevated",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 97,
+      "method": "tg_unban_member",
+      "form_id": null,
+      "section": "tg-manage",
+      "platform": "Telegram",
+      "inputs": [
+        {
+          "name": "chat_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "user_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "only_if_banned",
+          "type": "checkbox",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Разбанить"
+        }
+      ],
+      "risk": "elevated",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 98,
+      "method": "tg_set_permissions",
+      "form_id": null,
+      "section": "tg-manage",
+      "platform": "Telegram",
+      "inputs": [
+        {
+          "name": "chat_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "lock_all",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "can_send_messages",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "can_send_media_messages",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "can_send_polls",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "can_add_web_page_previews",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "can_change_info",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "can_invite_users",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "can_pin_messages",
+          "type": "checkbox",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Сохранить права"
+        }
+      ],
+      "risk": "elevated",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 99,
+      "method": "tg_create_invite",
+      "form_id": null,
+      "section": "tg-manage",
+      "platform": "Telegram",
+      "inputs": [
+        {
+          "name": "chat_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "member_limit",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "expire_date",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "join_request",
+          "type": "checkbox",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Создать ссылку"
+        }
+      ],
+      "risk": "elevated",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 100,
+      "method": "tg_export_invite",
+      "form_id": null,
+      "section": "tg-manage",
+      "platform": "Telegram",
+      "inputs": [
+        {
+          "name": "chat_id",
+          "type": "input",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Получить основную ссылку"
+        }
+      ],
+      "risk": "elevated",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 101,
+      "method": "tg_revoke_invite",
+      "form_id": null,
+      "section": "tg-manage",
+      "platform": "Telegram",
+      "inputs": [
+        {
+          "name": "chat_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "invite_link",
+          "type": "input",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Отозвать ссылку"
+        }
+      ],
+      "risk": "elevated",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 102,
+      "method": "tg_approve_join",
+      "form_id": null,
+      "section": "tg-manage",
+      "platform": "Telegram",
+      "inputs": [
+        {
+          "name": "chat_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "user_id",
+          "type": "input",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "✅ Одобрить заявку"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 103,
+      "method": "tg_decline_join",
+      "form_id": null,
+      "section": "tg-manage",
+      "platform": "Telegram",
+      "inputs": [
+        {
+          "name": "chat_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "user_id",
+          "type": "input",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "❌ Отклонить заявку"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 104,
+      "method": "tg_forward_message",
+      "form_id": null,
+      "section": "tg-manage",
+      "platform": "Telegram",
+      "inputs": [
+        {
+          "name": "from_chat_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "to_chat_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "message_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "disable_notification",
+          "type": "checkbox",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Переслать"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 105,
+      "method": "tg_leave_chat",
+      "form_id": null,
+      "section": "tg-manage",
+      "platform": "Telegram",
+      "inputs": [
+        {
+          "name": "chat_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "confirm",
+          "type": "checkbox",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Покинуть чат"
+        }
+      ],
+      "risk": "elevated",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 106,
+      "method": "ig_get_commenters",
+      "form_id": null,
+      "section": "meta-parse",
+      "platform": "Meta",
+      "inputs": [
+        {
+          "name": "media_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "limit",
+          "type": "number",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Собрать комментаторов"
+        },
+        {
+          "id": null,
+          "type": "button",
+          "text": "⬇ Скачать JSON"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 107,
+      "method": "instagram_hashtag_search",
+      "form_id": null,
+      "section": "meta-parse",
+      "platform": "Meta",
+      "inputs": [
+        {
+          "name": "hashtag",
+          "type": "input",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Найти посты"
+        },
+        {
+          "id": null,
+          "type": "button",
+          "text": "⬇ Скачать JSON"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 108,
+      "method": "ig_business_discovery",
+      "form_id": null,
+      "section": "meta-parse",
+      "platform": "Meta",
+      "inputs": [
+        {
+          "name": "target_username",
+          "type": "input",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Анализировать аккаунт"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 109,
+      "method": "instagram_insights",
+      "form_id": null,
+      "section": "meta-parse",
+      "platform": "Meta",
+      "inputs": [
+        {
+          "name": "period",
+          "type": "select",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Получить статистику"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 110,
+      "method": "fb_page_posts",
+      "form_id": null,
+      "section": "meta-parse",
+      "platform": "Meta",
+      "inputs": [
+        {
+          "name": "page_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "limit",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "page_token",
+          "type": "password",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Получить посты"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 111,
+      "method": "fb_get_commenters",
+      "form_id": null,
+      "section": "meta-parse",
+      "platform": "Meta",
+      "inputs": [
+        {
+          "name": "post_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "limit",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "page_token",
+          "type": "password",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Собрать комментаторов"
+        },
+        {
+          "id": null,
+          "type": "button",
+          "text": "⬇ Скачать JSON"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 112,
+      "method": "meta_get_pages",
+      "form_id": null,
+      "section": "meta-parse",
+      "platform": "Meta",
+      "inputs": [],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Получить список страниц"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 113,
+      "method": "ig_set_auto_reply",
+      "form_id": null,
+      "section": "meta-post",
+      "platform": "Meta",
+      "inputs": [
+        {
+          "name": "auto_reply_text",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "keyword",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "keyword_dm",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "verify_token",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "enabled",
+          "type": "checkbox",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Сохранить настройки авто-ответа"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 114,
+      "method": "ig_send_dm",
+      "form_id": null,
+      "section": "meta-post",
+      "platform": "Meta",
+      "inputs": [
+        {
+          "name": "recipient_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "message",
+          "type": "textarea",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Отправить DM"
+        }
+      ],
+      "risk": "elevated",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 115,
+      "method": "ig_bulk_optin",
+      "form_id": null,
+      "section": "meta-post",
+      "platform": "Meta",
+      "inputs": [
+        {
+          "name": "recipients",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "message",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "limit",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "consent_confirm",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "send",
+          "type": "checkbox",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Проверить / отправить"
+        }
+      ],
+      "risk": "elevated",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 116,
+      "method": "ig_private_reply",
+      "form_id": null,
+      "section": "meta-post",
+      "platform": "Meta",
+      "inputs": [
+        {
+          "name": "comment_id",
+          "type": "input",
+          "required": true
+        },
+        {
+          "name": "page_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "message",
+          "type": "textarea",
+          "required": true
+        },
+        {
+          "name": "confirm",
+          "type": "checkbox",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Отправить Private Reply"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 117,
+      "method": "fb_bulk_optin",
+      "form_id": null,
+      "section": "meta-post",
+      "platform": "Meta",
+      "inputs": [
+        {
+          "name": "page_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "recipients",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "message",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "limit",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "consent_confirm",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "send",
+          "type": "checkbox",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Проверить / отправить"
+        }
+      ],
+      "risk": "elevated",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 118,
+      "method": "ig_get_my_post_comments",
+      "form_id": null,
+      "section": "meta-post",
+      "platform": "Meta",
+      "inputs": [
+        {
+          "name": "media_id",
+          "type": "input",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Загрузить комментарии"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 119,
+      "method": "ig_reply_comment",
+      "form_id": null,
+      "section": "meta-post",
+      "platform": "Meta",
+      "inputs": [
+        {
+          "name": "comment_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "message",
+          "type": "textarea",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Ответить"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 120,
+      "method": "fb_reply_comment",
+      "form_id": null,
+      "section": "meta-post",
+      "platform": "Meta",
+      "inputs": [
+        {
+          "name": "comment_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "page_token",
+          "type": "password",
+          "required": false
+        },
+        {
+          "name": "message",
+          "type": "textarea",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Ответить"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 121,
+      "method": "fb_post_reactions",
+      "form_id": null,
+      "section": "meta-post",
+      "platform": "Meta",
+      "inputs": [
+        {
+          "name": "post_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "page_token",
+          "type": "password",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Получить реакции"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 122,
+      "method": "post_instagram",
+      "form_id": null,
+      "section": "meta-post",
+      "platform": "Meta",
+      "inputs": [
+        {
+          "name": "image_url",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "caption",
+          "type": "textarea",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Опубликовать в Instagram"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 123,
+      "method": "post_facebook",
+      "form_id": null,
+      "section": "meta-post",
+      "platform": "Meta",
+      "inputs": [
+        {
+          "name": "page_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "page_token",
+          "type": "password",
+          "required": false
+        },
+        {
+          "name": "message",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "link",
+          "type": "input",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Опубликовать на Facebook"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 124,
+      "method": "ok_group_search",
+      "form_id": null,
+      "section": "ok-parse",
+      "platform": "OK",
+      "inputs": [
+        {
+          "name": "query",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "count",
+          "type": "number",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Найти сообщества"
+        },
+        {
+          "id": null,
+          "type": "button",
+          "text": "⬇ Скачать JSON"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 125,
+      "method": "ok_group_members",
+      "form_id": null,
+      "section": "ok-parse",
+      "platform": "OK",
+      "inputs": [
+        {
+          "name": "group_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "count",
+          "type": "number",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Собрать участников"
+        },
+        {
+          "id": null,
+          "type": "button",
+          "text": "⬇ Скачать JSON"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 126,
+      "method": "ok_users_info",
+      "form_id": null,
+      "section": "ok-parse",
+      "platform": "OK",
+      "inputs": [
+        {
+          "name": "uids",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": null,
+          "type": "file",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Получить профили"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 127,
+      "method": "ok_group_stats",
+      "form_id": null,
+      "section": "ok-parse",
+      "platform": "OK",
+      "inputs": [
+        {
+          "name": "group_id",
+          "type": "input",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Получить статистику"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 128,
+      "method": "ok_moments_view",
+      "form_id": null,
+      "section": "ok-stories",
+      "platform": "OK",
+      "inputs": [
+        {
+          "name": "limit",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "do_like",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "delay_min",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "delay_max",
+          "type": "number",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Запустить"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 129,
+      "method": "post_ok",
+      "form_id": null,
+      "section": "ok-post",
+      "platform": "OK",
+      "inputs": [
+        {
+          "name": "text",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "group_id",
+          "type": "input",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Опубликовать в OK"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 130,
+      "method": "wa_set_auto_reply",
+      "form_id": null,
+      "section": "wa-send",
+      "platform": "WhatsApp",
+      "inputs": [
+        {
+          "name": "auto_reply_text",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "verify_token",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "enabled",
+          "type": "checkbox",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Сохранить настройки авто-ответа"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 131,
+      "method": "whatsapp_send",
+      "form_id": null,
+      "section": "wa-send",
+      "platform": "WhatsApp",
+      "inputs": [
+        {
+          "name": "to",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "message",
+          "type": "textarea",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Отправить"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 132,
+      "method": "whatsapp_bulk_send",
+      "form_id": null,
+      "section": "wa-send",
+      "platform": "WhatsApp",
+      "inputs": [
+        {
+          "name": "message",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": "numbers",
+          "type": "textarea",
+          "required": false
+        },
+        {
+          "name": null,
+          "type": "file",
+          "required": false
+        },
+        {
+          "name": "limit",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "delay_min",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "delay_max",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "dry_run",
+          "type": "checkbox",
+          "required": false
+        },
+        {
+          "name": "confirm",
+          "type": "checkbox",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Запустить рассылку"
+        }
+      ],
+      "risk": "elevated",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 133,
+      "method": "whatsapp_get_templates",
+      "form_id": null,
+      "section": "wa-templates",
+      "platform": "WhatsApp",
+      "inputs": [
+        {
+          "name": "waba_id",
+          "type": "input",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Получить шаблоны"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 134,
+      "method": "whatsapp_send_template",
+      "form_id": null,
+      "section": "wa-templates",
+      "platform": "WhatsApp",
+      "inputs": [
+        {
+          "name": "to",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "template_name",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "language",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "param1",
+          "type": "input",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Отправить шаблон"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 135,
+      "method": "mailing_set_settings",
+      "form_id": "cooldownForm",
+      "section": "cooldown-settings",
+      "platform": "SYNERGY",
+      "inputs": [
+        {
+          "name": "vk_cooldown_days",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "telegram_cooldown_days",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "instagram_cooldown_days",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "facebook_cooldown_days",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "whatsapp_cooldown_days",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "ok_cooldown_days",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "max_cooldown_days",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "signal_cooldown_days",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "threads_cooldown_days",
+          "type": "number",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Сохранить периоды"
+        },
+        {
+          "id": "loadCooldownBtn",
+          "type": "button",
+          "text": "Обновить значения"
+        }
+      ],
+      "risk": "elevated",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 136,
+      "method": "vk_check",
+      "form_id": null,
+      "section": "tokens",
+      "platform": "VK",
+      "inputs": [
+        {
+          "name": "access_token",
+          "type": "password",
+          "required": false
+        },
+        {
+          "name": "admin_group_id",
+          "type": "input",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Сохранить и проверить"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 137,
+      "method": "telegram_check",
+      "form_id": null,
+      "section": "tokens",
+      "platform": "Telegram",
+      "inputs": [
+        {
+          "name": "api_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "api_hash",
+          "type": "password",
+          "required": false
+        },
+        {
+          "name": "phone",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "bot_token",
+          "type": "password",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Сохранить и проверить"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 138,
+      "method": "meta_check",
+      "form_id": null,
+      "section": "tokens",
+      "platform": "Meta",
+      "inputs": [
+        {
+          "name": "access_token",
+          "type": "password",
+          "required": false
+        },
+        {
+          "name": "ig_user_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "page_id",
+          "type": "input",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Сохранить и проверить"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 139,
+      "method": "ok_check",
+      "form_id": null,
+      "section": "tokens",
+      "platform": "OK",
+      "inputs": [
+        {
+          "name": "access_token",
+          "type": "password",
+          "required": false
+        },
+        {
+          "name": "application_key",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "application_secret",
+          "type": "password",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Сохранить и проверить"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 140,
+      "method": "whatsapp_check",
+      "form_id": null,
+      "section": "tokens",
+      "platform": "WhatsApp",
+      "inputs": [
+        {
+          "name": "access_token",
+          "type": "password",
+          "required": false
+        },
+        {
+          "name": "phone_number_id",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "waba_id",
+          "type": "input",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Сохранить и проверить"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 141,
+      "method": null,
+      "form_id": "manualAccessForm",
+      "section": "access-admin",
+      "platform": "SYNERGY",
+      "inputs": [
+        {
+          "name": "login",
+          "type": "input",
+          "required": true
+        },
+        {
+          "name": "action",
+          "type": "select",
+          "required": false
+        },
+        {
+          "name": "days",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "role",
+          "type": "select",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Применить через БД"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 142,
+      "method": "read_file",
+      "form_id": null,
+      "section": "files",
+      "platform": "SYNERGY",
+      "inputs": [
+        {
+          "name": "filename",
+          "type": "input",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Прочитать"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 143,
+      "method": "write_file",
+      "form_id": null,
+      "section": "files",
+      "platform": "SYNERGY",
+      "inputs": [
+        {
+          "name": "filename",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "content",
+          "type": "textarea",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Записать файл"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    },
+    {
+      "number": 144,
+      "method": null,
+      "form_id": "fileForm",
+      "section": "files",
+      "platform": "SYNERGY",
+      "inputs": [
+        {
+          "name": "filename",
+          "type": "input",
+          "required": false
+        },
+        {
+          "name": "content",
+          "type": "textarea",
+          "required": false
+        }
+      ],
+      "buttons": [
+        {
+          "id": null,
+          "type": "submit",
+          "text": "Записать"
+        },
+        {
+          "id": "readFileBtn",
+          "type": "button",
+          "text": "Прочитать"
+        }
+      ],
+      "risk": "normal",
+      "verified": "frontend source inspected; browser and authenticated API behavior not yet confirmed"
+    }
+  ]
+}
