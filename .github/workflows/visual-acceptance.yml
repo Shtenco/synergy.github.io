@@ -8,6 +8,7 @@ on:
       - 'investor-folio/**'
       - 'broker-mesh/**'
       - 'scripts/visual_acceptance.py'
+      - 'scripts/audit_smm_methods.py'
       - '.github/workflows/visual-acceptance.yml'
   workflow_dispatch:
 permissions:
@@ -29,6 +30,9 @@ jobs:
           sleep 2
       - name: Screenshot and viewport checks
         run: python scripts/visual_acceptance.py
+      - name: Exhaustive SMM method navigation and control checks
+        if: always()
+        run: python scripts/audit_smm_methods.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
