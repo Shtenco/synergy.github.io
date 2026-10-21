@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html data-syn-path="smm/smm_bus_inbox.html" class="syn-premium" data-syn-app="smm" lang="ru" data-syn-v9="true">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>SINERGY BUS · Входящие для AI SMM</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#000;--panel:#0d0d0d;--line:rgba(0,230,100,.15);--g:#00e664;--muted:rgba(255,255,255,.5);--text:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Manrope',sans-serif;padding:28px;max-width:920px;margin:0 auto}
+h1{font-family:'Unbounded',sans-serif;font-size:22px;margin-bottom:4px}
+p.lead{color:var(--muted);font-size:13px;margin-top:0;margin-bottom:20px}
+.secret-row{display:flex;gap:8px;margin-bottom:20px}
+.secret-row input{flex:1;background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 12px;color:var(--text)}
+.secret-row button,.refresh{background:var(--g);border:0;color:#000;font-weight:800;padding:10px 16px;border-radius:9px;cursor:pointer}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:16px;margin-bottom:12px}
+.card header{display:flex;justify-content:space-between;color:var(--g);font-size:11px;font-weight:800;margin-bottom:8px;text-transform:uppercase;letter-spacing:.04em}
+.card p{white-space:pre-wrap;font-size:13px;line-height:1.6;color:#dfe7e1;margin:0 0 12px}
+.card .actions{display:flex;gap:8px}
+.card button{background:#141414;border:1px solid var(--line);color:var(--text);padding:8px 14px;border-radius:8px;font-size:12px;cursor:pointer}
+.card button:hover{border-color:var(--g);color:var(--g)}
+.card.done{opacity:.45}
+.empty{color:var(--muted);font-size:13px}
+</style>
+<!-- SYNERGY V8 NEXUS bridge --><link rel="stylesheet" href="/nexus-bridge.css"><script defer src="/nexus-bridge.js"></script>
+<link rel="stylesheet" href="/synergy.github.io/assets/synergy-premium.css">
+<link rel="stylesheet" href="/synergy.github.io/assets/synergy-premium-v88.css"><link rel="stylesheet" href="/synergy.github.io/assets/synergy-atelier-v9.css"><link rel="stylesheet" href="/synergy.github.io/assets/synergy-stability-v9.css" data-syn-stability="v9.1.4.1"><script defer src="/synergy.github.io/assets/pages-runtime.js"></script>
+</head>
+<body>
+  <h1>SINERGY BUS → AI SMM</h1>
+  <p class="lead">Контент-задачи, присланные из AI CFO через AI OLGA. Публикация постов по-прежнему делается вручную через vk.html / telegram.html — эта страница только собирает идеи в одном месте.</p>
+  <div class="secret-row">
+    <input id="secret" type="password" placeholder="X-Bus-Secret (SMM_APP_SECRET)">
+    <button id="refresh">Обновить</button>
+  </div>
+  <div id="list"><p class="empty">Введите секрет и нажмите «Обновить».</p></div>
+
+<script>
+const $ = s => document.querySelector(s);
+$('#secret').value = sessionStorage.getItem('smm_bus_secret') || '';
+async function call(action, opts = {}) {
+  const secret = $('#secret').value;
+  sessionStorage.setItem('smm_bus_secret', secret);
+  const res = await fetch(`api/bus_intake.php${opts.method === 'POST' ? '' : '?action=' + action}`, {
+    method: opts.method || 'GET',
+    headers: { 'X-Bus-Secret': secret, 'Content-Type': 'application/json' },
+    body: opts.body ? JSON.stringify(opts.body) : undefined
+  });
+  const data = await res.json().catch(() => ({ error: 'HTTP ' + res.status }));
+  if (!res.ok) throw new Error(data.error || 'Ошибка');
+  return data;
+}
+function esc(s){return String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+async function load() {
+  $('#list').innerHTML = '<p class="empty">Загрузка…</p>';
+  try {
+    const { events } = await call('list');
+    $('#list').innerHTML = events.length ? events.map(e => `
+      <div class="card ${e.status === 'done' ? 'done' : ''}">
+        <header><span>${esc(e.from)} · ${new Date(e.ts).toLocaleString('ru')}</span><span>${esc(e.status)}</span></header>
+        <b>${esc(e.title)}</b>
+        <p>${esc(e.body)}</p>
+        <div class="actions">
+          <button data-copy="${e.id}">Копировать текст</button>
+          ${e.status !== 'done' ? `<button data-done="${e.id}">Отметить выполненным</button>` : ''}
+        </div>
+      </div>`).join('') : '<p class="empty">Пока нет задач от AI CFO / AI OLGA.</p>';
+    document.querySelectorAll('[data-copy]').forEach(b => b.onclick = () => {
+      const card = b.closest('.card');
+      navigator.clipboard.writeText(card.querySelector('p').textContent);
+    });
+    document.querySelectorAll('[data-done]').forEach(b => b.onclick = async () => {
+      await call('ack', { method: 'POST', body: { id: b.dataset.done, status: 'done' } });
+      load();
+    });
+  } catch (err) { $('#list').innerHTML = `<p class="empty">${esc(err.message)}</p>`; }
+}
+$('#refresh').onclick = load;
+if ($('#secret').value) load();
+</script>
+<script defer src="/synergy.github.io/assets/synergy-premium.js"></script>
+<script defer src="/synergy.github.io/assets/synergy-premium-v88.js"></script><script defer src="/synergy.github.io/assets/synergy-atelier-v9.js"></script><script defer src="/synergy.github.io/assets/synergy-stability-v9.js"></script></body>
+</html>

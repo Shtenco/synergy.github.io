@@ -1,0 +1,15 @@
+/* Privacy-constrained, tenant-keyed audience intersections. No raw ID export. */
+(()=>{'use strict';const $=id=>document.getElementById(id),base='/api/v2/smm/team';let csrf=sessionStorage.getItem('smm_team_csrf')||'';
+const msg=(v,bad=false)=>{const el=$('feedback');el.textContent=v;el.classList.toggle('error',bad)};
+const text=(tag,value,cls)=>{const n=document.createElement(tag);n.textContent=String(value??'');if(cls)n.className=cls;return n};
+async function api(path,options={}){const write=['POST','PUT'].includes(options.method);const r=await fetch(base+path,{credentials:'same-origin',cache:'no-store',...options,headers:{...(options.body?{'Content-Type':'application/json'}:{}),...(write?{'Origin':location.origin,'X-SMM-CSRF':csrf}:{}),...(options.headers||{})}});const d=await r.json().catch(()=>({}));if(!r.ok)throw Error(d.detail||`HTTP ${r.status}`);return d}
+const post=data=>({method:'POST',body:JSON.stringify(data)});
+const lines=s=>s.split(/[\r\n,;]+/).map(v=>v.trim()).filter(Boolean).slice(0,3000);
+async function refresh(){const d=await api('/audiences'),a=d.audiences;const root=$('cohort-list');root.replaceChildren();for(const x of a){const row=text('div',`${x.title} · ${x.size} участников · ${x.active_size} активных`,'item');root.append(row)}if(!a.length)root.append(text('div','Пока нет сохранённых аудиторий','small'));
+for(const name of ['first_id','second_id']){const sel=$('compare-form').elements[name];sel.replaceChildren();for(const aItem of a){const opt=document.createElement('option');opt.value=aItem.id;opt.textContent=aItem.title;sel.append(opt)}}
+$('auth-indicator').textContent='● Командная сессия активна'}
+$('cohort-form').addEventListener('submit',async e=>{e.preventDefault();if(!csrf)return msg('Войдите повторно в CaseFlow Team, чтобы получить токен изменений.',true);const f=Object.fromEntries(new FormData(e.currentTarget).entries());try{await api('/audiences',post({title:f.label,platform:f.platform,members:lines(f.member_identifiers),active:lines(f.active_identifiers||''),authorized:f.authorized_to_process==='on',retention_days:30}));msg('Аудитория сохранена без исходных ID.');await refresh()}catch(err){msg(err.message,true)}});
+$('compare-form').addEventListener('submit',async e=>{e.preventDefault();const f=Object.fromEntries(new FormData(e.currentTarget).entries());try{const d=await api(`/audiences/compare?left=${encodeURIComponent(f.first_id)}&right=${encodeURIComponent(f.second_id)}`);$('compare-result').replaceChildren(text('strong',`${d.intersection} общих · Jaccard ${Math.round(d.jaccard*10000)/100}%`),text('div',`${d.active_intersection} общих активных · ${d.union} уникальных`));msg('Сопоставление выполнено в пределах организации.')}catch(err){msg(err.message,true)}});
+$('refresh').addEventListener('click',()=>refresh().catch(e=>msg(e.message,true)));
+api('/session').then(d=>{$('login-note').hidden=true;$('workspace').hidden=false;refresh()}).catch(()=>{$('login-note').hidden=false;$('workspace').hidden=true;$('auth-indicator').textContent='● Войдите в CaseFlow Team';msg('Для анализа аудиторий требуется командная сессия.',true)});
+})();

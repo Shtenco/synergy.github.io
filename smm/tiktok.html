@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html data-syn-path="smm/tiktok.html" class="syn-premium" data-syn-app="smm" lang="ru" data-syn-v9="true">
+<head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>TikTok API — SINERGY SMM AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=DM+Mono:wght@400;500&amp;family=Manrope:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --g:#fe2c55;--g2:#ee1d52;--g3:rgba(254,44,85,.12);--g4:rgba(254,44,85,.06);
+  --teal:#25f4ee;--teal2:rgba(37,244,238,.12);
+  --blk:#000;--b3:#141414;--b4:#1c1c1c;
+  --w:#fff;--w2:rgba(255,255,255,.88);--w3:rgba(255,255,255,.52);--w4:rgba(255,255,255,.22);--w5:rgba(255,255,255,.07);
+  --bdr:rgba(254,44,85,.15);--bdr2:rgba(255,255,255,.06);
+  --display:'Bebas Neue',sans-serif;--mono:'DM Mono',monospace;--body:'Manrope',sans-serif;
+  --r2:10px;--r3:18px;--r4:28px;
+  --glow:0 0 60px rgba(254,44,85,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--blk);color:var(--w);overflow-x:hidden;background-image:radial-gradient(ellipse 65% 35% at 50% 0%,rgba(254,44,85,.04),transparent)}
+a{text-decoration:none;color:inherit}button{cursor:pointer;border:none;background:none;font-family:inherit}
+input,textarea,select{font-family:inherit}::selection{background:var(--g);color:#fff}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:#000}::-webkit-scrollbar-thumb{background:var(--g);border-radius:99px}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(0,0,0,.92);border-bottom:1px solid var(--bdr);backdrop-filter:blur(32px)}
+.nav-in{height:64px;display:flex;align-items:center;gap:16px;max-width:1500px;margin:0 auto;padding:0 28px}
+.nav-logo{font-family:var(--display);font-size:24px;letter-spacing:5px;background:linear-gradient(135deg,var(--teal),var(--g));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-links{display:flex;gap:6px;margin-left:auto}
+.nav-link{padding:9px 16px;border-radius:var(--r2);font-size:11px;font-weight:700;color:var(--w3);transition:all .2s}
+.nav-link:hover{color:var(--g);background:var(--g3)}
+.nav-link.primary{background:var(--g);color:#fff}
+
+.layout{display:grid;grid-template-columns:220px 1fr;gap:24px;max-width:1500px;margin:0 auto;padding:24px 28px 60px}
+.side{position:sticky;top:90px;height:calc(100vh - 116px);background:linear-gradient(180deg,rgba(13,13,13,.98),rgba(8,8,8,.98));border:1px solid var(--bdr2);border-radius:var(--r3);padding:14px;overflow-y:auto;box-shadow:var(--glow)}
+.side-title{font-family:var(--mono);font-size:8px;letter-spacing:2.5px;text-transform:uppercase;color:var(--w4);padding:12px 10px 6px}
+.side-link{display:flex;align-items:center;gap:10px;padding:11px 14px;border-radius:var(--r2);font-size:12px;font-weight:600;color:var(--w3);transition:all .18s;margin-bottom:3px}
+.side-link:hover{color:var(--w);background:var(--w5)}
+.side-link.active{color:var(--g);background:var(--g3);border-left:2px solid var(--g)}
+.side-sep{height:1px;background:linear-gradient(90deg,transparent,var(--bdr2),transparent);margin:10px 0}
+
+.main{min-width:0}
+.hero{margin-bottom:24px;padding:32px;background:linear-gradient(160deg,rgba(254,44,85,.08),rgba(37,244,238,.04),rgba(8,8,8,.95));border:1px solid rgba(254,44,85,.2);border-radius:var(--r4);position:relative;overflow:hidden}
+.hero h1{font-family:var(--display);font-size:clamp(36px,5vw,56px);line-height:.92;letter-spacing:2px;margin-bottom:12px}
+.hero h1 em{background:linear-gradient(135deg,var(--teal),var(--g));-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-style:normal}
+.hero p{font-size:14px;line-height:1.75;color:var(--w3);max-width:700px}
+
+.sec{margin-top:24px;background:linear-gradient(160deg,rgba(13,13,13,.95),rgba(8,8,8,.95));border:1px solid var(--bdr2);border-radius:var(--r3);padding:28px;box-shadow:var(--glow)}
+.sec h2{font-size:20px;font-weight:800;margin-bottom:8px;color:var(--g)}
+.sec .desc{font-size:13px;color:var(--w3);line-height:1.7;margin-bottom:16px}
+.sec .desc strong{color:var(--w)}
+
+.tool{background:var(--b3);border:1px solid var(--bdr2);border-radius:var(--r2);padding:20px;margin-top:14px}
+.tool h3{font-size:14px;font-weight:700;color:var(--g);margin-bottom:8px}
+.tool .method{font-family:var(--mono);font-size:10px;color:var(--w4);margin-bottom:12px;padding:8px 12px;background:var(--b4);border-radius:6px}
+
+.params{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.params label{display:grid;gap:4px;font-size:11px;font-weight:600;color:var(--w2)}
+.params .w{grid-column:1/-1}
+.params input,.params textarea,.params select{width:100%;background:var(--b3);border:1px solid var(--bdr2);border-radius:7px;padding:10px 12px;color:var(--w);outline:none;font-size:12px;transition:border-color .2s}
+.params input:focus,.params textarea:focus{border-color:var(--g);box-shadow:0 0 0 2px var(--g3)}
+.params textarea{resize:vertical;font-family:var(--mono);font-size:11px;min-height:80px}
+
+.chk-row{display:flex;align-items:center;gap:8px;margin:8px 0;font-size:12px;color:var(--w3)}
+.chk-row input[type=checkbox]{width:16px;height:16px;accent-color:var(--g)}
+
+.btn{padding:10px 20px;border-radius:var(--r2);font-size:12px;font-weight:800;border:1px solid var(--bdr2);background:transparent;color:var(--w3);transition:all .2s;display:inline-flex;align-items:center;gap:6px}
+.btn:hover{color:var(--g);background:var(--g3);border-color:var(--g)}
+.btn-g{background:var(--g);color:#fff;border-color:transparent;box-shadow:0 4px 20px rgba(254,44,85,.2)}
+.btn-g:hover{background:#fff;color:var(--g)}
+
+.helper{font-size:11px;color:var(--w4);margin-bottom:12px;line-height:1.6;padding:10px 12px;background:var(--b4);border-radius:6px;border-left:2px solid var(--g)}
+.helper strong{color:var(--w2)}
+
+.warning{padding:16px;background:rgba(255,193,7,.1);border:1px solid rgba(255,193,7,.3);border-radius:var(--r2);font-size:13px;line-height:1.7;margin-bottom:20px;color:#ffc107}
+.warning strong{color:#fff}
+
+.result-box{background:#050505;border:1px solid var(--bdr2);border-radius:var(--r2);padding:16px;min-height:120px;max-height:400px;overflow:auto;font-family:var(--mono);font-size:11px;line-height:1.7;color:var(--w2);white-space:pre-wrap;margin-top:20px}
+.result-box .empty{color:var(--w4);font-style:italic}
+.result-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:8px}
+
+@media(max-width:900px){.layout{grid-template-columns:1fr}.side{position:relative;top:0;height:auto;display:flex;flex-wrap:wrap;gap:6px;padding:10px}.side-title,.side-sep{display:none}.params{grid-template-columns:1fr}}
+</style>
+<!-- SYNERGY V8 NEXUS bridge --><link rel="stylesheet" href="/nexus-bridge.css"><script defer src="/nexus-bridge.js"></script>
+<link rel="stylesheet" href="/synergy.github.io/assets/synergy-premium.css">
+<link rel="stylesheet" href="/synergy.github.io/assets/synergy-premium-v88.css"><link rel="stylesheet" href="/synergy.github.io/assets/synergy-atelier-v9.css"><link rel="stylesheet" href="/synergy.github.io/assets/synergy-stability-v9.css" data-syn-stability="v9.1.4.1"><script defer src="/synergy.github.io/assets/pages-runtime.js"></script>
+</head>
+<body>
+<nav class="nav"><div class="nav-in"><a class="nav-logo" href="index.html">SINERGY TIKTOK</a><div class="nav-links"><a class="nav-link" href="index.html">Главная</a><a class="nav-link" href="cabinet.html">Кабинет</a><a class="nav-link" href="instagram.html">Instagram</a><a class="nav-link" href="threads.html">Threads</a><a class="nav-link primary" href="auth.html">Вход</a></div></div></nav>
+
+<div class="layout">
+<aside class="side">
+<div class="side-title">TikTok API</div>
+<a class="side-link" href="#tiktok-about">О TikTok API</a>
+<a class="side-link" href="#tiktok-connect">Подключение</a>
+<a class="side-link" href="#tiktok-creator">Информация о Creator</a>
+<a class="side-link" href="#tiktok-upload">Загрузка видео</a>
+<a class="side-link" href="#tiktok-status">Статус публикации</a>
+<a class="side-link" href="#tiktok-videos">Мои видео</a>
+</aside>
+
+<main class="main">
+<div class="hero">
+<h1>TikTok <em>API</em></h1>
+<p>Официальный Content Posting API для публикации видео. Требует прохождения аудита TikTok — до аудита видео публикуются приватно.</p>
+</div>
+
+<section class="sec" id="tiktok-about">
+<h2>О TikTok Content Posting API</h2>
+<div class="warning">
+<strong>Важно:</strong> TikTok требует прохождения аудита приложения. До аудита все загруженные видео будут приватными (SELF_ONLY). Аудит занимает 2-4 недели.
+</div>
+<div class="desc">
+<strong>Что возможно через API:</strong>
+<ul style="margin-top:8px;padding-left:20px;color:var(--w3)">
+<li>Загрузка видео (chunked upload)</li>
+<li>Публикация фото-каруселей</li>
+<li>Получение информации о Creator</li>
+<li>Просмотр своих видео и статистики</li>
+<li>Проверка статуса публикации</li>
+</ul>
+<br>
+<strong>Ограничения:</strong>
+<ul style="margin-top:8px;padding-left:20px;color:var(--w3)">
+<li>25 видео в день на аккаунт</li>
+<li>6 запросов в минуту на upload endpoint</li>
+<li>Бизнес-аккаунты теряют доступ к коммерческой музыке</li>
+<li>Нет API для комментариев и лайков (запрещено)</li>
+</ul>
+</div>
+</section>
+
+<section class="sec" id="tiktok-connect">
+<h2>Подключение TikTok</h2>
+<div class="desc"><strong>Сохраните access_token, полученный через OAuth TikTok Login Kit.</strong></div>
+<div class="helper"><strong>Как получить токен:</strong> Создайте приложение на developers.tiktok.com, настройте OAuth, получите access_token через авторизацию пользователя.</div>
+<div class="tool">
+<div class="method">POST /api/tool — tool: tiktok_save_token</div>
+<form class="tf" data-t="tiktok_save_token">
+<div class="params">
+<label class="w">Access Token<input name="access_token" type="password" placeholder="Вставьте access_token TikTok"/></label>
+</div>
+<button class="btn btn-g">Сохранить и проверить</button>
+</form>
+</div>
+<div class="tool">
+<div class="method">POST /api/tool — tool: tiktok_check</div>
+<form class="tf" data-t="tiktok_check">
+<button class="btn">Проверить подключение</button>
+</form>
+</div>
+</section>
+
+<section class="sec" id="tiktok-creator">
+<h2>Информация о Creator</h2>
+<div class="desc"><strong>Получить информацию о возможностях публикации: duet, stitch, комментарии и т.д.</strong></div>
+<div class="tool">
+<div class="method">POST /api/tool — tool: tiktok_creator_info</div>
+<form class="tf" data-t="tiktok_creator_info">
+<button class="btn btn-g">Получить информацию</button>
+</form>
+</div>
+</section>
+
+<section class="sec" id="tiktok-upload">
+<h2>Загрузка видео</h2>
+<div class="desc"><strong>Инициализация загрузки видео.</strong> После инициализации вы получите upload_url для загрузки файла и publish_id для проверки статуса.</div>
+<div class="helper"><strong>Privacy levels:</strong> SELF_ONLY (приватно), MUTUAL_FOLLOW_FRIENDS (друзья), FOLLOWER_OF_CREATOR (подписчики), PUBLIC_TO_EVERYONE (все)</div>
+<div class="tool">
+<div class="method">POST /api/tool — tool: tiktok_init_video_upload</div>
+<form class="tf" data-t="tiktok_init_video_upload">
+<div class="params">
+<label>Размер видео (байт)<input name="video_size" type="number" placeholder="10000000"/></label>
+<label>Chunk size (байт)<input name="chunk_size" type="number" value="10000000"/></label>
+<label class="w">Заголовок (до 150 символов)<input name="title" placeholder="Мое новое видео #fyp"/></label>
+<label>Privacy<select name="privacy_level"><option value="SELF_ONLY">Приватно (SELF_ONLY)</option><option value="FOLLOWER_OF_CREATOR">Подписчики</option><option value="MUTUAL_FOLLOW_FRIENDS">Друзья</option><option value="PUBLIC_TO_EVERYONE">Все</option></select></label>
+</div>
+<div class="chk-row"><input type="checkbox" name="disable_duet"/> Отключить Duet</div>
+<div class="chk-row"><input type="checkbox" name="disable_stitch"/> Отключить Stitch</div>
+<div class="chk-row"><input type="checkbox" name="disable_comment"/> Отключить комментарии</div>
+<button class="btn btn-g">Инициализировать загрузку</button>
+</form>
+</div>
+</section>
+
+<section class="sec" id="tiktok-status">
+<h2>Статус публикации</h2>
+<div class="desc"><strong>Проверить статус загрузки/публикации видео по publish_id.</strong></div>
+<div class="tool">
+<div class="method">POST /api/tool — tool: tiktok_post_status</div>
+<form class="tf" data-t="tiktok_post_status">
+<div class="params">
+<label class="w">Publish ID<input name="publish_id" placeholder="Вставьте publish_id"/></label>
+</div>
+<button class="btn btn-g">Проверить статус</button>
+</form>
+</div>
+</section>
+
+<section class="sec" id="tiktok-videos">
+<h2>Мои видео</h2>
+<div class="desc"><strong>Получить список своих видео со статистикой просмотров, лайков, комментариев.</strong></div>
+<div class="tool">
+<div class="method">POST /api/tool — tool: tiktok_query_videos</div>
+<form class="tf" data-t="tiktok_query_videos">
+<div class="params">
+<label>Количество (макс 20)<input name="max_count" type="number" value="20" min="1" max="20"/></label>
+</div>
+<button class="btn btn-g">Получить видео</button>
+</form>
+</div>
+</section>
+
+<div class="result-box" id="resultBox"><span class="empty">Результат появится здесь.</span></div>
+<div class="result-actions"><button class="btn" id="copyResultBtn">Копировать</button><button class="btn" id="downloadResultBtn">Скачать JSON</button></div>
+</main>
+</div>
+
+<script>
+const $$=(q,root=document)=>Array.from(root.querySelectorAll(q));
+const tk="sinergy_smm_session";
+function au(p){return(location.hostname==="localhost"||location.hostname==="127.0.0.1")?p:"/synergy.github.io/smm/api/index.php?route="+encodeURIComponent(p.replace(/^\/api\//,""))}
+async function ap(p,o={}){const h={"Content-Type":"application/json"};const t=localStorage.getItem(tk);if(t)h.Authorization="Bearer "+t;const r=await fetch(au(p),{...o,headers:h});const tx=await r.text();let d={};try{d=tx?JSON.parse(tx):{}}catch{d={raw:tx}}if(!r.ok)throw new Error(d.detail||d.error||"ERR "+r.status);return d;}
+function fv(f){const v={};new FormData(f).forEach((vl,k)=>{const e=f.elements[k];if(e?.type==="checkbox")v[k]=e.checked;else if(e?.type==="number"&&vl!=="")v[k]=Number(vl);else if(vl!=="")v[k]=vl;});$$("input[type=checkbox]",f).forEach(fe=>v[fe.name]=fe.checked);return v;}
+function showResult(data){document.getElementById("resultBox").textContent=JSON.stringify(data,null,2);}
+$$(".tf").forEach(f=>f.addEventListener("submit",async e=>{e.preventDefault();document.getElementById("resultBox").innerHTML='<span class="empty">Загрузка...</span>';try{const d=await ap("/api/tool",{method:"POST",body:JSON.stringify({tool:f.dataset.t,params:fv(f)})});showResult(d);}catch(err){showResult({error:err.message});}}));
+document.getElementById("copyResultBtn")?.addEventListener("click",()=>{navigator.clipboard.writeText(document.getElementById("resultBox").textContent).then(()=>{document.getElementById("copyResultBtn").textContent="Скопировано!";setTimeout(()=>document.getElementById("copyResultBtn").textContent="Копировать",1200)})});
+document.getElementById("downloadResultBtn")?.addEventListener("click",()=>{const b=new Blob([document.getElementById("resultBox").textContent],{type:"application/json"});const u=URL.createObjectURL(b);const a=document.createElement("a");a.href=u;a.download="tiktok_result.json";a.click();URL.revokeObjectURL(u)});
+</script>
+<script defer src="/synergy.github.io/assets/synergy-premium.js"></script>
+<script defer src="/synergy.github.io/assets/synergy-premium-v88.js"></script><script defer src="/synergy.github.io/assets/synergy-atelier-v9.js"></script><script defer src="/synergy.github.io/assets/synergy-stability-v9.js"></script></body>
+</html>

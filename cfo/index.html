@@ -1,0 +1,201 @@
+<!doctype html>
+<html data-syn-path="cfo/index.html" class="syn-premium" data-syn-app="cfo" lang="ru" data-syn-v9="true">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#050706">
+  <title>SINERGY AI CFO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="market-theme.css?v=20260711">
+<!-- SYNERGY V8 NEXUS bridge --><link rel="stylesheet" href="/nexus-bridge.css"><script defer src="/nexus-bridge.js"></script>
+<link rel="stylesheet" href="/synergy.github.io/assets/synergy-premium.css">
+<link rel="stylesheet" href="/synergy.github.io/assets/synergy-premium-v88.css"><link rel="stylesheet" href="/synergy.github.io/assets/synergy-atelier-v9.css"><link rel="stylesheet" href="/synergy.github.io/assets/synergy-stability-v9.css" data-syn-stability="v9.1.4.1"><link rel="stylesheet" href="/synergy.github.io/cfo/v93.css"><script defer src="/synergy.github.io/assets/pages-runtime.js"></script>
+</head>
+<body>
+  <div class="noise"></div>
+  <aside class="sidebar">
+    <a class="brand" href="#"><span class="brand-mark">₸</span><span>SINERGY<small>AI CFO</small></span></a>
+    <div class="side-label">Другие сервисы — статус см. в портале</div>
+    <div class="link-list">
+      <a class="link-card" href="/synergy.github.io/ai/" target="_blank" rel="noopener"><b>AGI OLGA</b><span>Мультиагентный движок анализа</span></a>
+      <a class="link-card" href="/synergy.github.io/smm/" target="_blank" rel="noopener"><b>AI SMM</b><span>Кабинет продвижения и аналитики</span></a>
+      <a class="link-card" href="/synergy.github.io/video/" target="_blank" rel="noopener"><b>AI VIDEO</b><span>Монтаж и видеопродакшен</span></a>
+      <a class="link-card" href="/synergy.github.io/market/" target="_blank" rel="noopener"><b>AI MARKET</b><span>Взаимное продвижение</span></a>
+      
+    </div>
+    <div class="side-label">Защищённый анализ</div>
+    <div id="cfo-session" class="cfo-session" aria-live="polite">Проверяем доступность оператора…</div>
+    <form id="cfo-login-form" class="cfo-login">
+      <label for="cfo-password">Пароль оператора SYNERGY</label>
+      <input id="cfo-password" class="access-input" type="password" autocomplete="current-password" required placeholder="Пароль, заданный в .env">
+      <button class="primary" type="submit">ВОЙТИ В АНАЛИТИКУ ↗</button>
+    </form>
+    <div class="security-note">🔒 Выписка отправляется вашему серверу для расчётов и не записывается в базу. Не размещайте этот сервис публично без TLS и контроля доступа.</div>
+  </aside>
+
+  <main class="workspace">
+    <header>
+      <button class="mobile-menu" id="mobileMenu">☰</button>
+      <div class="mode-switch">
+        <button data-step="upload" class="active">1. Выписка</button>
+        <button data-step="review">2. Проверка</button>
+        <button data-step="dashboard">3. Дашборд</button>
+        <button data-step="ai">4. AI CFO</button>
+        <button data-step="advanced">5. Продвинутая аналитика</button>
+      </div>
+      <a class="agent-pill" href="/synergy.github.io/portal/"><i></i><span>ЭКОСИСТЕМА ↗</span></a>
+    </header>
+
+    <section class="panel" id="stepUpload"><div class="cfo-trial"><div><b>AI CFO · PRIVATE ANALYTICS</b><span>Реальный Python-анализ операций. Никаких фиктивных подключений и AI-ответов.</span></div><em>V9.3 · LOCAL ENGINE</em></div>
+      <div class="welcome">
+        <div class="orb"><span>₸</span></div>
+        <p class="eyebrow">AI CFO · АНАЛИЗ ФИНАНСОВ</p>
+        <h1>ЗАГРУЗИТЕ ВЫПИСКУ.<br><em>НАЙДИТЕ ДЕНЬГИ.</em></h1>
+        <p class="lead">CSV/TXT-выписка с датой, описанием и суммой. Python посчитает денежные потоки, категории, регулярные платежи и сценарии. Финансовый анализ основан только на введённых вами данных.</p>
+      </div>
+      <div class="dropzone" id="dropzone">
+        <p>Перетащите CSV/TXT-файл сюда или нажмите, чтобы выбрать</p>
+        <input type="file" id="fileInput" accept=".csv,.txt" hidden>
+      </div>
+      <p class="or">или вставьте текст выписки вручную</p>
+      <textarea id="pasteArea" rows="6" placeholder="Дата;Описание;Сумма&#10;01.06.2026;Magnum Продукты;-4500&#10;03.06.2026;Зарплата;350000"></textarea>
+      <div class="actions-row">
+        <button class="primary" id="parseBtn">Разобрать выписку →</button>
+        <button class="ghost" id="loadSample">Загрузить пример</button>
+      </div>
+      <p class="meta-line" id="parseMeta"></p>
+    </section>
+
+    <section class="panel hidden" id="stepReview">
+      <h2>Проверьте операции перед анализом</h2>
+      <p class="lead-small">AI CFO определяет знак суммы и категорию автоматически. Поправьте, где угадал неверно — это влияет на точность аналитики.</p>
+      <div class="table-wrap"><table id="reviewTable"><thead><tr><th>Дата</th><th>Описание</th><th>Сумма</th><th>Тип</th><th>Категория</th><th>Поток</th></tr></thead><tbody></tbody></table></div>
+      <div class="actions-row">
+        <button class="primary" id="analyzeBtn">Построить дашборд →</button>
+      </div>
+    </section>
+
+    <section class="panel hidden" id="stepDashboard">
+      <h2>Дашборд</h2>
+      <div class="cards-row" id="summaryCards"></div>
+      <div class="grid-2">
+        <div class="card"><h3>Расходы по категориям</h3><div id="categoryChart"></div></div>
+        <div class="card"><h3>Доходы и расходы по месяцам</h3><div id="monthChart"></div></div>
+      </div>
+      <div class="grid-2">
+        <div class="card"><h3>Регулярные платежи (подозрение на подписки)</h3><div id="recurringList"></div></div>
+        <div class="card"><h3>Крупнейшие траты</h3><div id="topExpensesList"></div></div>
+      </div>
+      <div class="card hidden" id="brokerageCard"><h3>Брокерский отчёт по инструментам</h3><div id="brokerageList"></div></div>
+      <div class="card hidden" id="streamCard"><h3>P&amp;L по потокам дохода</h3><div id="streamList"></div></div>
+    </section>
+
+    <section class="panel hidden" id="stepAi">
+      <h2>Алгоритмический финансовый отчёт</h2><p class="lead-small">Вывод рассчитывается детерминированно на Python. Это не генеративная нейросеть и не индивидуальная рекомендация.</p>
+      <div class="actions-row">
+        <button class="primary" id="askAiBtn">ПОСТРОИТЬ ОТЧЁТ PYTHON →</button>
+      </div>
+      <div class="ai-report" id="aiReport"><p class="empty">Загрузите выписку и нажмите «Построить отчёт», чтобы получить объяснимые результаты.</p></div>
+      <div class="actions-row" id="handoffRow" hidden>
+        <button class="ghost" id="sendOlga" disabled title="Интеграция ещё не настроена">Обсудить с AI OLGA →</button>
+        <button class="ghost" id="sendSmm" disabled title="Интеграция ещё не настроена">Отправить идею в AI SMM →</button>
+      </div>
+      <p class="disclaimer">Детерминированный Python-анализ без внешнего AI-провайдера. Это не бухгалтерская, налоговая или индивидуальная инвестиционная рекомендация.</p>
+    </section>
+
+    <section class="panel hidden" id="stepAdvanced">
+      <h2>Продвинутая аналитика</h2>
+      <p class="lead-small">Статистические модели поверх ваших операций: без выдуманного ИИ там, где для него нет данных — честная математика, которая объясняется.</p>
+
+      <div class="card" style="margin-bottom:16px">
+        <h3>📈 Прогноз денежного потока</h3>
+        <div class="actions-row"><input id="forecastMonths" type="number" value="6" min="1" max="24" style="width:90px"><button class="primary" id="forecastBtn">Построить прогноз</button></div>
+        <div id="forecastChart"></div>
+        <div id="forecastMeta" class="meta-line"></div>
+      </div>
+
+      <div class="card" style="margin-bottom:16px">
+        <h3>🔮 What-if сценарии</h3>
+        <div class="actions-row">
+          <select id="whatifType">
+            <option value="mortgage">Ипотека / новый платёж (мес.)</option>
+            <option value="add_income">Новый доход (мес.)</option>
+            <option value="income_change_pct">Изменение дохода (%)</option>
+            <option value="invest_return_pct">Инвестировать N/мес под % годовых</option>
+            <option value="one_time_expense">Разовая трата</option>
+          </select>
+          <input id="whatifAmount" type="number" placeholder="Сумма / %" style="width:130px">
+          <input id="whatifStart" type="number" placeholder="С какого месяца" value="1" style="width:130px">
+          <button class="primary" id="whatifBtn">Смоделировать</button>
+        </div>
+        <div id="whatifResult"></div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>🚨 Аномалии и дубли</h3>
+          <button class="ghost" id="anomaliesBtn">Проверить операции</button>
+          <div id="anomaliesResult"></div>
+        </div>
+        <div class="card">
+          <h3>🏅 Финансовый скоринг</h3>
+          <button class="ghost" id="scoreBtn">Посчитать скор</button>
+          <div id="scoreResult"></div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>🧾 Налоговый калькулятор — по введённой ставке</h3>
+          <div class="actions-row">
+            <select id="taxCountry"><option value="kz">Казахстан</option><option value="ru">Россия</option></select>
+            <input id="taxIncome" type="number" placeholder="Средний доход/мес" style="width:170px">
+            <input id="taxRate" type="number" step="0.01" placeholder="Ваша ставка, %" style="width:190px">
+          </div>
+          <button class="ghost" id="taxBtn">Оценить налог</button>
+          <div id="taxResult"></div>
+        </div>
+        <div class="card">
+          <h3>📷 OCR чека</h3>
+          <input type="file" id="receiptInput" accept="image/*" disabled><p class="meta-line">OCR чека пока не подключён; недоступен, чтобы не имитировать распознавание.</p>
+          <div id="receiptResult"></div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>🔌 Live-коннекторы (брокер/биржа)</h3>
+          <div class="actions-row">
+            <select id="connectorProvider"><option value="tinkoff_invest">Tinkoff Invest</option><option value="interactive_brokers">Interactive Brokers</option><option value="bybit">Bybit</option></select>
+          </div>
+          <input id="connectorConfig" placeholder="Токены нельзя вводить сюда" disabled style="width:100%;margin:8px 0">
+          <button class="ghost" id="connectorBtn" disabled>Подключить и синхронизировать</button>
+          <div id="connectorResult"></div>
+        </div>
+        <div class="card">
+          <h3>✉️ Письмо кредитору (реструктуризация)</h3>
+          <input id="debtCreditor" placeholder="Кредитор (например, Halyk Bank)" style="width:100%;margin-bottom:6px">
+          <input id="debtAmount" placeholder="Сумма долга" style="width:100%;margin-bottom:6px">
+          <textarea id="debtSituation" placeholder="Опишите ситуацию" rows="2" style="width:100%"></textarea>
+          <button class="ghost" id="debtLetterBtn">СОЗДАТЬ ЧЕРНОВИК (БЕЗ ОТПРАВКИ)</button>
+          <div id="debtLetterResult"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="settingsModal" hidden aria-hidden="true">
+    <section class="modal settings-modal">
+      <div class="modal-head"><div><p class="eyebrow">MODEL CONTROL</p><h2>Модель для AI CFO</h2></div><button class="close" data-close="settingsModal">×</button></div>
+      <div class="model-list" id="modelForm"></div>
+      <div class="security-note">🔒 API-ключ хранится только в sessionStorage этой вкладки.</div>
+      <div class="modal-actions"><button class="ghost" data-close="settingsModal">Отмена</button><button class="primary" id="saveSettings">Сохранить</button></div>
+    </section>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+<script defer src="/synergy.github.io/assets/synergy-premium.js"></script>
+<script defer src="/synergy.github.io/assets/synergy-premium-v88.js"></script><script defer src="/synergy.github.io/assets/synergy-atelier-v9.js"></script><script defer src="/synergy.github.io/assets/synergy-stability-v9.js"></script></body>
+</html>

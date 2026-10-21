@@ -1,0 +1,122 @@
+<!doctype html>
+<html data-syn-path="ai/index.html" class="syn-premium" data-syn-app="ai" lang="ru" data-syn-v9="true">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#050706">
+  <title>SINERGY AI · AGI OLGA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+<!-- SYNERGY V8 NEXUS bridge --><link rel="stylesheet" href="/nexus-bridge.css"><script defer src="/nexus-bridge.js"></script>
+<link rel="stylesheet" href="/synergy.github.io/assets/synergy-premium.css">
+<link rel="stylesheet" href="/synergy.github.io/assets/synergy-premium-v88.css"><link rel="stylesheet" href="/synergy.github.io/assets/synergy-atelier-v9.css"><link rel="stylesheet" href="/synergy.github.io/assets/synergy-stability-v9.css" data-syn-stability="v9.1.4.1"><link rel="stylesheet" href="/synergy.github.io/assets/v95-operations.css"><script defer src="/synergy.github.io/assets/pages-runtime.js"></script>
+</head>
+<body>
+  <div class="noise"></div>
+  <aside class="sidebar">
+    <a class="brand" href="#"><span class="brand-mark">S</span><span>SINERGY<small>AI SYSTEM</small></span></a>
+    <button class="primary new-chat" id="newChat">＋ Новый диалог</button>
+    <div class="side-label">История</div>
+    <div class="chat-list" id="chatList"></div>
+    <div class="trial-mini" id="trialMini">
+      <div><span class="pulse"></span><b>TRIAL</b><span id="trialDays">7 дней</span></div>
+      <div class="mini-track"><i id="trialProgress"></i></div>
+      <small id="trialUsage">0 / 100 сообщений</small>
+    </div>
+    <button class="ghost settings-open" id="settingsOpen">⚙ Настройки моделей</button>
+    <button class="user-button" id="userButton"><span class="avatar">O</span><span><b id="userName">Гость</b><small id="userStatus">Войти в OLGA</small></span></button>
+  </aside>
+
+  <main class="workspace">
+    <header>
+      <button class="mobile-menu" id="mobileMenu">☰</button>
+      <div class="mode-switch" id="modeSwitch">
+        <button data-mode="single" class="active">Одна модель</button>
+        <button data-mode="chain">Цепочка</button>
+        <button data-mode="consensus">Консенсус</button>
+        <button data-mode="department">AI-отдел</button>
+      </div>
+      <button class="agent-pill" id="agentPill"><i></i><span id="activeLabel">OLGA · 1 агент</span></button>
+      <button class="agent-pill" id="busPill" title="Сообщения от AI CFO и AI SMM"><i></i><span id="busLabel">SINERGY BUS · 0</span></button>
+    </header>
+
+    <section class="context-panel">
+      <div class="context-title"><span>РАБОЧАЯ ПАМЯТЬ</span><b id="contextValue">0 / 128K</b></div>
+      <div class="context-track"><i id="contextProgress"></i><em class="threshold">80%</em></div>
+      <div class="context-meta"><span id="archiveValue">LZMA-9 архив · 0 токенов</span><span id="compressionValue">0 циклов сжатия</span></div>
+    </section>
+
+    <section class="messages" id="messages">
+      <div class="welcome" id="welcome">
+        <div class="orb"><span>O</span></div>
+        <p class="eyebrow">AGI OLGA · MULTI-AGENT INTELLIGENCE</p>
+        <h1>ОДИН ЗАПРОС.<br><em>КОЛЛЕКТИВНЫЙ РАЗУМ.</em></h1>
+        <p class="lead">Подключите модели разных провайдеров и соберите собственную команду AI — от последовательной цепочки до полноценного отдела.</p>
+        <div class="suggestions">
+          <button data-prompt="Разработай стратегию запуска нового AI-продукта на российском рынке"><b>Стратегия запуска</b><span>исследование → план → критика</span></button>
+          <button data-prompt="Проведи коллективный аудит этой идеи, найди риски и предложи улучшенную версию"><b>Экспертный консенсус</b><span>несколько независимых мнений</span></button>
+          <button data-prompt="Организуй AI-отдел для решения задачи: "><b>Собрать AI-отдел</b><span>руководитель + специалисты</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="composer-area">
+      <div class="files" id="files"></div>
+      <div class="composer">
+        <label class="attach" title="Добавить файлы">＋<input type="file" id="fileInput" multiple hidden></label>
+        <textarea id="prompt" rows="1" placeholder="Поставьте задачу OLGA…"></textarea>
+        <button class="send" id="send" title="Отправить">↑</button>
+      </div>
+      <div class="composer-hint"><span>Enter — отправить · Shift+Enter — новая строка</span><button id="traceOpen">Ход работы агентов</button></div>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="settingsModal">
+    <section class="modal settings-modal">
+      <div class="modal-head"><div><p class="eyebrow">MODEL CONTROL</p><h2>Команда OLGA</h2></div><button class="close" data-close="settingsModal">×</button></div>
+      <div class="mode-info" id="modeInfo"></div>
+      <div class="model-list" id="modelList"></div>
+      <button class="add-model" id="addModel">＋ Добавить модель <span>до 5 агентов</span></button>
+      <div class="security-note">🔒 Новые API-ключи провайдеров принимаются только сервером; устаревшая клиентская настройка отключена. Legacy-вход OLGA ещё требует миграции на корпоративную SSO.</div>
+      <div class="modal-actions"><button class="ghost" data-close="settingsModal">Отмена</button><button class="primary" id="saveSettings">Сохранить команду</button></div>
+    </section>
+  </div>
+
+  <div class="modal-backdrop" id="authModal">
+    <section class="modal auth-modal">
+      <button class="close auth-close" data-close="authModal">×</button>
+      <div class="trial-badge">7 ДНЕЙ · 100 ЗАПРОСОВ</div>
+      <div class="orb small"><span>O</span></div>
+      <h2>Активируйте AGI OLGA</h2>
+      <p>Полный мультиагентный режим бесплатно. Без карты и скрытых списаний.</p>
+      <div class="auth-tabs"><button class="active" data-auth="register">Создать аккаунт</button><button data-auth="login">Войти</button></div>
+      <form id="registerForm">
+        <label>Ваше имя<input name="name" required maxlength="80" placeholder="Александр"></label>
+        <label>Email<input name="email" type="email" required placeholder="you@company.ru"></label>
+        <label>Пароль<input name="password" type="password" minlength="8" required placeholder="Минимум 8 символов"></label>
+        <button class="primary" type="submit">Начать бесплатный trial →</button>
+      </form>
+      <form id="loginForm" hidden>
+        <label>Email<input name="email" type="email" required></label>
+        <label>Пароль<input name="password" type="password" required></label>
+        <button class="primary" type="submit">Войти →</button>
+      </form>
+      <div class="auth-error" id="authError"></div>
+      <small>Создавая аккаунт, вы принимаете условия использования сервиса.</small>
+    </section>
+  </div>
+
+  <aside class="trace-drawer" id="traceDrawer">
+    <div class="modal-head"><div><p class="eyebrow">AGENT TRACE</p><h2>Ход работы</h2></div><button class="close" id="traceClose">×</button></div>
+    <div id="traceList" class="trace-list"><p class="empty">Здесь появятся этапы рассуждения команды после первого запроса.</p></div>
+  </aside>
+  <aside class="trace-drawer" id="busDrawer">
+    <div class="modal-head"><div><p class="eyebrow">SINERGY BUS</p><h2>Сообщения от AI CFO / AI SMM</h2></div><button class="close" id="busClose">×</button></div>
+    <div id="busList" class="trace-list"><p class="empty">Здесь появятся финансовые инсайты от AI CFO и задачи для AI SMM.</p></div>
+  </aside>
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+<script defer src="/synergy.github.io/assets/synergy-premium.js"></script>
+<script defer src="/synergy.github.io/assets/synergy-premium-v88.js"></script><script defer src="/synergy.github.io/assets/synergy-atelier-v9.js"></script><script defer src="/synergy.github.io/assets/synergy-stability-v9.js"></script><script defer src="/synergy.github.io/assets/v95-operations.js"></script></body>
+</html>

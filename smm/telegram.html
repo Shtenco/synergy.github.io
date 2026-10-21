@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html data-syn-path="smm/telegram.html" class="syn-premium" data-syn-app="smm" lang="ru" data-syn-v9="true">
+<head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Telegram API — SINERGY SMM AI — Все методы</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=DM+Mono:wght@400;500&amp;family=Manrope:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --g:#00e664;--g2:#00c250;--g3:rgba(0,230,100,.12);--g4:rgba(0,230,100,.06);--g5:rgba(0,230,100,.22);
+  --blk:#000;--b1:#080808;--b2:#0d0d0d;--b3:#141414;--b4:#1c1c1c;--b5:#252525;
+  --w:#fff;--w2:rgba(255,255,255,.88);--w3:rgba(255,255,255,.52);--w4:rgba(255,255,255,.22);--w5:rgba(255,255,255,.07);
+  --bdr:rgba(0,230,100,.15);--bdr2:rgba(255,255,255,.06);--bdr3:rgba(0,230,100,.30);
+  --red:#ff4f5e;--red2:rgba(255,79,94,.12);--gold:#f2c15b;--gold2:rgba(242,193,91,.1);
+  --serif:'Instrument Serif',Georgia,serif;--display:'Bebas Neue',sans-serif;--mono:'DM Mono',monospace;--body:'Manrope',sans-serif;
+  --r2:10px;--r3:18px;--r4:28px;
+  --glow:0 0 60px rgba(0,230,100,.06);
+}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--blk);color:var(--w);overflow-x:hidden;background-image:radial-gradient(ellipse 65% 35% at 50% 0%,rgba(0,230,100,.04),transparent)}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+input,textarea,select{font-family:inherit}
+::selection{background:var(--g);color:#000}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:#000}::-webkit-scrollbar-thumb{background:var(--g);border-radius:99px}
+
+/* Nav bar */
+.nav{position:sticky;top:0;z-index:100;background:rgba(0,0,0,.92);border-bottom:1px solid var(--bdr);backdrop-filter:blur(32px);-webkit-backdrop-filter:blur(32px)}
+.nav-in{height:64px;display:flex;align-items:center;gap:16px;max-width:1500px;margin:0 auto;padding:0 28px}
+.nav-logo{font-family:var(--display);font-size:24px;letter-spacing:5px;color:var(--g);flex-shrink:0;text-shadow:0 0 30px rgba(0,230,100,.15)}
+.nav-logo span{color:var(--w)}
+.nav-links{display:flex;gap:6px;margin-left:auto;align-items:center}
+.nav-link{padding:9px 16px;border-radius:var(--r2);font-size:11px;font-weight:700;color:var(--w3);transition:all .2s;letter-spacing:.3px}
+.nav-link:hover{color:var(--g);background:var(--g3)}
+.nav-link.primary{background:var(--g);color:#000}
+.nav-link.primary:hover{background:#fff}
+.nav-link.danger{background:var(--red2);color:var(--red);border:1px solid rgba(255,79,94,.2)}
+.nav-link.danger:hover{background:rgba(255,79,94,.2)}
+
+/* Layout */
+.layout{display:grid;grid-template-columns:240px 1fr;gap:24px;max-width:1500px;margin:0 auto;padding:24px 28px 60px;position:relative}
+
+/* Sidebar brand panel */
+.side{position:sticky;top:90px;height:calc(100vh - 116px);background:linear-gradient(180deg,rgba(13,13,13,.98),rgba(8,8,8,.98));border:1px solid var(--bdr2);border-radius:var(--r3);padding:14px;overflow-y:auto;box-shadow:var(--glow)}
+.side-title{font-family:var(--mono);font-size:8px;letter-spacing:2.5px;text-transform:uppercase;color:var(--w4);padding:12px 10px 6px}
+.side-link{display:flex;align-items:center;gap:10px;padding:11px 14px;border-radius:var(--r2);font-size:12px;font-weight:600;color:var(--w3);transition:all .18s;margin-bottom:3px;position:relative;overflow:hidden}
+.side-link:hover{color:var(--w);background:var(--w5)}
+.side-link.active{color:var(--g);background:var(--g3);border-left:2px solid var(--g)}
+.side-link .ico{width:18px;height:18px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:10px;background:var(--b4);flex-shrink:0}
+.side-link.active .ico{background:var(--g3);color:var(--g)}
+.side-link small{font-family:var(--mono);font-size:9px;color:var(--w4);margin-left:auto}
+.side-sep{height:1px;background:linear-gradient(90deg,transparent,var(--bdr2),transparent);margin:10px 0}
+
+/* Main content area */
+.main{min-width:0}
+
+/* Hero premium */
+.dash{display:grid;grid-template-columns:1fr 380px;gap:24px;margin-bottom:24px}
+.dash-main{background:linear-gradient(160deg,rgba(13,13,13,.95),rgba(8,8,8,.95));border:1px solid var(--bdr);border-radius:var(--r4);padding:32px;display:flex;flex-direction:column;justify-content:space-between;min-height:260px;position:relative;overflow:hidden;box-shadow:var(--glow)}
+.dash-main::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 60% 30%,rgba(0,230,100,.04),transparent 50%);pointer-events:none}
+.dash-main::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--bdr),transparent)}
+.eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--g);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.eyebrow::before{content:'';width:24px;height:1px;background:var(--g)}
+.dash h1{font-family:var(--display);font-size:clamp(30px,4.5vw,52px);line-height:.92;letter-spacing:2px;margin-bottom:10px;position:relative;z-index:1}
+.dash h1 em{color:var(--g);font-style:normal}
+.lead-text{font-size:14px;line-height:1.75;color:var(--w3);max-width:600px;position:relative;z-index:1}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:20px;position:relative;z-index:1}
+.metric{background:rgba(255,255,255,.03);border:1px solid var(--bdr2);border-radius:var(--r2);padding:16px;transition:all .25s}
+.metric:hover{background:var(--g4);border-color:var(--bdr)}
+.metric b{display:block;font-family:var(--display);font-size:24px;color:var(--g);line-height:1;letter-spacing:1px}
+.metric span{font-family:var(--mono);font-size:9px;color:var(--w4);text-transform:uppercase;letter-spacing:1px;margin-top:6px;display:block}
+
+/* Auth panel side */
+.auth{background:linear-gradient(160deg,rgba(13,13,13,.95),rgba(8,8,8,.95));border:1px solid var(--bdr);border-radius:var(--r4);padding:28px;box-shadow:var(--glow)}
+.auth h2{font-size:20px;font-weight:800;margin-bottom:4px}
+.auth .sub{font-size:13px;color:var(--w3);margin-bottom:16px}
+.auth-tabs{display:flex;gap:3px;background:var(--b3);border-radius:var(--r2);padding:3px;margin-bottom:16px}
+.auth-tab{flex:1;padding:11px;border-radius:7px;font-size:12px;font-weight:700;color:var(--w3);text-align:center;cursor:pointer;transition:all .2s}
+.auth-tab.active{background:var(--g);color:#000;box-shadow:0 4px 20px rgba(0,230,100,.2)}
+.form{display:grid;gap:12px}
+.form label{font-size:11px;font-weight:700;color:var(--w2);display:grid;gap:5px;letter-spacing:.3px}
+.form input,.form textarea,.form select{width:100%;background:var(--b3);border:1px solid var(--bdr2);border-radius:var(--r2);padding:12px 14px;color:var(--w);outline:none;font-size:13px;transition:all .2s}
+.form input:focus,.form textarea:focus{border-color:var(--g);box-shadow:0 0 0 3px var(--g3)}
+.form textarea{resize:vertical;min-height:72px;font-family:var(--mono);font-size:12px}
+.hidden{display:none!important}
+.notify{padding:14px 16px;border-radius:var(--r2);font-size:12px;line-height:1.6;margin-top:14px;border:1px solid}
+.notify-info{background:var(--g4);border-color:var(--bdr);color:var(--w2)}
+.notify-err{background:var(--red2);border-color:rgba(255,79,94,.25);color:var(--red)}
+.notify-ok{background:var(--g4);border-color:var(--g);color:var(--g)}
+.license-key{font-family:var(--mono);color:var(--g);user-select:all;word-break:break-all;font-size:11px}
+
+/* Section cards */
+.sec{margin-top:24px;background:linear-gradient(160deg,rgba(13,13,13,.95),rgba(8,8,8,.95));border:1px solid var(--bdr2);border-radius:var(--r3);padding:28px;box-shadow:var(--glow)}
+.sec-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:18px}
+.sec-head h2{font-size:22px;font-weight:800;letter-spacing:-.3px}
+.sec-head h2 .badge{display:inline-block;font-size:10px;background:var(--g3);color:var(--g);padding:3px 10px;border-radius:99px;margin-left:8px;font-weight:700;vertical-align:middle}
+.sec-head p{font-size:13px;color:var(--w3);margin-top:5px;line-height:1.65;max-width:560px}
+.section-desc{font-size:13px;color:var(--w3);line-height:1.7;margin-bottom:18px;padding:16px 18px;background:var(--b3);border-radius:var(--r2);border-left:2px solid var(--g)}
+
+/* Platform status bar premium */
+.platform-strip{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px;margin:16px 0}
+.plat-btn{padding:12px 10px;border-radius:var(--r2);border:1px solid var(--bdr2);background:var(--b3);text-align:center;font-size:11px;font-weight:700;color:var(--w3);transition:all .2s;cursor:pointer;position:relative}
+.plat-btn:hover{border-color:var(--bdr);color:var(--w);transform:translateY(-2px);box-shadow:0 4px 20px rgba(0,0,0,.3)}
+.plat-btn.on{border-color:var(--g);background:var(--g3);color:var(--g)}
+.plat-btn .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--red);margin-right:6px;vertical-align:middle;box-shadow:0 0 8px rgba(255,79,94,.4)}
+.plat-btn.on .dot{background:var(--g);box-shadow:0 0 8px rgba(0,230,100,.5)}
+
+/* Account info */
+.acct-box{padding:14px 18px;background:var(--g4);border:1px solid var(--bdr);border-radius:var(--r2);font-size:13px;line-height:1.7;margin-bottom:16px}
+.acct-box b{color:var(--g)}
+
+/* Token pills */
+.token-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px;margin-bottom:18px}
+.token-pill{padding:12px 14px;border-radius:var(--r2);border:1px solid var(--bdr2);background:var(--b3);transition:all .2s}
+.token-pill:hover{border-color:var(--bdr)}
+.token-pill b{display:block;font-size:13px;margin-bottom:3px;letter-spacing:.5px}
+.token-pill span{font-family:var(--mono);font-size:10px;color:var(--w4)}
+.token-pill.on span{color:var(--g)}
+
+/* Tool cards premium */
+.tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px}
+.tool{background:var(--b3);border:1px solid var(--bdr2);border-radius:var(--r2);padding:20px;transition:all .25s;position:relative}
+.tool:hover{border-color:var(--bdr);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.2)}
+.tool::after{content:'';position:absolute;top:0;left:20%;right:20%;height:1px;background:linear-gradient(90deg,transparent,var(--bdr),transparent);opacity:0;transition:opacity .3s}
+.tool:hover::after{opacity:1}
+.tool h3{font-size:15px;font-weight:700;color:var(--g);margin-bottom:4px;display:flex;align-items:center;gap:8px}
+.tool h3 .method-badge{font-size:9px;font-family:var(--mono);background:var(--b4);padding:2px 8px;border-radius:99px;color:var(--w3);font-weight:400}
+.tool .desc{font-size:12px;color:var(--w3);line-height:1.6;margin-bottom:12px}
+.tool .desc strong{color:var(--w);font-weight:600}
+.tool .params-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.tool .params-grid label{display:grid;gap:4px;font-size:11px;font-weight:600;color:var(--w2)}
+.tool .params-grid .fw{grid-column:1/-1}
+.tool input,.tool textarea,.tool select{width:100%;background:var(--b3);border:1px solid var(--bdr2);border-radius:7px;padding:10px 12px;color:var(--w);outline:none;font-size:12px;transition:border-color .2s}
+.tool input:focus,.tool textarea:focus{border-color:var(--g);box-shadow:0 0 0 2px var(--g3)}
+.tool textarea{resize:vertical;font-family:var(--mono);font-size:11px;min-height:56px}
+
+/* Buttons premium */
+.btn-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.btn{padding:10px 20px;border-radius:var(--r2);font-size:12px;font-weight:800;border:1px solid var(--bdr2);background:transparent;color:var(--w3);transition:all .2s;display:inline-flex;align-items:center;gap:6px;letter-spacing:.3px}
+.btn:hover{color:var(--g);background:var(--g3);border-color:var(--g);transform:translateY(-1px)}
+.btn-g{background:var(--g);color:#000;border-color:transparent;box-shadow:0 4px 20px rgba(0,230,100,.15)}
+.btn-g:hover{background:#fff;color:#000;box-shadow:0 6px 30px rgba(0,230,100,.25)}
+.btn-danger{background:var(--red2);color:var(--red);border-color:rgba(255,79,94,.2)}
+.btn-danger:hover{background:rgba(255,79,94,.2)}
+.btn-sm{padding:7px 14px;font-size:11px}
+.btn:disabled{opacity:.4;cursor:not-allowed;transform:none!important}
+
+/* Progress bar */
+.progress-wrap{height:4px;background:var(--b4);border-radius:99px;overflow:hidden;margin:12px 0 8px}
+.progress-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--g),#37ff98);border-radius:99px;transition:width .6s ease}
+.progress-fill.indeterminate{width:40%;animation:prog 1.4s ease infinite}
+@keyframes prog{0%{transform:translateX(-100%)}100%{transform:translateX(350%)}}
+.progress-label{display:flex;justify-content:space-between;font-size:10px;color:var(--w4);font-family:var(--mono);letter-spacing:.5px}
+
+/* Result box */
+.result-box{background:#050505;border:1px solid var(--bdr2);border-radius:var(--r2);padding:16px;min-height:100px;max-height:400px;overflow:auto;font-family:var(--mono);font-size:11px;line-height:1.7;color:var(--w2);white-space:pre-wrap;margin-top:12px;position:relative}
+.result-box .empty{color:var(--w4);font-style:italic}
+.result-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:8px}
+.log-box{color:var(--w4);min-height:80px}
+
+/* Tooltip helper */
+.helper{font-size:11px;color:var(--w4);margin-bottom:8px;line-height:1.5;padding:8px 10px;background:var(--b4);border-radius:6px;border-left:2px solid var(--g)}
+.helper strong{color:var(--w2)}
+
+/* Checkbox row */
+.chk-row{display:flex;align-items:center;gap:8px;margin:8px 0;font-size:12px;color:var(--w3)}
+.chk-row input[type=checkbox]{width:16px;height:16px;accent-color:var(--g)}
+
+/* Status badge */
+.status-badge{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:99px;font-size:10px;font-weight:700;font-family:var(--mono)}
+.status-badge.green{background:var(--g3);color:var(--g)}
+.status-badge.red{background:var(--red2);color:var(--red)}
+.status-badge.gray{background:var(--w5);color:var(--w4)}
+
+/* Account info in sec */
+.acct-mini{padding:12px 16px;background:var(--g4);border:1px solid var(--bdr);border-radius:var(--r2);font-size:12px;line-height:1.6;margin:12px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+/* Animations */
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.anim-in{animation:fadeIn .35s ease both}
+
+/* Responsive */
+@media(max-width:1200px){
+  .dash{grid-template-columns:1fr}
+}
+@media(max-width:1000px){
+  .layout{grid-template-columns:1fr}
+  .side{position:relative;top:0;height:auto;display:grid;grid-template-columns:repeat(3,1fr);padding:10px;gap:3px}
+  .side-title{display:none}.side-sep{display:none}
+  .side-link{padding:8px 10px;font-size:11px}
+  .side-link small{display:none}
+  .nav-links .nav-link{padding:7px 10px;font-size:10px}
+  .metrics{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:700px){
+  .layout{padding:14px 16px}
+  .nav-in{padding:0 14px}
+  .nav-logo{font-size:20px}
+  .nav-links{gap:3px}
+  .nav-link{padding:6px 10px;font-size:10px}
+  .side{grid-template-columns:repeat(2,1fr)}
+  .dash-main{padding:22px;min-height:auto}
+  .metrics{grid-template-columns:repeat(2,1fr)}
+  .tools{grid-template-columns:1fr}
+  .sec{padding:20px}
+  .tool{padding:16px}
+  .tool .params-grid{grid-template-columns:1fr}
+  .platform-strip{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+  .nav-logo{font-size:17px}
+  .nav-link{font-size:9px;padding:5px 8px}
+  .side{grid-template-columns:1fr}
+  .metrics{grid-template-columns:1fr}
+  .sec-head{flex-direction:column}
+}
+</style>
+<link rel="stylesheet" href="plain-language.css">
+<!-- SYNERGY V8 NEXUS bridge --><link rel="stylesheet" href="/nexus-bridge.css"><script defer src="/nexus-bridge.js"></script>
+<link rel="stylesheet" href="/synergy.github.io/assets/synergy-premium.css">
+<link rel="stylesheet" href="/synergy.github.io/assets/synergy-premium-v88.css"><link rel="stylesheet" href="/synergy.github.io/assets/synergy-atelier-v9.css"><link rel="stylesheet" href="/synergy.github.io/assets/synergy-stability-v9.css" data-syn-stability="v9.1.4.1"><script defer src="/synergy.github.io/assets/pages-runtime.js"></script>
+</head>
+<body>
+<nav class="nav"><div class="nav-in"><a class="nav-logo" href="index.html">SINERGY <span>TG</span></a><div class="nav-links"><a href="index.html">Продающая</a><a href="auth.html">Вход</a><a href="cabinet.html">Кабинет</a><a href="/synergy.github.io/portal/">Портал</a></div></div></nav>
+<div class="layout">
+<aside class="side">
+<div class="side-title">backend_app.py</div>
+<a class="side-link" href="#tg-check">telegram_check</a>
+<a class="side-link" href="#tg-parse-groups">telegram_parse_groups</a>
+<a class="side-link" href="#tg-parse-users">telegram_parse_users</a>
+<a class="side-link" href="#tg-invite">telegram_invite</a>
+<div class="side-title" style="margin-top:8px">TG COMBINE BOT</div>
+<a class="side-link" href="#tg-parser">TG Bot Parser (поиск людей)</a>
+<a class="side-link" href="#tg-parser-group">TG Bot Parser Group</a>
+<a class="side-link" href="#tg-parser-group2">TG Bot Parser Group 2</a>
+<a class="side-link" href="#tg-parser-group3">TG Bot Parser Group 3</a>
+<a class="side-link" href="#tg-parser-users">TG Bot Parser Users</a>
+<a class="side-link" href="#tg-parser-human">TG Bot Parser Human</a>
+<a class="side-link" href="#tg-inviter">TG Bot Inviter Users</a>
+<div class="side-title" style="margin-top:8px">main.py автопилот</div>
+<a class="side-link" href="#tg-autopilot-parse-users">telegram_parse_users</a>
+<a class="side-link" href="#tg-autopilot-parse-groups">telegram_parse_groups</a>
+<a class="side-link" href="#tg-autopilot-invite">telegram_invite</a>
+<div class="side-title" style="margin-top:8px">Telethon API</div>
+<a class="side-link" href="#tg-search">SearchGlobalRequest</a>
+<a class="side-link" href="#tg-dialogs">GetDialogsRequest</a>
+<a class="side-link" href="#tg-participants">GetParticipantsRequest</a>
+<a class="side-link" href="#tg-invite2">InviteToChannelRequest</a>
+<a class="side-link" href="#tg-resolve">ResolveUsernameRequest</a>
+<a class="side-link" href="#tg-history">GetHistoryRequest</a>
+<a class="side-link" href="#tg-messages">client.get_messages()</a>
+</aside>
+<main class="main">
+<section class="sec" style="margin-bottom:18px"><div class="sec-head"><div><h2>Начните здесь — это просто</h2><p>В этом кабинете вы работаете только с Telegram. Технические разделы ниже можно изучить позже.</p></div></div><div class="tools"><div class="tool"><h3>1. Подключите Telegram</h3><div class="desc">Откройте общий кабинет, добавьте доступ к своему аккаунту и нажмите «Сохранить и проверить».</div><a class="btn btn-g" href="cabinet.html#tokens">Подключить →</a></div><div class="tool"><h3>2. Выберите задачу</h3><div class="desc">Система проведёт вас к поиску клиентов, сообщениям, публикациям или аналитике.</div><a class="btn btn-g" href="cabinet.html#hot-lead-radar">Найти спрос →</a></div><div class="tool"><h3>3. Посмотрите результат</h3><div class="desc">Вы увидите понятный список: что найдено, почему это важно и что делать дальше.</div><a class="btn" href="cabinet.html#unified-inbox">Открыть входящие →</a></div></div></section>
+<div class="hero"><h1 class="h1">Telegram <em>API</em></h1><p>Полный набор методов Telegram из оригинальных файлов: backend_app.py (4 инструмента), TG COMBINE BOT (7 парсеров), main.py автопилот (3 инструмента), Telethon (7 API вызовов).</p></div>
+<div class="sec" id="tg-check"><h2>telegram_check (backend)</h2><div class="desc"><strong>Что это:</strong> Инструмент для сохранения и проверки Telegram API ID и API Hash — ключей доступа к Telegram. <strong>Зачем нужен:</strong> Без этих данных ни один метод Telegram не будет работать. Это обязательный первый шаг перед запуском любых парсеров и инвайтеров. <strong>Что получите на выходе:</strong> Подтверждение, что API-ключи сохранены и валидны. Дальше можете запускать любой инструмент на странице.</div>
+<div class="tool"><div class="method">POST /api/tool — tool: telegram_check</div>
+<form class="tf" data-t="telegram_check"><div class="params"><label>API ID<input name="api_id"/></label><label>API Hash<input name="api_hash" type="password"/></label><label class="w">Phone<input name="phone" placeholder="+79990000000"/></label></div><button class="btn btn-g">Сохранить</button></form></div></div>
+<div class="sec" id="tg-parse-groups"><h2>telegram_parse_groups (backend)</h2><div class="desc"><strong>Что это:</strong> Инструмент, который ищет Telegram-группы по заданным ключевым словам через API и ставит задачу в очередь. <strong>Зачем нужен:</strong> Чтобы быстро собрать базу целевых групп по вашей тематике — например, группы по маркетингу, крипте, фитнесу. <strong>Что получите на выходе:</strong> Список найденных групп (названия, ссылки, участники). Можно использовать для последующего парсинга пользователей или приглашений.</div>
+<div class="tool"><div class="method">POST /api/tool — tool: telegram_parse_groups</div>
+<form class="tf" data-t="telegram_parse_groups"><div class="params w"><label>Ключевые слова<textarea data-list="" name="keywords" rows="4"></textarea></label></div><button class="btn btn-g">Парсить группы</button></form></div></div>
+<div class="sec" id="tg-parse-users"><h2>telegram_parse_users (backend)</h2><div class="desc"><strong>Что это:</strong> Инструмент для поиска пользователей Telegram по ключевым словам. Задача ставится в очередь. <strong>Зачем нужен:</strong> Чтобы найти целевую аудиторию — людей, которые пишут или упоминают нужные вам темы в Telegram. <strong>Что получите на выходе:</strong> База пользователей с username, именем, ID. Можно использовать для массовых приглашений или аналитики.</div>
+<div class="tool"><div class="method">POST /api/tool — tool: telegram_parse_users</div>
+<form class="tf" data-t="telegram_parse_users"><div class="params w"><label>Ключевые слова<textarea data-list="" name="keywords" rows="4"></textarea></label></div><button class="btn btn-g">Парсить пользователей</button></form></div></div>
+<div class="sec" id="tg-invite"><h2>telegram_invite (backend)</h2><div class="desc"><strong>Что это:</strong> Инструмент подготовки массового приглашения пользователей в указанную Telegram-группу. <strong>Зачем нужен:</strong> Чтобы автоматически добавить собранных пользователей в вашу группу или канал. <strong>Что получите на выходе:</strong> Процесс приглашения пользователей из загруженного файла в целевую группу с обработкой лимитов и ошибок.</div>
+<div class="tool"><div class="method">POST /api/tool — tool: telegram_invite</div>
+<form class="tf" data-t="telegram_invite"><div class="params"><label class="w">Целевая группа<input name="target_group" placeholder="https://t.me/..."/></label><label class="w">Файл пользователей<input name="users_file" value="telegram_users.txt"/></label></div><button class="btn btn-danger">Подготовить</button></form></div></div>
+<div class="sec" id="tg-parser"><h2>TG Bot Parser — Поиск людей</h2><div class="desc"><strong>Что это:</strong> Парсер из TG COMBINE BOT, который ищет пользователей Telegram через глобальный поиск сообщений SearchGlobalRequest. <strong>Зачем нужен:</strong> Находит реальных людей, которые писали сообщения на интересующую вас тему — не просто аккаунты, а активную аудиторию. <strong>Что получите на выходе:</strong> .txt файл со ссылками на пользователей и .json с полными данными (id, имя, фамилия, username, телефон).</div>
+<div class="tool"><div class="method">Telethon: SearchGlobalRequest(q, filter, min_date, max_date, limit) — поиск сообщений | client.get_entity(sender_id) — данные отправителя</div>
+<div class="code"><span class="cm">// Процесс парсинга (TG Bot Parser.py — parsing_process):</span><br/>1. client.connect() — подключение к MTProto<br/>2. client.sign_in() — авторизация по коду<br/>3. client(SearchGlobalRequest( keywords, InputMessagesFilterEmpty(), offset_id=0, limit=100 ))<br/>4. Для каждого сообщения: client.get_entity(sender_id)<br/>5. Сохранение: telegram_users_YYYYMMDD_HHMM.txt + .json</div>
+</div></div>
+<div class="sec" id="tg-parser-group"><h2>TG Bot Parser Group — Поиск групп</h2><div class="desc"><strong>Что это:</strong> Инструмент поиска Telegram-групп по названиям через SearchGlobalRequest. <strong>Зачем нужен:</strong> Чтобы находить тематические группы для анализа аудитории или продвижения. <strong>Что получите на выходе:</strong> .txt файл со ссылками на группы и .json с данными о каждой группе.</div>
+<div class="tool"><div class="method">Telethon: SearchGlobalRequest — поиск групп по названиям, сохранение .txt (https://t.me/... ссылки) и .json</div>
+</div></div>
+<div class="sec" id="tg-parser-group2"><h2>TG Bot Parser Group 2 — Поиск групп с пагинацией</h2><div class="desc"><strong>Что это:</strong> Улучшенная версия поиска групп с циклической пагинацией — собирает не одну страницу, а все доступные результаты. <strong>Зачем нужен:</strong> Обычный поиск выдает только первые 100 результатов. Пагинация позволяет собрать гораздо больше групп по вашему запросу. <strong>Что получите на выходе:</strong> Расширенный список групп (сотни и тысячи) с полными данными в .txt и .json.</div>
+<div class="tool"><div class="method">Telethon: SearchGlobalRequest с offset_id, limit=100 — циклический поиск с пагинацией</div>
+<div class="code"><span class="cm">// parsing_process с пагинацией:</span><br/>offset_id = 0<br/>while True:<br/>  result = client(SearchGlobalRequest(..., offset_id=offset_id, limit=100))<br/>  if not result.messages: break<br/>  offset_id = result.messages[-1].id<br/>  сохранение найденных групп</div>
+</div></div>
+<div class="sec" id="tg-parser-group3"><h2>TG Bot Parser Group 3 — Поиск через диалоги</h2><div class="desc"><strong>Что это:</strong> Альтернативный метод поиска — получает все диалоги аккаунта и ищет ключевые слова в сообщениях каждого чата. <strong>Зачем нужен:</strong> Если SearchGlobalRequest не даёт результатов или нужно искать внутри уже известных чатов и диалогов. <strong>Что получите на выходе:</strong> Список групп и сообщений, где найдены совпадения с ключевыми словами.</div>
+<div class="tool"><div class="method">Telethon: GetDialogsRequest — получение диалогов | client.get_messages() — поиск в сообщениях чата</div>
+</div></div>
+<div class="sec" id="tg-parser-users"><h2>TG Bot Parser Users — Пользователи</h2><div class="desc"><strong>Что это:</strong> Инструмент поиска пользователей через SearchGlobalRequest по ключевым словам из TG COMBINE BOT. <strong>Зачем нужен:</strong> Быстрый сбор аудитории по интересам — находит пользователей, которые упоминают нужные слова в своих сообщениях. <strong>Что получите на выходе:</strong> Список пользователей с username и контактными данными.</div>
+<div class="tool"><div class="method">Telethon: SearchGlobalRequest + client.get_entity()</div></div></div>
+<div class="sec" id="tg-parser-human"><h2>TG Bot Parser Human — Детальный парсер</h2><div class="desc"><strong>Что это:</strong> Глубокий парсер, который выгружает абсолютно всех участников канала и все их сообщения. <strong>Зачем нужен:</strong> Для детального анализа аудитории канала — кто участники, о чём пишут, как часто активны. <strong>Что получите на выходе:</strong> Два .json файла — один со всеми участниками (id, имя, username, телефон), второй со всеми сообщениями (дата, текст, отправитель).</div>
+<div class="tool"><div class="method">Telethon: dump_all_participants, dump_all_messages</div>
+<div class="code"><span class="cm">// dump_all_participants(client, channel):</span><br/>offset_user = 0; limit_user = 100<br/>while True:<br/>  participants = client(GetParticipantsRequest(channel, ChannelParticipantsSearch(''), offset_user, limit_user, hash=0))<br/>  if not participants.users: break<br/>  all_participants.extend(participants.users)<br/>→ JSON: id, first_name, last_name, username, phone, is_bot<br/><br/><span class="cm">// dump_all_messages(client, channel):</span><br/>offset_msg = 0; limit_msg = 100<br/>while True:<br/>  messages = client(GetHistoryRequest(channel, limit=limit_msg, offset_date=None, offset_id=offset_msg, ...))<br/>  if not messages.messages: break<br/>→ JSON: id, date, message, sender_id</div>
+</div></div>
+<div class="sec" id="tg-inviter"><h2>TG Bot Inviter Users — Инвайтер</h2><div class="desc"><strong>Что это:</strong> Инструмент для массового приглашения пользователей из файла в указанную Telegram-группу или канал. <strong>Зачем нужен:</strong> Чтобы автоматизировать процесс добавления целевой аудитории в ваш проект — не вручную, а через API. <strong>Что получите на выходе:</strong> Приглашённые пользователи в группе. Обработка FloodWaitError — инструмент сам ждёт при превышении лимитов.</div>
+<div class="tool"><div class="method">Telethon: ResolveUsernameRequest — резолв группы, GetParticipantsRequest — проверка членства, InviteToChannelRequest — инвайт</div>
+<div class="code"><span class="cm">// inviting_process:</span><br/>1. client.connect(), client.sign_in() — авторизация<br/>2. uname = client(ResolveUsernameRequest(group_username)) — получаем сущность группы<br/>3. target = client.get_entity(uname) — получаем канал<br/>4. existing = client(GetParticipantsRequest(target, ChannelParticipantsSearch(''), 0, 200, hash=0)) — текущие участники<br/>5. Для каждого пользователя из файла:<br/>  user = client.get_entity(user_id)<br/>  client(InviteToChannelRequest(target, [user])) — приглашение<br/>  обработка FloodWaitError — ожидание</div>
+</div></div>
+<div class="sec" id="tg-autopilot-parse-users"><h2>telegram_parse_users (автопилот main.py)</h2><div class="desc"><strong>Что это:</strong> Функция _tg_parse_users из main.py — поиск пользователей через SearchGlobalRequest с сохранением username и имени. <strong>Зачем нужен:</strong> Интегрирован в автопилот — можно запускать в связке с другими инструментами без ручного управления. <strong>Что получите на выходе:</strong> Собранные данные пользователей, доступные для следующих шагов автопилота (например, для инвайта).</div>
+<div class="tool"><div class="method">main.py _autopilot_execute_tool("telegram_parse_users", {...})</div>
+<form class="tf" data-t="telegram_parse_users"><div class="params w"><label>keywords<textarea data-list="" name="keywords" rows="3"></textarea></label></div><button class="btn btn-g">Парсить</button></form></div></div>
+<div class="sec" id="tg-autopilot-parse-groups"><h2>telegram_parse_groups (автопилот main.py)</h2><div class="desc"><strong>Что это:</strong> Функция _tg_parse_groups из main.py — поиск групп через SearchGlobalRequest в автоматическом режиме. <strong>Зачем нужен:</strong> Автоматический сбор групп без необходимости запускать инструмент вручную каждый раз. <strong>Что получите на выходе:</strong> Список групп, сохранённый и доступный для дальнейшей обработки автопилотом.</div>
+<div class="tool"><div class="method">main.py _autopilot_execute_tool("telegram_parse_groups", {...})</div>
+<form class="tf" data-t="telegram_parse_groups"><div class="params w"><label>keywords<textarea data-list="" name="keywords" rows="3"></textarea></label></div><button class="btn btn-g">Парсить группы</button></form></div></div>
+<div class="sec" id="tg-autopilot-invite"><h2>telegram_invite (автопилот main.py)</h2><div class="desc"><strong>Что это:</strong> Функция _tg_invite из main.py — приглашение пользователей через ResolveUsernameRequest и InviteToChannelRequest. <strong>Зачем нужен:</strong> Автоматический инвайт в составе автопилота — полный цикл «парсинг → приглашение» без участия пользователя. <strong>Что получите на выходе:</strong> Пользователи приглашены в целевую группу. Процесс полностью автоматизирован.</div>
+<div class="tool"><div class="method">main.py _autopilot_execute_tool("telegram_invite", {...})</div>
+<form class="tf" data-t="telegram_invite"><div class="params"><label class="w">target_group<input name="target_group" placeholder="https://t.me/..."/></label><label class="w">users_file<input name="users_file" value="tg_users.txt"/></label></div><button class="btn btn-danger">Инвайтить</button></form></div></div>
+<div class="result-box" id="resultBox"><span class="empty">Пока нет результатов. Запустите инструмент — результат появится здесь.</span></div>
+<div class="result-actions"><button class="btn btn-sm" id="copyResultBtn">����������</button><button class="btn btn-sm" id="downloadResultBtn">�������</button></div>
+</main></div>
+<script>
+const $$=(q,root=document)=>Array.from(root.querySelectorAll(q));
+const tk="sinergy_smm_session";
+function au(p){return(location.hostname==="localhost"||location.hostname==="127.0.0.1")?p:"/api/index.php?route="+encodeURIComponent(p.replace(/^\/api\//,""))}
+async function ap(p,o={}){const h={"Content-Type":"application/json"};const t=localStorage.getItem(tk);if(t)h.Authorization="Bearer "+t;const r=await fetch(au(p),{...o,headers:h});const tx=await r.text();let d={};try{d=tx?JSON.parse(tx):{}}catch{d={raw:tx}}if(!r.ok)throw new Error(d.detail||d.error||"ERR "+r.status);return d}
+function fv(f){const v={};new FormData(f).forEach((vl,k)=>{const e=f.elements[k];if(e?.dataset.list!==undefined)v[k]=String(vl).split(/\r?\n/).map(x=>x.trim()).filter(Boolean);else if(e?.type==="checkbox")v[k]=e.checked;else if(e?.type==="number")v[k]=Number(vl);else v[k]=vl});$$("input[type=checkbox]",f).forEach(fe=>v[fe.name]=fe.checked);return v}
+$$(".tf").forEach(f=>f.addEventListener("submit",async e=>{e.preventDefault();try{const d=await ap("/api/tool",{method:"POST",body:JSON.stringify({tool:f.dataset.t,params:fv(f)})});alert(JSON.stringify(d,null,2))}catch(err){alert(err.message)}}));
+function showProgress(id,pct){const el=document.getElementById("prog-"+id);if(el)el.style.width=pct+"%";}
+function showIndeterminate(id){const el=document.getElementById("prog-"+id);if(el)el.classList.add("indeterminate");}
+function hideIndeterminate(id){const el=document.getElementById("prog-"+id);if(el){el.classList.remove("indeterminate");el.style.width="100%";setTimeout(()=>el.style.width="0%",600);}}
+document.getElementById("copyResultBtn")?.addEventListener("click",()=>{const t=document.getElementById("resultBox").textContent;navigator.clipboard.writeText(t).then(()=>{document.getElementById("copyResultBtn").textContent="�����������!";setTimeout(()=>document.getElementById("copyResultBtn").textContent="����������",1200)})});
+document.getElementById("downloadResultBtn")?.addEventListener("click",()=>{const c=document.getElementById("resultBox").textContent;const b=new Blob([c],{type:"application/json"});const u=URL.createObjectURL(b);const a=document.createElement("a");a.href=u;a.download="smm_result.json";a.click();URL.revokeObjectURL(u)});
+$$(".download-btn").forEach(btn=>btn.addEventListener("click",async()=>{const f=btn.dataset.file;try{const d=await ap("/api/files/"+encodeURIComponent(f));const b=new Blob([d.content],{type:f.endsWith(".json")?"application/json":"text/plain"});const u=URL.createObjectURL(b);const a=document.createElement("a");a.href=u;a.download=f;a.click();URL.revokeObjectURL(u)}catch(err){document.getElementById("resultBox").textContent="Ошибка: файл "+f+" не найден."}}));
+</script>
+<script src="plain-language.js"></script>
+<script defer src="/synergy.github.io/assets/synergy-premium.js"></script>
+<script defer src="/synergy.github.io/assets/synergy-premium-v88.js"></script><script defer src="/synergy.github.io/assets/synergy-atelier-v9.js"></script><script defer src="/synergy.github.io/assets/synergy-stability-v9.js"></script></body>
+</html>
