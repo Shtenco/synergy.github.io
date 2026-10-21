@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+/* SYNERGY SMM 2026 redesign. Keeps original sections / CTA / mechanics intact. */
+html[data-syn-app="smm"]{--g:#0a9d54;--g2:#18c574;--g3:rgba(17,172,88,.1);--g4:rgba(17,172,88,.055);--blk:#f6faf6;--b1:#fff;--b2:#f1f8f3;--b3:#eaf5ed;--b4:#e2f1e7;--w:#173022;--w2:#426b50;--w3:#6b8570;--w4:#8ba594;--bdr:#d4e7d8;--bdr2:#e1ede4;--gold:#bd9e47;--gold2:rgba(210,175,83,.10);--body:'Manrope',sans-serif;--display:'Manrope',sans-serif;--mono:'DM Sans',sans-serif}
+body.syn26-smm{background:var(--blk);color:#173022;font-family:Manrope,'DM Sans',sans-serif}
+.syn26-smm nav{background:rgba(255,255,255,.94);border-bottom:1px solid #dfede3;height:79px;backdrop-filter:blur(18px);padding:0 clamp(18px,4vw,65px);box-shadow:0 8px 35px rgba(30,76,42,.035)}
+.syn26-smm nav .logo{display:flex;align-items:center;gap:11px;font:800 19px Manrope,sans-serif;letter-spacing:-.06em;color:#153a22}
+.syn26-smm nav .logo img{width:47px;height:47px;object-fit:contain}
+.syn26-smm nav .logo span:not(.dotmark){color:#088b46}
+.syn26-smm nav .dotmark{display:none}
+.syn26-smm nav .nav a{font:700 11px Manrope,sans-serif;color:#4e6f59;letter-spacing:0}
+.syn26-smm nav .nav a:hover{color:#0b9d54}
+.syn26-smm .hero{padding-top:clamp(105px,12vw,165px);background:radial-gradient(circle at 72% 36%,#d9f7e4 0,transparent 44%),linear-gradient(145deg,#fff,#edf8f0);border-bottom:1px solid #d8e9db}
+.syn26-smm .hero h1{font:800 clamp(48px,6vw,90px)/1.08 Manrope,sans-serif;letter-spacing:-.07em;color:#122c1c}
+.syn26-smm h2{font:800 clamp(30px,4vw,54px)/1.13 Manrope,sans-serif;letter-spacing:-.06em;color:#143322}
+.syn26-smm h3{font-family:Manrope,sans-serif;letter-spacing:-.045em}
+.syn26-smm .hero p,.syn26-smm .lead{color:#526e5c;line-height:1.85}
+.syn26-smm .sec{padding:clamp(64px,8vw,110px) 0}
+.syn26-smm .sec:nth-of-type(even){background:#fff}
+.syn26-smm .card,.syn26-smm .panel,.syn26-smm .plan,.syn26-smm .role-card,.syn26-smm .metric,.syn26-smm .platform-card,.syn26-smm .feature,.syn26-smm .feature-card{background:#fff;border:1px solid #dce9df;border-radius:18px;box-shadow:0 12px 35px rgba(23,68,35,.04)}
+.syn26-smm .card:hover,.syn26-smm .plan:hover,.syn26-smm .role-card:hover{border-color:#9ed6b0;box-shadow:0 18px 42px rgba(23,68,35,.075)}
+.syn26-smm .cta,.syn26-smm button[type=submit]{border-radius:12px;transition:transform .2s,background .2s}
+.syn26-smm .cta:hover,.syn26-smm button[type=submit]:hover{transform:translateY(-2px)}
+.syn26-smm .cta-g{background:#0b9d54;color:#fff!important;border-color:#0b9d54}
+.syn26-smm .cta-o{color:#135e34;border-color:#cadfd0;background:#fff}
+.syn26-smm a:focus-visible,.syn26-smm button:focus-visible,.syn26-smm input:focus-visible{outline:3px solid #80d1a0;outline-offset:3px}
+.syn26-smm input,.syn26-smm select,.syn26-smm textarea{background:#fff;color:#173022;border-color:#cbded0;border-radius:10px}
+.syn26-smm .divider{background:linear-gradient(90deg,transparent,#d6e7da,transparent)}
+.syn26-smm .eyebrow,.syn26-smm .label,.syn26-smm .overline{color:#087f42}
+.syn26-smm .smm-identity{display:flex;align-items:center;gap:12px;text-decoration:none}
+.syn26-smm .smm-identity .smm-identity-mark{width:46px;height:46px;object-fit:contain;flex:none}
+.syn26-smm .smm-identity strong{font:800 19px Manrope,sans-serif;letter-spacing:-.05em;color:#173022}
+.syn26-smm .smm-identity small{font:700 10px Manrope,sans-serif;color:#168b4d;letter-spacing:.14em;display:block}
+.syn26-smm .syn26-status{display:inline-flex;gap:8px;align-items:center;background:#e9f8ee;border:1px solid #d2eddb;color:#187a44;border-radius:100px;padding:9px 15px;font-size:11px;font-weight:700}
+.syn26-smm .syn26-status:before{content:'●';color:#08a958}
+@media(max-width:950px){.syn26-smm nav{padding:0 18px}.syn26-smm nav .nav{gap:12px}.syn26-smm nav .nav a{font-size:10px}}
+@media(max-width:700px){.syn26-smm nav .logo img{width:36px;height:36px}.syn26-smm nav .logo{font-size:17px}.syn26-smm .hero{padding-top:110px}.syn26-smm h1{font-size:clamp(38px,10vw,58px)}.syn26-smm .wrap,.syn26-smm .wide{padding-left:18px;padding-right:18px}}
+@media(prefers-reduced-motion:reduce){.syn26-smm *{animation:none!important;transition:none!important}}
