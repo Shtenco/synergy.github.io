@@ -1,231 +1,15 @@
 <!DOCTYPE html>
 
-<html data-syn-path="smm/zen.html" class="syn-premium" data-syn-app="smm" lang="ru" data-syn-v9="true">
-<head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
-<title>Zen API — SINERGY SMM AI</title>
-<link href="https://fonts.googleapis.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=DM+Mono:wght@400;500&amp;family=Manrope:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
-<style>
-:root{
-  --g:#00e664;--g2:#00c250;--g3:rgba(0,230,100,.12);--g4:rgba(0,230,100,.06);--g5:rgba(0,230,100,.22);
-  --blk:#000;--b1:#080808;--b2:#0d0d0d;--b3:#141414;--b4:#1c1c1c;--b5:#252525;
-  --w:#fff;--w2:rgba(255,255,255,.88);--w3:rgba(255,255,255,.52);--w4:rgba(255,255,255,.22);--w5:rgba(255,255,255,.07);
-  --bdr:rgba(0,230,100,.15);--bdr2:rgba(255,255,255,.06);--bdr3:rgba(0,230,100,.30);
-  --red:#ff4f5e;--red2:rgba(255,79,94,.12);--gold:#f2c15b;--gold2:rgba(242,193,91,.1);
-  --serif:'Instrument Serif',Georgia,serif;--display:'Bebas Neue',sans-serif;--mono:'DM Mono',monospace;--body:'Manrope',sans-serif;
-  --r2:10px;--r3:18px;--r4:28px;
-  --glow:0 0 60px rgba(0,230,100,.06);
-}
-*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
-body{font-family:var(--body);background:var(--blk);color:var(--w);overflow-x:hidden;background-image:radial-gradient(ellipse 65% 35% at 50% 0%,rgba(0,230,100,.04),transparent)}
-a{text-decoration:none;color:inherit}
-button{cursor:pointer;border:none;background:none;font-family:inherit}
-input,textarea,select{font-family:inherit}
-::selection{background:var(--g);color:#000}
-::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:#000}::-webkit-scrollbar-thumb{background:var(--g);border-radius:99px}
-
-/* Nav bar */
-.nav{position:sticky;top:0;z-index:100;background:rgba(0,0,0,.92);border-bottom:1px solid var(--bdr);backdrop-filter:blur(32px);-webkit-backdrop-filter:blur(32px)}
-.nav-in{height:64px;display:flex;align-items:center;gap:16px;max-width:1500px;margin:0 auto;padding:0 28px}
-.nav-logo{font-family:var(--display);font-size:24px;letter-spacing:5px;color:var(--g);flex-shrink:0;text-shadow:0 0 30px rgba(0,230,100,.15)}
-.nav-logo span{color:var(--w)}
-.nav-links{display:flex;gap:6px;margin-left:auto;align-items:center}
-.nav-link{padding:9px 16px;border-radius:var(--r2);font-size:11px;font-weight:700;color:var(--w3);transition:all .2s;letter-spacing:.3px}
-.nav-link:hover{color:var(--g);background:var(--g3)}
-.nav-link.primary{background:var(--g);color:#000}
-.nav-link.primary:hover{background:#fff}
-.nav-link.danger{background:var(--red2);color:var(--red);border:1px solid rgba(255,79,94,.2)}
-.nav-link.danger:hover{background:rgba(255,79,94,.2)}
-
-/* Layout */
-.layout{display:grid;grid-template-columns:240px 1fr;gap:24px;max-width:1500px;margin:0 auto;padding:24px 28px 60px;position:relative}
-
-/* Sidebar brand panel */
-.side{position:sticky;top:90px;height:calc(100vh - 116px);background:linear-gradient(180deg,rgba(13,13,13,.98),rgba(8,8,8,.98));border:1px solid var(--bdr2);border-radius:var(--r3);padding:14px;overflow-y:auto;box-shadow:var(--glow)}
-.side-title{font-family:var(--mono);font-size:8px;letter-spacing:2.5px;text-transform:uppercase;color:var(--w4);padding:12px 10px 6px}
-.side-link{display:flex;align-items:center;gap:10px;padding:11px 14px;border-radius:var(--r2);font-size:12px;font-weight:600;color:var(--w3);transition:all .18s;margin-bottom:3px;position:relative;overflow:hidden}
-.side-link:hover{color:var(--w);background:var(--w5)}
-.side-link.active{color:var(--g);background:var(--g3);border-left:2px solid var(--g)}
-.side-link .ico{width:18px;height:18px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:10px;background:var(--b4);flex-shrink:0}
-.side-link.active .ico{background:var(--g3);color:var(--g)}
-.side-link small{font-family:var(--mono);font-size:9px;color:var(--w4);margin-left:auto}
-.side-sep{height:1px;background:linear-gradient(90deg,transparent,var(--bdr2),transparent);margin:10px 0}
-
-/* Main content area */
-.main{min-width:0}
-
-/* Hero premium */
-.dash{display:grid;grid-template-columns:1fr 380px;gap:24px;margin-bottom:24px}
-.dash-main{background:linear-gradient(160deg,rgba(13,13,13,.95),rgba(8,8,8,.95));border:1px solid var(--bdr);border-radius:var(--r4);padding:32px;display:flex;flex-direction:column;justify-content:space-between;min-height:260px;position:relative;overflow:hidden;box-shadow:var(--glow)}
-.dash-main::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 60% 30%,rgba(0,230,100,.04),transparent 50%);pointer-events:none}
-.dash-main::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--bdr),transparent)}
-.eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--g);margin-bottom:14px;display:flex;align-items:center;gap:8px}
-.eyebrow::before{content:'';width:24px;height:1px;background:var(--g)}
-.dash h1{font-family:var(--display);font-size:clamp(30px,4.5vw,52px);line-height:.92;letter-spacing:2px;margin-bottom:10px;position:relative;z-index:1}
-.dash h1 em{color:var(--g);font-style:normal}
-.lead-text{font-size:14px;line-height:1.75;color:var(--w3);max-width:600px;position:relative;z-index:1}
-.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:20px;position:relative;z-index:1}
-.metric{background:rgba(255,255,255,.03);border:1px solid var(--bdr2);border-radius:var(--r2);padding:16px;transition:all .25s}
-.metric:hover{background:var(--g4);border-color:var(--bdr)}
-.metric b{display:block;font-family:var(--display);font-size:24px;color:var(--g);line-height:1;letter-spacing:1px}
-.metric span{font-family:var(--mono);font-size:9px;color:var(--w4);text-transform:uppercase;letter-spacing:1px;margin-top:6px;display:block}
-
-/* Auth panel side */
-.auth{background:linear-gradient(160deg,rgba(13,13,13,.95),rgba(8,8,8,.95));border:1px solid var(--bdr);border-radius:var(--r4);padding:28px;box-shadow:var(--glow)}
-.auth h2{font-size:20px;font-weight:800;margin-bottom:4px}
-.auth .sub{font-size:13px;color:var(--w3);margin-bottom:16px}
-.auth-tabs{display:flex;gap:3px;background:var(--b3);border-radius:var(--r2);padding:3px;margin-bottom:16px}
-.auth-tab{flex:1;padding:11px;border-radius:7px;font-size:12px;font-weight:700;color:var(--w3);text-align:center;cursor:pointer;transition:all .2s}
-.auth-tab.active{background:var(--g);color:#000;box-shadow:0 4px 20px rgba(0,230,100,.2)}
-.form{display:grid;gap:12px}
-.form label{font-size:11px;font-weight:700;color:var(--w2);display:grid;gap:5px;letter-spacing:.3px}
-.form input,.form textarea,.form select{width:100%;background:var(--b3);border:1px solid var(--bdr2);border-radius:var(--r2);padding:12px 14px;color:var(--w);outline:none;font-size:13px;transition:all .2s}
-.form input:focus,.form textarea:focus{border-color:var(--g);box-shadow:0 0 0 3px var(--g3)}
-.form textarea{resize:vertical;min-height:72px;font-family:var(--mono);font-size:12px}
-.hidden{display:none!important}
-.notify{padding:14px 16px;border-radius:var(--r2);font-size:12px;line-height:1.6;margin-top:14px;border:1px solid}
-.notify-info{background:var(--g4);border-color:var(--bdr);color:var(--w2)}
-.notify-err{background:var(--red2);border-color:rgba(255,79,94,.25);color:var(--red)}
-.notify-ok{background:var(--g4);border-color:var(--g);color:var(--g)}
-.license-key{font-family:var(--mono);color:var(--g);user-select:all;word-break:break-all;font-size:11px}
-
-/* Section cards */
-.sec{margin-top:24px;background:linear-gradient(160deg,rgba(13,13,13,.95),rgba(8,8,8,.95));border:1px solid var(--bdr2);border-radius:var(--r3);padding:28px;box-shadow:var(--glow)}
-.sec-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:18px}
-.sec-head h2{font-size:22px;font-weight:800;letter-spacing:-.3px}
-.sec-head h2 .badge{display:inline-block;font-size:10px;background:var(--g3);color:var(--g);padding:3px 10px;border-radius:99px;margin-left:8px;font-weight:700;vertical-align:middle}
-.sec-head p{font-size:13px;color:var(--w3);margin-top:5px;line-height:1.65;max-width:560px}
-.section-desc{font-size:13px;color:var(--w3);line-height:1.7;margin-bottom:18px;padding:16px 18px;background:var(--b3);border-radius:var(--r2);border-left:2px solid var(--g)}
-
-/* Platform status bar premium */
-.platform-strip{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px;margin:16px 0}
-.plat-btn{padding:12px 10px;border-radius:var(--r2);border:1px solid var(--bdr2);background:var(--b3);text-align:center;font-size:11px;font-weight:700;color:var(--w3);transition:all .2s;cursor:pointer;position:relative}
-.plat-btn:hover{border-color:var(--bdr);color:var(--w);transform:translateY(-2px);box-shadow:0 4px 20px rgba(0,0,0,.3)}
-.plat-btn.on{border-color:var(--g);background:var(--g3);color:var(--g)}
-.plat-btn .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--red);margin-right:6px;vertical-align:middle;box-shadow:0 0 8px rgba(255,79,94,.4)}
-.plat-btn.on .dot{background:var(--g);box-shadow:0 0 8px rgba(0,230,100,.5)}
-
-/* Account info */
-.acct-box{padding:14px 18px;background:var(--g4);border:1px solid var(--bdr);border-radius:var(--r2);font-size:13px;line-height:1.7;margin-bottom:16px}
-.acct-box b{color:var(--g)}
-
-/* Token pills */
-.token-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px;margin-bottom:18px}
-.token-pill{padding:12px 14px;border-radius:var(--r2);border:1px solid var(--bdr2);background:var(--b3);transition:all .2s}
-.token-pill:hover{border-color:var(--bdr)}
-.token-pill b{display:block;font-size:13px;margin-bottom:3px;letter-spacing:.5px}
-.token-pill span{font-family:var(--mono);font-size:10px;color:var(--w4)}
-.token-pill.on span{color:var(--g)}
-
-/* Tool cards premium */
-.tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px}
-.tool{background:var(--b3);border:1px solid var(--bdr2);border-radius:var(--r2);padding:20px;transition:all .25s;position:relative}
-.tool:hover{border-color:var(--bdr);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.2)}
-.tool::after{content:'';position:absolute;top:0;left:20%;right:20%;height:1px;background:linear-gradient(90deg,transparent,var(--bdr),transparent);opacity:0;transition:opacity .3s}
-.tool:hover::after{opacity:1}
-.tool h3{font-size:15px;font-weight:700;color:var(--g);margin-bottom:4px;display:flex;align-items:center;gap:8px}
-.tool h3 .method-badge{font-size:9px;font-family:var(--mono);background:var(--b4);padding:2px 8px;border-radius:99px;color:var(--w3);font-weight:400}
-.tool .desc{font-size:12px;color:var(--w3);line-height:1.6;margin-bottom:12px}
-.tool .desc strong{color:var(--w);font-weight:600}
-.tool .params-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
-.tool .params-grid label{display:grid;gap:4px;font-size:11px;font-weight:600;color:var(--w2)}
-.tool .params-grid .fw{grid-column:1/-1}
-.tool input,.tool textarea,.tool select{width:100%;background:var(--b3);border:1px solid var(--bdr2);border-radius:7px;padding:10px 12px;color:var(--w);outline:none;font-size:12px;transition:border-color .2s}
-.tool input:focus,.tool textarea:focus{border-color:var(--g);box-shadow:0 0 0 2px var(--g3)}
-.tool textarea{resize:vertical;font-family:var(--mono);font-size:11px;min-height:56px}
-
-/* Buttons premium */
-.btn-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
-.btn{padding:10px 20px;border-radius:var(--r2);font-size:12px;font-weight:800;border:1px solid var(--bdr2);background:transparent;color:var(--w3);transition:all .2s;display:inline-flex;align-items:center;gap:6px;letter-spacing:.3px}
-.btn:hover{color:var(--g);background:var(--g3);border-color:var(--g);transform:translateY(-1px)}
-.btn-g{background:var(--g);color:#000;border-color:transparent;box-shadow:0 4px 20px rgba(0,230,100,.15)}
-.btn-g:hover{background:#fff;color:#000;box-shadow:0 6px 30px rgba(0,230,100,.25)}
-.btn-danger{background:var(--red2);color:var(--red);border-color:rgba(255,79,94,.2)}
-.btn-danger:hover{background:rgba(255,79,94,.2)}
-.btn-sm{padding:7px 14px;font-size:11px}
-.btn:disabled{opacity:.4;cursor:not-allowed;transform:none!important}
-
-/* Progress bar */
-.progress-wrap{height:4px;background:var(--b4);border-radius:99px;overflow:hidden;margin:12px 0 8px}
-.progress-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--g),#37ff98);border-radius:99px;transition:width .6s ease}
-.progress-fill.indeterminate{width:40%;animation:prog 1.4s ease infinite}
-@keyframes prog{0%{transform:translateX(-100%)}100%{transform:translateX(350%)}}
-.progress-label{display:flex;justify-content:space-between;font-size:10px;color:var(--w4);font-family:var(--mono);letter-spacing:.5px}
-
-/* Result box */
-.result-box{background:#050505;border:1px solid var(--bdr2);border-radius:var(--r2);padding:16px;min-height:100px;max-height:400px;overflow:auto;font-family:var(--mono);font-size:11px;line-height:1.7;color:var(--w2);white-space:pre-wrap;margin-top:12px;position:relative}
-.result-box .empty{color:var(--w4);font-style:italic}
-.result-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:8px}
-.log-box{color:var(--w4);min-height:80px}
-
-/* Tooltip helper */
-.helper{font-size:11px;color:var(--w4);margin-bottom:8px;line-height:1.5;padding:8px 10px;background:var(--b4);border-radius:6px;border-left:2px solid var(--g)}
-.helper strong{color:var(--w2)}
-
-/* Checkbox row */
-.chk-row{display:flex;align-items:center;gap:8px;margin:8px 0;font-size:12px;color:var(--w3)}
-.chk-row input[type=checkbox]{width:16px;height:16px;accent-color:var(--g)}
-
-/* Status badge */
-.status-badge{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:99px;font-size:10px;font-weight:700;font-family:var(--mono)}
-.status-badge.green{background:var(--g3);color:var(--g)}
-.status-badge.red{background:var(--red2);color:var(--red)}
-.status-badge.gray{background:var(--w5);color:var(--w4)}
-
-/* Account info in sec */
-.acct-mini{padding:12px 16px;background:var(--g4);border:1px solid var(--bdr);border-radius:var(--r2);font-size:12px;line-height:1.6;margin:12px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
-
-/* Animations */
-@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.anim-in{animation:fadeIn .35s ease both}
-
-/* Responsive */
-@media(max-width:1200px){
-  .dash{grid-template-columns:1fr}
-}
-@media(max-width:1000px){
-  .layout{grid-template-columns:1fr}
-  .side{position:relative;top:0;height:auto;display:grid;grid-template-columns:repeat(3,1fr);padding:10px;gap:3px}
-  .side-title{display:none}.side-sep{display:none}
-  .side-link{padding:8px 10px;font-size:11px}
-  .side-link small{display:none}
-  .nav-links .nav-link{padding:7px 10px;font-size:10px}
-  .metrics{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:700px){
-  .layout{padding:14px 16px}
-  .nav-in{padding:0 14px}
-  .nav-logo{font-size:20px}
-  .nav-links{gap:3px}
-  .nav-link{padding:6px 10px;font-size:10px}
-  .side{grid-template-columns:repeat(2,1fr)}
-  .dash-main{padding:22px;min-height:auto}
-  .metrics{grid-template-columns:repeat(2,1fr)}
-  .tools{grid-template-columns:1fr}
-  .sec{padding:20px}
-  .tool{padding:16px}
-  .tool .params-grid{grid-template-columns:1fr}
-  .platform-strip{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:480px){
-  .nav-logo{font-size:17px}
-  .nav-link{font-size:9px;padding:5px 8px}
-  .side{grid-template-columns:1fr}
-  .metrics{grid-template-columns:1fr}
-  .sec-head{flex-direction:column}
-}
-</style>
-<link rel="stylesheet" href="plain-language.css">
-<!-- SYNERGY V8 NEXUS bridge --><link rel="stylesheet" href="/nexus-bridge.css"><script defer src="/nexus-bridge.js"></script>
-<link rel="stylesheet" href="/synergy.github.io/assets/synergy-premium.css">
-<link rel="stylesheet" href="/synergy.github.io/assets/synergy-premium-v88.css"><link rel="stylesheet" href="/synergy.github.io/assets/synergy-atelier-v9.css"><link rel="stylesheet" href="/synergy.github.io/assets/synergy-stability-v9.css" data-syn-stability="v9.1.4.1"><script defer src="/synergy.github.io/assets/pages-runtime.js"></script>
-</head>
-<body>
-<nav class="nav"><div class="nav-in"><a class="nav-logo" href="index.html">SINERGY <span>ZEN</span></a><div class="nav-links"><a href="index.html">Продающая</a><a href="auth.html">Вход</a><a href="cabinet.html">Кабинет</a><a href="/synergy.github.io/portal/">Портал</a></div></div></nav>
+<html data-syn-path="smm/zen.html" class="syn26" data-syn-app="smm" lang="ru" data-syn-v9="true">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f4f9f5"><meta name="description" content="SYNERGY SMM — Дзен: Контент · Экспорт · Анализ."><title>SYNERGY SMM / Дзен</title><link rel="icon" type="image/webp" href="../assets/synergy-logo.webp"><link rel="stylesheet" href="smm26-platform.css?v=1"><script defer src="../assets/pages-runtime.js"></script></head>
+<body data-platform="zen" data-smm-workspace="platform">
+<nav class="nav" aria-label="Навигация платформы"><div class="nav-in"><a class="nav-logo" href="../portal/"><img src="../assets/synergy-logo.webp" width="45" height="45" alt=""><span><strong>SYNERGY</strong><small>PUBLISHING / ZEN</small></span></a><div class="nav-links"><a href="workspaces.html">SMM Workspaces</a><a href="cabinet.html">Общий кабинет</a><a href="p14.html">144 функции</a><a href="../portal/">Product Atlas ↗</a></div></div></nav>
 <div class="layout">
 <aside class="side"><div class="side-title">Zen API методы</div><a class="side-link active" href="#zen-check">zen_check</a><a class="side-link" href="#zen-post">post_zen</a></aside>
-<main class="main">
-<section class="sec" style="margin-bottom:18px"><div class="sec-head"><div><h2>Начните здесь — это просто</h2><p>В этом кабинете вы работаете только с Дзеном. Технические разделы ниже можно изучить позже.</p></div></div><div class="tools"><div class="tool"><h3>1. Подключите Дзен</h3><div class="desc">Откройте общий кабинет, добавьте доступ к своему аккаунту и нажмите «Сохранить и проверить».</div><a class="btn btn-g" href="cabinet.html#tokens">Подключить →</a></div><div class="tool"><h3>2. Выберите задачу</h3><div class="desc">Система проведёт вас к поиску клиентов, сообщениям, публикациям или аналитике.</div><a class="btn btn-g" href="cabinet.html#zen">Создать материал →</a></div><div class="tool"><h3>3. Посмотрите результат</h3><div class="desc">Вы увидите понятный список: что найдено, почему это важно и что делать дальше.</div><a class="btn" href="cabinet.html#unified-inbox">Открыть входящие →</a></div></div></section>
-<div class="hero"><h1 class="h1">Яндекс <em>Дзен</em></h1><p>Подготовка статей для Дзен в безопасном ручном режиме. Система сохраняет HTML- и JSON-черновик, который можно скачать и вставить в редактор Дзен. Недокументированный endpoint автопубликации не используется.</p></div>
+<main class="main"><div class="hero"><p class="platform-eyebrow">SYNERGY / EDITORIAL DESK</p><h1 class="h1">Яндекс <em>Дзен</em></h1><p>Подготовка статей для Дзен в безопасном ручном режиме. Система сохраняет HTML- и JSON-черновик, который можно скачать и вставить в редактор Дзен. Недокументированный endpoint автопубликации не используется.</p></div><div class="hero-tags"><span>PUBLISHING / ZEN</span><span>VERIFIED ACCESS REQUIRED</span><span>HUMAN CONTROL</span></div></div>
+<nav class="section-jump" aria-label="Быстрые переходы"><a href="#zen-check">01 · zen_check</a><a href="#zen-post">02 · post_zen</a><a href="#resultBox">Результаты ↓</a></nav>
+<div class="platform-notice" role="note"><strong>СТАТУС ПОДКЛЮЧЕНИЯ</strong><span>Черновики и экспорт не означают подтверждённую автоматическую публикацию в Дзене. Публичная версия не подтверждает активный Python API.</span></div>
+<section class="sec quickstart" ><div class="sec-head"><div><h2>Начните здесь — это просто</h2><p>В этом кабинете вы работаете только с Дзеном. Технические разделы ниже можно изучить позже.</p></div></div><div class="tools"><div class="tool"><h3>1. Подключите Дзен</h3><div class="desc">Откройте общий кабинет, добавьте доступ к своему аккаунту и нажмите «Сохранить и проверить».</div><a class="btn btn-g" href="cabinet.html#tokens">Подключить →</a></div><div class="tool"><h3>2. Выберите задачу</h3><div class="desc">Система проведёт вас к поиску клиентов, сообщениям, публикациям или аналитике.</div><a class="btn btn-g" href="cabinet.html#zen">Создать материал →</a></div><div class="tool"><h3>3. Посмотрите результат</h3><div class="desc">Вы увидите понятный список: что найдено, почему это важно и что делать дальше.</div><a class="btn" href="cabinet.html#unified-inbox">Открыть входящие →</a></div></div></section>
 <div class="sec" id="zen-check"><h2>zen_check</h2><div class="desc"><strong>Что это:</strong> Сохранение данных канала. <strong>Важно:</strong> система честно помечает их как сохранённые, но не как проверенные через публичный API, поскольку документированный endpoint автопубликации Дзен не подтверждён.</div>
 <div class="tool"><div class="method">POST /api/tool — tool: zen_check</div>
 <div class="code"><span class="cm">// Параметры</span><br/>{ "token": "y0_...", "publisher_id": "...", "client_id": "...", "client_secret": "..." }</div>
@@ -236,7 +20,7 @@ input,textarea,select{font-family:inherit}
 <form class="tool-form" data-tool="post_zen"><div class="params"><label class="w">Заголовок<input name="title" value="Как SMM AI экономит время бизнеса"/></label><label class="w">Текст статьи<textarea name="body" placeholder="Полный текст статьи..." rows="8"></textarea></label></div><button class="btn btn-g">Подготовить файлы черновика</button></form></div></div>
 <div class="result-box" id="resultBox"><span class="empty">Пока нет результатов. Запустите инструмент — результат появится здесь.</span></div>
 <div class="result-actions"><button class="btn btn-sm" id="copyResultBtn">Копировать</button><button class="btn btn-sm" id="downloadResultBtn">Скачать</button></div>
-</main></div>
+<footer class="platform-footer"><span>SYNERGY SMM · Дзен · интерфейс / интеграции проверяются отдельно</span><a href="../portal/">← Product Atlas</a></footer></main></div>
 <script>
 const $$=(q,root=document)=>Array.from(root.querySelectorAll(q));
 const tk="sinergy_smm_session";
@@ -252,6 +36,6 @@ document.getElementById("downloadResultBtn")?.addEventListener("click",()=>{cons
 $(".download-btn").forEach(btn=>btn.addEventListener("click",async()=>{const f=btn.dataset.file;try{const d=await ap("/api/files/"+encodeURIComponent(f));const b=new Blob([d.content],{type:f.endsWith(".json")?"application/json":"text/plain"});const u=URL.createObjectURL(b);const a=document.createElement("a");a.href=u;a.download=f;a.click();URL.revokeObjectURL(u)}catch(err){document.getElementById("resultBox").textContent="Ошибка: файл "+f+" не найден."}}));
 </script>
 <script src="plain-language.js"></script>
-<script defer src="/synergy.github.io/assets/synergy-premium.js"></script>
-<script defer src="/synergy.github.io/assets/synergy-premium-v88.js"></script><script defer src="/synergy.github.io/assets/synergy-atelier-v9.js"></script><script defer src="/synergy.github.io/assets/synergy-stability-v9.js"></script></body>
+
+</body>
 </html>

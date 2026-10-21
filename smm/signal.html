@@ -1,87 +1,8 @@
 <!DOCTYPE html>
-<html data-syn-path="smm/signal.html" class="syn-premium" data-syn-app="smm" lang="ru" data-syn-v9="true">
-<head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
-<title>Signal Messenger — SINERGY SMM AI</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=DM+Mono:wght@400;500&amp;family=Manrope:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
-<style>
-:root{
-  --g:#3a76f0;--g2:#2563eb;--g3:rgba(58,118,240,.12);--g4:rgba(58,118,240,.06);
-  --blk:#000;--b3:#141414;--b4:#1c1c1c;
-  --w:#fff;--w2:rgba(255,255,255,.88);--w3:rgba(255,255,255,.52);--w4:rgba(255,255,255,.22);--w5:rgba(255,255,255,.07);
-  --bdr:rgba(58,118,240,.15);--bdr2:rgba(255,255,255,.06);
-  --red:#ff4f5e;--red2:rgba(255,79,94,.12);
-  --display:'Bebas Neue',sans-serif;--mono:'DM Mono',monospace;--body:'Manrope',sans-serif;
-  --r2:10px;--r3:18px;--r4:28px;
-  --glow:0 0 60px rgba(58,118,240,.08);
-}
-*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
-body{font-family:var(--body);background:var(--blk);color:var(--w);overflow-x:hidden;background-image:radial-gradient(ellipse 65% 35% at 50% 0%,rgba(58,118,240,.04),transparent)}
-a{text-decoration:none;color:inherit}button{cursor:pointer;border:none;background:none;font-family:inherit}
-input,textarea,select{font-family:inherit}::selection{background:var(--g);color:#fff}
-::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:#000}::-webkit-scrollbar-thumb{background:var(--g);border-radius:99px}
-
-.nav{position:sticky;top:0;z-index:100;background:rgba(0,0,0,.92);border-bottom:1px solid var(--bdr);backdrop-filter:blur(32px)}
-.nav-in{height:64px;display:flex;align-items:center;gap:16px;max-width:1500px;margin:0 auto;padding:0 28px}
-.nav-logo{font-family:var(--display);font-size:24px;letter-spacing:5px;color:var(--g);text-shadow:0 0 30px rgba(58,118,240,.15)}
-.nav-logo span{color:var(--w)}
-.nav-links{display:flex;gap:6px;margin-left:auto}
-.nav-link{padding:9px 16px;border-radius:var(--r2);font-size:11px;font-weight:700;color:var(--w3);transition:all .2s}
-.nav-link:hover{color:var(--g);background:var(--g3)}
-.nav-link.primary{background:var(--g);color:#fff}
-
-.layout{display:grid;grid-template-columns:220px 1fr;gap:24px;max-width:1500px;margin:0 auto;padding:24px 28px 60px}
-.side{position:sticky;top:90px;height:calc(100vh - 116px);background:linear-gradient(180deg,rgba(13,13,13,.98),rgba(8,8,8,.98));border:1px solid var(--bdr2);border-radius:var(--r3);padding:14px;overflow-y:auto;box-shadow:var(--glow)}
-.side-title{font-family:var(--mono);font-size:8px;letter-spacing:2.5px;text-transform:uppercase;color:var(--w4);padding:12px 10px 6px}
-.side-link{display:flex;align-items:center;gap:10px;padding:11px 14px;border-radius:var(--r2);font-size:12px;font-weight:600;color:var(--w3);transition:all .18s;margin-bottom:3px}
-.side-link:hover{color:var(--w);background:var(--w5)}
-.side-link.active{color:var(--g);background:var(--g3);border-left:2px solid var(--g)}
-.side-sep{height:1px;background:linear-gradient(90deg,transparent,var(--bdr2),transparent);margin:10px 0}
-
-.main{min-width:0}
-.hero{margin-bottom:24px;padding:32px;background:linear-gradient(160deg,rgba(58,118,240,.08),rgba(8,8,8,.95));border:1px solid rgba(58,118,240,.2);border-radius:var(--r4);position:relative;overflow:hidden}
-.hero h1{font-family:var(--display);font-size:clamp(36px,5vw,56px);line-height:.92;letter-spacing:2px;margin-bottom:12px}
-.hero h1 em{color:var(--g);font-style:normal}
-.hero p{font-size:14px;line-height:1.75;color:var(--w3);max-width:700px}
-
-.sec{margin-top:24px;background:linear-gradient(160deg,rgba(13,13,13,.95),rgba(8,8,8,.95));border:1px solid var(--bdr2);border-radius:var(--r3);padding:28px;box-shadow:var(--glow)}
-.sec h2{font-size:20px;font-weight:800;margin-bottom:8px;color:var(--g)}
-.sec .desc{font-size:13px;color:var(--w3);line-height:1.7;margin-bottom:16px}
-.sec .desc strong{color:var(--w)}
-
-.tool{background:var(--b3);border:1px solid var(--bdr2);border-radius:var(--r2);padding:20px;margin-top:14px}
-.tool h3{font-size:14px;font-weight:700;color:var(--g);margin-bottom:8px}
-.tool .method{font-family:var(--mono);font-size:10px;color:var(--w4);margin-bottom:12px;padding:8px 12px;background:var(--b4);border-radius:6px}
-
-.params{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
-.params label{display:grid;gap:4px;font-size:11px;font-weight:600;color:var(--w2)}
-.params .w{grid-column:1/-1}
-.params input,.params textarea{width:100%;background:var(--b3);border:1px solid var(--bdr2);border-radius:7px;padding:10px 12px;color:var(--w);outline:none;font-size:12px;transition:border-color .2s}
-.params input:focus,.params textarea:focus{border-color:var(--g);box-shadow:0 0 0 2px var(--g3)}
-.params textarea{resize:vertical;font-family:var(--mono);font-size:11px;min-height:80px}
-
-.btn{padding:10px 20px;border-radius:var(--r2);font-size:12px;font-weight:800;border:1px solid var(--bdr2);background:transparent;color:var(--w3);transition:all .2s;display:inline-flex;align-items:center;gap:6px}
-.btn:hover{color:var(--g);background:var(--g3);border-color:var(--g)}
-.btn-g{background:var(--g);color:#fff;border-color:transparent;box-shadow:0 4px 20px rgba(58,118,240,.2)}
-.btn-g:hover{background:#fff;color:#000}
-
-.helper{font-size:11px;color:var(--w4);margin-bottom:12px;line-height:1.6;padding:10px 12px;background:var(--b4);border-radius:6px;border-left:2px solid var(--g)}
-.helper strong{color:var(--w2)}
-
-.warning{padding:16px;background:rgba(255,193,7,.1);border:1px solid rgba(255,193,7,.3);border-radius:var(--r2);font-size:13px;line-height:1.7;margin-bottom:20px;color:#ffc107}
-.warning strong{color:#fff}
-
-.result-box{background:#050505;border:1px solid var(--bdr2);border-radius:var(--r2);padding:16px;min-height:120px;max-height:400px;overflow:auto;font-family:var(--mono);font-size:11px;line-height:1.7;color:var(--w2);white-space:pre-wrap;margin-top:20px}
-.result-box .empty{color:var(--w4);font-style:italic}
-.result-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:8px}
-
-@media(max-width:900px){.layout{grid-template-columns:1fr}.side{position:relative;top:0;height:auto;display:flex;flex-wrap:wrap;gap:6px;padding:10px}.side-title,.side-sep{display:none}.params{grid-template-columns:1fr}}
-</style>
-<!-- SYNERGY V8 NEXUS bridge --><link rel="stylesheet" href="/nexus-bridge.css"><script defer src="/nexus-bridge.js"></script>
-<link rel="stylesheet" href="/synergy.github.io/assets/synergy-premium.css">
-<link rel="stylesheet" href="/synergy.github.io/assets/synergy-premium-v88.css"><link rel="stylesheet" href="/synergy.github.io/assets/synergy-atelier-v9.css"><link rel="stylesheet" href="/synergy.github.io/assets/synergy-stability-v9.css" data-syn-stability="v9.1.4.1"><script defer src="/synergy.github.io/assets/pages-runtime.js"></script>
-</head>
-<body>
-<nav class="nav"><div class="nav-in"><a class="nav-logo" href="index.html">SINERGY <span>SIGNAL</span></a><div class="nav-links"><a class="nav-link" href="index.html">Главная</a><a class="nav-link" href="cabinet.html">Кабинет</a><a class="nav-link" href="telegram.html">Telegram</a><a class="nav-link" href="max.html">Max</a><a class="nav-link primary" href="auth.html">Вход</a></div></div></nav>
+<html data-syn-path="smm/signal.html" class="syn26" data-syn-app="smm" lang="ru" data-syn-v9="true">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f4f9f5"><meta name="description" content="SYNERGY SMM — Signal: Setup · Messages · Groups."><title>SYNERGY SMM / Signal</title><link rel="icon" type="image/webp" href="../assets/synergy-logo.webp"><link rel="stylesheet" href="smm26-platform.css?v=1"><script defer src="../assets/pages-runtime.js"></script></head>
+<body data-platform="signal" data-smm-workspace="platform">
+<nav class="nav" aria-label="Навигация платформы"><div class="nav-in"><a class="nav-logo" href="../portal/"><img src="../assets/synergy-logo.webp" width="45" height="45" alt=""><span><strong>SYNERGY</strong><small>SELF-HOSTED / MESSAGING</small></span></a><div class="nav-links"><a href="workspaces.html">SMM Workspaces</a><a href="cabinet.html">Общий кабинет</a><a href="p14.html">144 функции</a><a href="../portal/">Product Atlas ↗</a></div></div></nav>
 
 <div class="layout">
 <aside class="side">
@@ -95,10 +16,13 @@ input,textarea,select{font-family:inherit}::selection{background:var(--g);color:
 </aside>
 
 <main class="main">
-<div class="hero">
+<div class="hero"><p class="platform-eyebrow">SYNERGY / SELF-HOSTED DESK</p>
 <h1>Signal <em>Messenger</em></h1>
 <p>Приватный мессенджер с end-to-end шифрованием. Signal не имеет официального Bot API, но можно автоматизировать через signal-cli-rest-api на своём сервере.</p>
-</div>
+</div><div class="hero-tags"><span>SELF-HOSTED / MESSAGING</span><span>VERIFIED ACCESS REQUIRED</span><span>HUMAN CONTROL</span></div></div>
+<nav class="section-jump" aria-label="Быстрые переходы"><a href="#signal-about">01 · О Signal</a><a href="#signal-setup">02 · Настройка сервера</a><a href="#signal-connect">03 · Подключение</a><a href="#signal-send">04 · Отправка сообщений</a><a href="#signal-receive">05 · Получение сообщений</a><a href="#signal-groups">06 · Группы</a><a href="#resultBox">Результаты ↓</a></nav>
+<div class="platform-notice" role="note"><strong>СТАТУС ПОДКЛЮЧЕНИЯ</strong><span>Signal не предоставляет официальный Bot API; для управления через signal-cli нужен собственный сервер, полномочия и согласие получателей. Публичная версия не подтверждает активный Python API.</span></div>
+
 
 <section class="sec" id="signal-about">
 <h2>О Signal и автоматизации</h2>
@@ -212,6 +136,6 @@ $$(".tf").forEach(f=>f.addEventListener("submit",async e=>{e.preventDefault();do
 document.getElementById("copyResultBtn")?.addEventListener("click",()=>{navigator.clipboard.writeText(document.getElementById("resultBox").textContent).then(()=>{document.getElementById("copyResultBtn").textContent="Скопировано!";setTimeout(()=>document.getElementById("copyResultBtn").textContent="Копировать",1200)})});
 document.getElementById("downloadResultBtn")?.addEventListener("click",()=>{const b=new Blob([document.getElementById("resultBox").textContent],{type:"application/json"});const u=URL.createObjectURL(b);const a=document.createElement("a");a.href=u;a.download="signal_result.json";a.click();URL.revokeObjectURL(u)});
 </script>
-<script defer src="/synergy.github.io/assets/synergy-premium.js"></script>
-<script defer src="/synergy.github.io/assets/synergy-premium-v88.js"></script><script defer src="/synergy.github.io/assets/synergy-atelier-v9.js"></script><script defer src="/synergy.github.io/assets/synergy-stability-v9.js"></script></body>
+
+</body>
 </html>
