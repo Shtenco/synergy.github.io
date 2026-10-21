@@ -67,6 +67,16 @@
 
     <section class="panel hidden" id="stepDashboard">
       <h2>Дашборд</h2>
+      <div class="card cfo-workspace-bridge" aria-labelledby="cfo-bridge-heading">
+        <div class="cfo-bridge-head"><div><span class="eyebrow">SYNERGY / CONTROLLED FINANCIAL HANDOFF</span><h3 id="cfo-bridge-heading">Передать проверенные вами операции в AI WORKSPACE</h3><p>Сформируйте локальный файл финансовых операций для нового контура расчёта дельты. Сверьте записи с оригиналом выписки; сам файл не подтверждён банком.</p></div><a href="../workspace/">Открыть Workspace ↗</a></div>
+        <div class="cfo-bridge-fields">
+          <label>Валюта ISO 4217 <input id="cfo-bridge-currency" maxlength="3" pattern="[A-Z]{3}" placeholder="KZT" autocomplete="off"></label>
+          <label>Постоянный ID источника <input id="cfo-bridge-source" maxlength="160" placeholder="my-bank-2026-10" autocomplete="off"></label>
+          <label class="cfo-bridge-consent"><input id="cfo-bridge-reviewed" type="checkbox">Я проверил суммы и категории с исходной выпиской и понимаю, что это не банковская аттестация</label>
+        </div>
+        <div class="actions-row"><button type="button" class="ghost" id="cfo-export-ledger">Скачать пакет для Workspace ↗</button></div>
+        <p id="cfo-bridge-status" role="status">Файл создаётся локально в браузере. Никаких автоматических финансовых операций.</p>
+      </div>
       <div class="cards-row" id="summaryCards"></div>
       <div class="grid-2">
         <div class="card"><h3>Расходы по категориям</h3><div id="categoryChart"></div></div>
@@ -185,5 +195,6 @@
 
   <div class="toast" id="toast"></div>
   <script src="app.js"></script>
+  <script src="cfo-workspace-bridge.js"></script>
 </body>
 </html>

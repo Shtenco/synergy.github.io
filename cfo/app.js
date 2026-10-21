@@ -390,4 +390,8 @@ function init() {
   showOperatorSession();
   $('#mobileMenu').onclick = () => $('.sidebar').classList.toggle('open');
 }
+// Reviewed source rows, only in current tab memory. The export adapter runs locally.
+window.SynergyCfoGetLedgerRows = () => transactions.map(t => ({
+  date:t.date, description:t.description, amount:t.amount, category:t.category, currency:t.currency
+}));
 init();
