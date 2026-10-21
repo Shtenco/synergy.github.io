@@ -23,6 +23,11 @@ MIGRATED = {
     "investor-folio/index.html": ("folio-2026.css", "folio.js", ["connection","go-portfolio","go-optimize","login-form","portfolio-list","analyze-form","risk-report","market-output"]),
     "broker-mesh/index.html": ("mesh-2026.css", "mesh.js", ["reload","live-status","provider-count","method-count","connected-count","cards","catalog","query"]),
     "investor/index.html": ("investor-2026.css", "app.js", ["menu","connect","headPrice","priceUsd","liquidity","volume","portfolioEmpty","toast"]),
+    "smm/workspaces.html": ("smm26-workspace.css", "mission-v93.js", ["s93-title","s93-refresh","s93-gateway","s93-operator","s93-team","s93-catalog","s93-last"]),
+    "smm/studio.html": ("smm26-workspace.css", "studio.js", ["app","nav","menu-btn","crumb","auth-state","auth-form","view-welcome","view-leads","leads-form","view-queries","view-catalog","toast"]),
+    "smm/lead-radar.html": ("smm26-workspace.css", "workspace-pro.js", ["auth-status","login-area","auth-form","radar-form","radar-results","queries-form","bm25-form"]),
+    "smm/ai-studio.html": ("smm26-workspace.css", "workspace-pro.js", ["auth-status","login-area","auth-form","ai-form","ai-results","competitor-form","timing-form"]),
+    "smm/caseflow.html": ("smm26-workspace.css", "caseflow.js", ["api-state","auth-panel","login-form","intake-form","case-list","detail-panel","review-form","draft-form","audit-log"]),
 }
 class Parse(HTMLParser):
     def __init__(self):
