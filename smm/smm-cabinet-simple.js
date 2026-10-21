@@ -126,7 +126,12 @@ for(const view of views){
     btn.setAttribute("aria-pressed",String(i===0));
     btn.addEventListener("click",()=>chooseTool(section,card));
     list.append(btn);container.append(card);
-    if(code&&!toolIndex.has(code))toolIndex.set(code,{view,section,card});
+    // A visible card can own multiple distinct API forms (e.g. ban/unban).
+    // Index every form, not only the first, so all method links are reachable.
+    for(const f of $("form[data-t]",card)){
+      const method=f.dataset.t;
+      if(method&&!toolIndex.has(method))toolIndex.set(method,{view,section,card,form:f});
+    }
    });
    const header=document.createElement("div");header.className="simple-tools-header";header.innerHTML='<div><span>ВЫБЕРИТЕ ДЕЙСТВИЕ</span><h3></h3></div><p>Сначала одна задача — затем её настройки.</p>';
    $("h3",header).textContent=cards.length===1?"Доступный инструмент":cards.length+" действий";
