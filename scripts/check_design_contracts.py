@@ -42,7 +42,7 @@ MIGRATED = {
     "smm/tiktok.html": ("smm26-platform.css", None, ["tiktok-about","resultBox","copyResultBtn"]),
     "smm/signal.html": ("smm26-platform.css", None, ["signal-about","resultBox","copyResultBtn"]),
     "smm/zen.html": ("smm26-platform.css", None, ["zen-check","resultBox","copyResultBtn"]),
-    "smm/cabinet.html": ("smm26-cabinet.css", None, ["navUserBlock","sideNav","sideSearch","dashboard","loginForm","ai-chat","aiChatInput","aiChatSend"]),
+    "smm/cabinet.html": ("smm-cabinet-v3.css", "smm-cabinet-v3.js", ["navUserBlock","sideNav","sideSearch","dashboard","loginForm","ai-chat","aiChatInput","aiChatSend"]),
 }
 class Parse(HTMLParser):
     def __init__(self):
