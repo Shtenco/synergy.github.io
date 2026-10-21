@@ -128,7 +128,7 @@ for(const view of views){
     list.append(btn);container.append(card);
     // A visible card can own multiple distinct API forms (e.g. ban/unban).
     // Index every form, not only the first, so all method links are reachable.
-    for(const f of $("form[data-t]",card)){
+    for(const f of $$("form[data-t]",card)){
       const method=f.dataset.t;
       if(method&&!toolIndex.has(method))toolIndex.set(method,{view,section,card,form:f});
     }
