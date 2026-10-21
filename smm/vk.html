@@ -117,7 +117,8 @@
 <div class="result-actions"><button class="btn btn-sm" id="copyResultBtn">Копировать</button><button class="btn btn-sm" id="downloadResultBtn">Скачать</button></div>
 <footer class="platform-footer"><span>SYNERGY SMM · ВКонтакте · интерфейс / интеграции проверяются отдельно</span><a href="../portal/">← Product Atlas</a></footer></main></div>
 <script>
-const $$=(q,root=document)=>Array.from(root.querySelectorAll(q));
+const $=(q,root=document)=>root.querySelector(q);
+const $=(q,root=document)=>Array.from(root.querySelectorAll(q));
 const tk="sinergy_smm_session";
 function au(p){return(location.hostname==="localhost"||location.hostname==="127.0.0.1")?p:"/api/index.php?route="+encodeURIComponent(p.replace(/^\/api\//,""))}
 async function ap(p,o={}){const h={"Content-Type":"application/json"};const t=localStorage.getItem(tk);if(t)h.Authorization="Bearer "+t;const r=await fetch(au(p),{...o,headers:h});const tx=await r.text();let d={};try{d=tx?JSON.parse(tx):{}}catch{d={raw:tx}};if(!r.ok)throw new Error(d.detail||d.error||"ERR "+r.status);return d}
