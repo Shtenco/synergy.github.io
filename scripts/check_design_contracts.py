@@ -17,6 +17,9 @@ MIGRATED = {
     "ai/index.html": ("olga-2026.css", "app.js", ["newChat","chatList","messages","welcome","fileInput","prompt","send","settingsModal","authModal","registerForm","loginForm","traceDrawer","busDrawer"]),
     "cfo/index.html": ("cfo-2026.css", "app.js", ["stepUpload","stepReview","stepDashboard","stepAi","stepAdvanced","cfo-login-form"]),
     "riskguard/index.html": ("riskguard-2026.css", "riskguard.js", ["data-pill","source-label","quorum-label","m-equity","m-exposure","equity","compute","risk-budget","trade-notional"]),
+    "video/index.html": ("video-2026.css", "app.js", ["sidebar","shade","projectCount","projectGrid","createProject","saveDraft","stageList","sceneGrid","providerGrid"]),
+    "advert/index.html": ("advert-2026.css", "app.js", ["mobileMenu","dataset","upload","audiences","plan","optimize","result"]),
+    "market/index.html": ("market-2026.css", "app.js", ["sidebar","nav","productGrid","kanban","productModal","currencyGrid","ledgerRows","toast"]),
 }
 class Parse(HTMLParser):
     def __init__(self):
