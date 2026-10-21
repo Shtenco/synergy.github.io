@@ -172,3 +172,13 @@ body.syn26{margin:0;background:var(--paper);color:var(--ink);font:15px/1.65 'DM 
 @media(max-width:1150px){.syn26 .capital-equation{grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.syn26 .eq-operator{display:none}.syn26 .capital-loop{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:900px){.syn26 .capital-planner-grid{grid-template-columns:1fr}.syn26 .capital-thesis-head{display:block}.syn26 .capital-thesis-head .btn{margin-top:18px}.syn26 .capital-equation{grid-template-columns:repeat(2,minmax(0,1fr))}.syn26 .capital-loop{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:650px){.syn26 .synergy-identity-en{font-size:clamp(30px,7.5vw,41px)}.syn26 .synergy-identity-ru{font-size:clamp(16px,4.2vw,20px)}.syn26 .capital-thesis{padding-top:64px;padding-bottom:60px}.syn26 .capital-equation{grid-template-columns:1fr}.syn26 .capital-thesis-head p{font-size:12px}.syn26 .capital-loop{grid-template-columns:1fr 1fr}.syn26 .capital-loop a{padding:13px}.syn26 .capital-fields{grid-template-columns:1fr}.syn26 .capital-field-wide{grid-column:auto}.syn26 .capital-results-list>div{align-items:flex-start}.syn26 .capital-results-list strong{white-space:normal;text-align:right}.syn26 .capital-form-title{display:block}.syn26 .capital-form-title span{display:block;margin-top:5px}.syn26 .capital-planner-grid{gap:10px}}
+
+/* Tablet contract: keep the long bilingual ecosystem name inside viewport. */
+@media(min-width:681px) and (max-width:1000px){
+.syn26 .hero-grid{grid-template-columns:minmax(0,1fr)!important;gap:28px!important}
+.syn26 .hero-copy,.syn26 .visual-card{min-width:0;max-width:100%}
+.syn26 .hero .synergy-identity-en{font-size:clamp(31px,6.2vw,52px);overflow-wrap:anywhere}
+.syn26 .hero .synergy-identity-ru{max-width:100%;overflow-wrap:anywhere}
+.syn26 .nav-inner{gap:12px}
+.syn26 .brand-word small{font-size:8px;letter-spacing:.05em}
+}
