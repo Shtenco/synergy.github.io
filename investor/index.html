@@ -1,9 +1,116 @@
-<!doctype html><html data-syn-path="investor/index.html" class="syn-2026" data-syn-app="investor" lang="ru" data-syn-v9="true"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6faf6"><meta name="description" content="SYNERGY Investor Center — исследование токена, резервной политики, DEX и управление собственными портфелями."><title>SYNERGY Investor Center</title><link rel="icon" type="image/webp" href="../assets/synergy-logo.webp"><link rel="stylesheet" href="investor-2026.css?v=2"></head><body><aside><a class="brand" href="../portal/"><img src="../assets/synergy-logo.webp" alt="SYNERGY" width="48" height="48"><b>SYNERGY<small>INVESTOR CENTER</small></b></a><nav role="tablist" aria-label="Разделы Investor Center"><p>Кабинет</p><button type="button" role="tab" aria-selected="true" class="on" data-page="overview">⌂ Обзор</button><button type="button" role="tab" aria-selected="false" data-page="market">↗ DEX и рынок</button><button type="button" role="tab" aria-selected="false" data-page="portfolio">◉ Мой портфель</button><button type="button" role="tab" aria-selected="false" data-page="forward">▤ Форвард SYNR</button><p>Инфраструктура</p><button type="button" role="tab" aria-selected="false" data-page="treasury">◇ Treasury 15%</button><button type="button" role="tab" aria-selected="false" data-page="payments">▣ Платежи и касса</button><button type="button" role="tab" aria-selected="false" data-page="legal">✓ Документы и риски</button></nav><a class="investor-atlas" href="../portal/">← Product Atlas</a><div class="contract"><small>SYNR RESERVE · POLYGON</small><b>0x1a29...D4EE</b><a target="_blank" rel="noopener" href="https://polygonscan.com/address/0x1a29d9Cbce8eb9008b59704916AE924032a6D4EE">Polygonscan ↗</a></div></aside><main><header><button id="menu">☰</button><div class="network"><i></i> Polygon · Chain 137</div><div class="live"><span>SYNR / WPOL</span><b id="headPrice">Загрузка…</b></div><button class="wallet" id="connect">Подключить MetaMask</button></header>
+<!doctype html><html data-syn-path="investor/index.html" class="syn-2026" data-syn-app="investor" lang="ru" data-syn-v9="true"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6faf6"><meta name="description" content="SYNERGY Investor Center — исследование токена, резервной политики, DEX и управление собственными портфелями."><title>SYNERGY Investor Center</title><link rel="icon" type="image/webp" href="../assets/synergy-logo.webp"><link rel="stylesheet" href="investor-2026.css?v=3"></head><body><aside><a class="brand" href="../portal/"><img src="../assets/synergy-logo.webp" alt="SYNERGY" width="48" height="48"><b>SYNERGY<small>INVESTOR CENTER</small></b></a><nav role="tablist" aria-label="Разделы Investor Center"><p>Кабинет</p><button type="button" role="tab" aria-selected="true" class="on" data-page="overview">⌂ Обзор</button><button type="button" role="tab" aria-selected="false" data-page="market">↗ DEX и рынок</button><button type="button" role="tab" aria-selected="false" data-page="portfolio">◉ Мой портфель</button><button type="button" role="tab" aria-selected="false" data-page="forward">▤ Форвард SYNR</button><p>Инфраструктура</p><button type="button" role="tab" aria-selected="false" data-page="treasury">◇ Treasury 15%</button><button type="button" role="tab" aria-selected="false" data-page="payments">▣ Платежи и касса</button><button type="button" role="tab" aria-selected="false" data-page="legal">✓ Документы и риски</button></nav><a class="investor-atlas" href="../portal/">← Product Atlas</a><div class="contract"><small>SYNR RESERVE · POLYGON</small><b>0x1a29...D4EE</b><a target="_blank" rel="noopener" href="https://polygonscan.com/address/0x1a29d9Cbce8eb9008b59704916AE924032a6D4EE">Polygonscan ↗</a></div></aside><main><header><button id="menu">☰</button><div class="network"><i></i> Polygon · Chain 137</div><div class="live"><span>SYNR / WPOL</span><b id="headPrice">Загрузка…</b></div><button class="wallet" id="connect">Подключить MetaMask</button></header>
 <section class="page active" role="tabpanel" data-view="overview"><div class="investor-note"><b>ДАННЫЕ ПО ЗАПРОСУ</b><span>Котировки и адреса требуют независимой проверки. Кабинет не гарантирует доходность и не выполняет автоматические сделки.</span></div><div class="hero"><div><p class="eyebrow">SYNERGY / INVESTOR CENTER · ON-DEMAND DATA</p><h1>Investor Center.<br><em>Управление капиталом.</em></h1><p class="lead">Рынок, кошелёк, политика резерва и юридические сценарии в одном рабочем кабинете. Рыночные данные загружаются отдельно.</p><div class="actions"><button class="primary" data-page="market">Открыть рынок →</button><button class="ghost" id="heroConnect">Подключить кошелёк</button></div></div><div class="token-orb"><div class="reserve-preview-head"><b>Capital architecture</b><span>MODEL OVERVIEW</span></div><div class="reserve-preview-grid"><div><small>01 / RESERVE</small><strong>Резервная политика</strong></div><div><small>02 / MARKET</small><strong>Публичные котировки</strong></div><div><small>03 / ANALYZE</small><strong>Портфельные сценарии</strong></div><div><small>04 / REVIEW</small><strong>Контроль рисков</strong></div></div><p>Данные DEX запрашиваются отдельно. Иллюстрация не является графиком цен.</p></div></div><div class="stats"><article><span>Цена SYNR</span><b id="priceUsd">—</b><small id="priceNative">—</small></article><article><span>Ликвидность</span><b id="liquidity">—</b><small>DEX pair liquidity</small></article><article><span>Объём 24ч</span><b id="volume">—</b><small id="txns">—</small></article><article><span>Изменение 24ч</span><b id="change">—</b><small>рыночные данные</small></article></div><div class="grid"><article class="card"><div class="card-head"><div><small>РЕЗЕРВНАЯ ПОЛИТИКА</small><h3>15% выручки → SYNR Reserve</h3></div><span class="status">POLICY DRAFT</span></div><div class="flow"><div><b>100%</b><span>Выручка AI-сервисов</span></div><i>→</i><div><b>15%</b><span>Treasury allocation</span></div><i>→</i><div><b>SYNR</b><span>On-chain резерв</span></div></div><p class="note">Политика не является обещанием доходности или гарантированного выкупа. Исполнение активируется только после юридического и налогового утверждения.</p></article><article class="card"><small>КОНТУРЫ УЧЁТА</small><h3>Три независимых слоя</h3><div class="layers"><div><b>01</b><span>Usage credits SYNR<small>Оплата AI API внутри кабинетов</small></span></div><div><b>02</b><span>SYNR Reserve<small>On-chain актив Polygon</small></span></div><div><b>03</b><span>Investor rights<small>Только по отдельному договору</small></span></div></div></article></div></section>
 <section class="page" role="tabpanel" data-view="market"><div class="title"><div><p class="eyebrow">DEX SCREENER TERMINAL</p><h2>Рынок SYNR</h2><p>Официальный интерактивный терминал DEX Screener для пары SYNR/WPOL.</p></div><div class="actions"><button class="buy" id="buy">BUY SYNR ↗</button><button class="sell" id="sell">SELL SYNR ↗</button></div></div><div class="dex-frame"><iframe title="DEX Screener — SYNR/WPOL" src="https://dexscreener.com/polygon/0x550fb4a9f5556bf2e75f6d44ad8b11aaf87e7aab?embed=1&theme=dark&trades=1&info=1" loading="eager" allow="clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe><div class="dex-fallback"><span>Если терминал заблокирован расширением браузера:</span><a href="https://dexscreener.com/polygon/0x550fb4a9f5556bf2e75f6d44ad8b11aaf87e7aab" target="_blank" rel="noopener">Открыть полный DEX Screener ↗</a></div></div></section>
 <section class="page" role="tabpanel" data-view="portfolio"><div class="title"><div><p class="eyebrow">WEB3 PORTFOLIO</p><h2>Мой портфель</h2><p>On-chain баланс и договорные позиции разделены.</p></div></div><div class="wallet-empty" id="portfolioEmpty"><b>◉</b><h3>Подключите MetaMask</h3><p>Мы прочитаем публичный адрес и сеть. Подпись и транзакция не запрашиваются.</p><button class="primary" id="portfolioConnect">Подключить</button></div><div class="portfolio hidden" id="portfolio"><div class="stats"><article><span>Адрес</span><b id="walletShort">—</b><small>MetaMask</small></article><article><span>Сеть</span><b id="walletNetwork">—</b><small>требуется Polygon</small></article><article><span>SYNR Reserve</span><b>—</b><small>RPC adapter не настроен</small></article><article><span>Форварды</span><b>0</b><small>нет активных договоров</small></article></div></div></section>
 <section class="page" role="tabpanel" data-view="forward"><div class="title"><div><p class="eyebrow">FORWARD AGREEMENTS</p><h2>Форвард SYNR</h2><p>Будущая поставка токена без обещания доходности, доли или выкупа.</p></div><span class="status">LEGAL REVIEW REQUIRED</span></div><div class="grid"><article class="card terms"><small>КЛЮЧЕВЫЕ УСЛОВИЯ</small><h3>Проект соглашения</h3><label>Количество SYNR<input placeholder="0"></label><label>Цена / формула<input placeholder="Фиксированная цена или TWAP"></label><label>Дата поставки<input type="date"></label><label>Polygon-адрес<input placeholder="0x..."></label><div class="checks"><label><input type="checkbox"> Я понимаю риски ликвидности и волатильности</label><label><input type="checkbox"> Соглашение не предоставляет долю или дивиденды</label><label><input type="checkbox"> Поставка возможна только после KYC/AML</label></div><button class="primary" id="forwardDraft">Сформировать черновик</button></article><article class="card doc"><small>ДОКУМЕНТ</small><h3>Что входит</h3><ul><li>Предмет и условия будущей поставки</li><li>Объективная формула цены</li><li>KYC/KYB и источник средств</li><li>Polygon confirmations и tx hash</li><li>Риски и отсутствие гарантированного выкупа</li><li>Применимое право и порядок споров</li></ul><p class="note">Электронная подпись кошельком — дополнительное доказательство, а не автоматическая замена обязательной письменной формы.</p></article></div></section>
-<section class="page" role="tabpanel" data-view="treasury"><div class="title"><div><p class="eyebrow">TREASURY POLICY</p><h2>Резерв 15%</h2><p>Контролируемая политика, а не автономный бесконтрольный робот.</p></div></div><div class="flow large"><div><b>1</b><span>Подтверждённая выручка<small>После возвратов и chargeback</small></span></div><i>→</i><div><b>2</b><span>Расчёт 15%<small>По закрытому периоду</small></span></div><i>→</i><div><b>3</b><span>Multisig approval<small>Лимит и ручное подтверждение</small></span></div><i>→</i><div><b>4</b><span>Покупка резерва<small>TWAP · price impact cap</small></span></div></div><div class="card risk"><h3>Production safeguards</h3><div><span>Дневной лимит</span><b>не настроен</b><span>Макс. price impact</span><b>не настроен</b><span>Multisig</span><b>не подключён</b><span>Kill switch</span><b class="green">обязателен</b></div></div></section>
-<section class="page" role="tabpanel" data-view="payments"><div class="title"><div><p class="eyebrow">PAYMENTS & FISCALIZATION</p><h2>Эквайринг и касса</h2><p>Shortlist для подключения после merchant underwriting.</p></div></div><div class="providers"><article><b>ЮKassa</b><span>Самозанятые · ИП · ООО</span><p>СБП, карты, чеки, выплаты и готовая API-интеграция.</p><a href="https://yookassa.ru/developers" target="_blank" rel="noopener">Документация ↗</a></article><article><b>CloudPayments</b><span>Кастомный checkout</span><p>Подписки, СБП, МИР, иностранные карты и Cloud-чеки.</p><a href="https://developers.cloudpayments.ru/" target="_blank" rel="noopener">Документация ↗</a></article><article><b>Robokassa</b><span>Быстрый старт</span><p>Самозанятые, «Мой налог», онлайн-чеки и модули.</p><a href="https://robokassa.com/" target="_blank" rel="noopener">Открыть ↗</a></article><article><b>LIFE PAY</b><span>Облачная ККТ</span><p>54-ФЗ, ОФД, СБП, эквайринг и единая касса каналов.</p><a href="https://life-pay.ru/kassa/cloud/" target="_blank" rel="noopener">Открыть ↗</a></article></div><div class="card payment-flow"><h3>Fail-closed payment flow</h3><div class="flow"><div><b>01</b><span>Order</span></div><i>→</i><div><b>02</b><span>PSP invoice</span></div><i>→</i><div><b>03</b><span>Signed webhook</span></div><i>→</i><div><b>04</b><span>Fiscal receipt</span></div><i>→</i><div><b>05</b><span>Ledger credit</span></div></div></div></section>
+<section class="page finance-page treasury-page" role="tabpanel" data-view="treasury" aria-labelledby="treasury-heading">
+  <div class="finance-heading">
+    <div class="finance-heading-copy">
+      <p class="eyebrow">TREASURY / RESERVE POLICY</p>
+      <h2 id="treasury-heading">Резерв <em>15%</em></h2>
+      <p>Проект контролируемой резервной политики: расчёт по подтверждённой выручке, согласование решения и исполнение с ограничениями риска.</p>
+    </div>
+    <span class="finance-state finance-state-warning"><span class="finance-state-dot" aria-hidden="true"></span>Политика не активирована</span>
+  </div>
+  <div class="treasury-summary" aria-label="Общая информация о резервной политике">
+    <div class="treasury-summary-primary">
+      <span class="finance-overline">ЦЕЛЕВАЯ ДОЛЯ РЕЗЕРВА</span>
+      <div class="treasury-percentage">15<span>%</span></div>
+      <p>От подтверждённой выручки за закрытый период — после возвратов, корректировок и chargeback.</p>
+      <span class="treasury-summary-foot">Проект правила · не активное перечисление средств</span>
+    </div>
+    <div class="treasury-summary-secondary">
+      <span class="finance-overline">УСЛОВИЯ ЗАПУСКА</span>
+      <h3>Сначала контроль. Затем исполнение.</h3>
+      <p>Никаких автоматических покупок без настроенных лимитов, прав подписи, проверки цены и возможности аварийной остановки.</p>
+      <div class="treasury-checks" aria-label="Необходимые условия">
+        <span><i aria-hidden="true">01</i> Подтверждение расчётной базы</span>
+        <span><i aria-hidden="true">02</i> Утверждённый multisig</span>
+        <span><i aria-hidden="true">03</i> Проверенные ограничения операций</span>
+      </div>
+    </div>
+  </div>
+  <section class="finance-surface treasury-process" aria-labelledby="treasury-process-title">
+    <div class="finance-surface-heading">
+      <div><p class="finance-overline">ПРОЦЕСС / 4 ЭТАПА</p><h3 id="treasury-process-title">Как формируется резерв</h3></div>
+      <span class="finance-caption">Проект процесса, не журнал транзакций</span>
+    </div>
+    <ol class="finance-steps finance-steps-four" aria-label="Порядок формирования резерва">
+      <li class="finance-step"><span class="finance-step-number">01</span><div><h4>Подтверждённая выручка</h4><p>После возвратов и chargeback</p></div></li>
+      <li class="finance-step"><span class="finance-step-number">02</span><div><h4>Расчёт 15%</h4><p>По закрытому периоду</p></div></li>
+      <li class="finance-step"><span class="finance-step-number">03</span><div><h4>Multisig approval</h4><p>Лимит и ручное подтверждение</p></div></li>
+      <li class="finance-step"><span class="finance-step-number">04</span><div><h4>Покупка резерва</h4><p>TWAP · ограничение price impact</p></div></li>
+    </ol>
+  </section>
+  <section class="finance-surface treasury-controls" aria-labelledby="treasury-controls-title">
+    <div class="finance-surface-heading">
+      <div><p class="finance-overline">PRODUCTION SAFEGUARDS</p><h3 id="treasury-controls-title">Параметры безопасности</h3></div>
+      <span class="finance-state finance-state-warning">Требуется настройка</span>
+    </div>
+    <div class="treasury-guards">
+      <div class="treasury-guard"><div class="treasury-guard-icon" aria-hidden="true">↧</div><div><h4>Дневной лимит</h4><p>Максимальный объём операций за сутки</p></div><span class="finance-status-value">Не настроен</span></div>
+      <div class="treasury-guard"><div class="treasury-guard-icon" aria-hidden="true">◉</div><div><h4>Макс. price impact</h4><p>Допустимое влияние сделки на цену</p></div><span class="finance-status-value">Не настроен</span></div>
+      <div class="treasury-guard"><div class="treasury-guard-icon" aria-hidden="true">◇</div><div><h4>Multisig</h4><p>Подписи для разрешения исполнения</p></div><span class="finance-status-value">Не подключён</span></div>
+      <div class="treasury-guard"><div class="treasury-guard-icon" aria-hidden="true">⊘</div><div><h4>Kill switch</h4><p>Аварийная блокировка операций</p></div><span class="finance-status-value">Обязателен</span></div>
+    </div>
+    <p class="finance-footnote">Эти статусы описывают подготовку политики, а не результат онлайн-проверки контрактов. До подключения и испытания защитных механизмов исполнение должно оставаться заблокированным.</p>
+  </section>
+</section>
+<section class="page finance-page payments-page" role="tabpanel" data-view="payments" aria-labelledby="payments-heading">
+  <div class="finance-heading">
+    <div class="finance-heading-copy">
+      <p class="eyebrow">PAYMENTS / FISCALIZATION</p>
+      <h2 id="payments-heading">Эквайринг <em>и касса</em></h2>
+      <p>Кандидаты для подключения платёжной инфраструктуры. Выбор провайдера зависит от merchant underwriting, договора и юридической проверки.</p>
+    </div>
+    <span class="finance-state finance-state-warning"><span class="finance-state-dot" aria-hidden="true"></span>Интеграции не подтверждены</span>
+  </div>
+  <section class="payments-directory" aria-labelledby="payment-directory-title">
+    <div class="finance-surface-heading">
+      <div><p class="finance-overline">PROVIDER SHORTLIST</p><h3 id="payment-directory-title">Платёжные сервисы</h3></div>
+      <span class="finance-caption">4 кандидата · не активные подключения</span>
+    </div>
+    <div class="payments-providers">
+      <article class="payment-provider">
+        <div class="payment-provider-top"><span class="payment-provider-monogram" aria-hidden="true">Ю</span><span class="payment-provider-kind">ЭКВАЙРИНГ</span></div>
+        <h4>ЮKassa</h4><p class="payment-provider-sub">Самозанятые · ИП · ООО</p>
+        <p class="payment-provider-detail">СБП, карты, чеки, выплаты и готовая API-интеграция.</p>
+        <a href="https://yookassa.ru/developers" target="_blank" rel="noopener noreferrer" aria-label="Документация ЮKassa (в новой вкладке)">Документация <span aria-hidden="true">↗</span></a>
+      </article>
+      <article class="payment-provider">
+        <div class="payment-provider-top"><span class="payment-provider-monogram" aria-hidden="true">C</span><span class="payment-provider-kind">CHECKOUT / API</span></div>
+        <h4>CloudPayments</h4><p class="payment-provider-sub">Кастомный checkout</p>
+        <p class="payment-provider-detail">Подписки, СБП, МИР, иностранные карты и Cloud-чеки.</p>
+        <a href="https://developers.cloudpayments.ru/" target="_blank" rel="noopener noreferrer" aria-label="Документация CloudPayments (в новой вкладке)">Документация <span aria-hidden="true">↗</span></a>
+      </article>
+      <article class="payment-provider">
+        <div class="payment-provider-top"><span class="payment-provider-monogram" aria-hidden="true">R</span><span class="payment-provider-kind">ПЛАТЕЖИ / КАССА</span></div>
+        <h4>Robokassa</h4><p class="payment-provider-sub">Быстрый старт</p>
+        <p class="payment-provider-detail">Самозанятые, «Мой налог», онлайн-чеки и модули.</p>
+        <a href="https://robokassa.com/" target="_blank" rel="noopener noreferrer" aria-label="Сайт Robokassa (в новой вкладке)">Открыть сайт <span aria-hidden="true">↗</span></a>
+      </article>
+      <article class="payment-provider">
+        <div class="payment-provider-top"><span class="payment-provider-monogram" aria-hidden="true">L</span><span class="payment-provider-kind">ОБЛАЧНАЯ ККТ</span></div>
+        <h4>LIFE PAY</h4><p class="payment-provider-sub">Облачная ККТ</p>
+        <p class="payment-provider-detail">54-ФЗ, ОФД, СБП, эквайринг и единая касса каналов.</p>
+        <a href="https://life-pay.ru/kassa/cloud/" target="_blank" rel="noopener noreferrer" aria-label="Сайт LIFE PAY (в новой вкладке)">Открыть сайт <span aria-hidden="true">↗</span></a>
+      </article>
+    </div>
+  </section>
+  <section class="finance-surface payments-process" aria-labelledby="payment-process-title">
+    <div class="finance-surface-heading">
+      <div><p class="finance-overline">FAIL-CLOSED DESIGN</p><h3 id="payment-process-title">Безопасный процесс оплаты</h3></div>
+      <span class="finance-caption">Концепция интеграции · не активный платёжный маршрут</span>
+    </div>
+    <ol class="finance-steps finance-steps-five" aria-label="Этапы платежа">
+      <li class="finance-step"><span class="finance-step-number">01</span><div><h4>Order</h4><p>Создание заказа</p></div></li>
+      <li class="finance-step"><span class="finance-step-number">02</span><div><h4>PSP invoice</h4><p>Счёт платёжного провайдера</p></div></li>
+      <li class="finance-step"><span class="finance-step-number">03</span><div><h4>Signed webhook</h4><p>Проверка подписи уведомления</p></div></li>
+      <li class="finance-step"><span class="finance-step-number">04</span><div><h4>Fiscal receipt</h4><p>Фискальный чек</p></div></li>
+      <li class="finance-step"><span class="finance-step-number">05</span><div><h4>Ledger credit</h4><p>Подтверждённое зачисление</p></div></li>
+    </ol>
+    <p class="finance-footnote">Зачисление допускается только после проверки платежа, серверного события и применимых фискальных требований. Сохранение ключа в браузере не означает подключение.</p>
+  </section>
+</section>
 <section class="page" role="tabpanel" data-view="legal"><div class="title"><div><p class="eyebrow">LEGAL & RISK</p><h2>Документы и ограничения</h2></div></div><div class="legal-grid"><article class="card"><span>01</span><h3>Usage credits ≠ SYNR Reserve</h3><p>Централизованные кредиты доступа нельзя отображать как on-chain актив без отдельной конверсионной операции.</p></article><article class="card"><span>02</span><h3>Токен ≠ доля</h3><p>Инвестиционные права, прибыль и доли требуют отдельного юридического инструмента и допуска.</p></article><article class="card"><span>03</span><h3>Нет гарантии доходности</h3><p>Никаких обещаний цены, ликвидности, выкупа, дивидендов или листинга.</p></article><article class="card"><span>04</span><h3>KYC/AML обязательно</h3><p>До поставки, выплат и crypto операций проверяются стороны, санкции и источник средств.</p></article></div></section>
 </main><div class="toast" id="toast"></div><script src="dex-loader.js"></script><script src="app.js"></script></body></html>
