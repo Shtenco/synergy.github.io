@@ -1,448 +1,20 @@
 <!doctype html>
-<html data-syn-path="smm/cabinet.html" class="syn26-cabinet" data-syn-app="smm" lang="ru" data-syn-v9="true">
+<html lang="ru" class="syn-console-v3" data-syn-app="smm" data-syn-path="smm/cabinet.html">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SINERGY SMM AI — Кабинет</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<style>
-/* =====================================================================
-   SINERGYSMM · SMMV2 DESIGN SYSTEM
-   Тот же язык, что у корневого портала sinergychain.asia:
-   чёрный холст · зелёный #00e664 · Bebas Neue / Instrument Serif / DM Mono / Manrope
-   Стеклянные панели, editorial-италика, reveal-анимации, топ-юзабилити.
-   Все функциональные классы кабинета сохранены и переосмыслены.
-   ===================================================================== */
-:root{
-  --g:#00e664;--g2:#00c250;--g3:rgba(0,230,100,.12);--g4:rgba(0,230,100,.06);--g5:rgba(0,230,100,.22);
-  --blk:#000;--b1:#060606;--b2:#0b0b0c;--b3:#121214;--b4:#1a1a1d;--b5:#232327;--b6:#2e2e33;
-  --w:#fff;--w2:rgba(255,255,255,.9);--w3:rgba(255,255,255,.56);--w4:rgba(255,255,255,.3);--w5:rgba(255,255,255,.08);--w6:rgba(255,255,255,.04);
-  --bdr:rgba(0,230,100,.18);--bdr2:rgba(255,255,255,.07);--bdr3:rgba(255,255,255,.12);
-  --red:#ff4f5e;--red2:rgba(255,79,94,.12);
-  --gold:#f2c15b;--gold2:rgba(242,193,91,.1);
-  --tg:#229ed9;--tg2:rgba(34,158,217,.12);
-  --vk:#4680c2;--vk2:rgba(70,128,194,.12);
-  --meta:#1877f2;--meta2:rgba(24,119,242,.12);
-  --ok:#f97316;--ok2:rgba(249,115,22,.12);
-  --wa:#25d366;--wa2:rgba(37,211,102,.12);
-  --serif:'Instrument Serif',Georgia,serif;--display:'Bebas Neue',sans-serif;--mono:'DM Mono',monospace;--body:'Manrope',sans-serif;
-  --r1:6px;--r2:10px;--r3:18px;--r4:26px;
-  --glow:0 0 60px rgba(0,230,100,.05);
-  --glow-g:0 18px 50px rgba(0,230,100,.14);
-  --panel:linear-gradient(160deg,rgba(18,18,20,.92),rgba(8,8,9,.92));
-  --panel-hi:linear-gradient(160deg,rgba(22,22,24,.96),rgba(10,10,11,.96));
-  --ease:cubic-bezier(.22,.61,.36,1);
-  --shadow:0 24px 60px rgba(0,0,0,.45);
-}
-
-*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
-body{font-family:var(--body);background:var(--blk);color:var(--w);overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.6;position:relative;min-height:100vh}
-body::before{content:'';position:fixed;inset:0;z-index:-2;pointer-events:none;background:
-  radial-gradient(ellipse 70% 40% at 50% -8%,rgba(0,230,100,.10),transparent 60%),
-  radial-gradient(ellipse 50% 35% at 100% 0%,rgba(34,158,217,.05),transparent 55%)}
-body::after{content:'';position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:.5;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:54px 54px;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 20%,transparent 75%)}
-a{text-decoration:none;color:inherit}button{cursor:pointer;border:none;background:none;font-family:inherit;color:inherit}
-input,textarea,select{font-family:inherit}::selection{background:var(--g);color:#000}
-::-webkit-scrollbar{width:8px;height:8px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:linear-gradient(var(--g),var(--g2));border-radius:99px;border:2px solid #000}
-::-webkit-scrollbar-thumb:hover{background:var(--g)}
-.hidden{display:none!important}
-
-/* ============ TOP NAV ============ */
-.nav{position:sticky;top:0;z-index:100;background:rgba(0,0,0,.72);border-bottom:1px solid var(--bdr2);backdrop-filter:blur(28px) saturate(140%);-webkit-backdrop-filter:blur(28px) saturate(140%)}
-.nav::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,var(--g5),transparent);opacity:.6}
-.nav-in{height:62px;display:flex;align-items:center;gap:14px;max-width:1500px;margin:0 auto;padding:0 28px}
-.nav-logo{font-family:var(--display);font-size:24px;letter-spacing:5px;color:var(--g);flex-shrink:0;text-shadow:0 0 24px rgba(0,230,100,.45);display:flex;align-items:center;gap:8px}
-.nav-logo .dotmark{width:9px;height:9px;border-radius:50%;background:var(--g);box-shadow:0 0 12px var(--g);animation:pulse 2s ease infinite}
-.nav-logo span{color:var(--w)}
-.nav-user{display:flex;align-items:center;gap:10px;padding:7px 14px;border-radius:99px;background:var(--g3);border:1px solid var(--bdr);font-size:12px;font-weight:700;color:var(--g);font-family:var(--mono)}
-.nav-user small{color:var(--w4);font-weight:400;font-size:10px}
-.nav-links{display:flex;gap:4px;margin-left:auto;align-items:center}
-.nav-link{padding:8px 13px;border-radius:var(--r2);font-size:11px;font-weight:700;color:var(--w3);transition:all .2s var(--ease);letter-spacing:.3px}
-.nav-link:hover{color:var(--g);background:var(--g3)}
-.nav-link.danger{background:var(--red2);color:var(--red);border:1px solid rgba(255,79,94,.22)}
-.nav-link.danger:hover{background:rgba(255,79,94,.2)}
-
-/* ============ LAYOUT ============ */
-.layout{display:grid;grid-template-columns:248px 1fr;gap:22px;max-width:1500px;margin:0 auto;padding:22px 28px 90px}
-.main{min-width:0}
-
-/* ============ SIDEBAR ============ */
-.side{position:sticky;top:84px;height:calc(100vh - 108px);background:var(--panel);border:1px solid var(--bdr2);border-radius:var(--r3);padding:14px 12px;overflow-y:auto;box-shadow:var(--glow);display:flex;flex-direction:column;gap:2px}
-.side::before{content:'';position:absolute;inset:0;border-radius:var(--r3);padding:1px;background:linear-gradient(160deg,var(--bdr),transparent 40%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
-.side-search{position:relative;margin:2px 2px 10px}
-.side-search input{width:100%;background:var(--b3);border:1px solid var(--bdr2);border-radius:var(--r2);padding:10px 12px 10px 32px;color:var(--w);outline:none;font-size:12px;transition:all .2s}
-.side-search input:focus{border-color:var(--g);box-shadow:0 0 0 3px var(--g3)}
-.side-search input::placeholder{color:var(--w4)}
-.side-search .s-ico{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--w4);font-size:12px;pointer-events:none}
-.side-title{font-family:var(--mono);font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--w4);padding:14px 10px 5px;display:flex;align-items:center;gap:8px}
-.side-title:not(:first-child){margin-top:4px}
-.side-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--bdr2),transparent)}
-.side-link{display:flex;align-items:center;gap:10px;padding:9px 11px;border-radius:var(--r2);font-size:12px;font-weight:600;color:var(--w3);transition:all .18s var(--ease);margin-bottom:1px;position:relative;border-left:2px solid transparent;line-height:1.3}
-.side-link:hover{color:var(--w);background:var(--w5)}
-.side-link.active{color:var(--g);background:var(--g3);border-left-color:var(--g)}
-.side-link[data-p=tg].active{color:var(--tg);background:var(--tg2);border-left-color:var(--tg)}
-.side-link[data-p=meta].active{color:var(--meta);background:var(--meta2);border-left-color:var(--meta)}
-.side-link[data-p=ok].active{color:var(--ok);background:var(--ok2);border-left-color:var(--ok)}
-.side-link[data-p=wa].active{color:var(--wa);background:var(--wa2);border-left-color:var(--wa)}
-.side-link .ico{width:22px;height:22px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:11px;background:var(--b4);flex-shrink:0;font-weight:800;border:1px solid var(--bdr2)}
-.side-link.active .ico{background:var(--g);color:#000;border-color:var(--g)}
-.side-link[data-p=tg].active .ico{background:var(--tg);color:#fff;border-color:var(--tg)}
-.side-link[data-p=meta].active .ico{background:var(--meta);color:#fff;border-color:var(--meta)}
-.side-link[data-p=ok].active .ico{background:var(--ok);color:#fff;border-color:var(--ok)}
-.side-link[data-p=wa].active .ico{background:var(--wa);color:#000;border-color:var(--wa)}
-.side-link small{font-family:var(--mono);font-size:9px;color:var(--w4);margin-left:auto}
-.side-sep{height:1px;background:linear-gradient(90deg,transparent,var(--bdr2),transparent);margin:7px 0}
-
-/* ============ TOP QUICK TABS ============ */
-.top-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}
-.top-tabs a{padding:10px 16px;border:1px solid var(--bdr2);border-radius:99px;background:var(--panel);color:var(--w3);font-size:11px;font-weight:800;text-decoration:none;transition:all .2s var(--ease);letter-spacing:.3px}
-.top-tabs a:hover{color:var(--g);border-color:var(--bdr);transform:translateY(-1px)}
-.top-tabs a.primary-tab{background:var(--g);border-color:var(--g);color:#041008;box-shadow:0 8px 22px rgba(0,230,100,.22)}
-.top-tabs a.primary-tab:hover{background:#fff;color:#000}
-
-/* ============ DASHBOARD / HERO ============ */
-.dash{display:grid;grid-template-columns:1fr 384px;gap:20px;margin-bottom:22px}
-.dash-main{background:var(--panel-hi);border:1px solid var(--bdr);border-radius:var(--r4);padding:36px;display:flex;flex-direction:column;justify-content:space-between;min-height:280px;position:relative;overflow:hidden;box-shadow:var(--glow-g),var(--shadow)}
-.dash-main::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse 70% 80% at 18% 25%,#000 25%,transparent 75%);pointer-events:none}
-.dash-main::after{content:'';position:absolute;width:520px;height:520px;top:-160px;right:-140px;background:radial-gradient(circle,rgba(0,230,100,.16),transparent 68%);pointer-events:none}
-.dash-main>*{position:relative;z-index:1}
-.eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--g);margin-bottom:14px;display:flex;align-items:center;gap:10px}
-.eyebrow::before{content:'';width:26px;height:1px;background:var(--g)}
-.dash h1{font-family:var(--display);font-size:clamp(30px,4.2vw,54px);line-height:.92;letter-spacing:2px;margin-bottom:12px}
-.dash h1 em{color:var(--g);font-style:normal}
-.lead-text{font-family:var(--serif);font-style:italic;font-size:clamp(15px,1.4vw,19px);line-height:1.45;color:var(--w2);max-width:560px}
-.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:24px}
-.metric{background:rgba(255,255,255,.03);border:1px solid var(--bdr2);border-radius:var(--r2);padding:16px 14px;transition:all .25s var(--ease);position:relative;overflow:hidden}
-.metric::after{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--g);opacity:.5}
-.metric:hover{border-color:var(--bdr);transform:translateY(-2px);background:rgba(0,230,100,.04)}
-.metric b{display:block;font-family:var(--display);font-size:26px;color:var(--g);line-height:1;letter-spacing:1px}
-.metric span{font-family:var(--mono);font-size:9px;color:var(--w4);text-transform:uppercase;letter-spacing:1px;margin-top:5px;display:block}
-
-/* ============ AUTH / PROFILE PANEL ============ */
-.auth-panel{background:var(--panel);border:1px solid var(--bdr);border-radius:var(--r4);padding:28px;box-shadow:var(--glow);position:relative;overflow:hidden}
-.auth-panel::before{content:'';position:absolute;width:280px;height:280px;top:-120px;right:-100px;background:radial-gradient(circle,rgba(0,230,100,.1),transparent 70%);pointer-events:none}
-.auth-panel>*{position:relative;z-index:1}
-.auth-panel h2{font-family:var(--display);font-size:26px;letter-spacing:1px;margin-bottom:4px}
-.auth-panel .sub{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--w3);margin-bottom:16px;line-height:1.4}
-.auth-tabs{display:flex;gap:3px;background:var(--b3);border-radius:var(--r2);padding:3px;margin-bottom:16px;border:1px solid var(--bdr2)}
-.auth-tab{flex:1;padding:10px;border-radius:7px;font-size:12px;font-weight:700;color:var(--w3);text-align:center;cursor:pointer;transition:all .2s var(--ease)}
-.auth-tab.active{background:var(--g);color:#000;box-shadow:0 4px 14px rgba(0,230,100,.25)}
-.form{display:grid;gap:11px}
-.form label{font-size:11px;font-weight:700;color:var(--w2);display:grid;gap:5px;letter-spacing:.2px}
-.form input{width:100%;background:var(--b3);border:1px solid var(--bdr2);border-radius:var(--r2);padding:12px 14px;color:var(--w);outline:none;font-size:12px;transition:all .2s var(--ease)}
-.form input:focus{border-color:var(--g);box-shadow:0 0 0 3px var(--g3);background:var(--b4)}
-.notify{padding:12px 15px;border-radius:var(--r2);font-size:12px;line-height:1.6;margin-top:12px;border:1px solid}
-.notify-info{background:var(--g4);border-color:var(--bdr);color:var(--w2)}
-.notify-err{background:var(--red2);border-color:rgba(255,79,94,.28);color:var(--red)}
-.notify-ok{background:var(--g4);border-color:var(--g);color:var(--g)}
-.license-key{font-family:var(--mono);color:var(--g);user-select:all;word-break:break-all;font-size:11px;background:var(--b3);padding:2px 6px;border-radius:4px}
-
-.profile-card{display:flex;flex-direction:column;gap:14px}
-.profile-head{display:flex;align-items:center;gap:13px}
-.profile-avatar{width:50px;height:50px;border-radius:13px;background:var(--g3);border:1px solid var(--bdr);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:26px;color:var(--g);flex-shrink:0;box-shadow:0 0 22px rgba(0,230,100,.18)}
-.profile-name{font-size:20px;font-weight:800;line-height:1.1}
-.profile-name small{display:block;font-size:11px;color:var(--w4);font-weight:400;font-family:var(--mono);margin-top:3px}
-.profile-days{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.profile-stat{padding:13px;background:var(--b3);border-radius:var(--r2);border:1px solid var(--bdr2);text-align:center}
-.profile-stat b{display:block;font-family:var(--display);font-size:28px;color:var(--g);line-height:1}
-.profile-stat span{font-family:var(--mono);font-size:9px;color:var(--w4);text-transform:uppercase;letter-spacing:1px;margin-top:3px;display:block}
-.key-box{padding:11px 13px;background:var(--b3);border-radius:var(--r2);border:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between;gap:8px}
-.key-box code{font-family:var(--mono);font-size:10px;color:var(--g);word-break:break-all;flex:1}
-.profile-actions{display:flex;gap:8px}
-
-/* ============ SECTIONS ============ */
-.sec{margin-top:22px;background:var(--panel);border:1px solid var(--bdr2);border-radius:var(--r3);padding:28px;box-shadow:var(--glow);position:relative;scroll-margin-top:78px}
-.sec-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:18px}
-.sec-head h2{font-size:21px;font-weight:800;letter-spacing:-.3px;line-height:1.2}
-.sec-head h2 .badge{display:inline-block;font-size:10px;padding:3px 11px;border-radius:99px;margin-left:8px;font-weight:800;vertical-align:middle;letter-spacing:.5px;font-family:var(--mono)}
-.badge-vk{background:var(--vk2);color:var(--vk)}
-.badge-tg{background:var(--tg2);color:var(--tg)}
-.badge-meta{background:var(--meta2);color:var(--meta)}
-.badge-ok{background:var(--ok2);color:var(--ok)}
-.badge-wa{background:var(--wa2);color:var(--wa)}
-.badge-g{background:var(--g3);color:var(--g)}
-.sec-head p{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--w3);margin-top:6px;line-height:1.45;max-width:600px}
-.section-desc{font-size:12.5px;color:var(--w3);line-height:1.7;margin-bottom:18px;padding:15px 17px;background:var(--b3);border-radius:var(--r2);border-left:3px solid var(--g)}
-.section-desc.tg{border-left-color:var(--tg)}
-.section-desc.meta{border-left-color:var(--meta)}
-.section-desc.ok{border-left-color:var(--ok)}
-.section-desc.wa{border-left-color:var(--wa)}
-.section-desc strong{color:var(--w);font-weight:700}
-.section-desc code{font-family:var(--mono);font-size:11px;color:var(--g);background:var(--g4);padding:1px 6px;border-radius:4px}
-
-/* ============ PLATFORM STRIP / TOKENS ============ */
-.platform-strip{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;margin:16px 0 4px}
-.plat-btn{padding:15px 8px;border-radius:var(--r2);border:1px solid var(--bdr2);background:var(--b3);text-align:center;font-size:11px;font-weight:700;color:var(--w3);transition:all .25s var(--ease);cursor:default;position:relative}
-.plat-btn:hover{transform:translateY(-2px);border-color:var(--bdr3)}
-.plat-btn .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--red);margin-right:6px;vertical-align:middle;box-shadow:0 0 0 0 rgba(255,79,94,.5)}
-.plat-btn.on-vk{border-color:var(--vk);background:var(--vk2);color:var(--vk)}
-.plat-btn.on-vk .dot{background:var(--vk);box-shadow:0 0 10px var(--vk)}
-.plat-btn.on-tg{border-color:var(--tg);background:var(--tg2);color:var(--tg)}
-.plat-btn.on-tg .dot{background:var(--tg);box-shadow:0 0 10px var(--tg)}
-.plat-btn.on-meta{border-color:var(--meta);background:var(--meta2);color:var(--meta)}
-.plat-btn.on-meta .dot{background:var(--meta);box-shadow:0 0 10px var(--meta)}
-.plat-btn.on-ok{border-color:var(--ok);background:var(--ok2);color:var(--ok)}
-.plat-btn.on-ok .dot{background:var(--ok);box-shadow:0 0 10px var(--ok)}
-.plat-btn.on-wa{border-color:var(--wa);background:var(--wa2);color:var(--wa)}
-.plat-btn.on-wa .dot{background:var(--wa);box-shadow:0 0 10px var(--wa)}
-
-.token-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(135px,1fr));gap:8px;margin-bottom:18px}
-.token-pill{padding:12px 14px;border-radius:var(--r2);border:1px solid var(--bdr2);background:var(--b3);transition:all .2s var(--ease)}
-.token-pill:hover{border-color:var(--bdr3);transform:translateY(-1px)}
-.token-pill b{display:block;font-size:12.5px;margin-bottom:4px;font-weight:800}
-.token-pill span{font-family:var(--mono);font-size:10px;color:var(--w4)}
-.token-pill.on-vk{border-color:rgba(70,128,194,.35);background:var(--vk2)} .token-pill.on-vk span{color:var(--vk)}
-.token-pill.on-tg{border-color:rgba(34,158,217,.35);background:var(--tg2)} .token-pill.on-tg span{color:var(--tg)}
-.token-pill.on-meta{border-color:rgba(24,119,242,.35);background:var(--meta2)} .token-pill.on-meta span{color:var(--meta)}
-.token-pill.on-ok{border-color:rgba(249,115,22,.35);background:var(--ok2)} .token-pill.on-ok span{color:var(--ok)}
-.token-pill.on-wa{border-color:rgba(37,211,102,.35);background:var(--wa2)} .token-pill.on-wa span{color:var(--wa)}
-
-.acct-mini{padding:13px 17px;background:var(--g4);border:1px solid var(--bdr);border-radius:var(--r2);font-size:12px;line-height:1.6;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
-.acct-mini b{color:var(--w)}
-
-/* ============ TOOLS / CARDS ============ */
-.tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(355px,1fr));gap:14px}
-.tool{background:var(--b3);border:1px solid var(--bdr2);border-radius:var(--r3);padding:20px;transition:all .28s var(--ease);position:relative;overflow:hidden}
-.tool::before{content:'';position:absolute;inset:0;border-radius:var(--r3);padding:1px;background:linear-gradient(160deg,var(--bdr),transparent 45%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;opacity:0;transition:opacity .3s}
-.tool:hover{border-color:var(--bdr);transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,.4),0 0 0 1px var(--bdr);background:var(--b4)}
-.tool:hover::before{opacity:1}
-.tool h3{font-size:14.5px;font-weight:800;margin-bottom:6px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;line-height:1.3}
-.tool h3{color:var(--g)}
-.tool[data-p=tg] h3{color:var(--tg)}
-.tool[data-p=meta] h3{color:var(--meta)}
-.tool[data-p=ok] h3{color:var(--ok)}
-.tool[data-p=wa] h3{color:var(--wa)}
-.badge-sm{font-size:9px;font-family:var(--mono);background:var(--b5);padding:3px 9px;border-radius:99px;color:var(--w3);font-weight:500;letter-spacing:.3px;border:1px solid var(--bdr2)}
-.tool .desc{font-size:12.5px;color:var(--w3);line-height:1.65;margin-bottom:14px}
-.tool .desc strong{color:var(--w);font-weight:700}
-.tool .desc em{font-style:normal}
-.tool[data-p=vk] .desc em{color:var(--vk)}
-.tool[data-p=tg] .desc em{color:var(--tg)}
-.tool[data-p=meta] .desc em{color:var(--meta)}
-.tool[data-p=ok] .desc em{color:var(--ok)}
-.tool[data-p=wa] .desc em{color:var(--wa)}
-.tool .desc em:not([data-p]){color:var(--g)}
-.tool .desc code{font-family:var(--mono);font-size:11px;color:var(--g);background:var(--g4);padding:1px 5px;border-radius:4px}
-.params-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:11px}
-.params-grid label{display:grid;gap:5px;font-size:11px;font-weight:600;color:var(--w2);letter-spacing:.2px}
-.params-grid .fw{grid-column:1/-1}
-.tool input,.tool textarea,.tool select{width:100%;background:var(--b4);border:1px solid var(--bdr2);border-radius:8px;padding:10px 12px;color:var(--w);outline:none;font-size:12px;transition:all .18s var(--ease)}
-.tool select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%2300e664' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:30px}
-.tool textarea{resize:vertical;font-family:var(--mono);font-size:11.5px;min-height:56px;line-height:1.5}
-.tool input:focus,.tool textarea:focus,.tool select:focus{border-color:var(--g);box-shadow:0 0 0 2px var(--g3);background:var(--b5)}
-.tool[data-p=tg] input:focus,.tool[data-p=tg] textarea:focus,.tool[data-p=tg] select:focus{border-color:var(--tg);box-shadow:0 0 0 2px var(--tg2)}
-.tool[data-p=meta] input:focus,.tool[data-p=meta] textarea:focus,.tool[data-p=meta] select:focus{border-color:var(--meta);box-shadow:0 0 0 2px var(--meta2)}
-.tool[data-p=ok] input:focus,.tool[data-p=ok] textarea:focus,.tool[data-p=ok] select:focus{border-color:var(--ok);box-shadow:0 0 0 2px var(--ok2)}
-.tool[data-p=wa] input:focus,.tool[data-p=wa] textarea:focus,.tool[data-p=wa] select:focus{border-color:var(--wa);box-shadow:0 0 0 2px var(--wa2)}
-.tool input::placeholder,.tool textarea::placeholder{color:var(--w4)}
-
-/* network chooser (crosspost) */
-.network-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin:12px 0}
-.network-choice{display:flex;align-items:center;gap:9px;padding:12px 13px;border:1px solid var(--bdr2);border-radius:9px;background:rgba(255,255,255,.02);font-size:11.5px;font-weight:600;color:var(--w3);cursor:pointer;transition:all .18s var(--ease)}
-.network-choice:hover{border-color:var(--bdr3);color:var(--w2)}
-.network-choice:has(input:checked){border-color:var(--g);background:rgba(0,230,100,.09);color:var(--g)}
-.network-choice input{width:auto;accent-color:var(--g)}
-.photo-preview{display:flex;align-items:center;gap:11px;margin-top:8px;color:var(--w4);font-size:10.5px}
-.photo-preview img{width:60px;height:60px;object-fit:cover;border-radius:9px;border:1px solid var(--bdr2)}
-
-/* ============ DELAY / DETAILS ============ */
-.delay-block{margin-top:11px;padding:11px 13px;background:rgba(255,255,255,.025);border:1px solid var(--bdr2);border-radius:9px}
-.delay-block summary{font-size:11px;font-weight:700;color:var(--w3);cursor:pointer;list-style:none;display:flex;align-items:center;gap:7px;letter-spacing:.2px}
-.delay-block summary::-webkit-details-marker{display:none}
-.delay-block[open] summary{color:var(--w2)}
-.delay-inner{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:11px}
-.delay-inner label{font-size:10.5px;font-weight:600;color:var(--w4);display:grid;gap:4px}
-.delay-note{font-size:10px;color:var(--w4);margin-top:7px;line-height:1.55;font-family:var(--mono);grid-column:1/-1}
-
-/* ============ BUTTONS ============ */
-.btn-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
-.btn{padding:10px 19px;border-radius:var(--r2);font-size:12px;font-weight:800;border:1px solid var(--bdr2);background:transparent;color:var(--w3);transition:all .2s var(--ease);display:inline-flex;align-items:center;gap:6px;letter-spacing:.3px;cursor:pointer}
-.btn:hover{color:var(--g);background:var(--g3);border-color:var(--g);transform:translateY(-1px)}
-.btn-g{background:var(--g);color:#000;border-color:transparent;box-shadow:0 6px 20px rgba(0,230,100,.2)}
-.btn-g:hover{background:#fff;color:#000;box-shadow:0 8px 26px rgba(0,230,100,.3)}
-.btn-tg{background:var(--tg);color:#fff;border-color:transparent}
-.btn-tg:hover{background:#5fb3e4;color:#fff}
-.btn-meta{background:var(--meta);color:#fff;border-color:transparent}
-.btn-meta:hover{background:#4a90e2;color:#fff}
-.btn-ok{background:var(--ok);color:#fff;border-color:transparent}
-.btn-ok:hover{background:#f97316cc;color:#fff}
-.btn-wa{background:var(--wa);color:#000;border-color:transparent}
-.btn-wa:hover{background:#20c05a;color:#000}
-.btn-danger{background:var(--red2);color:var(--red);border-color:rgba(255,79,94,.22)}
-.btn-danger:hover{background:rgba(255,79,94,.2);color:var(--red);transform:translateY(-1px)}
-.btn-sm{padding:7px 14px;font-size:11px}
-.btn:disabled{opacity:.4;cursor:not-allowed;transform:none!important;box-shadow:none}
-
-/* ============ PROGRESS ============ */
-.progress-wrap{height:5px;background:var(--b5);border-radius:99px;overflow:hidden;margin:13px 0 6px;position:relative}
-.progress-fill{height:100%;width:0%;border-radius:99px;transition:width .5s ease;background:linear-gradient(90deg,var(--g),#37ff98);box-shadow:0 0 12px rgba(0,230,100,.5)}
-.progress-fill.tg{background:linear-gradient(90deg,var(--tg),#5ecef5);box-shadow:0 0 12px rgba(34,158,217,.5)}
-.progress-fill.meta{background:linear-gradient(90deg,var(--meta),#7ab3f7);box-shadow:0 0 12px rgba(24,119,242,.5)}
-.progress-fill.ok{background:linear-gradient(90deg,var(--ok),#fbbf7a);box-shadow:0 0 12px rgba(249,115,22,.5)}
-.progress-fill.wa{background:linear-gradient(90deg,var(--wa),#6eeda4);box-shadow:0 0 12px rgba(37,211,102,.5)}
-.progress-fill.vk{background:linear-gradient(90deg,var(--vk),#89aee8);box-shadow:0 0 12px rgba(70,128,194,.5)}
-.progress-fill.indeterminate{width:35%!important;animation:prog 1.2s cubic-bezier(.4,0,.6,1) infinite}
-@keyframes prog{0%{transform:translateX(-140%)}100%{transform:translateX(400%)}}
-.progress-label{font-family:var(--mono);font-size:10px;color:var(--w4);margin-top:3px;margin-bottom:6px;min-height:14px;transition:color .3s;letter-spacing:.3px}
-.progress-label.running{color:var(--g)}
-.progress-label.done{color:var(--g)}
-.progress-label.err{color:var(--red)}
-.delay-badge{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:9px;color:var(--w4);padding:3px 9px;background:var(--b5);border-radius:99px;border:1px solid var(--bdr2)}
-.delay-badge .dot{width:5px;height:5px;border-radius:50%;background:var(--g);animation:pulse 1.4s ease infinite}
-
-/* ============ RESULTS / LOG ============ */
-.result-box{background:#040405;border:1px solid var(--bdr2);border-radius:var(--r2);padding:15px;min-height:90px;max-height:400px;overflow:auto;font-family:var(--mono);font-size:11.5px;line-height:1.7;color:var(--w2);white-space:pre-wrap;margin-top:11px}
-.result-box .empty{color:var(--w4);font-style:italic}
-.result-actions{display:flex;gap:6px;justify-content:flex-end;margin-top:9px}
-.log-box{color:var(--w4);min-height:70px}
-.chk-row{display:flex;align-items:center;gap:9px;margin:9px 0;font-size:12px;color:var(--w3)}
-.chk-row input[type=checkbox]{width:16px;height:16px;accent-color:var(--g);cursor:pointer}
-.status-badge{display:inline-flex;align-items:center;gap:5px;padding:4px 11px;border-radius:99px;font-size:10px;font-weight:700;font-family:var(--mono);letter-spacing:.4px}
-.status-badge.green{background:var(--g3);color:var(--g)}
-.status-badge.gray{background:var(--w5);color:var(--w4)}
-.status-badge.trial{background:var(--tg2);color:var(--tg)}
-.file-upload-row{display:flex;gap:7px;align-items:center;margin-top:5px}
-.file-upload-row label.upload-btn{padding:7px 13px;background:var(--b5);border:1px solid var(--bdr2);border-radius:7px;font-size:10px;font-weight:700;color:var(--w3);cursor:pointer;white-space:nowrap;transition:all .2s var(--ease)}
-.file-upload-row label.upload-btn:hover{border-color:var(--g);color:var(--g)}
-.file-upload-row input[type=file]{display:none}
-.sec-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;font-weight:800}
-.sec-icon.vk{background:var(--vk2);color:var(--vk);border:1px solid rgba(70,128,194,.32)}
-.sec-icon.tg{background:var(--tg2);color:var(--tg);border:1px solid rgba(34,158,217,.32)}
-.sec-icon.meta{background:var(--meta2);color:var(--meta);border:1px solid rgba(24,119,242,.32)}
-.sec-icon.ok{background:var(--ok2);color:var(--ok);border:1px solid rgba(249,115,22,.32)}
-.sec-icon.wa{background:var(--wa2);color:var(--wa);border:1px solid rgba(37,211,102,.32)}
-
-/* legacy compat selectors kept harmless */
-.tf{display:grid;gap:0}
-
-/* ============ ANIMATIONS ============ */
-@keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-.reveal{opacity:0;transform:translateY(18px);transition:opacity .65s var(--ease),transform .65s var(--ease)}
-.reveal.in{opacity:1;transform:none}
-.reveal.d1{transition-delay:.07s}.reveal.d2{transition-delay:.14s}.reveal.d3{transition-delay:.21s}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
-
-/* ============ RESPONSIVE ============ */
-@media(max-width:1200px){.dash{grid-template-columns:1fr}.auth-panel{min-width:0}}
-@media(max-width:1000px){
-  .layout{grid-template-columns:1fr}
-  .side{position:relative;top:0;height:auto;display:grid;grid-template-columns:repeat(3,1fr);padding:10px;gap:3px}
-  .side-search,.side-title,.side-sep{display:none}
-  .side-link{padding:9px 10px;font-size:11px}
-  .side-link small{display:none}
-  .metrics{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:760px){
-  .layout{padding:14px 15px 60px}.nav-in{padding:0 15px;gap:8px}
-  .nav-user{display:none!important}
-  .side{grid-template-columns:repeat(2,1fr)}
-  .tools{grid-template-columns:1fr}
-  .params-grid{grid-template-columns:1fr}
-  .metrics{grid-template-columns:repeat(2,1fr)}
-  .platform-strip{grid-template-columns:repeat(2,1fr)}
-  .sec{padding:20px}.dash-main{padding:24px}
-  .nav-logo{font-size:20px;letter-spacing:3px}
-  .nav-links .nav-link:not(.danger):not([id]){}
-}
-@media(max-width:480px){
-  .metrics{grid-template-columns:1fr 1fr}
-  .profile-days{grid-template-columns:1fr}
-  .sec-head{flex-direction:column}
-  .dash-main{padding:20px}
-}
-
-/* ============ AI OLGA CHAT ============ */
-.ai-chat-container{background:var(--b2);border:1px solid var(--bdr2);border-radius:var(--r3);overflow:hidden;display:flex;flex-direction:column;min-height:500px;max-height:70vh}
-.ai-chat-suggestions{display:flex;flex-wrap:wrap;gap:8px;padding:14px 16px;border-bottom:1px solid var(--bdr2);background:var(--b3)}
-.ai-suggest{padding:8px 14px;border-radius:99px;background:var(--g3);border:1px solid var(--bdr);color:var(--g);font-size:11px;font-weight:600;transition:all .2s}
-.ai-suggest:hover{background:var(--g);color:#000}
-.ai-chat-messages{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:16px}
-.ai-msg{display:flex;gap:12px;max-width:85%}
-.ai-msg-user{align-self:flex-end;flex-direction:row-reverse}
-.ai-msg-assistant{align-self:flex-start}
-.ai-msg-avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;flex-shrink:0}
-.ai-msg-user .ai-msg-avatar{background:var(--vk);color:#fff}
-.ai-msg-assistant .ai-msg-avatar{background:var(--g);color:#000}
-.ai-msg-content{background:var(--b4);border:1px solid var(--bdr2);border-radius:var(--r2);padding:12px 16px}
-.ai-msg-user .ai-msg-content{background:var(--vk2);border-color:var(--vk)}
-.ai-msg-text{font-size:13px;line-height:1.6;white-space:pre-wrap;word-break:break-word}
-.ai-msg-data{margin-top:10px;padding-top:10px;border-top:1px solid var(--bdr2);font-size:11px;color:var(--w3)}
-.ai-msg-time{font-size:10px;color:var(--w4);margin-top:6px}
-.ai-chat-input{display:flex;gap:10px;padding:14px 16px;border-top:1px solid var(--bdr2);background:var(--b3)}
-.ai-chat-input textarea{flex:1;background:var(--b1);border:1px solid var(--bdr2);border-radius:var(--r2);padding:12px 14px;color:var(--w);resize:none;font-size:13px;min-height:44px;max-height:120px;outline:none;transition:all .2s}
-.ai-chat-input textarea:focus{border-color:var(--g);box-shadow:0 0 0 3px var(--g3)}
-.ai-chat-input textarea::placeholder{color:var(--w4)}
-.ai-chat-tools{display:flex;align-items:center;justify-content:space-between;padding:8px 16px;border-top:1px solid var(--bdr2);background:var(--b2)}
-.ai-tool-btn{padding:6px 12px;border-radius:var(--r1);font-size:10px;color:var(--w4);border:1px solid var(--bdr2);transition:all .2s}
-.ai-tool-btn:hover{color:var(--red);border-color:var(--red)}
-.ai-chat-hint{font-size:10px;color:var(--w4)}
-.ai-typing{display:flex;gap:4px;padding:8px 0}
-.ai-typing span{width:8px;height:8px;background:var(--g);border-radius:50%;animation:aiTyping .6s infinite alternate}
-.ai-typing span:nth-child(2){animation-delay:.2s}
-.ai-typing span:nth-child(3){animation-delay:.4s}
-@keyframes aiTyping{from{opacity:.3;transform:scale(.8)}to{opacity:1;transform:scale(1)}}
-
-/* ============ PLATFORM MARQUEE (portal-style) ============ */
-.mq-w{overflow:hidden;border-top:1px solid var(--bdr2);border-bottom:1px solid var(--bdr2);background:linear-gradient(180deg,var(--b1),var(--blk));padding:13px 0;margin:0 0 22px;border-radius:0;position:relative}
-.mq-w::before,.mq-w::after{content:'';position:absolute;top:0;bottom:0;width:90px;z-index:2;pointer-events:none}
-.mq-w::before{left:0;background:linear-gradient(90deg,var(--blk),transparent)}
-.mq-w::after{right:0;background:linear-gradient(270deg,var(--blk),transparent)}
-.mq{display:flex;gap:54px;width:max-content;animation:mq 34s linear infinite}
-.mq span{font-family:var(--display);font-size:21px;letter-spacing:3px;color:var(--w4);white-space:nowrap;display:inline-flex;align-items:center;gap:10px}
-.mq b{color:var(--g);font-weight:400}
-@keyframes mq{to{transform:translateX(-50%)}}
-
-/* ============ QUICK START TILES ============ */
-.quick-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:22px}
-.quick-tile{display:flex;flex-direction:column;gap:6px;padding:16px 17px;background:var(--b3);border:1px solid var(--bdr2);border-radius:var(--r2);transition:all .25s var(--ease);text-decoration:none;color:inherit;position:relative;overflow:hidden}
-.quick-tile::after{content:'';position:absolute;right:-20px;top:-20px;width:70px;height:70px;border-radius:50%;background:radial-gradient(circle,var(--g4),transparent 70%);opacity:0;transition:opacity .3s}
-.quick-tile:hover{border-color:var(--g);transform:translateY(-3px);background:var(--b4);box-shadow:0 12px 30px rgba(0,0,0,.35)}
-.quick-tile:hover::after{opacity:1}
-.quick-tile .qt-ico{font-size:18px;width:34px;height:34px;border-radius:9px;background:var(--g3);border:1px solid var(--bdr);display:flex;align-items:center;justify-content:center;color:var(--g);margin-bottom:4px}
-.quick-tile b{font-size:13px;font-weight:800;color:var(--w)}
-.quick-tile small{font-size:11px;color:var(--w3);line-height:1.45}
-
-/* nicer focus visible for keyboard a11y */
-:focus-visible{outline:2px solid var(--g);outline-offset:2px;border-radius:4px}
-
-
-/* ============ BEGINNER UX / NETWORK TABS / STEP LOG ============ */
-.beginner-guide{background:linear-gradient(135deg,rgba(0,230,100,.10),rgba(0,0,0,.2));border:1px solid var(--bdr);border-radius:var(--r4);padding:22px;margin-bottom:22px;box-shadow:var(--glow-g)}
-.beginner-guide h2{font-family:var(--display);font-size:28px;letter-spacing:1px;margin-bottom:6px}.beginner-guide>p{color:var(--w3);font-size:13px;line-height:1.6}
-.guide-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0}.guide-step{background:var(--b3);border:1px solid var(--bdr2);border-radius:var(--r2);padding:14px}.guide-step b{display:block;color:var(--g);font-family:var(--mono);font-size:11px;margin-bottom:6px}.guide-step span{font-size:12px;line-height:1.5;color:var(--w2)}
-.network-filter{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.network-filter button{border:1px solid var(--bdr2);background:var(--b3);color:var(--w2);border-radius:999px;padding:9px 13px;font-size:12px;font-weight:800;cursor:pointer}.network-filter button.active,.network-filter button:hover{background:var(--g);border-color:var(--g);color:#041008}.network-hidden{display:none!important}
-.cooldown-grid{display:grid;grid-template-columns:repeat(3,minmax(150px,1fr));gap:10px}.cooldown-inline{margin:10px 0;padding:10px 12px;border-radius:var(--r2);border:1px dashed var(--bdr);background:var(--g4);font-size:11px;color:var(--w2);line-height:1.5}.cooldown-inline b{color:var(--g)}
-.action-log{margin-top:9px;max-height:180px;overflow:auto;background:#050806;border:1px solid var(--bdr2);border-radius:var(--r2);padding:9px;font-family:var(--mono);font-size:10px;color:var(--w3);display:none}.action-log.has-items{display:block}.action-log-row{display:grid;grid-template-columns:72px 1fr;gap:8px;padding:5px 2px;border-bottom:1px solid rgba(255,255,255,.04)}.action-log-row:last-child{border-bottom:0}.action-log-row.ok{color:#9dffbe}.action-log-row.err{color:#ff9d9d}.action-log-row .time{color:var(--w4)}
-.progress-label{min-height:18px;margin-top:7px;font-family:var(--mono);font-size:10px;color:var(--w3)}.progress-label.running{color:var(--g)}.progress-label.err{color:var(--red)}.progress-label.done{color:#9dffbe}
-@media(max-width:900px){.guide-steps{grid-template-columns:repeat(2,1fr)}.cooldown-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.guide-steps,.cooldown-grid{grid-template-columns:1fr}}
-
-</style>
-<!-- SYNERGY V8 NEXUS bridge --><script defer src="/synergy.github.io/assets/pages-runtime.js"></script>
-<link rel="icon" href="../assets/synergy-logo.webp"><link rel="stylesheet" href="smm26-cabinet.css?v=1"></head>
-<body>
-
-<nav class="nav">
-  <div class="nav-in">
-    <a class="nav-logo" href="../portal/"><img src="../assets/synergy-logo.webp" width="45" height="45" alt=""><span>SYNERGY<small>SMM / CONTROL CENTER</small></span></a>
-    <div id="navUserBlock" class="nav-user hidden"><span id="navLogin">—</span><small id="navDays"></small></div>
-    <div class="nav-links">
-      <button class="nav-link hidden" id="refreshBtn">↺</button>
-      <button class="nav-link danger hidden" id="logoutBtn">Выйти</button>
-      <a class="nav-link" href="workspaces.html">Workspaces</a><a class="nav-link" href="p14.html">144 функции</a><a class="nav-link" href="../portal/">Product Atlas ↗</a>
-    </div>
-  </div>
-</nav>
-
-<div class="layout">
-<aside class="side" id="sideNav">
-  <div class="side-search">
-    <span class="s-ico">⌕</span>
-    <input type="search" id="sideSearch" placeholder="Поиск по инструментам…" autocomplete="off" aria-label="Поиск по разделам">
-  </div>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f4f8f4">
+<meta name="description" content="SYNERGY SMM Console — 144 формы, платформы, AI Ольга, аналитика, лиды и публикации в едином интерфейсе.">
+<title>SYNERGY SMM — Console 3.0</title>
+<link rel="icon" href="../assets/synergy-logo.webp">
+<link rel="stylesheet" href="smm-cabinet-v3.css?v=1">
+<script defer src="../assets/pages-runtime.js"></script>
+<script defer src="smm-cabinet-v3.js?v=1"></script>
+</head><body>
+<a href="#cabinet-main" class="skip-link">Перейти к содержимому</a>
+<header class="nav"><div class="nav-in"><button type="button" class="menu-toggle" id="smm-menu-toggle" aria-controls="sideNav" aria-expanded="false" aria-label="Открыть меню инструментов">☰</button><a href="../portal/" class="nav-brand"><img src="../assets/synergy-logo.webp" width="43" height="43" alt=""><span><strong>SYNERGY</strong><small>SMM / CONTROL CENTER</small></span></a><div class="top-search"><span aria-hidden="true">⌕</span><input id="globalToolSearch" type="search" placeholder="Найти инструмент, платформу или задачу…" aria-label="Глобальный поиск по SMM" autocomplete="off"><kbd>Ctrl K</kbd></div><div class="nav-right"><div id="navUserBlock" class="nav-user hidden"><span id="navLogin">—</span><small id="navDays"></small></div><button id="refreshBtn" class="hidden" type="button" aria-label="Обновить статус">↻</button><button id="logoutBtn" class="hidden" type="button">Выйти</button><a href="workspaces.html">Workspaces ↗</a><a href="../portal/">Product Atlas ↗</a></div></div></header>
+<div class="side-overlay" id="smm-side-overlay" hidden></div>
+<div class="layout"><aside class="side" id="sideNav" aria-label="Навигация инструментов"><div class="side-head"><b>Каталог инструментов</b><p>Все исходные функции в одном месте</p></div>
+  <div class="side-search"><span class="s-ico" aria-hidden="true">⌕</span><input type="search" id="sideSearch" placeholder="Найти инструмент…" autocomplete="off" aria-label="Поиск инструмента в меню"></div>
   <div class="side-title">AI Ольга</div>
   <a class="side-link" href="#ai-chat"><span class="ico" style="background:var(--g);color:#000">O</span>Чат с AI<small>NLP</small></a>
   <div class="side-sep"></div>
@@ -490,67 +62,12 @@ input,textarea,select{font-family:inherit}::selection{background:var(--g);color:
   <div class="side-sep"></div>
   <a class="side-link" href="#autopilot"><span class="ico">🤖</span>AI</a>
   <a class="side-link" href="#files"><span class="ico">📁</span>Файлы/Лог</a>
-</aside>
-
-<main class="main"><div class="cabinet-banner"><div><span class="cabinet-eyebrow">SYNERGY / SMM OPERATIONS</span><h1>Единый SMM-кабинет</h1><p>Инструменты и платформы в одном пространстве. Работа с API требует подтверждённой сессии, соответствующих разрешений и серверного подключения.</p></div><div class="cabinet-banner-actions"><a href="workspaces.html">Рабочие кабинеты ↗</a><a href="p14.html">Реестр 144 функций ↗</a></div></div>
-
-<nav class="top-tabs" aria-label="Быстрые вкладки">
-  <a class="primary-tab" href="#crosspost">↗ Кросс-постинг</a>
-  <a href="#tokens">API токены</a>
-  <a href="../smm/jobs.html">TG тест всех функций</a>
-  <a href="#vk-dialog-actions">VK по диалогам</a>
-  <a href="#autopilot">AI-контент</a>
-  <a href="#unified-inbox">Единый Inbox</a>
-  <a href="#hot-lead-radar">Hot Lead Radar</a>
-  <a href="#files">Результаты</a>
-</nav>
-
-<div class="mq-w" aria-hidden="true"><div class="mq">
-<span><b>◆</b>VK</span><span><b>◆</b>TELEGRAM</span><span><b>◆</b>INSTAGRAM</span><span><b>◆</b>FACEBOOK</span><span><b>◆</b>ОДНОКЛАССНИКИ</span><span><b>◆</b>WHATSAPP</span><span><b>◆</b>CROSS-POSTING</span><span><b>◆</b>HOT LEAD RADAR</span><span><b>◆</b>AI АВТОПИЛОТ</span><span><b>◆</b>CRM И ВОРОНКИ</span>
-<span><b>◆</b>VK</span><span><b>◆</b>TELEGRAM</span><span><b>◆</b>INSTAGRAM</span><span><b>◆</b>FACEBOOK</span><span><b>◆</b>ОДНОКЛАССНИКИ</span><span><b>◆</b>WHATSAPP</span><span><b>◆</b>CROSS-POSTING</span><span><b>◆</b>HOT LEAD RADAR</span><span><b>◆</b>AI АВТОПИЛОТ</span><span><b>◆</b>CRM И ВОРОНКИ</span>
-</div></div>
-
-<!-- AI OLGA CHAT -->
-<section class="sec" id="ai-chat">
-  <div class="sec-head">
-    <div style="display:flex;align-items:flex-start;gap:12px">
-      <div class="sec-icon" style="background:var(--g);color:#000;font-weight:800">O</div>
-      <div>
-        <h2>AI Ольга — Чат <span class="badge badge-g">NLP движок</span></h2>
-        <p>Управляйте SMM через естественный язык. Пишите задачи — Ольга выполнит и отчитается.</p>
-      </div>
-    </div>
-  </div>
-  <div class="ai-chat-container">
-    <div class="ai-chat-suggestions">
-      <button class="ai-suggest" data-prompt="Создай 3 продающих поста для VK про IT-услуги">Создать посты VK</button>
-      <button class="ai-suggest" data-prompt="Проанализируй конкурента vk.com/durov">Анализ конкурента</button>
-      <button class="ai-suggest" data-prompt="Найди вирусный контент по теме маркетинг">Вирусный контент</button>
-      <button class="ai-suggest" data-prompt="Покажи статус всех подключений">Статус API</button>
-      <button class="ai-suggest" data-prompt="Создай серию из 5 постов для прогрева на тему AI">Серия постов</button>
-      <button class="ai-suggest" data-prompt="Что ты умеешь?">Возможности</button>
-    </div>
-    <div class="ai-chat-messages" id="aiChatMessages">
-      <div class="ai-msg ai-msg-assistant">
-        <div class="ai-msg-avatar">O</div>
-        <div class="ai-msg-content">
-          <div class="ai-msg-text">Привет! Я Ольга, твой AI-директор по SMM. Напиши, что нужно сделать — создать контент, проанализировать конкурентов, найти тренды или что-то ещё.</div>
-        </div>
-      </div>
-    </div>
-    <div class="ai-chat-input">
-      <textarea id="aiChatInput" placeholder="Напишите задачу Ольге..." rows="1"></textarea>
-      <button class="btn btn-g" id="aiChatSend">Отправить</button>
-    </div>
-    <div class="ai-chat-tools">
-      <button class="ai-tool-btn" id="aiChatClear">Очистить историю</button>
-      <span class="ai-chat-hint">Enter — отправить · Shift+Enter — новая строка</span>
-    </div>
-  </div>
-</section>
-
-<!-- Dashboard -->
-<section class="dash" id="dashboard">
+<div class="side-footer"><b>SYNERGY WORKSPACES</b><p>Результаты операций зависят от API и полномочий аккаунта. Статус подключения проверяется отдельно.</p><a href="workspaces.html">Все SMM-кабинеты ↗</a></div></aside>
+<main class="main" id="cabinet-main">
+<div class="console-head"><div><span class="breadcrumb">SYNERGY / SMM / <b id="current-view-name">Обзор</b></span><h1>Рабочая консоль</h1><p>Выберите раздел и работайте только с нужными инструментами — без перегруженной бесконечной страницы.</p></div><span class="connection-state"><i aria-hidden="true"></i>API / доступ проверяются отдельно</span></div>
+<nav class="quick-nav" id="smmViewNav" role="tablist" aria-label="Основные разделы SMM"><button type="button" role="tab" aria-controls="view-overview" aria-selected="true" id="tab-overview" data-view="overview"><span class="number">01</span>Обзор</button><button type="button" role="tab" aria-controls="view-publishing" aria-selected="false" id="tab-publishing" data-view="publishing"><span class="number">02</span>Контент</button><button type="button" role="tab" aria-controls="view-leads" aria-selected="false" id="tab-leads" data-view="leads"><span class="number">03</span>Лиды</button><button type="button" role="tab" aria-controls="view-inbox" aria-selected="false" id="tab-inbox" data-view="inbox"><span class="number">04</span>Inbox</button><button type="button" role="tab" aria-controls="view-ai" aria-selected="false" id="tab-ai" data-view="ai"><span class="number">05</span>AI Ольга</button><button type="button" role="tab" aria-controls="view-vk" aria-selected="false" id="tab-vk" data-view="vk"><span class="number">06</span>ВКонтакте</button><button type="button" role="tab" aria-controls="view-tg" aria-selected="false" id="tab-tg" data-view="tg"><span class="number">07</span>Telegram</button><button type="button" role="tab" aria-controls="view-meta" aria-selected="false" id="tab-meta" data-view="meta"><span class="number">08</span>Instagram / Meta</button><button type="button" role="tab" aria-controls="view-ok" aria-selected="false" id="tab-ok" data-view="ok"><span class="number">09</span>Одноклассники</button><button type="button" role="tab" aria-controls="view-wa" aria-selected="false" id="tab-wa" data-view="wa"><span class="number">10</span>WhatsApp</button><button type="button" role="tab" aria-controls="view-integrations" aria-selected="false" id="tab-integrations" data-view="integrations"><span class="number">11</span>Подключения</button><button type="button" role="tab" aria-controls="view-results" aria-selected="false" id="tab-results" data-view="results"><span class="number">12</span>Результаты</button></nav>
+<div id="toolSearchResults" hidden></div>
+<div class="smm-view is-active" id="view-overview" data-view="overview" role="tabpanel" aria-labelledby="tab-overview" aria-hidden="false"><div class="view-head"><div><span class="eyebrow" style="color:#0a9850;font:800 10px Manrope,sans-serif;letter-spacing:.12em">SYNERGY / 01</span><h2>Обзор</h2><p>Вход, лицензия и первые действия</p></div><small>2 разделов</small></div><section class="hero-quick" aria-labelledby="hero-title"><div><span class="eyebrow">SYNERGY / SMM CONSOLE 3.0</span><h2 id="hero-title">Все инструменты.<br>Один порядок работы.</h2><p>Подготовка контента, исследование аудитории, обработка обращений и управление кампаниями. Без ложных статусов API и без скрытых внешних действий.</p><div class="hero-quick-actions"><button type="button" data-target="crosspost">Новая публикация ↗</button><button type="button" data-target="hot-lead-radar">Найти лиды ↗</button><a href="workspaces.html">Модули SMM ↗</a></div></div><div class="hero-signal"><strong>WORKFLOW / VERIFIED ACTIONS</strong><b>144 интерфейсные формы</b><span>Исторический каталог. Доступность операций проверяется отдельно.</span><ul><li>Выберите инструмент</li><li>Проверьте авторизацию</li><li>Используйте безопасный режим</li><li>Подтвердите внешнее действие</li></ul></div></section><div class="work-grid"><article class="work-card"><span class="eyebrow">CREATIVE DESK</span><h3>Создайте и подготовьте контент</h3><p>Публикации, кросс-постинг и сценарии кампаний.</p><a href="#crosspost" data-target="crosspost">Перейти к контенту →</a></article><article class="work-card"><span class="eyebrow">LEAD INTELLIGENCE</span><h3>Найдите сигнал интереса</h3><p>Выявление потребностей, событий намерения и работа с CRM.</p><a href="#hot-lead-radar" data-target="hot-lead-radar">Открыть Lead Radar →</a></article></div><div class="notice" role="note"><strong>Статус:</strong> публичный GitHub Pages содержит интерфейс. Реальная работа инструментов требует отдельного backend и проверенных прав доступа.</div><section class="dash" id="dashboard">
   <div class="dash-main">
     <div>
       <div class="eyebrow">SMM AI Control Room — Pro</div>
@@ -611,19 +128,6 @@ input,textarea,select{font-family:inherit}::selection{background:var(--g);color:
     </div>
   </div>
 </section>
-
-<!-- Quick start tiles -->
-<div class="quick-grid" aria-label="Быстрый старт">
-  <a class="quick-tile" href="#crosspost"><span class="qt-ico">↗</span><b>Кросс-постинг</b><small>Один пост — во все 6 соцсетей сразу</small></a>
-  <a class="quick-tile" href="#vk-parse"><span class="qt-ico">V</span><b>Парсинг VK</b><small>Группы, активная аудитория, граф ЦА</small></a>
-  <a class="quick-tile" href="#tg-parse"><span class="qt-ico">T</span><b>Telegram</b><small>Каналы, участники, рассылки, инвайтинг</small></a>
-  <a class="quick-tile" href="#autopilot"><span class="qt-ico">✍</span><b>AI-контент</b><small>Посты под каждую платформу и план кампании</small></a>
-  <a class="quick-tile" href="#hot-lead-radar"><span class="qt-ico">🔥</span><b>Hot Lead Radar</b><small>Горячие лиды и события намерения</small></a>
-  <a class="quick-tile" href="#tokens"><span class="qt-ico">⚡</span><b>API токены</b><small>Подключите платформы за минуту</small></a>
-  <a class="quick-tile" href="#cooldown-settings"><span class="qt-ico">❄</span><b>Охлаждение</b><small>Защита от повторных рассылок</small></a>
-</div>
-
-
 <section class="beginner-guide" id="beginner-guide">
   <h2>Начните с четырёх простых шагов</h2>
   <p>Кабинет показывает каждое действие по шкале из 100 шагов и записывает понятный лог прямо под кнопкой. Для реальных рассылок сначала используйте тестовый режим.</p>
@@ -642,34 +146,8 @@ input,textarea,select{font-family:inherit}::selection{background:var(--g);color:
     <button type="button" data-network-filter="ok">Одноклассники</button>
     <button type="button" data-network-filter="wa">WhatsApp</button>
   </div>
-</section>
-
-<section class="sec" id="cooldown-settings">
-  <div class="sec-head"><div style="display:flex;align-items:flex-start;gap:12px"><div class="sec-icon">❄</div><div><h2>Период охлаждения <span class="badge badge-g">защита от повторов</span></h2><p>Система не отправит повторное сообщение одному получателю, пока не закончится выбранный срок.</p></div></div></div>
-  <div class="section-desc"><strong>Пример:</strong> значение 7 означает, что этому же человеку нельзя отправить новую рассылку семь дней. Рекомендуем 7–14 дней. Значение 0 отключает проверку только для выбранной сети.</div>
-  <div class="tools" style="grid-template-columns:1fr">
-    <div class="tool">
-      <h3>Настройки по социальным сетям <span class="badge-sm">mailing_set_settings</span></h3>
-      <form class="tf" data-t="mailing_set_settings" id="cooldownForm">
-        <div class="cooldown-grid">
-          <label>VK, дней<input name="vk_cooldown_days" type="number" min="0" max="365" value="7"></label>
-          <label>Telegram, дней<input name="telegram_cooldown_days" type="number" min="0" max="365" value="7"></label>
-          <label>Instagram, дней<input name="instagram_cooldown_days" type="number" min="0" max="365" value="7"></label>
-          <label>Facebook, дней<input name="facebook_cooldown_days" type="number" min="0" max="365" value="7"></label>
-          <label>WhatsApp, дней<input name="whatsapp_cooldown_days" type="number" min="0" max="365" value="7"></label>
-          <label>OK, дней<input name="ok_cooldown_days" type="number" min="0" max="365" value="7"></label>
-          <label>MAX, дней<input name="max_cooldown_days" type="number" min="0" max="365" value="7"></label>
-          <label>Signal, дней<input name="signal_cooldown_days" type="number" min="0" max="365" value="7"></label>
-          <label>Threads, дней<input name="threads_cooldown_days" type="number" min="0" max="365" value="7"></label>
-        </div>
-        <div class="btn-actions"><button class="btn btn-g">Сохранить периоды</button><button class="btn btn-sm" type="button" id="loadCooldownBtn">Обновить значения</button></div>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- CROSS POSTING -->
-<section class="sec" id="crosspost">
+</section></div>
+<div class="smm-view" id="view-publishing" data-view="publishing" role="tabpanel" aria-labelledby="tab-publishing" aria-hidden="true"><div class="view-head"><div><span class="eyebrow" style="color:#0a9850;font:800 10px Manrope,sans-serif;letter-spacing:.12em">SYNERGY / 02</span><h2>Контент</h2><p>Публикации и кросс-постинг</p></div><small>2 разделов</small></div><div class="work-grid"><article class="work-card"><span class="eyebrow">VK / PUBLICATION</span><h3>Постинг ВКонтакте</h3><p>Настройки публикаций и разрешения отдельной платформы.</p><a data-target="vk-post" href="#vk-post">Открыть VK-постинг →</a></article><article class="work-card"><span class="eyebrow">TELEGRAM / PUBLICATION</span><h3>Постинг Telegram</h3><p>Управление публикациями и доступом к каналам.</p><a data-target="tg-post" href="#tg-post">Открыть TG-постинг →</a></article></div><section class="sec" id="crosspost">
   <div class="sec-head"><div style="display:flex;align-items:flex-start;gap:12px">
     <div class="sec-icon" style="background:var(--g3);color:var(--g);border:1px solid var(--bdr)">↗</div>
     <div>
@@ -716,109 +194,292 @@ input,textarea,select{font-family:inherit}::selection{background:var(--g);color:
     </div>
   </div>
 </section>
-
-<!-- Platform status -->
-<section class="sec">
-  <div class="sec-head">
-    <div><h2>Подключённые платформы <span class="badge badge-g">live</span></h2>
-    <p>Зелёный/цветной — токен добавлен. Красный — нет токена. Добавьте в разделе "API токены" ниже.</p></div>
-    <div class="acct-mini" id="accountBox"><span>Не авторизован</span><span class="status-badge gray">offline</span></div>
-  </div>
-  <div class="platform-strip">
-    <div class="plat-btn" data-platform="vk"><span class="dot"></span>ВКонтакте</div>
-    <div class="plat-btn" data-platform="telegram"><span class="dot"></span>Telegram</div>
-    <div class="plat-btn" data-platform="instagram"><span class="dot"></span>Instagram</div>
-    <div class="plat-btn" data-platform="facebook"><span class="dot"></span>Facebook</div>
-    <div class="plat-btn" data-platform="ok"><span class="dot"></span>ОК.ру</div>
-    <div class="plat-btn" data-platform="whatsapp"><span class="dot"></span>WhatsApp</div>
+<section class="sec" id="youtube"><div class="sec-head"><div><h2>YouTube · официальный API + OLGA</h2><p>OAuth-доступ к своему каналу, мониторинг публичных каналов конкурентов и черновики комментариев. Публикация всегда требует подтверждения.</p></div></div><div class="tools">
+<div class="tool"><h3>Подключить YouTube <span class="badge-sm">youtube_oauth_url</span></h3><form class="tf" data-t="youtube_oauth_url"><div class="btn-actions"><button class="btn btn-g">Получить защищённую OAuth-ссылку</button></div><div class="progress-wrap"><div class="progress-fill"></div></div></form></div>
+<div class="tool"><h3>Каналы конкурентов <span class="badge-sm">youtube_competitor_collect</span></h3><form class="tf" data-t="youtube_competitor_collect"><div class="params-grid"><label class="fw">Ссылки/handles каналов<textarea name="channels" data-list rows="4" required></textarea></label><label>Видео на канал<input name="videos_per_channel" type="number" value="20" min="1" max="50"></label></div><div class="btn-actions"><button class="btn btn-g">Собрать последние видео</button></div><div class="progress-wrap"><div class="progress-fill"></div></div></form></div>
+<div class="tool"><h3>AI-черновик комментария <span class="badge-sm">youtube_ai_comment</span></h3><form class="tf" data-t="youtube_ai_comment"><div class="params-grid"><label class="fw">Контекст видео<textarea name="context" rows="5" required></textarea></label></div><div class="btn-actions"><button class="btn btn-g">Подготовить через OLGA</button></div><div class="progress-wrap"><div class="progress-fill"></div></div></form></div>
+<div class="tool"><h3>Опубликовать комментарий <span class="badge-sm">youtube_comment</span></h3><form class="tf" data-t="youtube_comment"><div class="params-grid"><label>Video ID<input name="video_id" required></label><label class="fw">Проверенный текст<textarea name="text" rows="4" required></textarea></label><label class="chk-row"><input name="confirm" type="checkbox" required> Подтверждаю публикацию через официальный API</label></div><div class="btn-actions"><button class="btn btn-g">Опубликовать</button></div><div class="progress-wrap"><div class="progress-fill"></div></div></form></div>
+<div class="tool"><h3>Ответить на комментарий <span class="badge-sm">youtube_reply</span></h3><form class="tf" data-t="youtube_reply"><div class="params-grid"><label>Parent Comment ID<input name="parent_id" required></label><label class="fw">Ответ<textarea name="text" rows="4" required></textarea></label><label class="chk-row"><input name="confirm" type="checkbox" required> Подтверждаю отправку ответа</label></div><div class="btn-actions"><button class="btn btn-g">Ответить</button></div><div class="progress-wrap"><div class="progress-fill"></div></div></form></div>
+</div></section></div>
+<div class="smm-view" id="view-leads" data-view="leads" role="tabpanel" aria-labelledby="tab-leads" aria-hidden="true"><div class="view-head"><div><span class="eyebrow" style="color:#0a9850;font:800 10px Manrope,sans-serif;letter-spacing:.12em">SYNERGY / 03</span><h2>Лиды</h2><p>Радар намерения и CRM</p></div><small>2 разделов</small></div><section class="sec" id="hot-lead-radar">
+  <div class="sec-head"><div style="display:flex;align-items:flex-start;gap:12px"><div class="sec-icon vk">🔥</div><div><h2>SINERGY HOT LEAD RADAR <span class="badge badge-vk">intent events</span></h2><p>Ищет не базы ради количества, а события намерения: вопросы о цене, поиск исполнителя, жалобы на подрядчика, заявки, входящие сообщения и повторную активность старых лидов.</p></div></div></div>
+  <div class="section-desc"><strong>Температура:</strong> 80–100 — срочно менеджеру; 60–79 — горячий контакт; 40–59 — прогрев и ретаргетинг; 20–39 — наблюдение; 0–19 — архив. Комментарии под постами конкурентов не запускают автоматический спам: радар даёт контекст, рекламный сегмент и черновик для ручного решения.</div>
+  <div class="tools">
+    <div class="tool"><h3>🔎 Сканер отпарсенных аккаунтов и VK-ленты <span class="badge-sm">hot_lead_vk_scan</span></h3><div class="desc"><strong>Главный режим Radar:</strong> загрузите список ID/ссылок, ранее созданный любым парсером AI SMM. Система проверит доступные публичные стены этих аккаунтов и комментарии, а также выполнит поиск по общей VK-ленте. Распознаёт вопросы о цене, поиск исполнителя, опечатки, сленг и недовольство текущим подрядчиком.</div><form class="tf" data-t="hot_lead_vk_scan"><div class="params-grid"><label class="fw">ID или ссылки аккаунтов<textarea name="audience_ids" rows="3" placeholder="123456789&#10;https://vk.com/id987654321"></textarea></label><label>Файл из AI SMM<input name="audience_file" placeholder="active_users.txt / common_users.txt"></label><label>Загрузить файл с компьютера<input name="audience_upload" type="file" accept=".txt,.csv,.json"></label><label class="fw">Дополнительные ключи и фразы<textarea name="keywords" data-list rows="4" placeholder="скажите цену&#10;напишите цену&#10;сколько стоит&#10;ищю таргетолога&#10;кто поможет с продвижением&#10;поддержка молчит"></textarea></label><label>Период, дней<input name="days" type="number" value="7" min="1" max="30"></label><label>Постов на аккаунт<input name="posts_per_account" type="number" value="30" min="1" max="100"></label><label>Максимум аккаунтов<input name="max_accounts" type="number" value="100" min="1" max="300"></label><label>Соответствие ЦА 0–20<input name="profile_match" type="number" value="10" min="0" max="20"></label><label class="chk-row"><input name="scan_comments" type="checkbox" checked> Искать в комментариях</label><label class="chk-row"><input name="scan_feed" type="checkbox" checked> Искать в общей VK-ленте</label><input type="hidden" name="output_file" value="hot_lead_radar.json"></div><details class="delay-block"><summary>⏱ Скорость запросов</summary><div class="delay-inner"><label>Мин. сек<input name="delay_min" type="number" value="1"></label><label>Макс. сек<input name="delay_max" type="number" value="2"></label></div></details><div class="btn-actions"><button class="btn btn-g">Запустить Hot Lead Radar</button><button class="btn btn-sm download-btn" type="button" data-file="hot_lead_radar.json">⬇ Скачать лиды</button></div><div class="progress-wrap"><div class="progress-fill"></div></div></form></div>
+    <div class="tool"><h3>🌡 Скоринг сигнала 0–100 <span class="badge-sm">hot_lead_score</span></h3><form class="tf" data-t="hot_lead_score"><div class="params-grid"><label class="fw">Текст события<textarea name="text" rows="4" required placeholder="Подскажите цену фотодня? Текущий фотограф сорвал сроки"></textarea></label><label>Время события<input name="occurred_at" type="datetime-local"></label><label>Соответствие профилю 0–20<input name="profile_match" type="number" value="10" min="0" max="20"></label><label>Активность 0–10<input name="activity" type="number" value="5" min="0" max="10"></label><label>Доступность контакта 0–10<input name="contactability" type="number" value="0" min="0" max="10"></label><label class="chk-row"><input name="inbound_message" type="checkbox"> Сам написал нам</label><label class="chk-row"><input name="self_promotion" type="checkbox"> Рекламирует себя</label><label class="chk-row"><input name="job_seeker" type="checkbox"> Ищет работу</label><label class="chk-row"><input name="wrong_region" type="checkbox"> Не тот регион</label><label class="chk-row"><input name="suspicious" type="checkbox"> Бот/подозрительный</label></div><div class="btn-actions"><button class="btn btn-g">Рассчитать температуру</button></div><div class="progress-wrap"><div class="progress-fill"></div></div></form></div>
+    <div class="tool"><h3>📡 Добавить событие в радар <span class="badge-sm">hot_lead_ingest</span></h3><div class="desc">Подходит для VK/TG/OK/Threads, публичных комментариев, лид-форм, бота, UTM и CRM. Опечатки и разговорные формулировки учитываются словарём намерений; для сложной семантики результат можно передать AGI OLGA.</div><form class="tf" data-t="hot_lead_ingest"><div class="params-grid"><label>Платформа<select name="platform"><option>vk</option><option>telegram</option><option>ok</option><option>threads</option><option>instagram</option><option>facebook</option><option>website</option><option>crm</option></select></label><label>ID автора<input name="author_id"></label><label>Имя<input name="author_name"></label><label>Продукт<input name="product" placeholder="Фотосессия / таргетинг"></label><label>Ссылка на источник<input name="source_url"></label><label>Соответствие 0–20<input name="profile_match" type="number" value="10" min="0" max="20"></label><label>Активность 0–10<input name="activity" type="number" value="5" min="0" max="10"></label><label>Контактность 0–10<input name="contactability" type="number" value="0" min="0" max="10"></label><label class="fw">Текст/комментарий<textarea name="text" rows="4" required></textarea></label></div><div class="btn-actions"><button class="btn btn-g">Оценить и сохранить</button></div><div class="progress-wrap"><div class="progress-fill"></div></div></form></div>
+    <div class="tool"><h3>🔥 Горячая очередь <span class="badge-sm">hot_lead_list</span></h3><form class="tf" data-t="hot_lead_list"><div class="params-grid"><label>Минимальный балл<input name="min_score" type="number" value="40" min="0" max="100"></label><label>Лимит<input name="limit" type="number" value="100"></label></div><div class="btn-actions"><button class="btn btn-g">Показать лиды</button></div><div class="progress-wrap"><div class="progress-fill"></div></div></form></div>
   </div>
 </section>
-
-<!-- Tokens -->
-<section class="sec" id="tokens">
+<section class="sec" id="vk-crm-growth">
+  <div class="sec-head">
+    <div style="display:flex;align-items:flex-start;gap:12px">
+      <div class="sec-icon vk">V</div>
+      <div><h2>SINERGY — CRM, лиды и рост <span class="badge badge-vk">от лида до продажи</span></h2>
+      <p>Мульти-тач атрибуция лидов (найден → написали → ответил → купил), авто-черновик ответа на лид, конкурентная разведка, sentiment-мониторинг с кризис-алертом и отток аудитории между двумя замерами.</p></div>
+    </div>
+  </div>
+  <div class="tools">
+    <div class="tool" data-p="vk">
+      <h3>💬 Авто-черновик ответа на лид <span class="badge-sm">vk_lead_autoresponse</span></h3>
+      <div class="desc">Возьмите текст из результата <code>vk_leads_search</code> (раздел «Таргетинг ЦА» выше) и получите готовый черновик личного сообщения.</div>
+      <form class="tf" data-t="vk_lead_autoresponse">
+        <div class="params-grid">
+          <label>Endpoint модели<input name="model_baseUrl" placeholder="https://api.openai.com/v1" required></label>
+          <label>Model ID<input name="model_model" placeholder="gpt-4.1-mini" required></label>
+          <label>API-ключ<input name="model_apiKey" type="password"></label>
+          <label class="fw">Текст лида (пост)<textarea name="lead_text" rows="2" required></textarea></label>
+          <label>Категория<select name="lead_category"><option value="order_request">Заказ</option><option value="looking_for_specialist">Ищет специалиста</option><option value="job_seeker">Ищет работу</option></select></label>
+          <label class="fw">Ваше предложение/услуга<input name="offer"></label>
+        </div>
+        <div class="btn-actions"><button class="btn btn-g">Составить сообщение</button></div>
+        <div class="progress-wrap"><div class="progress-fill"></div></div>
+      </form>
+    </div>
+    <div class="tool" data-p="vk">
+      <h3>🕵️ Конкурентная разведка <span class="badge-sm">vk_competitor_intel</span></h3>
+      <form class="tf" data-t="vk_competitor_intel">
+        <div class="params-grid">
+          <label>Ваша группа<input name="my_group_id" required placeholder="club123"></label>
+          <label class="fw">Группы конкурентов<textarea name="competitor_group_ids" data-list rows="2" placeholder="club456&#10;club789"></textarea></label>
+          <label>Постов на группу<input name="posts" type="number" value="20" min="1" max="100"></label>
+        </div>
+        <div class="btn-actions"><button class="btn btn-g">Сравнить</button></div>
+        <div class="progress-wrap"><div class="progress-fill"></div></div>
+      </form>
+    </div>
+    <div class="tool" data-p="vk">
+      <h3>🩺 Sentiment-мониторинг и кризис-алерт <span class="badge-sm">vk_sentiment_watch</span></h3>
+      <div class="desc">Лексикон тональности (объяснимо, без чёрного ящика) по комментариям последних постов. Порог тревоги — доля негативных комментариев.</div>
+      <form class="tf" data-t="vk_sentiment_watch">
+        <div class="params-grid">
+          <label>owner_id (с минусом для группы)<input name="owner_id" required placeholder="-123456"></label>
+          <label>Постов<input name="posts" type="number" value="10" min="1" max="30"></label>
+          <label>Порог кризиса (доля негатива)<input name="crisis_threshold" type="number" value="0.25" step="0.05" min="0" max="1"></label>
+        </div>
+        <div class="btn-actions"><button class="btn btn-g">Проверить тональность</button></div>
+        <div class="progress-wrap"><div class="progress-fill"></div></div>
+      </form>
+    </div>
+    <div class="tool" data-p="vk">
+      <h3>📉 Отток аудитории между двумя замерами <span class="badge-sm">vk_audience_churn</span></h3>
+      <div class="desc">Вставьте JSON <code>stats</code> из двух запусков <code>vk_analyze_activity</code> (раздел «Парсинг VK»), сделанных в разное время — например, месяц назад и сейчас.</div>
+      <form class="tf" data-t="vk_audience_churn">
+        <div class="params-grid">
+          <label class="fw">Старый снимок (JSON)<textarea name="old_snapshot" data-json rows="3" required></textarea></label>
+          <label class="fw">Новый снимок (JSON)<textarea name="new_snapshot" data-json rows="3" required></textarea></label>
+        </div>
+        <div class="btn-actions"><button class="btn btn-g">Сравнить снимки</button></div>
+        <div class="progress-wrap"><div class="progress-fill"></div></div>
+      </form>
+    </div>
+    <div class="tool" data-p="vk">
+      <h3>📋 CRM: добавить лид <span class="badge-sm">vk_crm_add_lead</span></h3>
+      <form class="tf" data-t="vk_crm_add_lead">
+        <div class="params-grid">
+          <label>Источник<input name="source" placeholder="newsfeed / group_wall:123" required></label>
+          <label>ID автора<input name="author_id"></label>
+          <label>Категория<input name="category" placeholder="looking_for_specialist"></label>
+          <label>Ссылка<input name="link"></label>
+          <label class="fw">Текст лида<textarea name="snippet" rows="2" required></textarea></label>
+        </div>
+        <div class="btn-actions"><button class="btn btn-g">Добавить в CRM</button></div>
+        <div class="progress-wrap"><div class="progress-fill"></div></div>
+      </form>
+    </div>
+    <div class="tool" data-p="vk">
+      <h3>🔄 CRM: обновить статус лида <span class="badge-sm">vk_crm_update_lead</span></h3>
+      <form class="tf" data-t="vk_crm_update_lead">
+        <div class="params-grid">
+          <label>ID лида<input name="id" required></label>
+          <label>Статус<select name="status"><option value="new">new</option><option value="contacted">contacted</option><option value="replied">replied</option><option value="converted">converted</option><option value="lost">lost</option></select></label>
+          <label class="fw">Заметка<input name="note"></label>
+        </div>
+        <div class="btn-actions"><button class="btn btn-g">Обновить</button></div>
+        <div class="progress-wrap"><div class="progress-fill"></div></div>
+      </form>
+    </div>
+    <div class="tool" data-p="vk">
+      <h3>📑 CRM: список лидов <span class="badge-sm">vk_crm_list_leads</span></h3>
+      <form class="tf" data-t="vk_crm_list_leads">
+        <div class="params-grid">
+          <label>Фильтр по статусу (опц.)<select name="status"><option value="">Все</option><option value="new">new</option><option value="contacted">contacted</option><option value="replied">replied</option><option value="converted">converted</option><option value="lost">lost</option></select></label>
+        </div>
+        <div class="btn-actions"><button class="btn btn-g">Показать лиды</button></div>
+        <div class="progress-wrap"><div class="progress-fill"></div></div>
+      </form>
+    </div>
+    <div class="tool" data-p="vk">
+      <h3>📊 CRM: отчёт по воронке <span class="badge-sm">vk_crm_funnel_report</span></h3>
+      <form class="tf" data-t="vk_crm_funnel_report">
+        <div class="btn-actions"><button class="btn btn-g">Показать воронку</button></div>
+        <div class="progress-wrap"><div class="progress-fill"></div></div>
+      </form>
+    </div>
+    <div class="tool" data-p="vk">
+      <h3>🌐 Объединить аудиторию VK + Telegram <span class="badge-sm">vk_merge_cross_platform_audience</span></h3>
+      <div class="desc">Без общего идентификатора (username/телефон) сопоставить личности между платформами нельзя — получаете единый маркетинговый список с меткой платформы и дублями, убранными по совпадению username.</div>
+      <form class="tf" data-t="vk_merge_cross_platform_audience">
+        <div class="params-grid">
+          <label class="fw">Аудитория VK (JSON, из vk_friends_graph и т.п.)<textarea name="vk_audience" data-json rows="2"></textarea></label>
+          <label class="fw">Аудитория Telegram (JSON, из telegram_parse_users)<textarea name="telegram_audience" data-json rows="2"></textarea></label>
+        </div>
+        <div class="btn-actions"><button class="btn btn-g">Объединить</button></div>
+        <div class="progress-wrap"><div class="progress-fill"></div></div>
+      </form>
+    </div>
+  </div>
+</section></div>
+<div class="smm-view" id="view-inbox" data-view="inbox" role="tabpanel" aria-labelledby="tab-inbox" aria-hidden="true"><div class="view-head"><div><span class="eyebrow" style="color:#0a9850;font:800 10px Manrope,sans-serif;letter-spacing:.12em">SYNERGY / 04</span><h2>Inbox</h2><p>Входящие обращения и ответы</p></div><small>1 раздел</small></div><div class="notice" role="note"><strong>Подход Human-in-the-loop:</strong> перед отправкой ответа проверяйте получателя, согласие и ограничения платформы. Автоматическая рассылка по неподтверждённым контактам не выполняется.</div><section class="sec" id="unified-inbox">
+  <div class="sec-head"><div style="display:flex;align-items:flex-start;gap:12px"><div class="sec-icon tg">✉</div><div><h2>Единый Inbox <span class="badge badge-g">все обращения</span></h2><p>VK · Telegram · Instagram · Facebook · WhatsApp · Одноклассники · Threads · комментарии и лид-формы. Входящее сообщение сразу получает приоритет, SLA, AI-резюме и черновик ответа.</p></div></div></div>
+  <div class="tools">
+    <div class="tool"><h3>📥 Принять входящее обращение <span class="badge-sm">inbox_capture</span></h3><div class="desc">Создаёт карточку лида, определяет намерение и приоритет, назначает срок ответа и подготавливает безопасный черновик. Подключается к официальным webhook каждой платформы.</div><form class="tf" data-t="inbox_capture"><div class="params-grid"><label>Платформа<select name="platform"><option>vk</option><option>telegram</option><option>instagram</option><option>facebook</option><option>whatsapp</option><option>ok</option><option>threads</option><option>lead_form</option></select></label><label>Имя<input name="author_name"></label><label>ID автора<input name="author_id"></label><label>Продукт<input name="product"></label><label>Город<input name="city"></label><label>Бюджет<input name="budget"></label><label>Срок<input name="deadline"></label><label>SLA, минут<input name="sla_minutes" type="number" value="30" min="5"></label><label>Менеджер<input name="manager"></label><label class="fw">Сообщение<textarea name="message" rows="4" required placeholder="Сколько стоит фотосессия? Нужна в субботу в Костанае"></textarea></label></div><div class="btn-actions"><button class="btn btn-g">Создать карточку</button></div><div class="progress-wrap"><div class="progress-fill"></div></div></form></div>
+    <div class="tool"><h3>📨 Очередь сообщений <span class="badge-sm">inbox_list</span></h3><div class="desc">Сначала срочные и просроченные обращения. В ответе видны менеджер, SLA, AI-резюме, черновик и история статуса.</div><form class="tf" data-t="inbox_list"><div class="params-grid"><label>Статус<select name="status"><option value="">Все</option><option>unread</option><option>open</option><option>replied</option><option>resolved</option></select></label><label>Лимит<input name="limit" type="number" value="100"></label></div><div class="btn-actions"><button class="btn btn-g">Открыть Inbox</button></div><div class="progress-wrap"><div class="progress-fill"></div></div></form></div>
+    <div class="tool"><h3>✅ Обновить обращение <span class="badge-sm">inbox_update</span></h3><form class="tf" data-t="inbox_update"><div class="params-grid"><label>ID карточки<input name="id" required></label><label>Статус<select name="status"><option>open</option><option>replied</option><option>resolved</option><option>spam</option></select></label><label>Менеджер<input name="manager"></label><label class="fw">Внутренняя заметка<input name="internal_note"></label></div><div class="btn-actions"><button class="btn btn-g">Сохранить</button></div><div class="progress-wrap"><div class="progress-fill"></div></div></form></div>
+  </div>
+</section></div>
+<div class="smm-view" id="view-ai" data-view="ai" role="tabpanel" aria-labelledby="tab-ai" aria-hidden="true"><div class="view-head"><div><span class="eyebrow" style="color:#0a9850;font:800 10px Manrope,sans-serif;letter-spacing:.12em">SYNERGY / 05</span><h2>AI Ольга</h2><p>Чат, сценарии и контентные исследования</p></div><small>4 разделов</small></div><section class="sec" id="ai-chat">
+  <div class="sec-head">
+    <div style="display:flex;align-items:flex-start;gap:12px">
+      <div class="sec-icon" style="background:var(--g);color:#000;font-weight:800">O</div>
+      <div>
+        <h2>AI Ольга — Чат <span class="badge badge-g">NLP движок</span></h2>
+        <p>Управляйте SMM через естественный язык. Пишите задачи — Ольга выполнит и отчитается.</p>
+      </div>
+    </div>
+  </div>
+  <div class="ai-chat-container">
+    <div class="ai-chat-suggestions">
+      <button class="ai-suggest" data-prompt="Создай 3 продающих поста для VK про IT-услуги">Создать посты VK</button>
+      <button class="ai-suggest" data-prompt="Проанализируй конкурента vk.com/durov">Анализ конкурента</button>
+      <button class="ai-suggest" data-prompt="Найди вирусный контент по теме маркетинг">Вирусный контент</button>
+      <button class="ai-suggest" data-prompt="Покажи статус всех подключений">Статус API</button>
+      <button class="ai-suggest" data-prompt="Создай серию из 5 постов для прогрева на тему AI">Серия постов</button>
+      <button class="ai-suggest" data-prompt="Что ты умеешь?">Возможности</button>
+    </div>
+    <div class="ai-chat-messages" id="aiChatMessages">
+      <div class="ai-msg ai-msg-assistant">
+        <div class="ai-msg-avatar">O</div>
+        <div class="ai-msg-content">
+          <div class="ai-msg-text">Привет! Я Ольга, твой AI-директор по SMM. Напиши, что нужно сделать — создать контент, проанализировать конкурентов, найти тренды или что-то ещё.</div>
+        </div>
+      </div>
+    </div>
+    <div class="ai-chat-input">
+      <textarea id="aiChatInput" placeholder="Напишите задачу Ольге..." rows="1"></textarea>
+      <button class="btn btn-g" id="aiChatSend">Отправить</button>
+    </div>
+    <div class="ai-chat-tools">
+      <button class="ai-tool-btn" id="aiChatClear">Очистить историю</button>
+      <span class="ai-chat-hint">Enter — отправить · Shift+Enter — новая строка</span>
+    </div>
+  </div>
+</section>
+<section class="sec" id="autopilot">
   <div class="sec-head"><div style="display:flex;align-items:flex-start;gap:12px">
-    <div class="sec-icon" style="background:var(--g3);color:var(--g);border:1px solid var(--bdr)">⚡</div>
+    <div class="sec-icon" style="background:var(--g3);color:var(--g);border:1px solid var(--bdr)">✦</div>
     <div>
-    <h2>API токены <span class="badge badge-g">6 платформ</span></h2>
-    <p>Сохраните токены платформ — система зашифрует их на сервере. Без токена инструменты платформы работать не будут.</p>
+    <h2>AI автопилот <span class="badge badge-g">smart</span></h2>
+    <p>Генерируйте тексты постов под любую платформу или составьте полный план SMM-кампании — от цели до последовательности действий.</p>
     </div>
   </div></div>
-  <div class="token-row" id="tokenList"></div>
-  <div class="tools" style="grid-template-columns:repeat(auto-fill,minmax(300px,1fr))">
-
-    <div class="tool" data-p="vk">
-      <h3>ВКонтакте <span class="badge-sm">access_token</span></h3>
-      <div class="desc"><strong>Как получить:</strong> vk.com/dev → создать Standalone-приложение → Implicit Flow URL с правами <em>groups, wall, messages, photos, friends, stories, stats</em>. Скопируйте <em>access_token</em> из адресной строки.<br><br><strong>Зачем:</strong> открывает поиск групп, работу по диалогам, лайки постов и фото, сторис, сообщения и публикацию постов.</div>
-      <div class="notify notify-info"><strong>Административные методы VK:</strong> отдельного универсального admin token нет. Нужен пользовательский access token аккаунта, который является владельцем или администратором конкретной группы, с правами <code>groups, wall, messages, photos, friends, stories, stats</code>. Для ban/invite/manager/chat/story дополнительно нужны ID реальной группы, пользователя, беседы или истории.</div>
-      <form class="tf" data-t="vk_check">
-        <div class="params-grid fw"><label>Access Token аккаунта (для admin-методов — аккаунта-администратора группы)<input name="access_token" type="password" placeholder="vk1.a_..."></label><label>ID управляемой группы<input name="admin_group_id" inputmode="numeric" placeholder="123456789 без минуса"></label></div>
-        <div class="btn-actions"><button class="btn btn-g btn-sm">Сохранить и проверить</button></div>
-      </form>
-      <div class="progress-wrap"><div class="progress-fill" data-progress="vk"></div></div>
-    </div>
-
-    <div class="tool" data-p="tg">
-      <h3>Telegram <span class="badge-sm">MTProto + Bot API</span></h3>
-      <div class="desc"><strong>MTProto (парсинг/инвайтинг):</strong> my.telegram.org → "API development tools" → скопировать <em>api_id</em> и <em>api_hash</em>.<br><br><strong>Bot API (управление чатами):</strong> напишите <em>@BotFather</em> → /newbot → скопируйте <em>Bot Token</em>. Добавьте бота в группу/канал как администратора.<br><br><strong>Зачем Bot API:</strong> управление группами, каналами, суперчатами — смена названия/описания, администраторы, баны, муты, инвайт-ссылки, пин сообщений.</div>
-      <form class="tf" data-t="telegram_check">
+  <div class="tools">
+    <div class="tool">
+      <h3>✍️ Генератор контента <span class="badge-sm">generate_content</span></h3>
+      <div class="desc"><strong>Что делает:</strong> создаёт готовые тексты постов с учётом специфики платформы — VK (длиннее, хэштеги), Telegram (коротко и ёмко), Instagram (хуки + хэштеги), OK (простой язык), WhatsApp (дружелюбно и лично).<br><em>Сгенерированный текст скопируйте в инструмент публикации нужной платформы.</em></div>
+      <form class="tf" data-t="generate_content">
         <div class="params-grid">
-          <label>API ID<input name="api_id" placeholder="12345678"></label>
-          <label>API Hash<input name="api_hash" type="password" placeholder="a1b2c3..."></label>
-          <label class="fw">Телефон (MTProto)<input name="phone" placeholder="+79990000000"></label>
-          <label class="fw">Bot Token (Bot API)<input name="bot_token" type="password" placeholder="1234567890:AAF..."></label>
+          <label>Платформа<select name="platform"><option>VK</option><option>Telegram</option><option>Instagram</option><option>Facebook</option><option>OK</option><option>WhatsApp</option></select></label>
+          <label>Вариантов<input name="count" type="number" min="1" max="5" value="3"></label>
+          <label class="fw">Тема<input name="topic" value="SMM инструменты для бизнеса"></label>
+          <label class="fw">Стиль<input name="style" value="продающий, живой, без воды"></label>
         </div>
-        <div class="btn-actions"><button class="btn btn-tg btn-sm">Сохранить и проверить</button></div>
+        <div class="btn-actions"><button class="btn btn-g">Сгенерировать</button></div>
+        <div class="progress-wrap"><div class="progress-fill"></div></div>
       </form>
-      <div class="progress-wrap"><div class="progress-fill tg" data-progress="telegram"></div></div>
     </div>
-
-    <div class="tool" data-p="meta">
-      <h3>Instagram / Facebook <span class="badge-sm">Graph API v25</span></h3>
-      <div class="desc"><strong>Как получить:</strong> developers.facebook.com → создать приложение → Business → получить долгосрочный токен с правами <em>pages_manage_posts, instagram_basic, instagram_content_publish, pages_read_engagement</em>.<br><br><strong>ig_user_id:</strong> ID вашего бизнес-аккаунта Instagram (GET /me/accounts → instagram_business_account → id).<br><strong>page_id:</strong> ID страницы Facebook.</div>
-      <form class="tf" data-t="meta_check">
+    <div class="tool">
+      <h3>🤖 План кампании <span class="badge-sm">ai_autopilot</span></h3>
+      <div class="desc"><strong>Что делает:</strong> получает вашу цель и составляет пошаговый план SMM-кампании — какие платформы, что делать, в какой последовательности.<br><em>Опишите задачу и продукт — получите чёткий план действий.</em></div>
+      <form class="tf" data-t="ai_autopilot">
         <div class="params-grid">
-          <label class="fw">Access Token (долгосрочный)<input name="access_token" type="password" placeholder="EAAx..."></label>
-          <label>Instagram User ID<input name="ig_user_id" placeholder="17841400..."></label>
-          <label>Facebook Page ID<input name="page_id" placeholder="123456789..."></label>
+          <label class="fw">Ваша цель и продукт<textarea name="goal" rows="3" placeholder="Хочу привлечь 500 клиентов на курс по инвестициям через VK и Telegram за 30 дней"></textarea></label>
+          <label class="fw">Платформы<input name="platforms" value="VK, Telegram, Instagram, OK, WhatsApp"></label>
         </div>
-        <div class="btn-actions"><button class="btn btn-meta btn-sm">Сохранить и проверить</button></div>
+        <div class="btn-actions"><button class="btn btn-g">Составить план</button></div>
+        <div class="progress-wrap"><div class="progress-fill"></div></div>
       </form>
-      <div class="progress-wrap"><div class="progress-fill meta" data-progress="instagram"></div></div>
     </div>
-
-    <div class="tool" data-p="ok">
-      <h3>Одноклассники <span class="badge-sm">OK API</span></h3>
-      <div class="desc"><strong>Как получить:</strong> api.ok.ru → создать приложение → получить <em>access_token</em> через OAuth, скопировать <em>application_key</em> и <em>application_secret_key</em> из настроек приложения.<br><br><strong>Зачем:</strong> поиск и парсинг сообществ OK, публикация постов. Аудитория OK — в основном 30-50 лет из регионов.</div>
-      <form class="tf" data-t="ok_check">
-        <div class="params-grid">
-          <label>Access Token<input name="access_token" type="password" placeholder="Access_Token"></label>
-          <label>Application Key<input name="application_key" placeholder="CBAXXX..."></label>
-          <label class="fw">Application Secret<input name="application_secret" type="password" placeholder="..."></label>
-        </div>
-        <div class="btn-actions"><button class="btn btn-ok btn-sm">Сохранить и проверить</button></div>
-      </form>
-      <div class="progress-wrap"><div class="progress-fill ok" data-progress="ok"></div></div>
-    </div>
-
-    <div class="tool" data-p="wa">
-      <h3>WhatsApp Business <span class="badge-sm">Cloud API v25</span></h3>
-      <div class="desc"><strong>Как получить:</strong> Meta Business Suite → WhatsApp → Начать → developers.facebook.com → создать приложение типа Business → WhatsApp → получить <em>temporary access token</em> или настроить системного пользователя для постоянного токена.<br><br><strong>phone_number_id:</strong> ID номера в Meta Developer Console → WhatsApp → API Setup. <strong>waba_id:</strong> нужен для получения шаблонов сообщений.</div>
-      <form class="tf" data-t="whatsapp_check">
-        <div class="params-grid">
-          <label class="fw">Access Token<input name="access_token" type="password" placeholder="EAAx..."></label>
-          <label>Phone Number ID<input name="phone_number_id" placeholder="100956789..."></label>
-          <label>WABA ID (для шаблонов)<input name="waba_id" placeholder="109876543..."></label>
-        </div>
-        <div class="btn-actions"><button class="btn btn-wa btn-sm">Сохранить и проверить</button></div>
-      </form>
-      <div class="progress-wrap"><div class="progress-fill wa" data-progress="whatsapp"></div></div>
-    </div>
-
   </div>
 </section>
-
-<!-- ===== VK PARSE ===== -->
-<section class="sec" id="vk-parse">
+<section class="sec" id="vk-content-virality">
+  <div class="sec-head">
+    <div style="display:flex;align-items:flex-start;gap:12px">
+      <div class="sec-icon vk">V</div>
+      <div><h2>SINERGY — Контент, виральность, календарь <span class="badge badge-vk">замыкаем цикл аналитики</span></h2>
+      <p>Замыкаем цикл: результаты <code>vk_post_analytics</code> (лучшие часы/дни/ключевые слова) — прямо в готовые посты, прогноз охвата до публикации и автоматический календарь на недели вперёд.</p></div>
+    </div>
+  </div>
+  <div class="section-desc"><strong>Как использовать:</strong> сначала запустите «Лучшее время и ключевые слова постов» выше, скопируйте из результата массивы <code>top_keywords</code>, <code>top_hashtags</code>, <code>best_hours</code>, <code>best_weekdays</code> — и вставьте JSON в поля ниже.</div>
+  <div class="tools">
+    <div class="tool" data-p="vk">
+      <h3>✍️ Посты на основе своей аналитики <span class="badge-sm">vk_content_from_insights</span></h3>
+      <form class="tf" data-t="vk_content_from_insights">
+        <div class="params-grid">
+          <label>Endpoint модели<input name="model_baseUrl" placeholder="https://api.openai.com/v1" required></label>
+          <label>Model ID<input name="model_model" placeholder="gpt-4.1-mini" required></label>
+          <label>API-ключ<input name="model_apiKey" type="password"></label>
+          <label>Кол-во постов<input name="count" type="number" value="3" min="1" max="8"></label>
+          <label class="fw">top_keywords (JSON из vk_post_analytics)<textarea name="top_keywords" data-json rows="2" placeholder='[{"word":"смм","score":10}]'></textarea></label>
+          <label class="fw">top_hashtags (JSON, опц.)<textarea name="top_hashtags" data-json rows="2"></textarea></label>
+          <label class="fw">best_hours (JSON)<textarea name="best_hours" data-json rows="2" placeholder='[{"hour":19}]'></textarea></label>
+          <label class="fw">best_weekdays (JSON)<textarea name="best_weekdays" data-json rows="2" placeholder='[{"weekday":"Вторник"}]'></textarea></label>
+          <label class="fw">Тема/повод (опц.)<input name="topic"></label>
+        </div>
+        <div class="btn-actions"><button class="btn btn-g">Сгенерировать посты</button></div>
+        <div class="progress-wrap"><div class="progress-fill"></div></div>
+      </form>
+    </div>
+    <div class="tool" data-p="vk">
+      <h3>🔮 Прогноз виральности до публикации <span class="badge-sm">vk_predict_virality</span></h3>
+      <div class="desc">Прозрачная скоринговая формула (не чёрный ящик): совпадение с вашими лучшими ключевыми словами + время публикации + длина + хэштеги.</div>
+      <form class="tf" data-t="vk_predict_virality">
+        <div class="params-grid">
+          <label class="fw">Черновик поста<textarea name="draft_text" rows="3" required></textarea></label>
+          <label class="fw">top_keywords (JSON)<textarea name="top_keywords" data-json rows="2"></textarea></label>
+          <label class="fw">best_hours (JSON)<textarea name="best_hours" data-json rows="2"></textarea></label>
+          <label>Планируемый час публикации<input name="planned_hour" type="number" min="0" max="23"></label>
+        </div>
+        <div class="btn-actions"><button class="btn btn-g">Оценить виральность</button></div>
+        <div class="progress-wrap"><div class="progress-fill"></div></div>
+      </form>
+    </div>
+    <div class="tool" data-p="vk">
+      <h3>🗓️ Контент-календарь на недели вперёд <span class="badge-sm">vk_content_calendar</span></h3>
+      <form class="tf" data-t="vk_content_calendar">
+        <div class="params-grid">
+          <label class="fw">best_hours (JSON)<textarea name="best_hours" data-json rows="2" required></textarea></label>
+          <label class="fw">best_weekdays (JSON)<textarea name="best_weekdays" data-json rows="2" required></textarea></label>
+          <label class="fw">top_keywords (JSON, опц.)<textarea name="top_keywords" data-json rows="2"></textarea></label>
+          <label>Недель вперёд<input name="weeks" type="number" value="4" min="1" max="12"></label>
+          <label>Слотов в неделю<input name="slots_per_week" type="number" value="3" min="1" max="14"></label>
+        </div>
+        <div class="btn-actions"><button class="btn btn-g">Составить календарь</button></div>
+        <div class="progress-wrap"><div class="progress-fill"></div></div>
+      </form>
+    </div>
+  </div>
+</section>
+<section class="sec" id="olga-content-intelligence">
+  <div class="sec-head"><div><h2>OLGA · AI-анализ и вирусный контент</h2><p>Анализ публичных постов через официальный VK API и серверный OpenRouter. Метрики показываются отдельно от AI-гипотез.</p></div></div>
+  <div class="tools">
+    <div class="tool"><h3>Анализ лучших постов конкурента <span class="badge-sm">vk_competitor_posts_ai</span></h3><form class="tf" data-t="vk_competitor_posts_ai"><div class="params-grid"><label class="fw">Ссылка на VK-профиль или сообщество<input name="profile_url" type="url" required placeholder="https://vk.com/competitor"></label><label>Загрузить последних постов<input name="posts_count" type="number" value="50" min="20" max="200"></label><label>Выбрать лучших<input name="top_count" type="number" value="5" min="1" max="10"></label></div><div class="btn-actions"><button class="btn btn-g">Загрузить и проанализировать</button></div><div class="progress-wrap"><div class="progress-fill"></div></div></form></div>
+    <div class="tool"><h3>Поиск вирусных постов <span class="badge-sm">vk_viral_search_ai</span></h3><form class="tf" data-t="vk_viral_search_ai"><div class="params-grid"><label class="fw">Ключевые слова<input name="keywords" required placeholder="маркетинг искусственный интеллект"></label><label>Проверить постов<input name="posts_count" type="number" value="100" min="20" max="200"></label><label>Показать лидеров<input name="top_count" type="number" value="10" min="1" max="10"></label></div><div class="btn-actions"><button class="btn btn-g">Найти вирусные публикации</button></div><div class="progress-wrap"><div class="progress-fill"></div></div></form></div>
+    <div class="tool"><h3>AI-улучшение поста <span class="badge-sm">ai_post_improve</span></h3><form class="tf" data-t="ai_post_improve"><div class="params-grid"><label class="fw">Исходный пост<textarea name="text" rows="6" required></textarea></label><label>Режим<select name="mode"><option value="rewrite">Переписать сильнее</option><option value="hooks">Усилить хук</option><option value="shorten">Сократить</option><option value="expand">Расширить</option><option value="proofread">Отредактировать</option></select></label><label>Платформа<input name="platform" value="VK"></label><label>Цель<input name="goal" value="вовлечение и заявки"></label></div><div class="btn-actions"><button class="btn btn-g">Улучшить через OLGA</button></div><div class="progress-wrap"><div class="progress-fill"></div></div></form></div>
+    <div class="tool"><h3>AI-серия постов <span class="badge-sm">ai_post_series</span></h3><form class="tf" data-t="ai_post_series"><div class="params-grid"><label class="fw">Тема серии<input name="topic" required></label><label>Количество<input name="count" type="number" value="7" min="2" max="30"></label><label>Формат<select name="format"><option value="warmup">Прогрев</option><option value="story">История</option><option value="educational">Обучающая серия</option><option value="launch">Запуск продукта</option></select></label><label>Аудитория<input name="audience"></label><label>Цель<input name="goal" value="прогрев и доверие"></label><label>Платформа<input name="platform" value="VK"></label></div><div class="btn-actions"><button class="btn btn-g">Создать серию</button></div><div class="progress-wrap"><div class="progress-fill"></div></div></form></div>
+  </div>
+</section></div>
+<div class="smm-view" id="view-vk" data-view="vk" role="tabpanel" aria-labelledby="tab-vk" aria-hidden="true"><div class="view-head"><div><span class="eyebrow" style="color:#0a9850;font:800 10px Manrope,sans-serif;letter-spacing:.12em">SYNERGY / 06</span><h2>ВКонтакте</h2><p>Аналитика и инструменты VK</p></div><small>10 разделов</small></div><section class="sec" id="vk-parse">
   <div class="sec-head">
     <div style="display:flex;align-items:flex-start;gap:12px">
       <div class="sec-icon vk">V</div>
@@ -980,8 +641,6 @@ input,textarea,select{font-family:inherit}::selection{background:var(--g);color:
     </div>
   </div>
 </section>
-
-<!-- VK STORIES -->
 <section class="sec" id="vk-stories">
   <div class="sec-head"><div style="display:flex;align-items:flex-start;gap:12px"><div class="sec-icon vk">V</div><div><h2>VK — Поиск активных сторис <span class="badge badge-vk">официальный API</span></h2><p>Система находит доступные сторис и выдаёт ссылки для ручного открытия в VK.</p></div></div></div>
   <div class="section-desc"><strong>Почему вручную:</strong> метод <code>stories.get</code> возвращает список сторис, но не регистрирует реальный просмотр. Кабинет больше не показывает ложные «просмотры» или «лайки».</div>
@@ -1004,8 +663,6 @@ input,textarea,select{font-family:inherit}::selection{background:var(--g);color:
     </div>
   </div>
 </section>
-
-<!-- VK MAILING -->
 <section class="sec" id="vk-mailing">
   <div class="sec-head">
     <div style="display:flex;align-items:flex-start;gap:12px">
@@ -1044,8 +701,6 @@ input,textarea,select{font-family:inherit}::selection{background:var(--g);color:
     </div>
   </div>
 </section>
-
-<!-- VK DIALOG ACTIONS -->
 <section class="sec" id="vk-dialog-actions">
   <div class="sec-head">
     <div style="display:flex;align-items:flex-start;gap:12px">
@@ -1095,8 +750,6 @@ input,textarea,select{font-family:inherit}::selection{background:var(--g);color:
     </div>
   </div>
 </section>
-
-<!-- VK BASE ACTIONS -->
 <section class="sec" id="vk-base-actions">
   <div class="sec-head"><div style="display:flex;align-items:flex-start;gap:12px">
     <div class="sec-icon vk">V</div><div><h2>VK — Действия по базе парсинга <span class="badge badge-vk">audience actions</span></h2>
@@ -1136,8 +789,6 @@ input,textarea,select{font-family:inherit}::selection{background:var(--g);color:
     </form>
   </div></div>
 </section>
-
-<!-- VK CHAT INVITE -->
 <section class="sec" id="vk-chat-invite">
   <div class="sec-head"><div style="display:flex;align-items:flex-start;gap:12px">
     <div class="sec-icon vk">V</div><div><h2>VK — Беседы: поиск, создание, инвайтинг <span class="badge badge-vk">chats</span></h2>
@@ -1189,8 +840,6 @@ input,textarea,select{font-family:inherit}::selection{background:var(--g);color:
     </form>
   </div></div>
 </section>
-
-<!-- VK POST -->
 <section class="sec" id="vk-post">
   <div class="sec-head">
     <div style="display:flex;align-items:flex-start;gap:12px">
@@ -1213,8 +862,6 @@ input,textarea,select{font-family:inherit}::selection{background:var(--g);color:
     </div>
   </div>
 </section>
-
-<!-- ===== VK MANAGEMENT ===== -->
 <section class="sec" id="vk-manage">
   <div class="sec-head">
     <div style="display:flex;align-items:flex-start;gap:12px">
@@ -1508,8 +1155,6 @@ input,textarea,select{font-family:inherit}::selection{background:var(--g);color:
 
   </div>
 </section>
-
-<!-- ===== SINERGY: ТАРГЕТИНГ ЦА ===== -->
 <section class="sec" id="vk-targeting">
   <div class="sec-head">
     <div style="display:flex;align-items:flex-start;gap:12px">
@@ -1597,8 +1242,6 @@ input,textarea,select{font-family:inherit}::selection{background:var(--g);color:
 
   </div>
 </section>
-
-<!-- ===== SINERGY: АНАЛИТИКА ПОСТОВ ===== -->
 <section class="sec" id="vk-post-analytics">
   <div class="sec-head">
     <div style="display:flex;align-items:flex-start;gap:12px">
@@ -1620,8 +1263,8 @@ input,textarea,select{font-family:inherit}::selection{background:var(--g);color:
       </form>
     </div>
   </div>
-</section>
-<section class="sec" id="tg-parse">
+</section></div>
+<div class="smm-view" id="view-tg" data-view="tg" role="tabpanel" aria-labelledby="tab-tg" aria-hidden="true"><div class="view-head"><div><span class="eyebrow" style="color:#0a9850;font:800 10px Manrope,sans-serif;letter-spacing:.12em">SYNERGY / 07</span><h2>Telegram</h2><p>Каналы, аудитории и публикации</p></div><small>6 разделов</small></div><section class="sec" id="tg-parse">
   <div class="sec-head">
     <div style="display:flex;align-items:flex-start;gap:12px">
       <div class="sec-icon tg">T</div>
@@ -1695,8 +1338,6 @@ input,textarea,select{font-family:inherit}::selection{background:var(--g);color:
     </div>
   </div>
 </section>
-
-<!-- ===== TG REAL INVITING ===== -->
 <section class="sec" id="tg-invite-real">
   <div class="sec-head">
     <div style="display:flex;align-items:flex-start;gap:12px">
@@ -1761,8 +1402,6 @@ input,textarea,select{font-family:inherit}::selection{background:var(--g);color:
     </div>
   </div>
 </section>
-
-<!-- TG STORIES -->
 <section class="sec" id="tg-stories">
   <div class="sec-head">
     <div style="display:flex;align-items:flex-start;gap:12px">
@@ -1793,8 +1432,6 @@ input,textarea,select{font-family:inherit}::selection{background:var(--g);color:
     </div>
   </div>
 </section>
-
-<!-- TG MAILING -->
 <section class="sec" id="tg-mailing">
   <div class="sec-head">
     <div style="display:flex;align-items:flex-start;gap:12px">
@@ -1834,8 +1471,6 @@ input,textarea,select{font-family:inherit}::selection{background:var(--g);color:
     </div>
   </div>
 </section>
-
-<!-- TG POST -->
 <section class="sec" id="tg-post">
   <div class="sec-head">
     <div style="display:flex;align-items:flex-start;gap:12px">
@@ -1863,8 +1498,6 @@ input,textarea,select{font-family:inherit}::selection{background:var(--g);color:
     </div>
   </div>
 </section>
-
-<!-- ===== TG MANAGEMENT ===== -->
 <section class="sec" id="tg-manage">
   <div class="sec-head">
     <div style="display:flex;align-items:flex-start;gap:12px">
@@ -2178,10 +1811,8 @@ input,textarea,select{font-family:inherit}::selection{background:var(--g);color:
     </div>
 
   </div>
-</section>
-
-<!-- ===== META / IG / FB ===== -->
-<section class="sec" id="meta-parse">
+</section></div>
+<div class="smm-view" id="view-meta" data-view="meta" role="tabpanel" aria-labelledby="tab-meta" aria-hidden="true"><div class="view-head"><div><span class="eyebrow" style="color:#0a9850;font:800 10px Manrope,sans-serif;letter-spacing:.12em">SYNERGY / 08</span><h2>Instagram / Meta</h2><p>Контент и взаимодействия</p></div><small>2 разделов</small></div><section class="sec" id="meta-parse">
   <div class="sec-head">
     <div style="display:flex;align-items:flex-start;gap:12px">
       <div class="sec-icon meta">f</div>
@@ -2281,7 +1912,6 @@ input,textarea,select{font-family:inherit}::selection{background:var(--g);color:
     </div>
   </div>
 </section>
-
 <section class="sec" id="meta-post">
   <div class="sec-head">
     <div style="display:flex;align-items:flex-start;gap:12px">
@@ -2398,10 +2028,8 @@ input,textarea,select{font-family:inherit}::selection{background:var(--g);color:
       </form>
     </div>
   </div>
-</section>
-
-<!-- ===== OK ===== -->
-<section class="sec" id="ok-parse">
+</section></div>
+<div class="smm-view" id="view-ok" data-view="ok" role="tabpanel" aria-labelledby="tab-ok" aria-hidden="true"><div class="view-head"><div><span class="eyebrow" style="color:#0a9850;font:800 10px Manrope,sans-serif;letter-spacing:.12em">SYNERGY / 09</span><h2>Одноклассники</h2><p>Платформа OK</p></div><small>3 разделов</small></div><section class="sec" id="ok-parse">
   <div class="sec-head">
     <div style="display:flex;align-items:flex-start;gap:12px">
       <div class="sec-icon ok">OK</div>
@@ -2471,8 +2099,6 @@ input,textarea,select{font-family:inherit}::selection{background:var(--g);color:
     </div>
   </div>
 </section>
-
-<!-- OK STORIES / МОМЕНТЫ -->
 <section class="sec" id="ok-stories">
   <div class="sec-head">
     <div style="display:flex;align-items:flex-start;gap:12px">
@@ -2501,7 +2127,6 @@ input,textarea,select{font-family:inherit}::selection{background:var(--g);color:
     </div>
   </div>
 </section>
-
 <section class="sec" id="ok-post">
   <div class="sec-head">
     <div style="display:flex;align-items:flex-start;gap:12px">
@@ -2523,10 +2148,8 @@ input,textarea,select{font-family:inherit}::selection{background:var(--g);color:
       </form>
     </div>
   </div>
-</section>
-
-<!-- ===== WHATSAPP ===== -->
-<section class="sec" id="wa-send">
+</section></div>
+<div class="smm-view" id="view-wa" data-view="wa" role="tabpanel" aria-labelledby="tab-wa" aria-hidden="true"><div class="view-head"><div><span class="eyebrow" style="color:#0a9850;font:800 10px Manrope,sans-serif;letter-spacing:.12em">SYNERGY / 10</span><h2>WhatsApp</h2><p>Шаблоны и коммуникации</p></div><small>2 разделов</small></div><section class="sec" id="wa-send">
   <div class="sec-head">
     <div style="display:flex;align-items:flex-start;gap:12px">
       <div class="sec-icon wa">W</div>
@@ -2590,7 +2213,6 @@ input,textarea,select{font-family:inherit}::selection{background:var(--g);color:
     </div>
   </div>
 </section>
-
 <section class="sec" id="wa-templates">
   <div class="sec-head">
     <div style="display:flex;align-items:flex-start;gap:12px">
@@ -2626,273 +2248,128 @@ input,textarea,select{font-family:inherit}::selection{background:var(--g);color:
       </form>
     </div>
   </div>
+</section></div>
+<div class="smm-view" id="view-integrations" data-view="integrations" role="tabpanel" aria-labelledby="tab-integrations" aria-hidden="true"><div class="view-head"><div><span class="eyebrow" style="color:#0a9850;font:800 10px Manrope,sans-serif;letter-spacing:.12em">SYNERGY / 11</span><h2>Подключения</h2><p>Токены, ограничения и права доступа</p></div><small>4 разделов</small></div><div class="notice" role="note"><strong>Защита секретов:</strong> вводить реальные токены в публичный фронтенд без проверенного серверного секрет-хранилища не следует. Сохранение значения не означает, что интеграция работает.</div><section class="sec" id="cooldown-settings">
+  <div class="sec-head"><div style="display:flex;align-items:flex-start;gap:12px"><div class="sec-icon">❄</div><div><h2>Период охлаждения <span class="badge badge-g">защита от повторов</span></h2><p>Система не отправит повторное сообщение одному получателю, пока не закончится выбранный срок.</p></div></div></div>
+  <div class="section-desc"><strong>Пример:</strong> значение 7 означает, что этому же человеку нельзя отправить новую рассылку семь дней. Рекомендуем 7–14 дней. Значение 0 отключает проверку только для выбранной сети.</div>
+  <div class="tools" style="grid-template-columns:1fr">
+    <div class="tool">
+      <h3>Настройки по социальным сетям <span class="badge-sm">mailing_set_settings</span></h3>
+      <form class="tf" data-t="mailing_set_settings" id="cooldownForm">
+        <div class="cooldown-grid">
+          <label>VK, дней<input name="vk_cooldown_days" type="number" min="0" max="365" value="7"></label>
+          <label>Telegram, дней<input name="telegram_cooldown_days" type="number" min="0" max="365" value="7"></label>
+          <label>Instagram, дней<input name="instagram_cooldown_days" type="number" min="0" max="365" value="7"></label>
+          <label>Facebook, дней<input name="facebook_cooldown_days" type="number" min="0" max="365" value="7"></label>
+          <label>WhatsApp, дней<input name="whatsapp_cooldown_days" type="number" min="0" max="365" value="7"></label>
+          <label>OK, дней<input name="ok_cooldown_days" type="number" min="0" max="365" value="7"></label>
+          <label>MAX, дней<input name="max_cooldown_days" type="number" min="0" max="365" value="7"></label>
+          <label>Signal, дней<input name="signal_cooldown_days" type="number" min="0" max="365" value="7"></label>
+          <label>Threads, дней<input name="threads_cooldown_days" type="number" min="0" max="365" value="7"></label>
+        </div>
+        <div class="btn-actions"><button class="btn btn-g">Сохранить периоды</button><button class="btn btn-sm" type="button" id="loadCooldownBtn">Обновить значения</button></div>
+      </form>
+    </div>
+  </div>
 </section>
-
-<!-- AI Autopilot -->
-<section class="sec" id="autopilot">
+<section class="sec">
+  <div class="sec-head">
+    <div><h2>Подключённые платформы <span class="badge badge-g">live</span></h2>
+    <p>Зелёный/цветной — токен добавлен. Красный — нет токена. Добавьте в разделе "API токены" ниже.</p></div>
+    <div class="acct-mini" id="accountBox"><span>Не авторизован</span><span class="status-badge gray">offline</span></div>
+  </div>
+  <div class="platform-strip">
+    <div class="plat-btn" data-platform="vk"><span class="dot"></span>ВКонтакте</div>
+    <div class="plat-btn" data-platform="telegram"><span class="dot"></span>Telegram</div>
+    <div class="plat-btn" data-platform="instagram"><span class="dot"></span>Instagram</div>
+    <div class="plat-btn" data-platform="facebook"><span class="dot"></span>Facebook</div>
+    <div class="plat-btn" data-platform="ok"><span class="dot"></span>ОК.ру</div>
+    <div class="plat-btn" data-platform="whatsapp"><span class="dot"></span>WhatsApp</div>
+  </div>
+</section>
+<section class="sec" id="tokens">
   <div class="sec-head"><div style="display:flex;align-items:flex-start;gap:12px">
-    <div class="sec-icon" style="background:var(--g3);color:var(--g);border:1px solid var(--bdr)">✦</div>
+    <div class="sec-icon" style="background:var(--g3);color:var(--g);border:1px solid var(--bdr)">⚡</div>
     <div>
-    <h2>AI автопилот <span class="badge badge-g">smart</span></h2>
-    <p>Генерируйте тексты постов под любую платформу или составьте полный план SMM-кампании — от цели до последовательности действий.</p>
+    <h2>API токены <span class="badge badge-g">6 платформ</span></h2>
+    <p>Сохраните токены платформ — система зашифрует их на сервере. Без токена инструменты платформы работать не будут.</p>
     </div>
   </div></div>
-  <div class="tools">
-    <div class="tool">
-      <h3>✍️ Генератор контента <span class="badge-sm">generate_content</span></h3>
-      <div class="desc"><strong>Что делает:</strong> создаёт готовые тексты постов с учётом специфики платформы — VK (длиннее, хэштеги), Telegram (коротко и ёмко), Instagram (хуки + хэштеги), OK (простой язык), WhatsApp (дружелюбно и лично).<br><em>Сгенерированный текст скопируйте в инструмент публикации нужной платформы.</em></div>
-      <form class="tf" data-t="generate_content">
-        <div class="params-grid">
-          <label>Платформа<select name="platform"><option>VK</option><option>Telegram</option><option>Instagram</option><option>Facebook</option><option>OK</option><option>WhatsApp</option></select></label>
-          <label>Вариантов<input name="count" type="number" min="1" max="5" value="3"></label>
-          <label class="fw">Тема<input name="topic" value="SMM инструменты для бизнеса"></label>
-          <label class="fw">Стиль<input name="style" value="продающий, живой, без воды"></label>
-        </div>
-        <div class="btn-actions"><button class="btn btn-g">Сгенерировать</button></div>
-        <div class="progress-wrap"><div class="progress-fill"></div></div>
+  <div class="token-row" id="tokenList"></div>
+  <div class="tools" style="grid-template-columns:repeat(auto-fill,minmax(300px,1fr))">
+
+    <div class="tool" data-p="vk">
+      <h3>ВКонтакте <span class="badge-sm">access_token</span></h3>
+      <div class="desc"><strong>Как получить:</strong> vk.com/dev → создать Standalone-приложение → Implicit Flow URL с правами <em>groups, wall, messages, photos, friends, stories, stats</em>. Скопируйте <em>access_token</em> из адресной строки.<br><br><strong>Зачем:</strong> открывает поиск групп, работу по диалогам, лайки постов и фото, сторис, сообщения и публикацию постов.</div>
+      <div class="notify notify-info"><strong>Административные методы VK:</strong> отдельного универсального admin token нет. Нужен пользовательский access token аккаунта, который является владельцем или администратором конкретной группы, с правами <code>groups, wall, messages, photos, friends, stories, stats</code>. Для ban/invite/manager/chat/story дополнительно нужны ID реальной группы, пользователя, беседы или истории.</div>
+      <form class="tf" data-t="vk_check">
+        <div class="params-grid fw"><label>Access Token аккаунта (для admin-методов — аккаунта-администратора группы)<input name="access_token" type="password" placeholder="vk1.a_..."></label><label>ID управляемой группы<input name="admin_group_id" inputmode="numeric" placeholder="123456789 без минуса"></label></div>
+        <div class="btn-actions"><button class="btn btn-g btn-sm">Сохранить и проверить</button></div>
       </form>
+      <div class="progress-wrap"><div class="progress-fill" data-progress="vk"></div></div>
     </div>
-    <div class="tool">
-      <h3>🤖 План кампании <span class="badge-sm">ai_autopilot</span></h3>
-      <div class="desc"><strong>Что делает:</strong> получает вашу цель и составляет пошаговый план SMM-кампании — какие платформы, что делать, в какой последовательности.<br><em>Опишите задачу и продукт — получите чёткий план действий.</em></div>
-      <form class="tf" data-t="ai_autopilot">
+
+    <div class="tool" data-p="tg">
+      <h3>Telegram <span class="badge-sm">MTProto + Bot API</span></h3>
+      <div class="desc"><strong>MTProto (парсинг/инвайтинг):</strong> my.telegram.org → "API development tools" → скопировать <em>api_id</em> и <em>api_hash</em>.<br><br><strong>Bot API (управление чатами):</strong> напишите <em>@BotFather</em> → /newbot → скопируйте <em>Bot Token</em>. Добавьте бота в группу/канал как администратора.<br><br><strong>Зачем Bot API:</strong> управление группами, каналами, суперчатами — смена названия/описания, администраторы, баны, муты, инвайт-ссылки, пин сообщений.</div>
+      <form class="tf" data-t="telegram_check">
         <div class="params-grid">
-          <label class="fw">Ваша цель и продукт<textarea name="goal" rows="3" placeholder="Хочу привлечь 500 клиентов на курс по инвестициям через VK и Telegram за 30 дней"></textarea></label>
-          <label class="fw">Платформы<input name="platforms" value="VK, Telegram, Instagram, OK, WhatsApp"></label>
+          <label>API ID<input name="api_id" placeholder="12345678"></label>
+          <label>API Hash<input name="api_hash" type="password" placeholder="a1b2c3..."></label>
+          <label class="fw">Телефон (MTProto)<input name="phone" placeholder="+79990000000"></label>
+          <label class="fw">Bot Token (Bot API)<input name="bot_token" type="password" placeholder="1234567890:AAF..."></label>
         </div>
-        <div class="btn-actions"><button class="btn btn-g">Составить план</button></div>
-        <div class="progress-wrap"><div class="progress-fill"></div></div>
+        <div class="btn-actions"><button class="btn btn-tg btn-sm">Сохранить и проверить</button></div>
       </form>
+      <div class="progress-wrap"><div class="progress-fill tg" data-progress="telegram"></div></div>
     </div>
+
+    <div class="tool" data-p="meta">
+      <h3>Instagram / Facebook <span class="badge-sm">Graph API v25</span></h3>
+      <div class="desc"><strong>Как получить:</strong> developers.facebook.com → создать приложение → Business → получить долгосрочный токен с правами <em>pages_manage_posts, instagram_basic, instagram_content_publish, pages_read_engagement</em>.<br><br><strong>ig_user_id:</strong> ID вашего бизнес-аккаунта Instagram (GET /me/accounts → instagram_business_account → id).<br><strong>page_id:</strong> ID страницы Facebook.</div>
+      <form class="tf" data-t="meta_check">
+        <div class="params-grid">
+          <label class="fw">Access Token (долгосрочный)<input name="access_token" type="password" placeholder="EAAx..."></label>
+          <label>Instagram User ID<input name="ig_user_id" placeholder="17841400..."></label>
+          <label>Facebook Page ID<input name="page_id" placeholder="123456789..."></label>
+        </div>
+        <div class="btn-actions"><button class="btn btn-meta btn-sm">Сохранить и проверить</button></div>
+      </form>
+      <div class="progress-wrap"><div class="progress-fill meta" data-progress="instagram"></div></div>
+    </div>
+
+    <div class="tool" data-p="ok">
+      <h3>Одноклассники <span class="badge-sm">OK API</span></h3>
+      <div class="desc"><strong>Как получить:</strong> api.ok.ru → создать приложение → получить <em>access_token</em> через OAuth, скопировать <em>application_key</em> и <em>application_secret_key</em> из настроек приложения.<br><br><strong>Зачем:</strong> поиск и парсинг сообществ OK, публикация постов. Аудитория OK — в основном 30-50 лет из регионов.</div>
+      <form class="tf" data-t="ok_check">
+        <div class="params-grid">
+          <label>Access Token<input name="access_token" type="password" placeholder="Access_Token"></label>
+          <label>Application Key<input name="application_key" placeholder="CBAXXX..."></label>
+          <label class="fw">Application Secret<input name="application_secret" type="password" placeholder="..."></label>
+        </div>
+        <div class="btn-actions"><button class="btn btn-ok btn-sm">Сохранить и проверить</button></div>
+      </form>
+      <div class="progress-wrap"><div class="progress-fill ok" data-progress="ok"></div></div>
+    </div>
+
+    <div class="tool" data-p="wa">
+      <h3>WhatsApp Business <span class="badge-sm">Cloud API v25</span></h3>
+      <div class="desc"><strong>Как получить:</strong> Meta Business Suite → WhatsApp → Начать → developers.facebook.com → создать приложение типа Business → WhatsApp → получить <em>temporary access token</em> или настроить системного пользователя для постоянного токена.<br><br><strong>phone_number_id:</strong> ID номера в Meta Developer Console → WhatsApp → API Setup. <strong>waba_id:</strong> нужен для получения шаблонов сообщений.</div>
+      <form class="tf" data-t="whatsapp_check">
+        <div class="params-grid">
+          <label class="fw">Access Token<input name="access_token" type="password" placeholder="EAAx..."></label>
+          <label>Phone Number ID<input name="phone_number_id" placeholder="100956789..."></label>
+          <label>WABA ID (для шаблонов)<input name="waba_id" placeholder="109876543..."></label>
+        </div>
+        <div class="btn-actions"><button class="btn btn-wa btn-sm">Сохранить и проверить</button></div>
+      </form>
+      <div class="progress-wrap"><div class="progress-fill wa" data-progress="whatsapp"></div></div>
+    </div>
+
   </div>
 </section>
-
-<!-- ===== SINERGY: КОНТЕНТ И ВИРАЛЬНОСТЬ ===== -->
-<section class="sec" id="vk-content-virality">
-  <div class="sec-head">
-    <div style="display:flex;align-items:flex-start;gap:12px">
-      <div class="sec-icon vk">V</div>
-      <div><h2>SINERGY — Контент, виральность, календарь <span class="badge badge-vk">замыкаем цикл аналитики</span></h2>
-      <p>Замыкаем цикл: результаты <code>vk_post_analytics</code> (лучшие часы/дни/ключевые слова) — прямо в готовые посты, прогноз охвата до публикации и автоматический календарь на недели вперёд.</p></div>
-    </div>
-  </div>
-  <div class="section-desc"><strong>Как использовать:</strong> сначала запустите «Лучшее время и ключевые слова постов» выше, скопируйте из результата массивы <code>top_keywords</code>, <code>top_hashtags</code>, <code>best_hours</code>, <code>best_weekdays</code> — и вставьте JSON в поля ниже.</div>
-  <div class="tools">
-    <div class="tool" data-p="vk">
-      <h3>✍️ Посты на основе своей аналитики <span class="badge-sm">vk_content_from_insights</span></h3>
-      <form class="tf" data-t="vk_content_from_insights">
-        <div class="params-grid">
-          <label>Endpoint модели<input name="model_baseUrl" placeholder="https://api.openai.com/v1" required></label>
-          <label>Model ID<input name="model_model" placeholder="gpt-4.1-mini" required></label>
-          <label>API-ключ<input name="model_apiKey" type="password"></label>
-          <label>Кол-во постов<input name="count" type="number" value="3" min="1" max="8"></label>
-          <label class="fw">top_keywords (JSON из vk_post_analytics)<textarea name="top_keywords" data-json rows="2" placeholder='[{"word":"смм","score":10}]'></textarea></label>
-          <label class="fw">top_hashtags (JSON, опц.)<textarea name="top_hashtags" data-json rows="2"></textarea></label>
-          <label class="fw">best_hours (JSON)<textarea name="best_hours" data-json rows="2" placeholder='[{"hour":19}]'></textarea></label>
-          <label class="fw">best_weekdays (JSON)<textarea name="best_weekdays" data-json rows="2" placeholder='[{"weekday":"Вторник"}]'></textarea></label>
-          <label class="fw">Тема/повод (опц.)<input name="topic"></label>
-        </div>
-        <div class="btn-actions"><button class="btn btn-g">Сгенерировать посты</button></div>
-        <div class="progress-wrap"><div class="progress-fill"></div></div>
-      </form>
-    </div>
-    <div class="tool" data-p="vk">
-      <h3>🔮 Прогноз виральности до публикации <span class="badge-sm">vk_predict_virality</span></h3>
-      <div class="desc">Прозрачная скоринговая формула (не чёрный ящик): совпадение с вашими лучшими ключевыми словами + время публикации + длина + хэштеги.</div>
-      <form class="tf" data-t="vk_predict_virality">
-        <div class="params-grid">
-          <label class="fw">Черновик поста<textarea name="draft_text" rows="3" required></textarea></label>
-          <label class="fw">top_keywords (JSON)<textarea name="top_keywords" data-json rows="2"></textarea></label>
-          <label class="fw">best_hours (JSON)<textarea name="best_hours" data-json rows="2"></textarea></label>
-          <label>Планируемый час публикации<input name="planned_hour" type="number" min="0" max="23"></label>
-        </div>
-        <div class="btn-actions"><button class="btn btn-g">Оценить виральность</button></div>
-        <div class="progress-wrap"><div class="progress-fill"></div></div>
-      </form>
-    </div>
-    <div class="tool" data-p="vk">
-      <h3>🗓️ Контент-календарь на недели вперёд <span class="badge-sm">vk_content_calendar</span></h3>
-      <form class="tf" data-t="vk_content_calendar">
-        <div class="params-grid">
-          <label class="fw">best_hours (JSON)<textarea name="best_hours" data-json rows="2" required></textarea></label>
-          <label class="fw">best_weekdays (JSON)<textarea name="best_weekdays" data-json rows="2" required></textarea></label>
-          <label class="fw">top_keywords (JSON, опц.)<textarea name="top_keywords" data-json rows="2"></textarea></label>
-          <label>Недель вперёд<input name="weeks" type="number" value="4" min="1" max="12"></label>
-          <label>Слотов в неделю<input name="slots_per_week" type="number" value="3" min="1" max="14"></label>
-        </div>
-        <div class="btn-actions"><button class="btn btn-g">Составить календарь</button></div>
-        <div class="progress-wrap"><div class="progress-fill"></div></div>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- ===== SINERGY: UNIFIED INBOX ===== -->
-<section class="sec" id="unified-inbox">
-  <div class="sec-head"><div style="display:flex;align-items:flex-start;gap:12px"><div class="sec-icon tg">✉</div><div><h2>Единый Inbox <span class="badge badge-g">все обращения</span></h2><p>VK · Telegram · Instagram · Facebook · WhatsApp · Одноклассники · Threads · комментарии и лид-формы. Входящее сообщение сразу получает приоритет, SLA, AI-резюме и черновик ответа.</p></div></div></div>
-  <div class="tools">
-    <div class="tool"><h3>📥 Принять входящее обращение <span class="badge-sm">inbox_capture</span></h3><div class="desc">Создаёт карточку лида, определяет намерение и приоритет, назначает срок ответа и подготавливает безопасный черновик. Подключается к официальным webhook каждой платформы.</div><form class="tf" data-t="inbox_capture"><div class="params-grid"><label>Платформа<select name="platform"><option>vk</option><option>telegram</option><option>instagram</option><option>facebook</option><option>whatsapp</option><option>ok</option><option>threads</option><option>lead_form</option></select></label><label>Имя<input name="author_name"></label><label>ID автора<input name="author_id"></label><label>Продукт<input name="product"></label><label>Город<input name="city"></label><label>Бюджет<input name="budget"></label><label>Срок<input name="deadline"></label><label>SLA, минут<input name="sla_minutes" type="number" value="30" min="5"></label><label>Менеджер<input name="manager"></label><label class="fw">Сообщение<textarea name="message" rows="4" required placeholder="Сколько стоит фотосессия? Нужна в субботу в Костанае"></textarea></label></div><div class="btn-actions"><button class="btn btn-g">Создать карточку</button></div><div class="progress-wrap"><div class="progress-fill"></div></div></form></div>
-    <div class="tool"><h3>📨 Очередь сообщений <span class="badge-sm">inbox_list</span></h3><div class="desc">Сначала срочные и просроченные обращения. В ответе видны менеджер, SLA, AI-резюме, черновик и история статуса.</div><form class="tf" data-t="inbox_list"><div class="params-grid"><label>Статус<select name="status"><option value="">Все</option><option>unread</option><option>open</option><option>replied</option><option>resolved</option></select></label><label>Лимит<input name="limit" type="number" value="100"></label></div><div class="btn-actions"><button class="btn btn-g">Открыть Inbox</button></div><div class="progress-wrap"><div class="progress-fill"></div></div></form></div>
-    <div class="tool"><h3>✅ Обновить обращение <span class="badge-sm">inbox_update</span></h3><form class="tf" data-t="inbox_update"><div class="params-grid"><label>ID карточки<input name="id" required></label><label>Статус<select name="status"><option>open</option><option>replied</option><option>resolved</option><option>spam</option></select></label><label>Менеджер<input name="manager"></label><label class="fw">Внутренняя заметка<input name="internal_note"></label></div><div class="btn-actions"><button class="btn btn-g">Сохранить</button></div><div class="progress-wrap"><div class="progress-fill"></div></div></form></div>
-  </div>
-</section>
-
-<section class="sec" id="youtube"><div class="sec-head"><div><h2>YouTube · официальный API + OLGA</h2><p>OAuth-доступ к своему каналу, мониторинг публичных каналов конкурентов и черновики комментариев. Публикация всегда требует подтверждения.</p></div></div><div class="tools">
-<div class="tool"><h3>Подключить YouTube <span class="badge-sm">youtube_oauth_url</span></h3><form class="tf" data-t="youtube_oauth_url"><div class="btn-actions"><button class="btn btn-g">Получить защищённую OAuth-ссылку</button></div><div class="progress-wrap"><div class="progress-fill"></div></div></form></div>
-<div class="tool"><h3>Каналы конкурентов <span class="badge-sm">youtube_competitor_collect</span></h3><form class="tf" data-t="youtube_competitor_collect"><div class="params-grid"><label class="fw">Ссылки/handles каналов<textarea name="channels" data-list rows="4" required></textarea></label><label>Видео на канал<input name="videos_per_channel" type="number" value="20" min="1" max="50"></label></div><div class="btn-actions"><button class="btn btn-g">Собрать последние видео</button></div><div class="progress-wrap"><div class="progress-fill"></div></div></form></div>
-<div class="tool"><h3>AI-черновик комментария <span class="badge-sm">youtube_ai_comment</span></h3><form class="tf" data-t="youtube_ai_comment"><div class="params-grid"><label class="fw">Контекст видео<textarea name="context" rows="5" required></textarea></label></div><div class="btn-actions"><button class="btn btn-g">Подготовить через OLGA</button></div><div class="progress-wrap"><div class="progress-fill"></div></div></form></div>
-<div class="tool"><h3>Опубликовать комментарий <span class="badge-sm">youtube_comment</span></h3><form class="tf" data-t="youtube_comment"><div class="params-grid"><label>Video ID<input name="video_id" required></label><label class="fw">Проверенный текст<textarea name="text" rows="4" required></textarea></label><label class="chk-row"><input name="confirm" type="checkbox" required> Подтверждаю публикацию через официальный API</label></div><div class="btn-actions"><button class="btn btn-g">Опубликовать</button></div><div class="progress-wrap"><div class="progress-fill"></div></div></form></div>
-<div class="tool"><h3>Ответить на комментарий <span class="badge-sm">youtube_reply</span></h3><form class="tf" data-t="youtube_reply"><div class="params-grid"><label>Parent Comment ID<input name="parent_id" required></label><label class="fw">Ответ<textarea name="text" rows="4" required></textarea></label><label class="chk-row"><input name="confirm" type="checkbox" required> Подтверждаю отправку ответа</label></div><div class="btn-actions"><button class="btn btn-g">Ответить</button></div><div class="progress-wrap"><div class="progress-fill"></div></div></form></div>
-</div></section>
-
-<section class="sec" id="access-admin"><div class="sec-head"><div><h2>Ручное управление доступами</h2><p>Только роли admin/owner. Выдача, отзыв и назначение ролей сохраняются в БД и журнале аудита; отзыв немедленно инвалидирует сессии.</p></div></div><div class="tools"><div class="tool"><h3>Доступ пользователя <span class="badge-sm">/admin/access</span></h3><form id="manualAccessForm"><div class="params-grid"><label>Логин<input name="login" required></label><label>Действие<select name="action"><option value="grant">Выдать доступ</option><option value="revoke">Отозвать доступ</option><option value="role">Изменить роль</option></select></label><label>Дней<input name="days" type="number" value="7" min="1" max="3650"></label><label>Роль<select name="role"><option>user</option><option>manager</option><option>operator</option><option>admin</option></select></label></div><div class="btn-actions"><button class="btn btn-g">Применить через БД</button></div><pre class="result"></pre></form></div></div></section>
-
-<!-- ===== OLGA CONTENT INTELLIGENCE ===== -->
-<section class="sec" id="olga-content-intelligence">
-  <div class="sec-head"><div><h2>OLGA · AI-анализ и вирусный контент</h2><p>Анализ публичных постов через официальный VK API и серверный OpenRouter. Метрики показываются отдельно от AI-гипотез.</p></div></div>
-  <div class="tools">
-    <div class="tool"><h3>Анализ лучших постов конкурента <span class="badge-sm">vk_competitor_posts_ai</span></h3><form class="tf" data-t="vk_competitor_posts_ai"><div class="params-grid"><label class="fw">Ссылка на VK-профиль или сообщество<input name="profile_url" type="url" required placeholder="https://vk.com/competitor"></label><label>Загрузить последних постов<input name="posts_count" type="number" value="50" min="20" max="200"></label><label>Выбрать лучших<input name="top_count" type="number" value="5" min="1" max="10"></label></div><div class="btn-actions"><button class="btn btn-g">Загрузить и проанализировать</button></div><div class="progress-wrap"><div class="progress-fill"></div></div></form></div>
-    <div class="tool"><h3>Поиск вирусных постов <span class="badge-sm">vk_viral_search_ai</span></h3><form class="tf" data-t="vk_viral_search_ai"><div class="params-grid"><label class="fw">Ключевые слова<input name="keywords" required placeholder="маркетинг искусственный интеллект"></label><label>Проверить постов<input name="posts_count" type="number" value="100" min="20" max="200"></label><label>Показать лидеров<input name="top_count" type="number" value="10" min="1" max="10"></label></div><div class="btn-actions"><button class="btn btn-g">Найти вирусные публикации</button></div><div class="progress-wrap"><div class="progress-fill"></div></div></form></div>
-    <div class="tool"><h3>AI-улучшение поста <span class="badge-sm">ai_post_improve</span></h3><form class="tf" data-t="ai_post_improve"><div class="params-grid"><label class="fw">Исходный пост<textarea name="text" rows="6" required></textarea></label><label>Режим<select name="mode"><option value="rewrite">Переписать сильнее</option><option value="hooks">Усилить хук</option><option value="shorten">Сократить</option><option value="expand">Расширить</option><option value="proofread">Отредактировать</option></select></label><label>Платформа<input name="platform" value="VK"></label><label>Цель<input name="goal" value="вовлечение и заявки"></label></div><div class="btn-actions"><button class="btn btn-g">Улучшить через OLGA</button></div><div class="progress-wrap"><div class="progress-fill"></div></div></form></div>
-    <div class="tool"><h3>AI-серия постов <span class="badge-sm">ai_post_series</span></h3><form class="tf" data-t="ai_post_series"><div class="params-grid"><label class="fw">Тема серии<input name="topic" required></label><label>Количество<input name="count" type="number" value="7" min="2" max="30"></label><label>Формат<select name="format"><option value="warmup">Прогрев</option><option value="story">История</option><option value="educational">Обучающая серия</option><option value="launch">Запуск продукта</option></select></label><label>Аудитория<input name="audience"></label><label>Цель<input name="goal" value="прогрев и доверие"></label><label>Платформа<input name="platform" value="VK"></label></div><div class="btn-actions"><button class="btn btn-g">Создать серию</button></div><div class="progress-wrap"><div class="progress-fill"></div></div></form></div>
-  </div>
-</section>
-
-<!-- ===== SINERGY: HOT LEAD RADAR ===== -->
-<section class="sec" id="hot-lead-radar">
-  <div class="sec-head"><div style="display:flex;align-items:flex-start;gap:12px"><div class="sec-icon vk">🔥</div><div><h2>SINERGY HOT LEAD RADAR <span class="badge badge-vk">intent events</span></h2><p>Ищет не базы ради количества, а события намерения: вопросы о цене, поиск исполнителя, жалобы на подрядчика, заявки, входящие сообщения и повторную активность старых лидов.</p></div></div></div>
-  <div class="section-desc"><strong>Температура:</strong> 80–100 — срочно менеджеру; 60–79 — горячий контакт; 40–59 — прогрев и ретаргетинг; 20–39 — наблюдение; 0–19 — архив. Комментарии под постами конкурентов не запускают автоматический спам: радар даёт контекст, рекламный сегмент и черновик для ручного решения.</div>
-  <div class="tools">
-    <div class="tool"><h3>🔎 Сканер отпарсенных аккаунтов и VK-ленты <span class="badge-sm">hot_lead_vk_scan</span></h3><div class="desc"><strong>Главный режим Radar:</strong> загрузите список ID/ссылок, ранее созданный любым парсером AI SMM. Система проверит доступные публичные стены этих аккаунтов и комментарии, а также выполнит поиск по общей VK-ленте. Распознаёт вопросы о цене, поиск исполнителя, опечатки, сленг и недовольство текущим подрядчиком.</div><form class="tf" data-t="hot_lead_vk_scan"><div class="params-grid"><label class="fw">ID или ссылки аккаунтов<textarea name="audience_ids" rows="3" placeholder="123456789&#10;https://vk.com/id987654321"></textarea></label><label>Файл из AI SMM<input name="audience_file" placeholder="active_users.txt / common_users.txt"></label><label>Загрузить файл с компьютера<input name="audience_upload" type="file" accept=".txt,.csv,.json"></label><label class="fw">Дополнительные ключи и фразы<textarea name="keywords" data-list rows="4" placeholder="скажите цену&#10;напишите цену&#10;сколько стоит&#10;ищю таргетолога&#10;кто поможет с продвижением&#10;поддержка молчит"></textarea></label><label>Период, дней<input name="days" type="number" value="7" min="1" max="30"></label><label>Постов на аккаунт<input name="posts_per_account" type="number" value="30" min="1" max="100"></label><label>Максимум аккаунтов<input name="max_accounts" type="number" value="100" min="1" max="300"></label><label>Соответствие ЦА 0–20<input name="profile_match" type="number" value="10" min="0" max="20"></label><label class="chk-row"><input name="scan_comments" type="checkbox" checked> Искать в комментариях</label><label class="chk-row"><input name="scan_feed" type="checkbox" checked> Искать в общей VK-ленте</label><input type="hidden" name="output_file" value="hot_lead_radar.json"></div><details class="delay-block"><summary>⏱ Скорость запросов</summary><div class="delay-inner"><label>Мин. сек<input name="delay_min" type="number" value="1"></label><label>Макс. сек<input name="delay_max" type="number" value="2"></label></div></details><div class="btn-actions"><button class="btn btn-g">Запустить Hot Lead Radar</button><button class="btn btn-sm download-btn" type="button" data-file="hot_lead_radar.json">⬇ Скачать лиды</button></div><div class="progress-wrap"><div class="progress-fill"></div></div></form></div>
-    <div class="tool"><h3>🌡 Скоринг сигнала 0–100 <span class="badge-sm">hot_lead_score</span></h3><form class="tf" data-t="hot_lead_score"><div class="params-grid"><label class="fw">Текст события<textarea name="text" rows="4" required placeholder="Подскажите цену фотодня? Текущий фотограф сорвал сроки"></textarea></label><label>Время события<input name="occurred_at" type="datetime-local"></label><label>Соответствие профилю 0–20<input name="profile_match" type="number" value="10" min="0" max="20"></label><label>Активность 0–10<input name="activity" type="number" value="5" min="0" max="10"></label><label>Доступность контакта 0–10<input name="contactability" type="number" value="0" min="0" max="10"></label><label class="chk-row"><input name="inbound_message" type="checkbox"> Сам написал нам</label><label class="chk-row"><input name="self_promotion" type="checkbox"> Рекламирует себя</label><label class="chk-row"><input name="job_seeker" type="checkbox"> Ищет работу</label><label class="chk-row"><input name="wrong_region" type="checkbox"> Не тот регион</label><label class="chk-row"><input name="suspicious" type="checkbox"> Бот/подозрительный</label></div><div class="btn-actions"><button class="btn btn-g">Рассчитать температуру</button></div><div class="progress-wrap"><div class="progress-fill"></div></div></form></div>
-    <div class="tool"><h3>📡 Добавить событие в радар <span class="badge-sm">hot_lead_ingest</span></h3><div class="desc">Подходит для VK/TG/OK/Threads, публичных комментариев, лид-форм, бота, UTM и CRM. Опечатки и разговорные формулировки учитываются словарём намерений; для сложной семантики результат можно передать AGI OLGA.</div><form class="tf" data-t="hot_lead_ingest"><div class="params-grid"><label>Платформа<select name="platform"><option>vk</option><option>telegram</option><option>ok</option><option>threads</option><option>instagram</option><option>facebook</option><option>website</option><option>crm</option></select></label><label>ID автора<input name="author_id"></label><label>Имя<input name="author_name"></label><label>Продукт<input name="product" placeholder="Фотосессия / таргетинг"></label><label>Ссылка на источник<input name="source_url"></label><label>Соответствие 0–20<input name="profile_match" type="number" value="10" min="0" max="20"></label><label>Активность 0–10<input name="activity" type="number" value="5" min="0" max="10"></label><label>Контактность 0–10<input name="contactability" type="number" value="0" min="0" max="10"></label><label class="fw">Текст/комментарий<textarea name="text" rows="4" required></textarea></label></div><div class="btn-actions"><button class="btn btn-g">Оценить и сохранить</button></div><div class="progress-wrap"><div class="progress-fill"></div></div></form></div>
-    <div class="tool"><h3>🔥 Горячая очередь <span class="badge-sm">hot_lead_list</span></h3><form class="tf" data-t="hot_lead_list"><div class="params-grid"><label>Минимальный балл<input name="min_score" type="number" value="40" min="0" max="100"></label><label>Лимит<input name="limit" type="number" value="100"></label></div><div class="btn-actions"><button class="btn btn-g">Показать лиды</button></div><div class="progress-wrap"><div class="progress-fill"></div></div></form></div>
-  </div>
-</section>
-
-<!-- ===== SINERGY: CRM И РОСТ АУДИТОРИИ ===== -->
-<section class="sec" id="vk-crm-growth">
-  <div class="sec-head">
-    <div style="display:flex;align-items:flex-start;gap:12px">
-      <div class="sec-icon vk">V</div>
-      <div><h2>SINERGY — CRM, лиды и рост <span class="badge badge-vk">от лида до продажи</span></h2>
-      <p>Мульти-тач атрибуция лидов (найден → написали → ответил → купил), авто-черновик ответа на лид, конкурентная разведка, sentiment-мониторинг с кризис-алертом и отток аудитории между двумя замерами.</p></div>
-    </div>
-  </div>
-  <div class="tools">
-    <div class="tool" data-p="vk">
-      <h3>💬 Авто-черновик ответа на лид <span class="badge-sm">vk_lead_autoresponse</span></h3>
-      <div class="desc">Возьмите текст из результата <code>vk_leads_search</code> (раздел «Таргетинг ЦА» выше) и получите готовый черновик личного сообщения.</div>
-      <form class="tf" data-t="vk_lead_autoresponse">
-        <div class="params-grid">
-          <label>Endpoint модели<input name="model_baseUrl" placeholder="https://api.openai.com/v1" required></label>
-          <label>Model ID<input name="model_model" placeholder="gpt-4.1-mini" required></label>
-          <label>API-ключ<input name="model_apiKey" type="password"></label>
-          <label class="fw">Текст лида (пост)<textarea name="lead_text" rows="2" required></textarea></label>
-          <label>Категория<select name="lead_category"><option value="order_request">Заказ</option><option value="looking_for_specialist">Ищет специалиста</option><option value="job_seeker">Ищет работу</option></select></label>
-          <label class="fw">Ваше предложение/услуга<input name="offer"></label>
-        </div>
-        <div class="btn-actions"><button class="btn btn-g">Составить сообщение</button></div>
-        <div class="progress-wrap"><div class="progress-fill"></div></div>
-      </form>
-    </div>
-    <div class="tool" data-p="vk">
-      <h3>🕵️ Конкурентная разведка <span class="badge-sm">vk_competitor_intel</span></h3>
-      <form class="tf" data-t="vk_competitor_intel">
-        <div class="params-grid">
-          <label>Ваша группа<input name="my_group_id" required placeholder="club123"></label>
-          <label class="fw">Группы конкурентов<textarea name="competitor_group_ids" data-list rows="2" placeholder="club456&#10;club789"></textarea></label>
-          <label>Постов на группу<input name="posts" type="number" value="20" min="1" max="100"></label>
-        </div>
-        <div class="btn-actions"><button class="btn btn-g">Сравнить</button></div>
-        <div class="progress-wrap"><div class="progress-fill"></div></div>
-      </form>
-    </div>
-    <div class="tool" data-p="vk">
-      <h3>🩺 Sentiment-мониторинг и кризис-алерт <span class="badge-sm">vk_sentiment_watch</span></h3>
-      <div class="desc">Лексикон тональности (объяснимо, без чёрного ящика) по комментариям последних постов. Порог тревоги — доля негативных комментариев.</div>
-      <form class="tf" data-t="vk_sentiment_watch">
-        <div class="params-grid">
-          <label>owner_id (с минусом для группы)<input name="owner_id" required placeholder="-123456"></label>
-          <label>Постов<input name="posts" type="number" value="10" min="1" max="30"></label>
-          <label>Порог кризиса (доля негатива)<input name="crisis_threshold" type="number" value="0.25" step="0.05" min="0" max="1"></label>
-        </div>
-        <div class="btn-actions"><button class="btn btn-g">Проверить тональность</button></div>
-        <div class="progress-wrap"><div class="progress-fill"></div></div>
-      </form>
-    </div>
-    <div class="tool" data-p="vk">
-      <h3>📉 Отток аудитории между двумя замерами <span class="badge-sm">vk_audience_churn</span></h3>
-      <div class="desc">Вставьте JSON <code>stats</code> из двух запусков <code>vk_analyze_activity</code> (раздел «Парсинг VK»), сделанных в разное время — например, месяц назад и сейчас.</div>
-      <form class="tf" data-t="vk_audience_churn">
-        <div class="params-grid">
-          <label class="fw">Старый снимок (JSON)<textarea name="old_snapshot" data-json rows="3" required></textarea></label>
-          <label class="fw">Новый снимок (JSON)<textarea name="new_snapshot" data-json rows="3" required></textarea></label>
-        </div>
-        <div class="btn-actions"><button class="btn btn-g">Сравнить снимки</button></div>
-        <div class="progress-wrap"><div class="progress-fill"></div></div>
-      </form>
-    </div>
-    <div class="tool" data-p="vk">
-      <h3>📋 CRM: добавить лид <span class="badge-sm">vk_crm_add_lead</span></h3>
-      <form class="tf" data-t="vk_crm_add_lead">
-        <div class="params-grid">
-          <label>Источник<input name="source" placeholder="newsfeed / group_wall:123" required></label>
-          <label>ID автора<input name="author_id"></label>
-          <label>Категория<input name="category" placeholder="looking_for_specialist"></label>
-          <label>Ссылка<input name="link"></label>
-          <label class="fw">Текст лида<textarea name="snippet" rows="2" required></textarea></label>
-        </div>
-        <div class="btn-actions"><button class="btn btn-g">Добавить в CRM</button></div>
-        <div class="progress-wrap"><div class="progress-fill"></div></div>
-      </form>
-    </div>
-    <div class="tool" data-p="vk">
-      <h3>🔄 CRM: обновить статус лида <span class="badge-sm">vk_crm_update_lead</span></h3>
-      <form class="tf" data-t="vk_crm_update_lead">
-        <div class="params-grid">
-          <label>ID лида<input name="id" required></label>
-          <label>Статус<select name="status"><option value="new">new</option><option value="contacted">contacted</option><option value="replied">replied</option><option value="converted">converted</option><option value="lost">lost</option></select></label>
-          <label class="fw">Заметка<input name="note"></label>
-        </div>
-        <div class="btn-actions"><button class="btn btn-g">Обновить</button></div>
-        <div class="progress-wrap"><div class="progress-fill"></div></div>
-      </form>
-    </div>
-    <div class="tool" data-p="vk">
-      <h3>📑 CRM: список лидов <span class="badge-sm">vk_crm_list_leads</span></h3>
-      <form class="tf" data-t="vk_crm_list_leads">
-        <div class="params-grid">
-          <label>Фильтр по статусу (опц.)<select name="status"><option value="">Все</option><option value="new">new</option><option value="contacted">contacted</option><option value="replied">replied</option><option value="converted">converted</option><option value="lost">lost</option></select></label>
-        </div>
-        <div class="btn-actions"><button class="btn btn-g">Показать лиды</button></div>
-        <div class="progress-wrap"><div class="progress-fill"></div></div>
-      </form>
-    </div>
-    <div class="tool" data-p="vk">
-      <h3>📊 CRM: отчёт по воронке <span class="badge-sm">vk_crm_funnel_report</span></h3>
-      <form class="tf" data-t="vk_crm_funnel_report">
-        <div class="btn-actions"><button class="btn btn-g">Показать воронку</button></div>
-        <div class="progress-wrap"><div class="progress-fill"></div></div>
-      </form>
-    </div>
-    <div class="tool" data-p="vk">
-      <h3>🌐 Объединить аудиторию VK + Telegram <span class="badge-sm">vk_merge_cross_platform_audience</span></h3>
-      <div class="desc">Без общего идентификатора (username/телефон) сопоставить личности между платформами нельзя — получаете единый маркетинговый список с меткой платформы и дублями, убранными по совпадению username.</div>
-      <form class="tf" data-t="vk_merge_cross_platform_audience">
-        <div class="params-grid">
-          <label class="fw">Аудитория VK (JSON, из vk_friends_graph и т.п.)<textarea name="vk_audience" data-json rows="2"></textarea></label>
-          <label class="fw">Аудитория Telegram (JSON, из telegram_parse_users)<textarea name="telegram_audience" data-json rows="2"></textarea></label>
-        </div>
-        <div class="btn-actions"><button class="btn btn-g">Объединить</button></div>
-        <div class="progress-wrap"><div class="progress-fill"></div></div>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- Files & Log -->
-<section class="sec" id="files">
+<section class="sec" id="access-admin"><div class="sec-head"><div><h2>Ручное управление доступами</h2><p>Только роли admin/owner. Выдача, отзыв и назначение ролей сохраняются в БД и журнале аудита; отзыв немедленно инвалидирует сессии.</p></div></div><div class="tools"><div class="tool"><h3>Доступ пользователя <span class="badge-sm">/admin/access</span></h3><form id="manualAccessForm"><div class="params-grid"><label>Логин<input name="login" required></label><label>Действие<select name="action"><option value="grant">Выдать доступ</option><option value="revoke">Отозвать доступ</option><option value="role">Изменить роль</option></select></label><label>Дней<input name="days" type="number" value="7" min="1" max="3650"></label><label>Роль<select name="role"><option>user</option><option>manager</option><option>operator</option><option>admin</option></select></label></div><div class="btn-actions"><button class="btn btn-g">Применить через БД</button></div><pre class="result"></pre></form></div></div></section></div>
+<div class="smm-view" id="view-results" data-view="results" role="tabpanel" aria-labelledby="tab-results" aria-hidden="true"><div class="view-head"><div><span class="eyebrow" style="color:#0a9850;font:800 10px Manrope,sans-serif;letter-spacing:.12em">SYNERGY / 12</span><h2>Результаты</h2><p>Файлы и журнал операций</p></div><small>1 раздел</small></div><section class="sec" id="files">
   <div class="sec-head"><div>
     <h2>Результаты и лог <span class="badge badge-g">files</span></h2>
     <p>Все файлы парсинга хранятся здесь. Читайте, скачивайте, передавайте между инструментами.</p>
@@ -2954,11 +2431,9 @@ input,textarea,select{font-family:inherit}::selection{background:var(--g);color:
       <button class="btn btn-sm" id="downloadLogBtn">⬇ Скачать лог</button>
     </div>
   </div>
-</section>
-
-</main>
-</div>
-
+</section></div>
+<footer class="console-footer"><span>© 2026 SYNERGY · SMM CONSOLE · UI / BACKEND STATUS VERIFIED SEPARATELY</span><a href="../portal/">← Вернуться в Product Atlas</a></footer>
+</main></div>
 <script>
 const $ = (q,r=document) => r.querySelector(q);
 const $$ = (q,r=document) => Array.from(r.querySelectorAll(q));
