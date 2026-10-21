@@ -1,4 +1,4 @@
-# Архитектура SYNERGY AI ECOSYSTEM — снимок 22.10.2026
+# Архитектура SYNERGY AI BLOCKCHAIN ECOSYSTEM — ИИ БЛОКЧЕЙН ЭКОСИСТЕМА СИНЕРГИЯ
 
 > Источник: публичные исходники репозитория `Shtenco/synergy.github.io` — `portal/atlas.js`, `index.html`, `nexus/index.html`, `nexus/nexus.js`, `smm/cabinet.html`, `mvp.html`, `archiver.html`. Это **архитектура интерфейсов и предполагаемых интеграций**, не доказательство существования и работоспособности всех серверных компонентов.
 
@@ -9,8 +9,8 @@ flowchart TB
   WEB["Публичный сайт GitHub Pages\nindex.html"] --> ATLAS["Каталог продуктов\nportal/index.html + atlas.js"]
   ATLAS --> SMM["Маркетинг · 10 карточек"]
   ATLAS --> FIN["Финансы · 5 карточек"]
-  ATLAS --> AI["AI и бизнес · 5 карточек"]
-  ATLAS --> SYS["Инфраструктура · 2 карточки"]
+  ATLAS --> AI["AI и бизнес · 6 карточек"]
+  ATLAS --> SYS["Инфраструктура · 4 карточки"]
   SMM --> SMMCON["SMM Console · 140 методов/144 формы"]
   SMM --> CRM["CaseFlow / Lead Radar / Parsing / Engagement / Workers"]
   FIN --> INVEST["Investor Folio / Broker Mesh / RiskGuard / Investor Center / AI CFO"]
@@ -25,14 +25,14 @@ flowchart TB
   API -. "очереди" .-> JOBS["Python Workers / Jobs"]
 ```
 
-## 2. Каталог продуктов Atlas: 22 карточки
+## 2. Каталог продуктов Atlas: 25 карточек
 
 | Контур | Кол-во | ID в Atlas | Основные страницы |
 |---|---:|---|---|
 | SMM | 10 | 01,02,03,04,05,06,07,20,21,22 | `smm/`: AI Studio, Lead Radar, Parsing, Engagement, Jobs, Workspaces, Console, CaseFlow, CaseFlow Team, Audience Lab |
 | Finance | 5 | 08–12 | `riskguard/`, `investor-folio/`, `broker-mesh/`, `investor/`, `cfo/` |
-| AI/Business | 5 | 13–17 | `ai/`, `video/`, `advert/`, `market/`, `mvp.html` |
-| System | 2 | 18–19 | `nexus/`, `archiver.html` |
+| AI/Business | 6 | 13–17, 23 | `ai/`, `video/`, `advert/`, `market/`, `mvp.html`, `avito/` |
+| System | 4 | 18–19, 24–25 | `nexus/`, `archiver.html`, `meta-api/`, `workspace/` |
 
 Числа и ID взяты из массива `services` в `portal/atlas.js`. В остальных директориях также есть вспомогательные страницы, не равные отдельным продуктам.
 
@@ -105,3 +105,20 @@ flowchart LR
 - `POST /api/v1/finance/capital-allocation/plan` — только рекомендация; реальные инвестиционные распоряжения вне публичного frontend.
 
 Эти пути — **проектные спецификации, а не работающие endpoints**.
+
+## Формула единой бизнес-цели
+
+**SYNERGY AI BLOCKCHAIN ECOSYSTEM / ИИ БЛОКЧЕЙН ЭКОСИСТЕМА СИНЕРГИЯ** объединяет автоматизацию, рост выручки, снижение операционных затрат, контроль резервов и долгосрочное инвестирование.
+
+**Слоган:** Доходы − Расходы = Δ (Дельта) × Инвестиции = Капитал.
+
+**Точная операционная расшифровка:**
+
+- `Δ_t = Подтверждённые доходы_t − Подтверждённые расходы_t`. Дельта может быть отрицательной.
+- `R_t = max(0, Δ_t) × доля_резерва_t` (размер отдельного резерва, вне инвестиционного портфеля).
+- `I_t = max(0, Δ_t − R_t) × доля_инвестирования_t` — регулярный инвестиционный взнос только из положительной дельты.
+- `C_n = C_0 × (1+r_m)^n + Σ_{t=1}^n I_t × (1+r_m)^{n−t}` — **модельный** капитал с реинвестированием, где `r_m` — предполагаемая месячная доходность. При отрицательной доходности капитал может снижаться.
+
+`AI WORKSPACE/AI AVITO/SMM → AI CFO (сверка фактов) → резерв/обязательства → RiskGuard (лимиты) → Investor Folio (сценарии) → владелец (approval) → исполнение авторизованным брокером (пока не подтверждено)`.
+
+Главная страница рассчитывает этот сценарий локально. Значения не отправляются на сервер; показанные суммы не заменяют налоги, комиссии, инфляцию, проверку ликвидности или финансовую консультацию.

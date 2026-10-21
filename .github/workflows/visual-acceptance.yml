@@ -3,6 +3,10 @@ on:
   push:
     branches: [main]
     paths:
+      - 'index.html'
+      - 'portal/**'
+      - 'assets/syn26.css'
+      - 'assets/synergy-capital-model.js'
       - 'smm/**'
       - 'investor/**'
       - 'investor-folio/**'
