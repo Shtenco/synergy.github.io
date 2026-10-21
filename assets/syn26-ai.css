@@ -1,0 +1,44 @@
+/* SYNERGY AI OLGA / premium emerald workspace, overlay preserves all app.js controls */
+:root{--g:#109f55;--g2:#74d6a0;--bg:#f4faf5;--panel:#fff;--panel2:#f0f8f2;--line:#dbeadf;--text:#14291d;--muted:#6e8574;--side:290px}
+html,body{background:#f4faf5;color:#152e21}
+body.syn26-ai{background:radial-gradient(circle at 75% 10%,#e3f7e9,transparent 42%),#f4faf5;color:#152e21;font-family:Manrope,sans-serif}
+.syn26-ai .noise{opacity:.015}
+.syn26-ai .sidebar{background:#102d1e;color:#eef9f1;border:0;padding:27px 19px 19px;box-shadow:7px 0 24px rgba(23,63,33,.045)}
+.syn26-ai .sidebar .brand{font:800 18px Manrope,sans-serif;letter-spacing:-.05em;gap:12px;display:flex;align-items:center}
+.syn26-ai .sidebar .brand img{width:53px;height:53px;object-fit:contain}
+.syn26-ai .sidebar .brand small{color:#9ce5b5;font:700 10px Manrope,sans-serif;letter-spacing:.09em}
+.syn26-ai .side-label{color:#9cc4aa}
+.syn26-ai .new-chat{margin:35px 0 31px}
+.syn26-ai .primary{background:#14b667;color:#fff;border-radius:11px;box-shadow:0 9px 20px rgba(15,177,93,.12)}
+.syn26-ai .primary:hover{background:#0e9e52}
+.syn26-ai .ghost,.syn26-ai .settings-open{background:#1d422d;border:1px solid #316046;color:#effaf2}
+.syn26-ai .chat-item{color:#c2d8c7;border-radius:11px}
+.syn26-ai .chat-item:hover,.syn26-ai .chat-item.active{background:#27583b;color:#fff}
+.syn26-ai .trial-mini{background:#1c432d;border:1px solid #366b4a;border-radius:13px;color:#fff}
+.syn26-ai .trial-mini small{color:#b1d2bd}
+.syn26-ai .user-button{color:#fff}
+.syn26-ai .user-button small{color:#accfb7}
+.syn26-ai .workspace{background:transparent}
+.syn26-ai header{background:rgba(255,255,255,.9);height:78px;border-bottom:1px solid #deebe2}
+.syn26-ai .mode-switch{background:#f0f7f2;border:1px solid #dfece2;border-radius:12px}
+.syn26-ai .mode-switch button{color:#547562;font:700 11px Manrope,sans-serif}
+.syn26-ai .mode-switch button.active{background:#0e9b52;color:#fff}
+.syn26-ai .agent-pill{background:#fff;border:1px solid #dbeadf;color:#326346}
+.syn26-ai .context-panel{background:#fff;border-color:#deebe0}
+.syn26-ai .messages{background:transparent}
+.syn26-ai .welcome{padding:44px 32px;border:1px solid #e0ece2;border-radius:24px;background:#fff;box-shadow:0 20px 56px rgba(22,71,34,.05)}
+.syn26-ai .welcome h1{font:800 clamp(28px,3.3vw,50px)/1.15 Manrope,sans-serif;letter-spacing:-.07em;color:#173821}
+.syn26-ai .welcome p{color:#66816f}
+.syn26-ai .orb{box-shadow:0 16px 38px rgba(19,149,75,.09);background:#eaf8ef;border:1px solid #bde5ca;color:#0a9b52}
+.syn26-ai .composer-area{background:linear-gradient(0deg,#f4faf5 76%,rgba(244,250,245,0))}
+.syn26-ai .composer{border:1px solid #cee5d5;background:#fff;box-shadow:0 20px 55px rgba(25,75,37,.075);border-radius:18px}
+.syn26-ai .composer textarea{color:#193c26}
+.syn26-ai .composer:focus-within{border-color:#4fc481;box-shadow:0 0 0 4px rgba(77,202,130,.10)}
+.syn26-ai .composer-hint{color:#758f7d}
+.syn26-ai .settings-modal,.syn26-ai .auth-modal,.syn26-ai .trace-drawer{color:#172e20}
+.syn26-ai .modal{background:#fff;border-color:#dceadf;border-radius:20px}
+.syn26-ai .modal input,.syn26-ai .modal select,.syn26-ai .modal textarea{color:#173822}
+.syn26-ai input:focus-visible,.syn26-ai button:focus-visible,.syn26-ai textarea:focus-visible{outline:3px solid #64cb8c;outline-offset:3px}
+.syn26-ai .syn26-crumb{position:absolute;top:27px;left:22px;z-index:3;font:800 10px Manrope,sans-serif;letter-spacing:.07em;color:#6d8575}
+@media(max-width:900px){:root{--side:265px}.syn26-ai .welcome{margin:0 20px}}
+@media(max-width:700px){.syn26-ai .sidebar{box-shadow:none}.syn26-ai header{height:66px}.syn26-ai .welcome{margin:0 12px;padding:27px 18px}.syn26-ai .welcome h1{font-size:29px}}
