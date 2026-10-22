@@ -76,6 +76,20 @@ with sync_playwright() as p:
                             errors.append("missing associative cross-sell paths")
                         if page.locator("#syn-conversion-product details").count()!=4:
                             errors.append("missing FAQ objections")
+            if route in ("smm/index.html","avito/index.html","workspace/index.html",
+                         "cfo/index.html","riskguard/index.html","investor-folio/index.html",
+                         "meta-api/index.html"):
+                wizard=page.locator("#syn-onboarding")
+                if wizard.count()!=1 or page.locator("#syn-onboarding .sy-progress").count()!=1:
+                    errors.append("onboarding wizard missing")
+                else:
+                    wizard.locator("button[aria-pressed]").first.click()
+                    wizard.get_by_text("Перейти к практике").click()
+                    wizard.locator("button[type=submit]").click()
+                    if wizard.locator(".sy-result-row").count()<2:
+                        errors.append("local onboarding result missing")
+                    if wizard.locator(".sy-cross a").count()!=3:
+                        errors.append("onboarding cross-sell links missing")
             slug=route.replace("/","_").replace(".html","")
             page.screenshot(path=str(OUT/f"{slug}-{mode}.png"),full_page=True,timeout=20000,animations="disabled")
             issues=[]
