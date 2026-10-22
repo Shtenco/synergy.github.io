@@ -14,8 +14,11 @@
 <title>SYNERGY — AI-автоматизация бизнеса, финансы и путь к капиталу</title>
 <link rel="stylesheet" href="assets/syn26.css">
 <link rel="stylesheet" href="assets/synergy-home-v2.css">
+<link rel="stylesheet" href="assets/synergy-capital-mc.css">
 <script src="assets/syn26.js" defer></script>
 <script src="assets/synergy-capital-model.js" defer></script>
+<script src="assets/synergy-capital-mc-engine.js" defer></script>
+<script src="assets/synergy-capital-mc-ui.js" defer></script>
 </head>
 <body class="syn26 home-v2">
 <a class="skip-to-content" href="#main-content">Перейти к содержимому</a>
@@ -146,6 +149,70 @@
 <p class="capital-smallprint">Резерв откладывается отдельно и не включён в инвестиционный капитал. Налоги, инфляция, комиссии и колебания рыночных цен в упрощённой модели не учтены.</p></form>
 <div class="capital-results" role="region" aria-label="Расчёт капитала" aria-live="polite"><div class="capital-results-label">PROJECTED CAPITAL / УСЛОВНЫЙ СЦЕНАРИЙ</div><div class="capital-number" id="cp-total">—</div><p>расчётная стоимость инвестированного капитала к концу срока</p>
 <div class="capital-results-list"><div><span>Дельта в месяц</span><strong id="cp-delta">—</strong></div><div><span>Резерв в месяц</span><strong id="cp-reserve-amount">—</strong></div><div><span>Инвестиционный взнос в месяц</span><strong id="cp-monthly">—</strong></div><div><span>Сумма взносов за срок</span><strong id="cp-contributions">—</strong></div><div><span>Модельный финансовый результат</span><strong id="cp-growth">—</strong></div></div><div class="capital-projection-foot">Доходность не гарантирована. При убытках итоговый капитал может оказаться меньше суммы взносов.</div></div></div>
+<div class="mc-lab" id="mc-lab" aria-labelledby="mc-title">
+  <div class="mc-head"><div><span class="home-section-label">MONTE CARLO / SYNERGY CAPITAL LAB</span>
+   <h3 id="mc-title">Не одна красивая цифра. Тысячи возможных будущих траекторий.</h3>
+   <p>Рыночная неопределённость, разброс доходностей, комиссии, инфляция и разные структуры портфеля. Сценарный расчёт, а не обещание результата.</p></div>
+   <span id="mc-status" class="mc-status" role="status" aria-live="polite">Подготовка модели…</span>
+  </div>
+  <div class="mc-config">
+    <label>Стартовый капитал<input id="mc-initial" type="number" min="0" max="1000000000000" step="1000" value="0"></label>
+    <label>Профиль портфеля<select id="mc-profile">
+      <option value="defensive">Защитный</option><option value="conservative">Консервативный</option>
+      <option value="balanced" selected>Сбалансированный</option><option value="growth">Рост</option>
+      <option value="aggressive">Агрессивный</option><option value="custom">Мой портфель</option>
+    </select></label>
+    <label>Волатильность акций, %/год<input id="mc-vol" type="number" min="0" max="80" step="1" value="18"></label>
+    <label>Инфляция, %/год<input id="mc-inflation" type="number" min="-10" max="40" step=".5" value="6"></label>
+    <label>Волатильность инфляции, %/год<input id="mc-inflvol" type="number" min="0" max="30" step=".5" value="3"></label>
+    <label>Комиссия активов, %/год<input id="mc-fee" type="number" min="0" max="5" step=".1" value=".7"></label>
+    <label>Цель в сегодняшних деньгах<input id="mc-target" type="number" min="0" max="10000000000000" step="100000" value="5000000"></label>
+    <label>Монте-Карло прогонов<select id="mc-paths"><option value="1000">1 000</option><option value="3000" selected>3 000</option><option value="5000">5 000</option><option value="10000">10 000</option></select></label>
+    <label>Seed / воспроизводимость<input id="mc-seed" type="number" min="0" max="4294967295" step="1" value="20261022"></label>
+    <label class="mc-checkbox"><input id="mc-index" type="checkbox">Индексировать будущие взносы на инфляцию</label>
+  </div>
+  <div class="mc-custom-fields" id="mc-custom-fields" hidden>
+    <label>Наличные, %<input id="mc-custom-cash" type="number" min="0" max="100" step="5" value="10"></label>
+    <label>Облигации, %<input id="mc-custom-bond" type="number" min="0" max="100" step="5" value="40"></label>
+    <label>Акции, %<input id="mc-custom-equity" type="number" min="0" max="100" step="5" value="50"></label>
+  </div>
+  <div class="mc-actions">
+    <button type="button" id="mc-recalculate">Пересчитать сценарии ↗</button>
+    <button type="button" id="mc-reset" class="mc-minor">Сбросить параметры Монте-Карло</button>
+    <span class="mc-note">Прогонов: <strong id="mc-runs">—</strong> · Данные рассчитываются в вашем браузере, без передачи выписок или счетов.</span>
+  </div>
+  <div class="mc-results-grid" aria-label="Итоги выбранного портфеля">
+    <div class="mc-stat"><small>Медиана / сегодняшние деньги</small><strong id="mc-real">—</strong></div>
+    <div class="mc-stat"><small>Медиана / номинал</small><strong id="mc-nominal">—</strong></div>
+    <div class="mc-stat"><small>80% центральный диапазон (P10–P90) / реал.</small><strong id="mc-range">—</strong></div>
+    <div class="mc-stat"><small>Доля сценариев с достижением реальной цели</small><strong id="mc-goal">—</strong></div>
+    <div class="mc-stat"><small>Доля сценариев ниже реальной суммы внесённого</small><strong id="mc-loss">—</strong></div>
+  </div>
+  <div class="mc-chart-grid">
+    <div class="mc-chart-card">
+      <div class="mc-controls"><h4>Веер возможных путей капитала · P5 / P10 / P25 / P50 / P75 / P90 / P95</h4>
+        <select id="mc-chart-mode" aria-label="Единицы отображения графиков">
+          <option value="real" selected>Сегодняшние цены / после инфляции</option>
+          <option value="nominal">Номинальные суммы</option>
+        </select>
+      </div>
+      <div class="mc-figure" id="mc-fan" aria-label="Веер сценариев портфеля"></div>
+      <div class="mc-legend"><span>Медиана P50</span><span>Диапазоны вероятных исходов</span></div>
+      <label class="mc-checkbox" style="display:inline-flex!important"><input id="mc-show-paths" type="checkbox" checked>Показать 36 отдельных случайных траекторий</label>
+      <p id="mc-chart-caption" class="mc-note">—</p>
+    </div>
+    <div class="mc-chart-card">
+      <h4>Пучок портфелей · медианные траектории шести стратегий</h4>
+      <div class="mc-figure" id="mc-bundle" aria-label="Сравнение шести портфелей"></div>
+      <div class="mc-legend"><span>Каждая линия — отдельный портфель, не гарантия будущего исхода</span></div>
+      <div class="mc-table-scroll"><table class="mc-table">
+        <thead><tr><th>Портфель</th><th>Нал. / облигац. / акции</th><th>P10 реал.</th><th>Медиана реал.</th><th>P90 реал.</th><th>Достижение цели</th><th>Ниже реальных взносов</th></tr></thead>
+        <tbody id="mc-comparison"></tbody>
+      </table></div>
+    </div>
+  </div>
+  <p class="mc-foot"><strong>Как читать модель.</strong> Пучок — это результаты синтетических сценариев, не исторический бэктест и не прогноз рынка. Для всех шести стратегий используются общие случайные рыночные шоки; предполагаемая связь акций и облигаций +0,25. Взносы в конце месяца, ребалансировка ежегодно. Базовая ожидаемая доходность из поля выше задаёт условные средние предположения для классов активов (наличные: на 3 п.п. ниже, облигации: на 1 п.п. ниже, акции: на 3 п.п. выше). Комиссии уменьшают доходность. Инфляция смоделирована отдельным случайным процессом и пересчитывает каждый путь в покупательную способность сегодняшних денег. Распределения логнормальные, без экстремальных скачков/кризисных режимов, налогов и валютной переоценки; точность для реального портфеля ограничена. Цель задаётся в сегодняшних деньгах. Значение P10 означает, что около 10% симуляций заканчиваются ниже этого уровня; это не гарантия результата.</p>
+</div>
 <div class="capital-followthrough"><span>AI CFO — проверяет фактическую дельту</span><span>RiskGuard — ограничивает риск</span><span>Investor Folio — формирует сценарии</span><a href="investor/">Инвесторский центр ↗</a></div></div></section>
 
 <section class="section" id="products" aria-labelledby="products-title">
