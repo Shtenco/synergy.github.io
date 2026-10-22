@@ -1,0 +1,26 @@
+name: SYNERGY Onboarding regression
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'assets/synergy-onboarding*'
+      - 'tests/test_onboarding.cjs'
+      - '.github/workflows/onboarding.yml'
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  onboarding:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax
+        run: |
+          node --check assets/synergy-onboarding-core.js
+          node --check assets/synergy-onboarding.js
+      - name: Safe local scenarios
+        run: node tests/test_onboarding.cjs
