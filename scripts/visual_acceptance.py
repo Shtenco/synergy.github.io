@@ -51,6 +51,28 @@ with sync_playwright() as p:
                  return r.width>0&&r.height>0&&r.width<24&&r.height<24
               }).length
             })""")
+            # Conversion journey smoke checks: content, interactive persona switching and FAQ.
+            if route in ("index.html", "smm/index.html", "avito/index.html",
+                         "workspace/index.html", "cfo/index.html", "riskguard/index.html",
+                         "investor-folio/index.html"):
+                journey=page.locator("#syn-conversion-home, #syn-conversion-product")
+                if journey.count()!=1:
+                    errors.append("conversion journey container absent")
+                else:
+                    if route=="index.html":
+                        tabs=page.locator("#syn-conversion-home [role=tab]")
+                        if tabs.count()!=6:
+                            errors.append(f"expected 6 product tabs; found {tabs.count()}")
+                        else:
+                            tabs.nth(5).click()
+                            if page.locator("#cv-panel-folio").is_hidden():
+                                errors.append("persona switch to Investor Folio failed")
+                            tabs.nth(0).click()
+                    else:
+                        if page.locator("#syn-conversion-product .cv-next-card").count()!=3:
+                            errors.append("missing associative cross-sell paths")
+                        if page.locator("#syn-conversion-product details").count()!=4:
+                            errors.append("missing FAQ objections")
             slug=route.replace("/","_").replace(".html","")
             page.screenshot(path=str(OUT/f"{slug}-{mode}.png"),full_page=True,timeout=20000,animations="disabled")
             issues=[]
