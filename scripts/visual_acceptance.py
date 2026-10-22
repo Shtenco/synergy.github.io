@@ -11,7 +11,7 @@ import json, sys
 ROOT=Path(__file__).resolve().parents[1]
 BASE="http://127.0.0.1:8765"
 PAGES=[
- "index.html","portal/index.html",
+ "index.html","portal/index.html","smm/index.html","cfo/index.html","riskguard/index.html",
  "smm/workspaces.html","smm/studio.html","smm/lead-radar.html",
  "smm/ai-studio.html","smm/caseflow.html","smm/parsing.html",
  "smm/engagement.html","smm/jobs.html","smm/audiences-team.html",
