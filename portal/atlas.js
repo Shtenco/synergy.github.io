@@ -10,11 +10,11 @@ const services=[
 ['05','PYTHON WORKERS','V7, VK и Telegram: очереди, прогресс, результаты','smm','/synergy.github.io/smm/jobs.html','JOB ENGINE','▦'],
 ['06','SMM HUB','Маршруты и сервисы SMM-платформы','smm','/synergy.github.io/smm/workspaces.html','NAVIGATION','✳'],
 ['07','SMM PRO LEGACY','Сохранённый большой кабинет оригинального сайта','smm','/synergy.github.io/smm/cabinet.html','LEGACY UI','▧'],
-['08','INSTITUTIONAL RISKGUARD','Портфельный риск, лимиты, stress-test','finance','/synergy.github.io/riskguard/','RISK ANALYTICS','◉'],
-['09','INVESTOR FOLIO','Учёт портфелей, Markowitz, бэктест','finance','/synergy.github.io/investor-folio/','PORTFOLIO ENGINE','◒'],
+['08','INSTITUTIONAL RISKGUARD','Портфельный риск, лимиты, stress-test','finance','/synergy.github.io/solutions/riskguard/','RISK ANALYTICS','◉'],
+['09','INVESTOR FOLIO','Учёт портфелей, Markowitz, бэктест','finance','/synergy.github.io/solutions/investor-folio/','PORTFOLIO ENGINE','◒'],
 ['10','BROKER MESH','FINAM, T-Invest, RoboForex, IBKR, OANDA','finance','/synergy.github.io/broker-mesh/','READ-ONLY','⌁'],
 ['11','INVESTOR CENTER','Инвесторский и казначейский интерфейс','finance','/synergy.github.io/investor/','LEGACY UI','◇'],
-['12','AI CFO','Финансовая аналитика и документы','finance','/synergy.github.io/cfo/','PYTHON / PRIVATE','▥'],
+['12','AI CFO','Финансовая аналитика и документы','finance','/synergy.github.io/solutions/cfo/','PYTHON / PRIVATE','▥'],
 ['13','AI OLGA','Интеллектуальный ассистент и инструменты','ai','/synergy.github.io/ai/','AI API','◎'],
 ['14','AI VIDEO','Медиапроизводство и видео','ai','/synergy.github.io/video/','LEGACY UI','▷'],
 ['15','AI ADVERT','Реклама и контент для кампаний','ai','/synergy.github.io/advert/','LEGACY API','✳'],
@@ -22,9 +22,9 @@ const services=[
 ['17','BUSINESS OPERATING SYSTEM','Продукты, бизнес-процессы и партнёры','ai','/mvp.html','SITE','↗'],
 ['18','NEXUS CONTROL PLANE','Репозитории GitHub, Gemini AI, Cloud Run','system','/synergy.github.io/nexus/','INTEGRATIONS','⌘'],
 ['19','AI ARCHIVER','Сжатие и восстановление пользовательских данных','system','/archiver.html','CLIENT APP','▧'],
-['23','AI AVITO','Управление объявлениями, обращениями, AI-ответами и CRM','ai','/synergy.github.io/avito/','AVITO / WORKSPACE','✳'],
-['24','AI META-API-MCP','API и MCP discovery, политики и безопасное исполнение','system','/synergy.github.io/meta-api/','API + MCP','⌘'],
-['25','AI WORKSPACE','Единый центр задач, агентов, разрешений и результатов','system','/synergy.github.io/workspace/','DESKTOP / CONTROL','▦']
+['23','AI AVITO','Управление объявлениями, обращениями, AI-ответами и CRM','ai','/synergy.github.io/solutions/avito/','AVITO / WORKSPACE','✳'],
+['24','AI META-API-MCP','API и MCP discovery, политики и безопасное исполнение','system','/synergy.github.io/solutions/meta-api/','API + MCP','⌘'],
+['25','AI WORKSPACE','Единый центр задач, агентов, разрешений и результатов','system','/synergy.github.io/solutions/workspace/','DESKTOP / CONTROL','▦']
 ];
 const el=(tag,cls,txt)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(txt!==undefined)e.textContent=txt;return e};let group='all';const target=document.querySelector('#cards'),search=document.querySelector('#search');
 function update(){const q=search.value.toLocaleLowerCase('ru').trim();target.replaceChildren();let count=0;for(const [n,name,description,category,href,kind,symbol] of services){if(group!=='all'&&category!==group)continue;if(q && !(name+' '+description+' '+category).toLocaleLowerCase('ru').includes(q))continue;count++;const card=el('a','card');card.href=href.startsWith('/synergy.github.io/')?'../'+href.slice('/synergy.github.io/'.length):href.startsWith('/')?'..'+href:href;const head=el('div','card-head');head.append(el('small','',n+' / '+category.toUpperCase()),el('span','symbol',symbol));const nameEl=el('h3','',name);const desc=el('p','',description);const foot=el('div','card-foot');foot.append(el('span','flag',kind),el('span','arrow','↗'));card.append(head,nameEl,desc,foot);target.append(card)}document.querySelector('#match-count').textContent=count+' сервисов';if(!count){target.append(el('p','empty','Ничего не найдено. Измени запрос.'))}}
