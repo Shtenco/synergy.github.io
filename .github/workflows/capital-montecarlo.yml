@@ -1,0 +1,27 @@
+name: Capital Monte Carlo numerical tests
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'assets/synergy-capital-mc-*.js'
+      - 'tests/test_capital_montecarlo.cjs'
+      - '.github/workflows/capital-montecarlo.yml'
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  capital-montecarlo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: JS syntax
+        run: |
+          node --check assets/synergy-capital-mc-engine.js
+          node --check assets/synergy-capital-mc-ui.js
+          node --check assets/synergy-capital-mc-worker.js
+      - name: Monte Carlo numerical regression
+        run: node tests/test_capital_montecarlo.cjs
