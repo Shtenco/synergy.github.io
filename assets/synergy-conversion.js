@@ -43,7 +43,7 @@ function crossCards(key,fromHome){const grid=elt('div','cv-next-grid');for(const
 function productPanel(key,fromHome){const p=P[key],panel=elt('div','cv-panel');panel.id='cv-panel-'+key;panel.setAttribute('role','tabpanel');
  const row=elt('div','cv-pitch'),a=elt('article','cv-main-card'),b=elt('article','cv-feature');
  add(a,elt('div','cv-persona',p.persona),elt('h3','',p.headline),elt('p','cv-situation',p.pain),elt('p','',p.dream));
- const actions=elt('div','cv-actions');add(actions,link(fromHome?href(key,true):p.url.startsWith(key+'/')?'../'+p.url:p.url,p.cta,true));a.append(actions);a.append(elt('span','cv-status',p.status));
+ const actions=elt('div','cv-actions');add(actions,link(fromHome?href(key,true):'../'+p.url,p.cta,true));a.append(actions);a.append(elt('span','cv-status',p.status));
  add(b,elt('div','cv-journey-stage','ПРЕЗЕНТАЦИЯ · КОНКРЕТНЫЙ СЦЕНАРИЙ'),elt('h3','','Как может выглядеть работа'),elt('p','',p.what));
  const steps=elt('ol','cv-steps');p.steps.forEach(s=>steps.append(elt('li','',s)));b.append(steps);row.append(a,b);panel.append(row);
  const objection=elt('div','cv-objections');objection.append(elt('h3','','Вопросы, которые важно задать до подключения'));p.faq.forEach(x=>objection.append(detail(...x)));panel.append(objection);
