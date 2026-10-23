@@ -19,4 +19,4 @@ The original SINERGYCHAIN landing page is preserved. The ecosystem route links t
 
 The navigational portal published here does **not** constitute a full deployment of the V9.7 backend or full import of its 529-file source archive. Publish backend source and release artifacts only after secret scanning and a review of public/private IP and data exposure.
 
-Copyright © 2026 Evgeniy Koshtenko. All rights reserved.
+Copyright  2026 Evgeniy Koshtenko. All rights reserved.
