@@ -8,26 +8,26 @@
 
 Репозиторий соединяет в одной пользовательской навигации публичные веб-интерфейсы SYNERGY. Это **presentation and frontend integration layer**: путь человека от знакомства с экосистемой до выбора продукта и потенциального входа в авторизованный workflow. Публичная страница не становится банком, брокером, AI-инференс сервером, мессенджером или исполнительным API.
 
-В дереве \`main\` обнаружены каталоги \`portal\`, \`ecosystem\`, \`smm\`, \`cfo\`, \`investor-folio\`, \`riskguard\`, \`nexus\`, \`ai\`, \`market\`, \`avito\`, \`meta-api\`, \`workspace\`, \`advert\` и другие frontend surfaces. Наличие HTML/JS страницы означает наличие UI/source, но **не** автоматически реального backend. Некоторые крупные SMM HTML-файлы являются историческими/монолитными интерфейсами — наличие сотен форм не подтверждает сотни работающих server methods.
+В дереве `main` обнаружены каталоги `portal`, `ecosystem`, `smm`, `cfo`, `investor-folio`, `riskguard`, `nexus`, `ai`, `market`, `avito`, `meta-api`, `workspace`, `advert` и другие frontend surfaces. Наличие HTML/JS страницы означает наличие UI/source, но **не** автоматически реального backend. Некоторые крупные SMM HTML-файлы являются историческими/монолитными интерфейсами — наличие сотен форм не подтверждает сотни работающих server methods.
 
 ## Что реализовано в source
 
 | Компонент | Подтверждённый код | Граница |
 |---|---|---|
-| GitHub Pages | [\`.github/workflows/pages.yml\`](.github/workflows/pages.yml) | Job с \`actions/configure-pages\`, artifact upload и deploy-pages; факт последнего успешного запуска отдельно не проверен |
-| Сайт / меню | [\`index.html\`](index.html), [\`portal/atlas.js\`](portal/atlas.js) | UI и клиентская маршрутизация |
-| Продуктовый атлас | [\`docs/ECOSYSTEM_ARCHITECTURE_RU.md\`](docs/ECOSYSTEM_ARCHITECTURE_RU.md) | Архитектурный каталог 25 карточек в текущей документации, не 25 deploy-ready APIs |
-| API safety fallback | [\`assets/pages-runtime.js\`](assets/pages-runtime.js) | Для same-origin API запросов без backend возвращает HTTP 503 и статус \`backend_not_configured\` |
-| Статический аудит | [\`scripts/audit_static_site.py\`](scripts/audit_static_site.py) | Проверяет обязательные файлы, HTML href/src, часть секретных имён/расширений |
-| Design contracts | [\`scripts/check_design_contracts.py\`](scripts/check_design_contracts.py) | Локальные DOM/navigation/css assertions для subset страниц |
-| Архиватор | [\`archiver.html\`](archiver.html) | UI ≠ backend \`/archiver\` и не доказательство заявленных ratio/speed |
-| SMM | [\`smm/\`](smm/) | Дизайн и frontend sources; разрешённые внешние отправки требуют backend/auth |
-| Финансы | [\`cfo/\`](cfo/), [\`investor-folio/\`](investor-folio/), [\`riskguard/\`](riskguard/) | Client-side сценарии и презентации; не признание реальных денежных активов |
-| META-API + Workspace | [\`meta-api/\`](meta-api/), [\`workspace/\`](workspace/) | Навигация на исследовательские server/desktop модули в других репозиториях |
+| GitHub Pages | [`.github/workflows/pages.yml`](.github/workflows/pages.yml) | Job с `actions/configure-pages`, artifact upload и deploy-pages; факт последнего успешного запуска отдельно не проверен |
+| Сайт / меню | [`index.html`](index.html), [`portal/atlas.js`](portal/atlas.js) | UI и клиентская маршрутизация |
+| Продуктовый атлас | [`docs/ECOSYSTEM_ARCHITECTURE_RU.md`](docs/ECOSYSTEM_ARCHITECTURE_RU.md) | Архитектурный каталог 25 карточек в текущей документации, не 25 deploy-ready APIs |
+| API safety fallback | [`assets/pages-runtime.js`](assets/pages-runtime.js) | Для same-origin API запросов без backend возвращает HTTP 503 и статус `backend_not_configured` |
+| Статический аудит | [`scripts/audit_static_site.py`](scripts/audit_static_site.py) | Проверяет обязательные файлы, HTML href/src, часть секретных имён/расширений |
+| Design contracts | [`scripts/check_design_contracts.py`](scripts/check_design_contracts.py) | Локальные DOM/navigation/css assertions для subset страниц |
+| Архиватор | [`archiver.html`](archiver.html) | UI ≠ backend `/archiver` и не доказательство заявленных ratio/speed |
+| SMM | [`smm/`](smm/) | Дизайн и frontend sources; разрешённые внешние отправки требуют backend/auth |
+| Финансы | [`cfo/`](cfo/), [`investor-folio/`](investor-folio/), [`riskguard/`](riskguard/) | Client-side сценарии и презентации; не признание реальных денежных активов |
+| META-API + Workspace | [`meta-api/`](meta-api/), [`workspace/`](workspace/) | Навигация на исследовательские server/desktop модули в других репозиториях |
 
 ## Архитектура: внешний интерфейс против authority
 
-\`\`\`mermaid
+```mermaid
 flowchart TD
  V["Visitor / Investor / Customer"] --> P["GitHub Pages presentation UI"]
  P --> A["Atlas: SMM / Finance / AI / System"]
@@ -38,15 +38,15 @@ flowchart TD
  X --> E["Measured outcomes with provenance"]
  E -. "filtered presentation" .-> P
  P --> N["No backend configured: 503, NOT success"]
-\`\`\`
+```
 
 ### Реальное поведение API fallback
 
-В \`assets/pages-runtime.js\` устанавливается \`window.SYNERGY_PAGES.staticHosting=true\` и \`backend=null\`. Same-origin запросы, совпадающие с API prefix (\`/api/\`, \`/auth/\`, \`/video/api/\`, \`/advert/api/\`, \`/market/api/\`), не изображают успешное исполнение: без configured HTTPS origin перехватчик возвращает \`503\`. Остальные \`fetch\` проходят исходным маршрутом. Такой frontend guard **не является серверной системой безопасности**: нельзя полагаться на client JS как на единственный запрет действий.
+В `assets/pages-runtime.js` устанавливается `window.SYNERGY_PAGES.staticHosting=true` и `backend=null`. Same-origin запросы, совпадающие с API prefix (`/api/`, `/auth/`, `/video/api/`, `/advert/api/`, `/market/api/`), не изображают успешное исполнение: без configured HTTPS origin перехватчик возвращает `503`. Остальные `fetch` проходят исходным маршрутом. Такой frontend guard **не является серверной системой безопасности**: нельзя полагаться на client JS как на единственный запрет действий.
 
 ## Экономическая постановка клиентского планировщика
 
-Исторический слоган «Доходы − Расходы = Δ × Инвестиции = Капитал» — описание возможного цикла, а не бухгалтерское равенство и не гарантированная доходность. Для периода \`t\`:
+Исторический слоган «Доходы − Расходы = Δ × Инвестиции = Капитал» — описание возможного цикла, а не бухгалтерское равенство и не гарантированная доходность. Для периода `t`:
 
 $$
 \Delta_t = Revenue^{confirmed}_t - Expense^{confirmed}_t.
@@ -58,7 +58,7 @@ Reserve_t=\max(0,\Delta_t)\,p_{reserve,t},
 Contribution_t=\max(0,\Delta_t-Reserve_t)\,p_{invest,t}.
 $$
 
-Условная будущая стоимость при **моделируемой**, не гарантированной месячной доходности \`r_m\`:
+Условная будущая стоимость при **моделируемой**, не гарантированной месячной доходности `r_m`:
 
 $$
 C_n=C_0(1+r_m)^n+\sum_{t=1}^{n}Contribution_t(1+r_m)^{n-t}.
@@ -68,16 +68,16 @@ $$
 
 ## Local reproducibility
 
-\`\`\`bash
+```bash
 git clone https://github.com/Shtenco/synergy.github.io.git
 cd synergy.github.io
 python scripts/audit_static_site.py .
 python scripts/check_design_contracts.py
-\`\`\`
+```
 
-Для численного Monte Carlo regression предусмотрен workflow [\`capital-montecarlo.yml\`](.github/workflows/capital-montecarlo.yml). Он пытается вызвать \`node tests/test_capital_montecarlo.cjs\`. При ревизии дерева \`main\` этот test-файл **не был обнаружен** — поэтому существование workflow нельзя считать доказательством успешного CI. Это прямой предмет исправления перед присвоением GREEN.
+Для численного Monte Carlo regression предусмотрен workflow [`capital-montecarlo.yml`](.github/workflows/capital-montecarlo.yml). Он пытается вызвать `node tests/test_capital_montecarlo.cjs`. При ревизии дерева `main` этот test-файл **не был обнаружен** — поэтому существование workflow нельзя считать доказательством успешного CI. Это прямой предмет исправления перед присвоением GREEN.
 
-Открытие сайта локально лучше проверять в Chromium с \`http-server\`/локальным web-server, а не только через \`file://\`, и отдельно проверять GitHub Pages base path \`/synergy.github.io/\`.
+Открытие сайта локально лучше проверять в Chromium с `http-server`/локальным web-server, а не только через `file://`, и отдельно проверять GitHub Pages base path `/synergy.github.io/`.
 
 ### Контракт визуальной регрессии
 
@@ -108,7 +108,7 @@ python scripts/check_design_contracts.py
 
 ### Научно-инженерный критерий приемки
 
-Только после CI с соответствующим SHA и реального browser testing можно повысить статус конкретной страницы. Для настоящего business KPI требуются внешние подтверждения \`lead → permission → paid order → cash receipt → capital ledger\`, а не клики и демонстрационные графики.
+Только после CI с соответствующим SHA и реального browser testing можно повысить статус конкретной страницы. Для настоящего business KPI требуются внешние подтверждения `lead → permission → paid order → cash receipt → capital ledger`, а не клики и демонстрационные графики.
 
 Следующий этап: закрыть найденные workflow blockers, прогнать 25 основных маршрутов, построить таблицу backend contracts и каждый статус привязать к факту исполнения.
 
