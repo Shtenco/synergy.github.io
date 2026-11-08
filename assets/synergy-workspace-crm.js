@@ -22,6 +22,8 @@
     try {
       const result = await crmRequest('');
       leads = Array.isArray(result.leads) ? result.leads : [];
+      const loginEntry = document.getElementById('crm-login-entry');
+      if (loginEntry) loginEntry.hidden = true;
     } catch (error) {
       container.innerHTML = `<div class="syn-crm-wrap"><h3>CRM доступна после входа</h3><p>Войдите в аккаунт SYNERGY, чтобы открыть сохранённые карточки. <a href="/auth/?next=%2Fworkspace%2F%23workbench">Войти в аккаунт →</a></p><small>${escapeHtml(error.message)}</small></div>`;
       return;
