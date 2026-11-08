@@ -24,7 +24,31 @@
       leads = Array.isArray(result.leads) ? result.leads : [];
       const loginEntry = document.getElementById('crm-login-entry');
       if (loginEntry) loginEntry.hidden = true;
+      const loginNav = document.getElementById('crm-login-nav');
+      if (loginNav) {
+        loginNav.textContent = 'Открыть CRM';
+        loginNav.href = '#workbench';
+      }
     } catch (error) {
+      let accountAuthenticated = false;
+      try {
+        const sessionResponse = await fetch('/api/v1/customer/session', { credentials: 'include', cache: 'no-store' });
+        const session = await sessionResponse.json();
+        accountAuthenticated = Boolean(session.authenticated);
+      } catch (_) {}
+      if (accountAuthenticated) {
+        const loginEntry = document.getElementById('crm-login-entry');
+        if (loginEntry) loginEntry.hidden = true;
+        const loginNav = document.getElementById('crm-login-nav');
+        if (loginNav) {
+          loginNav.textContent = 'Войти заново';
+          loginNav.href = '/auth/?mode=login&next=%2Fworkspace%2F%23workbench';
+        }
+        container.innerHTML = `<div class="syn-crm-wrap"><h3>Аккаунт уже авторизован</h3><p>Сессия сайта активна, но CRM пока не приняла её. Нажмите «Повторить загрузку»; если не поможет — войдите заново.</p><button class="btn" id="crmRetryLoad" type="button">Повторить загрузку CRM</button> <a href="/auth/?mode=login&next=%2Fworkspace%2F%23workbench">Войти заново →</a><small style="display:block;margin-top:8px">Код: ${escapeHtml(error.message)}</small></div>`;
+        const retry = container.querySelector('#crmRetryLoad');
+        if (retry) retry.addEventListener('click', () => renderCRM(container));
+        return;
+      }
       container.innerHTML = `<div class="syn-crm-wrap"><h3>CRM доступна после входа</h3><p>Войдите в аккаунт SYNERGY, чтобы открыть сохранённые карточки. <a href="/auth/?next=%2Fworkspace%2F%23workbench">Войти в аккаунт →</a></p><small>${escapeHtml(error.message)}</small></div>`;
       return;
     }
