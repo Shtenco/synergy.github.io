@@ -1,0 +1,411 @@
+/* SYNERGY WORKSPACE CRM COMPONENT — sinergychain.asia design */
+.syn-crm-wrap {
+  margin-top: 24px;
+  background: #ffffff;
+  border: 1px solid var(--line, #dbe9df);
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(11, 150, 81, 0.05);
+}
+
+.syn-crm-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line, #dbe9df);
+}
+
+.syn-crm-title h3 {
+  font-family: 'Manrope', system-ui, sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--ink, #15251b);
+  margin: 0 0 4px;
+}
+
+.syn-crm-title p {
+  font-size: 13px;
+  color: var(--muted, #688372);
+  margin: 0;
+}
+
+.syn-crm-owner-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: var(--tint, #e7f8ec);
+  border: 1px solid rgba(11, 150, 81, 0.25);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--purple-dark, #087e40);
+}
+
+.syn-crm-owner-badge .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #0b9651;
+  box-shadow: 0 0 0 3px rgba(11, 150, 81, 0.2);
+}
+
+/* Stats metrics bar */
+.syn-crm-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.syn-crm-stat-card {
+  background: var(--paper, #f6faf6);
+  border: 1px solid var(--line, #dbe9df);
+  border-radius: 14px;
+  padding: 16px 18px;
+  transition: .18s ease;
+}
+
+.syn-crm-stat-card:hover {
+  border-color: #0b9651;
+  transform: translateY(-2px);
+}
+
+.syn-crm-stat-card small {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--muted, #688372);
+  margin-bottom: 6px;
+}
+
+.syn-crm-stat-card strong {
+  display: block;
+  font-family: 'Manrope', system-ui;
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--ink, #15251b);
+  line-height: 1.1;
+}
+
+.syn-crm-stat-card span {
+  display: block;
+  font-size: 11px;
+  color: var(--muted, #688372);
+  margin-top: 4px;
+}
+
+/* Filters & Search */
+.syn-crm-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.syn-crm-search {
+  flex: 1;
+  min-width: 240px;
+  position: relative;
+}
+
+.syn-crm-search input {
+  width: 100%;
+  padding: 11px 16px 11px 38px;
+  border-radius: 10px;
+  border: 1px solid var(--line, #dbe9df);
+  background: #ffffff;
+  font-size: 13px;
+  color: var(--ink, #15251b);
+  outline: none;
+  transition: .15s;
+}
+
+.syn-crm-search input:focus {
+  border-color: #0b9651;
+  box-shadow: 0 0 0 3px rgba(11, 150, 81, 0.12);
+}
+
+.syn-crm-search svg {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted, #688372);
+  pointer-events: none;
+}
+
+.syn-crm-segments {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.syn-crm-chip {
+  padding: 7px 13px;
+  border-radius: 8px;
+  border: 1px solid var(--line, #dbe9df);
+  background: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink2, #264534);
+  cursor: pointer;
+  transition: .15s;
+}
+
+.syn-crm-chip:hover {
+  background: var(--paper, #f6faf6);
+  border-color: #0b9651;
+}
+
+.syn-crm-chip.active {
+  background: #0b9651;
+  border-color: #0b9651;
+  color: #ffffff;
+}
+
+/* Table */
+.syn-crm-table-box {
+  border: 1px solid var(--line, #dbe9df);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.syn-crm-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 13px;
+}
+
+.syn-crm-table th {
+  background: var(--paper, #f6faf6);
+  padding: 12px 16px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--muted, #688372);
+  border-bottom: 1px solid var(--line, #dbe9df);
+}
+
+.syn-crm-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--line, #dbe9df);
+  vertical-align: middle;
+  color: var(--ink, #15251b);
+}
+
+.syn-crm-table tr:last-child td {
+  border-bottom: none;
+}
+
+.syn-crm-table tr:hover td {
+  background: #fbfdfb;
+}
+
+.syn-crm-lead-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.syn-crm-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  background: var(--tint, #e7f8ec);
+  color: var(--purple-dark, #087e40);
+  font-weight: 800;
+  font-size: 12px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.syn-crm-lead-name {
+  font-weight: 700;
+  color: var(--ink, #15251b);
+}
+
+.syn-crm-lead-sub {
+  font-size: 11px;
+  color: var(--muted, #688372);
+}
+
+.syn-crm-tag {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.syn-crm-tag.hot { background: #ffece5; color: #d04a1f; }
+.syn-crm-tag.warm { background: #fff8e1; color: #b78103; }
+.syn-crm-tag.cold { background: #f0f4f1; color: #5a7564; }
+
+.syn-crm-stage-select {
+  padding: 5px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--line, #dbe9df);
+  background: #ffffff;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink2, #264534);
+  cursor: pointer;
+}
+
+.syn-crm-stage-select:focus {
+  border-color: #0b9651;
+  outline: none;
+}
+
+/* Detail Drawer Modal */
+.syn-crm-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(21, 37, 27, 0.6);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: flex-end;
+  animation: synFade .2s ease;
+}
+
+@keyframes synFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.syn-crm-drawer {
+  width: min(580px, 94vw);
+  height: 100vh;
+  background: #ffffff;
+  box-shadow: -10px 0 40px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: synSlide .25s ease;
+}
+
+@keyframes synSlide {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.syn-crm-drawer-head {
+  padding: 22px 24px;
+  border-bottom: 1px solid var(--line, #dbe9df);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: var(--paper, #f6faf6);
+}
+
+.syn-crm-drawer-head h3 {
+  font-family: 'Manrope', system-ui;
+  font-size: 18px;
+  margin: 0;
+  color: var(--ink, #15251b);
+}
+
+.syn-crm-close-btn {
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  line-height: 1;
+  color: var(--muted, #688372);
+  cursor: pointer;
+}
+
+.syn-crm-drawer-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.syn-crm-detail-block {
+  background: var(--paper, #f6faf6);
+  border: 1px solid var(--line, #dbe9df);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.syn-crm-detail-block label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--muted, #688372);
+  margin-bottom: 8px;
+}
+
+.syn-crm-quote {
+  font-size: 13px;
+  color: var(--ink, #15251b);
+  line-height: 1.6;
+  font-style: italic;
+  border-left: 3px solid #0b9651;
+  padding-left: 12px;
+  margin: 0;
+}
+
+.syn-crm-offer-box {
+  background: #f4faf5;
+  border: 1px solid #c2e3cd;
+  border-radius: 12px;
+  padding: 18px;
+}
+
+.syn-crm-offer-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.syn-crm-offer-head strong {
+  font-size: 13px;
+  color: var(--purple-dark, #087e40);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.syn-crm-offer-text {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--ink, #15251b);
+  white-space: pre-wrap;
+  background: #ffffff;
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid #d4ebdc;
+  margin-bottom: 12px;
+}
+
+.syn-crm-drawer-foot {
+  padding: 16px 24px;
+  border-top: 1px solid var(--line, #dbe9df);
+  background: var(--paper, #f6faf6);
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+

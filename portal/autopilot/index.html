@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f6faf6">
+  <meta name="description" content="SYNERGY AI Автопилот — DApp и личный кабинет: ИИ-рабочие пространства, миссии и задачи, цифровой персонал, сеть SYNERGY, одобрения и доказательства.">
+  <title>SYNERGY AI Автопилот · DApp и личный кабинет</title>
+  <link rel="icon" type="image/webp" href="/assets/synergy-logo.webp">
+  <link rel="stylesheet" href="/assets/syn26.css">
+  <link rel="stylesheet" href="./style.css">
+  <script defer src="/assets/synergy-ecosystem-26.js"></script>
+  <script defer src="/assets/synergy-account.js"></script>
+</head>
+<body class="syn26">
+  <div class="app-frame">
+    <aside class="app-sidebar">
+      <a class="brand" href="/portal/" aria-label="SYNERGY">
+        <img class="brand-logo" src="/assets/synergy-logo.webp" alt="SYNERGY" width="44" height="44">
+        <span class="brand-word"><b>SYNERGY</b><small>AI БЛОКЧЕЙН ЭКОСИСТЕМА</small></span>
+      </a>
+      <div class="side-caption">РАБОЧИЕ ПРОСТРАНСТВА</div>
+      <nav class="side-nav" aria-label="Разделы кабинета">
+        <button type="button" class="ap-snav active" data-view="chat"><span>◇ &nbsp; AI Рабочее пространство</span><b>AI</b></button>
+        <button type="button" class="ap-snav" data-view="tasks"><span>☷ &nbsp; Миссии и задачи</span><b>M12</b></button>
+        <button type="button" class="ap-snav" data-view="fleet"><span>◎ &nbsp; AI Персонал</span><b>M12</b></button>
+        <button type="button" class="ap-snav" data-view="network"><span>⬡ &nbsp; Сеть SYNERGY</span><b>MESH</b></button>
+        <button type="button" class="ap-snav" data-view="mcp"><span>⌘ &nbsp; MCP API-Мета</span><b>MCP</b></button>
+        <button type="button" class="ap-snav" data-view="leads"><span>◈ &nbsp; Лид-поиск</span><b>LD</b></button>
+        <button type="button" class="ap-snav" data-view="smm"><span>⚡ &nbsp; SMM Автопилот</span><b>SM</b></button>
+        <button type="button" class="ap-snav" data-view="biz"><span>❖ &nbsp; Бизнес-ядро V9</span><b>V9</b></button>
+
+        <button type="button" class="ap-snav" data-view="approvals"><span>♢ &nbsp; Одобрения</span><b>M6</b></button>
+        <button type="button" class="ap-snav" data-view="evidence"><span>▤ &nbsp; Доказательства</span><b>SHA</b></button>
+      </nav>
+      <div class="side-caption">СТАТУС</div>
+      <div class="ap-runtime-tile">
+        <div class="ap-runtime-top"><span class="ap-dot"></span>ПЛАН УПРАВЛЕНИЯ</div>
+        <strong id="runtime-state">Готов к подключению</strong>
+        <small id="runtime-note">Cabinet V5 · Кластер: Нода-1, Нода-2, Нода-3</small>
+      </div>
+      <div class="ap-rail-foot">
+        <button type="button" class="ap-profile" data-dialog="connect"><span class="ap-user">S</span><span>Шлюз кабинета<small>sinergychain.asia</small></span></button>
+        <p>♢ Автопилот под контролем человека<br>Одобрения M6 обязательны</p>
+      </div>
+    </aside>
+    <div class="app-main">
+      <header class="app-top">
+        <span class="crumb">SYNERGY / <b>AI Автопилот</b></span>
+        <span class="pill" id="status-pill" role="status"><i></i> Готов к подключению</span>
+      </header>
+      <main class="app-content" id="app"></main>
+      <footer class="ap-foot">© 2026 SYNERGY · AI Автопилот · Действия выполняются только после одобрения M6</footer>
+    </div>
+  </div>
+
+  <!-- Панель входа (fallback для локального шлюза) -->
+  <div id="sc-auth-overlay" class="sc-auth-overlay" style="display:none">
+    <div class="sc-auth-panel">
+      <div class="sc-auth-head">
+        <div class="sc-auth-brand">
+          <img class="sc-auth-logo" src="/assets/synergy-logo.webp" alt="SYNERGY" width="32" height="32">
+          <div><strong>SYNERGY ACCESS</strong><small>Единый аккаунт SYNERGY · Вход в кабинет автопилота</small></div>
+        </div>
+        <button class="sc-auth-close" onclick="closeAuth()" aria-label="Закрыть">×</button>
+      </div>
+      <div class="sc-auth-body">
+        <div class="sc-auth-tabs" role="tablist">
+          <button type="button" class="sc-auth-tab active" data-syn-auth-tab="login">Войти</button>
+          <button type="button" class="sc-auth-tab" data-syn-auth-tab="register">Регистрация</button>
+        </div>
+        <div id="sc-auth-error" class="sc-auth-error" style="display:none"></div>
+        <form id="sc-auth-form-login" class="sc-auth-form">
+          <label><span>Почта</span><input type="email" id="sc-login-email" name="email" autocomplete="email" required></label>
+          <label><span>Пароль</span><input type="password" id="sc-login-password" name="password" autocomplete="current-password" required></label>
+          <button type="button" class="sc-auth-primary" id="sc-btn-login" onclick="authAction('login')">ВОЙТИ →</button>
+          <p class="sc-auth-switch">Нет аккаунта? <button type="button" class="sc-auth-link" onclick="showRegister()">Создать</button></p>
+        </form>
+        <form id="sc-auth-form-register" class="sc-auth-form" style="display:none">
+          <label><span>Имя</span><input type="text" id="sc-reg-name" name="name" autocomplete="name" required></label>
+          <label><span>Почта</span><input type="email" id="sc-reg-email" name="email" autocomplete="email" required></label>
+          <label><span>Пароль</span><input type="password" id="sc-reg-password" name="password" autocomplete="new-password" minlength="12" required><small>минимум 12 символов · письмо с подтверждением</small></label>
+          <button type="button" class="sc-auth-primary" id="sc-btn-register" onclick="authAction('register')">СОЗДАТЬ →</button>
+          <p class="sc-auth-switch">Уже есть аккаунт? <button type="button" class="sc-auth-link" onclick="showLogin()">Войти</button></p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
+
